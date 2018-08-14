@@ -1,5 +1,9 @@
 package com.vcs.toptags;
 
+import com.vcs.toptags.cleaning_process.FormatWebPageText;
+import com.vcs.toptags.counting.CountWords;
+import com.vcs.toptags.counting.TopWords;
+import com.vcs.toptags.io.HtmlFromActiveLinks;
 import com.vcs.toptags.io.PrintAll;
 import com.vcs.toptags.page_adapters.NewsPageVZLt;
 

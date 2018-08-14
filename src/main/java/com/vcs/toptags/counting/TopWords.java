@@ -1,4 +1,4 @@
-package com.vcs.toptags;
+package com.vcs.toptags.counting;
 
 import java.util.HashMap;
 import java.util.Map;

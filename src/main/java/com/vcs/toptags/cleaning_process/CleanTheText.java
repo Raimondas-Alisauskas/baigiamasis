@@ -1,7 +1,5 @@
 package com.vcs.toptags.cleaning_process;
 
-import com.vcs.toptags.SpecialSimbolRemover;
-
 import java.util.ArrayList;
 
 public class CleanTheText {

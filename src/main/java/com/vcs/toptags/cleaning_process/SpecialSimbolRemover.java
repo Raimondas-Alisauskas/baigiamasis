@@ -1,4 +1,4 @@
-package com.vcs.toptags;
+package com.vcs.toptags.cleaning_process;
 
 public class SpecialSimbolRemover {
 

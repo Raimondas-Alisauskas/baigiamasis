@@ -1,6 +1,6 @@
 package com.vcs.toptags.page_adapters;
 
-import com.vcs.toptags.ActiveLinksFromJS;
+import com.vcs.toptags.cleaning_process.ActiveLinksFromJS;
 
 import java.util.ArrayList;
 
