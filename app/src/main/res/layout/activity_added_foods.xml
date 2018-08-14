@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="5">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:textSize="24sp"
+        android:text="Added food list"
+        android:textColor="@color/colorLightGreen"
+        android:gravity="center"
+        android:background="@color/colorToolBar"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:orientation="horizontal"
+        android:background="@color/colorFoodList">
+
+        <ImageButton
+            android:id="@+id/backDateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_keyboard_arrow_left_black_36dp" />
+
+
+        <TextView
+            android:id="@+id/currentDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/colorLightGreen"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/forwardDateBtn"
+            app:layout_constraintStart_toEndOf="@+id/backDateBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
+
+
+        <ImageButton
+            android:id="@+id/forwardDateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_keyboard_arrow_right_black_36dp" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/addedFood_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.3"
+        android:scrollbars="vertical"
+        android:background="@color/colorLightGreen"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="09"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/addedFoodIntake_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Calorie Intake"
+            android:textColor="@color/colorLightGreen"
+            android:gravity="center"
+            android:background="@color/colorFoodList"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/calorieAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorAlmostWhite"
+                android:text="Calories"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/addedFoodIntake_textView"
+                app:layout_constraintTop_toBottomOf="@+id/addedFoodIntake_textView" />
+
+            <TextView
+                android:id="@+id/caloric_intakeAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorAlmostWhite"
+                android:text="0"
+                android:gravity="center"
+                android:maxLength="6"
+                android:textSize="24sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/proteinAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/right_side_border_light_color"
+                android:text="Protein"
+                android:textSize="15sp"
+              />
+
+            <TextView
+                android:id="@+id/fatAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/right_side_border_light_color"
+                android:text="Fat"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/carbohydratesAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/right_side_border_light_color"
+                android:text="Carbs"
+                android:textSize="15sp"
+               />
+            <TextView
+                android:id="@+id/sugarAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorAlmostWhite"
+                android:text="Sugar"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/protein_intakeAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/right_side_border_light_color"
+                android:text="0"
+                android:maxLength="6"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/fat_intakeAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/right_side_border_light_color"
+                android:text="0"
+                android:maxLength="6"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/carbohydrates_intakeAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/right_side_border_light_color"
+                android:text="0"
+                android:maxLength="6"
+                android:textSize="15sp"/>
+
+
+            <TextView
+                android:id="@+id/sugar_intakeAddedFood_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorAlmostWhite"
+                android:text="0"
+                android:maxLength="6"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorStatusBar">#1B5E20</color>
+    <color name="colorToolBar">#2E7D32</color>
+    <color name="colorFoodList">#388e3c</color>
+    <color name="colorLightGreen">#FFFFFF</color>
+    <color name="colorAlmostWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+</resources>

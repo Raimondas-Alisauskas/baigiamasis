@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/addedFood_title_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/food_title"
+            android:background="@color/colorLightGreen"
+            android:textSize="18sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/addedFood_protein_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/right_side_border"
+            android:textSize="15sp"
+            android:text="@string/protein"/>
+
+        <TextView
+            android:id="@+id/addedFood_fat_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/right_side_border"
+            android:text="@string/fat"/>
+
+        <TextView
+            android:id="@+id/addedFood_carbs_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/right_side_border"
+            android:textSize="15sp"
+            android:text="@string/carbs"/>
+
+        <TextView
+            android:id="@+id/addedFood_sugar_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/colorLightGreen"
+            android:textSize="15sp"
+            android:text="@string/sugar"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/addedFood_protein_textView_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/right_side_border"
+            android:textSize="15sp"
+            android:text="@string/protein_result"
+            android:maxLength="5" />
+
+        <TextView
+            android:id="@+id/addedFood_fat_textView_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/right_side_border"
+            android:textSize="15sp"
+            android:text="@string/fat_result"
+            android:maxLength="5" />
+
+        <TextView
+            android:id="@+id/addedFood_carbs_textView_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/right_side_border"
+            android:textSize="15sp"
+            android:text="@string/carbs_result"
+            android:maxLength="5" />
+
+
+        <TextView
+            android:id="@+id/addedFood_sugar_textView_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/colorLightGreen"
+            android:textSize="15sp"
+            android:text="@string/sugar_result"
+            android:maxLength="5" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/addedFood_calories_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorLightGreen"
+            android:textSize="15sp"
+            android:text="@string/total_calories"/>
+
+        <TextView
+            android:id="@+id/addedFood_calories_textView_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/right_side_border"
+            android:textSize="15sp"
+            android:text="@string/total_calories_result"
+            android:maxLength="6"/>
+
+        <TextView
+            android:id="@+id/addedFood_weight_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:background="@color/colorLightGreen"
+            android:textSize="15sp"
+            android:text="Weight  / grams " />
+
+        <TextView
+            android:id="@+id/addedFood_weight_textView_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:background="@color/colorLightGreen"
+            android:textSize="15sp"
+            android:text="@string/total_calories_result"
+            android:maxLength="5"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/colorToolBar"/>
+
+</LinearLayout>

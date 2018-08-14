@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">CalorieCalculator</string>
+    <string name="calorieIntake">Calorie intake</string>
+    <string name="protein">Protein</string>
+    <string name="protein_result">0</string>
+    <string name="fat">Fat</string>
+    <string name="fat_result">0</string>
+    <string name="carbs">Carbs</string>
+    <string name="carbs_result">0</string>
+    <string name="sugar">Sugar</string>
+    <string name="sugar_result">0</string>
+    <string name="total_calories">Calories</string>
+    <string name="total_calories_result">0</string>
+    <string name="add_btn">ADD</string>
+    <string name="edit_btn">EDIT</string>
+    <string name="food_title">food title</string>
+    <string name="save_calorie_intake">Save</string>
+    <string name="recommendation">Recommendations</string>
+    <string name="recommendation_protein_intake">Protein intake 25% - 30%</string>
+    <string name="recommendation_fat_intake">Fat intake 25% - 30%</string>
+    <string name="recommendation_carb_intake">Carbohydrates 40% - 50%</string>
+    <string name="daily_calorie_intake">Daily calorie intake</string>
+    <string name="of_protein">% of protein</string>
+    <string name="of_fat">% of fat</string>
+    <string name="of_carbs">% of carbs</string>
+</resources>
