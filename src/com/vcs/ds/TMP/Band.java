@@ -1,20 +1,13 @@
 package com.vcs.ds.TMP;
 
-import com.vcs.ds._30_proposal.ProposalPriceCalculator;
+import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._50_General.IdGenerator;
-import sun.nio.cs.Surrogate;
 
-import javax.crypto.KeyGeneratorSpi;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Date;
-import java.util.UUID;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.time.LocalDateTime.now;
-import static javax.swing.text.html.HTML.Tag.I;
 
 public class Band {
 
@@ -39,6 +32,7 @@ public class Band {
 //    }
 //     double c = ma(20, 30);
 
+/*
 
         System.out.println("1 " + UUID.randomUUID());
         UUID k = UUID.randomUUID();
@@ -58,11 +52,26 @@ public class Band {
         System.out.println("5 " + LocalDateTime.now().getYear());
         //System.out.println("6 " + UUID.randomUUID().timestamp());
         Timestamp.from(Instant.now());
+*/
+        String str;
+        str = IdGenerator.generateIdKey("Cl ");
+        System.out.println("6 " + str);
 
-        String a;
-        a = IdGenerator.idKeyGen("Cl");
-        System.out.println("6 " + a);
 
+
+        Band2 obj = new Band2("a", "120", "",
+                "", "", "", "");
+
+        Map<String, String> mapas = new HashMap<>();
+        mapas.put("client name", "a");
+
+        RequestInput obj2 = new RequestInput();
+        String s2 = new RequestInput().getClientName();
+
+//        RequestInput ri;
+//        String c = ri.getClientName();
+
+        LocalDate.parse(new RequestInput().getDeadline());
 
     }
 

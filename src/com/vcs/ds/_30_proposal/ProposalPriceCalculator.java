@@ -4,7 +4,7 @@ package com.vcs.ds._30_proposal;
 
 public class ProposalPriceCalculator {
 
-    /**
+    /*
      * public double material ; //  = materialCost (ProducerInput)* mass (MassCalculator)
      * <p>
      * public double programing; //= programingTime (AvailabilityCalculator)* programmingRate (ProducerInput)
@@ -18,15 +18,14 @@ public class ProposalPriceCalculator {
      * public double price;  // = material + programming + production + handling + delivering
      */
 
-    private double materialPrice;
-    private double programingPrice;
+    private double programingPrice; //todo? kaip aprasyti skaiciavimus?
     private double productionPrice;
     private double orderPrice;
 
 
-    private double materialPrice(double materialCost, double mass) {
+    private static void materialPrice(double materialCost, double mass) {
 
-        return materialPrice = materialCost * mass;
+        double materialPrice = materialCost * mass;
     }
 
     private double programingPrice(double programingTime, double programmingRate) {
