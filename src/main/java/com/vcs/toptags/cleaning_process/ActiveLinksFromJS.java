@@ -16,8 +16,8 @@ public class ActiveLinksFromJS {
         // Change HTML to the LowerCase: StringBuffer => String => StringBuffer
         bufferedWebPage = convertToLowerCase(bufferedWebPage);
 
-// TODO: delete System.out.println(bufferedWebPage);
-        System.out.println(bufferedWebPage);
+//// TODO: delete System.out.println(bufferedWebPage);
+//        System.out.println(bufferedWebPage);
 
         // Clean Active Links and move it to ArrayList
         textLinksArray = cleanDynamicTextLinksFromJS(bufferedWebPage, activeTag, web, addWebPageDomain, hrefTag );
@@ -43,27 +43,38 @@ public class ActiveLinksFromJS {
         try {
             // Strat of search in String
             int startDiv = 0;
-            int startHref, endHref;
+            int startHref, endHref, endHrefSpace, endHrefArrow;
             String linkToPage;
 
                while (startDiv >= 0) {
 
                 startDiv = bufferedWebPage.indexOf(textDivTag, startDiv);
                 startHref = bufferedWebPage.indexOf("a href=" + hrefTag, startDiv);
-                endHref = bufferedWebPage.indexOf(hrefTag + ">", startHref);
+                endHrefSpace = bufferedWebPage.indexOf(hrefTag + " ", startHref);
+                endHrefArrow = bufferedWebPage.indexOf(hrefTag + ">", startHref);
 
-                   // TODO: delete System.out.println(bufferedWebPage);
-                   System.out.println("startDiv: " + startDiv + " startHref: " + startHref + " endHref: " + endHref);
+                // Checking for the right finish point of href Link
+                 if (endHrefSpace > endHrefArrow){
+                     endHref = endHrefArrow;
+                 } else {
+                     endHref = endHrefSpace;
+                 }
+
+
+//                   // TODO: delete System.out.println(bufferedWebPage);
+//                   System.out.println("startDiv: " + startDiv + " startHref: " + startHref + " endHref: " + endHref);
 
                 if ((startDiv > 0) && (startDiv < bufferedWebPage.length() && (endHref < bufferedWebPage.length()) && (startHref > 0) && (endHref > 0))){
 
                     if (addWebPageDomain == true) {
                         linkToPage = web + bufferedWebPage.substring(startHref + 8, endHref);
-                        //TODO Delete: System.out.println
-                        System.out.println("linkToPage: " + linkToPage);
+
                     } else {
                         linkToPage = bufferedWebPage.substring(startHref + 8, endHref);
                     }
+//                    //TODO Delete it
+//                    System.out.println("linkToPage: " + linkToPage);
+
                     // Add Links to Array
                     textLinksArray.add(linkToPage);
                     startDiv++;

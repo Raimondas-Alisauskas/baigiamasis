@@ -4,17 +4,20 @@ import com.vcs.toptags.cleaning_process.ActiveLinksFromJS;
 
 import java.util.ArrayList;
 
-public class NewsPageDelfiLt implements INewsPage {
-    String web = "https://www.delfi.lt/";
-    String encoding = "utf-8";
-    String activeTag = "headline-image";
+public class NewsPageAlfaLt implements INewsPage {
+    String web = "https://www.alfa.lt";;
+    String encoding = "utf-8";;
+    String activeTag = "article-card";
     String hrefTag = "\"";
     ArrayList<String> activeLinks;
 
     public ArrayList<String> getActiveLinksFromJavaScript(String encoding) {
 
-        // if true: www.delfi.lt to the dynamic link
-        boolean addWebPageDomain = false;
+        // encoding=UTF-8
+        //<div class=""article-card";">
+
+        // if true: www.alfa.lt to the dynamic link
+        boolean addWebPageDomain = true;
         ActiveLinksFromJS cal = new ActiveLinksFromJS();
         this.activeLinks = cal.getActiveLinksFromJavaScript(web, encoding, activeTag, addWebPageDomain, hrefTag);
         return activeLinks;
@@ -39,3 +42,4 @@ public class NewsPageDelfiLt implements INewsPage {
         return activeLinks;
     }
 }
+

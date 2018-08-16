@@ -5,19 +5,41 @@ import com.vcs.toptags.cleaning_process.ActiveLinksFromJS;
 import java.util.ArrayList;
 
 public class NewsPageDienaLt implements INewsPage {
+
+    String web = "http://www.diena.lt/";
+    String encoding = "utf-8";
+    String activeTag = "naujausios_list";
+    String hrefTag = "\'";
+    ArrayList<String> activeLinks;
+
     @Override
     public ArrayList<String> getActiveLinksFromJavaScript(String encoding) {
 
-        String web = "http://www.diena.lt/";
-        String activeTag = "naujausios_list";
-        String hrefTag = "\'";
+
 
         // if true: add www.diena.lt to the dynamic link
-        //TODO Pakeisti i true
         boolean addWebPageDomain = true;
         ActiveLinksFromJS cal = new ActiveLinksFromJS();
-        ArrayList<String> activeLinks = cal.getActiveLinksFromJavaScript(web, encoding, activeTag, addWebPageDomain, hrefTag );
+        this.activeLinks = cal.getActiveLinksFromJavaScript(web, encoding, activeTag, addWebPageDomain, hrefTag );
         return activeLinks;
 
+    }
+
+    @Override
+    public String getWebDomain(){
+
+        return web;
+    }
+
+    @Override
+    public String getEncoding(){
+
+        return encoding;
+    }
+
+    @Override
+    public ArrayList<String> getActiveLinks(){
+
+        return activeLinks;
     }
 }
