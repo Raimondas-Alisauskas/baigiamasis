@@ -21,14 +21,38 @@ public class Actions {
         // ArrayList<String> can be getted by method:  .getActiveLinks()
         grabJSLinksFromWebPage(np_alfa, np_alfa.getEncoding());
 
-        String[] filteredTopWordsArray = cac_alfa.actionsWithNewsWebPages();
+        //Delfi.lt
+        INewsPage np_delfi = new NewsPageDelfiLt();
+        CleanAndCalculate cac_delfi = new CleanAndCalculate(np_delfi, qtyTopWords);
+        grabJSLinksFromWebPage(np_delfi, np_delfi.getEncoding());
 
-        //TODO Delete it "String web = np.getWebDomain();"
-        String web;
-        web = np_alfa.getWebDomain();
+        //Diena.lt
+        INewsPage np_diena = new NewsPageDienaLt();
+        CleanAndCalculate cac_diena = new CleanAndCalculate(np_diena, qtyTopWords);
+        grabJSLinksFromWebPage(np_diena, np_diena.getEncoding());
 
-        // Print Top Words
-        printIt(filteredTopWordsArray, web);
+        //vz.lt
+        INewsPage np_vz = new NewsPageVZLt();
+        CleanAndCalculate cac_vz = new CleanAndCalculate(np_vz, qtyTopWords);
+        grabJSLinksFromWebPage(np_vz, np_vz.getEncoding());
+
+            // TODO DELETE PrintIt
+        printIt(cac_alfa.actionsWithNewsWebPages(), np_alfa.getWebDomain());
+        System.out.println("\n");
+        printIt(cac_delfi.actionsWithNewsWebPages(), np_delfi.getWebDomain());
+        System.out.println("\n");
+        printIt(cac_diena.actionsWithNewsWebPages(), np_diena.getWebDomain());
+        System.out.println("\n");
+        printIt(cac_vz.actionsWithNewsWebPages(), np_vz.getWebDomain());
+
+
+//        String[] filteredTopWordsArray = cac_alfa.actionsWithNewsWebPages();
+
+//        //TODO Delete it "String web = np.getWebDomain();"
+//        String web = np_alfa.getWebDomain();
+//
+//        // Print Top Words
+//        printIt(filteredTopWordsArray, web);
     }
 
 //    // Pages Names And Tags From Enum List
