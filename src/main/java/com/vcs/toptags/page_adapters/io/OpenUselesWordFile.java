@@ -1,7 +1,6 @@
-package com.vcs.toptags.io;
+package com.vcs.toptags.page_adapters.io;
 
 import java.io.*;
-
 import java.util.ArrayList;
 
 public class OpenUselesWordFile {
@@ -11,19 +10,18 @@ public class OpenUselesWordFile {
         return loadList();
     }
 
-
     // --------- Duomenu ATKURIMAS ---------
 
     public ArrayList<String> loadList(){
 
         final String FILE_NAME = "useleswords.txt";
-
+//        System.out.println(FILE_NAME);
         try{
             File file = new File(FILE_NAME);
 
             // Patikrinimas ar failas egzistuoja
             if(file.exists()){
-//                System.out.println("File Egzists!!!");
+//               System.out.println("File Egzists!!!");
                 //	Jeigu failas egzistuoja - tai nieko nedarome
 
             } else {
@@ -55,6 +53,3 @@ public class OpenUselesWordFile {
         }
 
         return loadArray;
-    }
-}
-

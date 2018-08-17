@@ -1,4 +1,4 @@
-package com.vcs.toptags.io;
+package com.vcs.toptags.page_adapters.io;
 
 public class PrintAll {
     public void printTopWords(String[] arrayTopWords, String web) {

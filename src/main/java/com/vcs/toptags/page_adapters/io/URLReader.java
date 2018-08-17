@@ -1,4 +1,4 @@
-package com.vcs.toptags.io;
+package com.vcs.toptags.page_adapters.io;
 
 import java.io.BufferedReader;
 import java.io.IOException;
