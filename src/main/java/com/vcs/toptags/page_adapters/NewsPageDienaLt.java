@@ -10,20 +10,9 @@ public class NewsPageDienaLt implements INewsPage {
     String encoding = "utf-8";
     String activeTag = "naujausios_list";
     String hrefTag = "\'";
-    ArrayList<String> activeLinks;
-
-    @Override
-    public ArrayList<String> getActiveLinksFromJavaScript(String encoding) {
-
-
-
-        // if true: add www.diena.lt to the dynamic link
-        boolean addWebPageDomain = true;
-        ActiveLinksFromJS cal = new ActiveLinksFromJS();
-        this.activeLinks = cal.getActiveLinksFromJavaScript(web, encoding, activeTag, addWebPageDomain, hrefTag );
-        return activeLinks;
-
-    }
+    ArrayList<String> activeLinks = null;
+    // if true: add www.diena.lt to the dynamic link
+    boolean addWebPageDomain = true;
 
     @Override
     public String getWebDomain(){
@@ -38,8 +27,29 @@ public class NewsPageDienaLt implements INewsPage {
     }
 
     @Override
+    public String getActiveTag() {
+        return activeTag;
+    }
+
+    @Override
+    public String getHrefTag() {
+        return hrefTag;
+    }
+
+    @Override
+    public void setActiveLinks(ArrayList<String> activeLinks){
+
+        this.activeLinks = activeLinks;
+    }
+
+    @Override
     public ArrayList<String> getActiveLinks(){
 
         return activeLinks;
+    }
+
+    @Override
+    public boolean isAddWebPageDomain() {
+        return addWebPageDomain;
     }
 }

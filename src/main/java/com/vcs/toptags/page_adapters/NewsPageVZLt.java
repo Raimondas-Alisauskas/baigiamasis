@@ -9,19 +9,9 @@ public class NewsPageVZLt implements INewsPage {
     String encoding = "windows-1257";
     String activeTag = "\"article\"";
     String hrefTag = "\"";
-    ArrayList<String> activeLinks;
-
-    public ArrayList<String> getActiveLinksFromJavaScript(String encoding) {
-
-        // if true: add www.vz.lt to the dynamic link
-        boolean addWebPageDomain = false;
-
-
-        ActiveLinksFromJS cal = new ActiveLinksFromJS();
-        this.activeLinks = cal.getActiveLinksFromJavaScript(web, encoding, activeTag, addWebPageDomain, hrefTag);
-        return activeLinks;
-
-    }
+    ArrayList<String> activeLinks = null;
+    // if true: add www.vz.lt to the dynamic link
+    boolean addWebPageDomain = true;
 
     @Override
     public String getWebDomain(){
@@ -36,9 +26,29 @@ public class NewsPageVZLt implements INewsPage {
     }
 
     @Override
+    public String getActiveTag() {
+        return activeTag;
+    }
+
+    @Override
+    public String getHrefTag() {
+        return hrefTag;
+    }
+
+    @Override
+    public void setActiveLinks(ArrayList<String> activeLinks){
+
+        this.activeLinks = activeLinks;
+    }
+
+    @Override
     public ArrayList<String> getActiveLinks(){
 
         return activeLinks;
     }
+
+    @Override
+    public boolean isAddWebPageDomain() {
+        return addWebPageDomain;
+    }
 }
-// Page codec: <meta http-equiv="content-type" content="text/html; charset=windows-1257"

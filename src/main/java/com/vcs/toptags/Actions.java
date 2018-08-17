@@ -1,5 +1,6 @@
 package com.vcs.toptags;
 
+import com.vcs.toptags.cleaning_process.ActiveLinksFromJS;
 import com.vcs.toptags.io.*;
 import com.vcs.toptags.page_adapters.*;
 
@@ -13,37 +14,50 @@ public class Actions {
 
         int qtyTopWords = 5;
 
-        // alfa.lt:
+        // test:
         //Get Active (JavaScript) links of pages with text
-        INewsPage np_alfa = new NewsPageAlfaLt();
-        CleanAndCalculate cac_alfa = new CleanAndCalculate(np_alfa, qtyTopWords);
+        INewsPage np_test = new TestNewsPage();
+        CleanAndCalculate cac_test = new CleanAndCalculate(np_test, qtyTopWords);
+        // get active links from thePage Java Script Dynamic links nad Set it To Page Object
+        setJSLinksFromWebPageToObject(np_test);
+//
 
-        // ArrayList<String> can be getted by method:  .getActiveLinks()
-        grabJSLinksFromWebPage(np_alfa, np_alfa.getEncoding());
 
-        //Delfi.lt
-        INewsPage np_delfi = new NewsPageDelfiLt();
-        CleanAndCalculate cac_delfi = new CleanAndCalculate(np_delfi, qtyTopWords);
-        grabJSLinksFromWebPage(np_delfi, np_delfi.getEncoding());
+//        // alfa.lt:
 
-        //Diena.lt
-        INewsPage np_diena = new NewsPageDienaLt();
-        CleanAndCalculate cac_diena = new CleanAndCalculate(np_diena, qtyTopWords);
-        grabJSLinksFromWebPage(np_diena, np_diena.getEncoding());
-
-        //vz.lt
-        INewsPage np_vz = new NewsPageVZLt();
-        CleanAndCalculate cac_vz = new CleanAndCalculate(np_vz, qtyTopWords);
-        grabJSLinksFromWebPage(np_vz, np_vz.getEncoding());
+//        //Get Active (JavaScript) links of pages with text
+//        INewsPage np_alfa = new NewsPageAlfaLt();
+//        CleanAndCalculate cac_alfa = new CleanAndCalculate(np_alfa, qtyTopWords);
+//
+//        // ArrayList<String> can be getted by method:  .getActiveLinks()
+//        grabJSLinksFromWebPage(np_alfa, np_alfa.getEncoding());
+//
+//        //Delfi.lt
+//        INewsPage np_delfi = new NewsPageDelfiLt();
+//        CleanAndCalculate cac_delfi = new CleanAndCalculate(np_delfi, qtyTopWords);
+//        grabJSLinksFromWebPage(np_delfi, np_delfi.getEncoding());
+//
+//        //Diena.lt
+//        INewsPage np_diena = new NewsPageDienaLt();
+//        CleanAndCalculate cac_diena = new CleanAndCalculate(np_diena, qtyTopWords);
+//        grabJSLinksFromWebPage(np_diena, np_diena.getEncoding());
+//
+//        //vz.lt
+//        INewsPage np_vz = new NewsPageVZLt();
+//        CleanAndCalculate cac_vz = new CleanAndCalculate(np_vz, qtyTopWords);
+//        grabJSLinksFromWebPage(np_vz, np_vz.getEncoding());
 
             // TODO DELETE PrintIt
-        printIt(cac_alfa.actionsWithNewsWebPages(), np_alfa.getWebDomain());
-        System.out.println("\n");
-        printIt(cac_delfi.actionsWithNewsWebPages(), np_delfi.getWebDomain());
-        System.out.println("\n");
-        printIt(cac_diena.actionsWithNewsWebPages(), np_diena.getWebDomain());
-        System.out.println("\n");
-        printIt(cac_vz.actionsWithNewsWebPages(), np_vz.getWebDomain());
+
+        printIt(cac_test.actionsWithNewsWebPages(), np_test.getWebDomain());
+//
+//        printIt(cac_alfa.actionsWithNewsWebPages(), np_alfa.getWebDomain());
+//        System.out.println("\n");
+//        printIt(cac_delfi.actionsWithNewsWebPages(), np_delfi.getWebDomain());
+//        System.out.println("\n");
+//        printIt(cac_diena.actionsWithNewsWebPages(), np_diena.getWebDomain());
+//        System.out.println("\n");
+//        printIt(cac_vz.actionsWithNewsWebPages(), np_vz.getWebDomain());
 
 
 //        String[] filteredTopWordsArray = cac_alfa.actionsWithNewsWebPages();
@@ -67,11 +81,11 @@ public class Actions {
 //    }
 
 
-        // get active links from thePage Java Script Dynamic links
-        private ArrayList<String> grabJSLinksFromWebPage(INewsPage pageClass, String encoding){
+        // get active links from thePage Java Script Dynamic links nad Set it To Page Object
+        private void setJSLinksFromWebPageToObject(INewsPage newsPage){
+            ActiveLinksFromJS alfJS = new ActiveLinksFromJS();
 
-            ArrayList<String> activeLinks = pageClass.getActiveLinksFromJavaScript(encoding);
-            return activeLinks;
+            newsPage.setActiveLinks(alfJS.getActiveLinksFromJavaScript(newsPage));
         }
 
 

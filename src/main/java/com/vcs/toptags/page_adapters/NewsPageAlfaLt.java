@@ -9,20 +9,9 @@ public class NewsPageAlfaLt implements INewsPage {
     String encoding = "utf-8";;
     String activeTag = "article-card";
     String hrefTag = "\"";
-    ArrayList<String> activeLinks;
-
-    public ArrayList<String> getActiveLinksFromJavaScript(String encoding) {
-
-        // encoding=UTF-8
-        //<div class=""article-card";">
-
-        // if true: www.alfa.lt to the dynamic link
-        boolean addWebPageDomain = true;
-        ActiveLinksFromJS cal = new ActiveLinksFromJS();
-        this.activeLinks = cal.getActiveLinksFromJavaScript(web, encoding, activeTag, addWebPageDomain, hrefTag);
-        return activeLinks;
-
-    }
+    ArrayList<String> activeLinks = null;
+    // if true: add www.alfa.lt to the dynamic link
+    boolean addWebPageDomain = true;
 
     @Override
     public String getWebDomain(){
@@ -37,9 +26,29 @@ public class NewsPageAlfaLt implements INewsPage {
     }
 
     @Override
+    public String getActiveTag() {
+        return activeTag;
+    }
+
+    @Override
+    public String getHrefTag() {
+        return hrefTag;
+    }
+
+    @Override
+    public void setActiveLinks(ArrayList<String> activeLinks){
+
+        this.activeLinks = activeLinks;
+    }
+
+    @Override
     public ArrayList<String> getActiveLinks(){
 
         return activeLinks;
     }
-}
 
+    @Override
+    public boolean isAddWebPageDomain() {
+        return addWebPageDomain;
+    }
+}

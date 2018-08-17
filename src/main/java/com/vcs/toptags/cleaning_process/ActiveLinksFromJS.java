@@ -1,6 +1,7 @@
 package com.vcs.toptags.cleaning_process;
 
 import com.vcs.toptags.io.URLReader;
+import com.vcs.toptags.page_adapters.INewsPage;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,9 @@ public class ActiveLinksFromJS {
     ArrayList<String> textLinksArray = new ArrayList<>();
 
 
-    public ArrayList<String> getActiveLinksFromJavaScript(String web, String encoding, String activeTag, boolean addWebPageDomain, String hrefTag ){
+    public ArrayList<String> getActiveLinksFromJavaScript(INewsPage newsPage){
         // Get Plain Text from the Web Page
-        StringBuffer bufferedWebPage = grabPlainTextFromWeb(web, encoding);
+        StringBuffer bufferedWebPage = grabPlainTextFromWeb(newsPage.getWebDomain(),newsPage.getEncoding());
 
         // Change HTML to the LowerCase: StringBuffer => String => StringBuffer
         bufferedWebPage = convertToLowerCase(bufferedWebPage);
@@ -20,7 +21,7 @@ public class ActiveLinksFromJS {
 //        System.out.println(bufferedWebPage);
 
         // Clean Active Links and move it to ArrayList
-        textLinksArray = cleanDynamicTextLinksFromJS(bufferedWebPage, activeTag, web, addWebPageDomain, hrefTag );
+        textLinksArray = cleanDynamicTextLinksFromJS(bufferedWebPage, newsPage.getActiveTag(),newsPage.getWebDomain(),newsPage.isAddWebPageDomain(),newsPage.getHrefTag());
 
         // Returns ArrayList with Web Page Links
         return textLinksArray;

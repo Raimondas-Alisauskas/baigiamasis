@@ -1,43 +1,15 @@
 package com.vcs.toptags.page_adapters;
 
-import com.vcs.toptags.cleaning_process.ActiveLinksFromJS;
-
 import java.util.ArrayList;
 
 public class TestNewsPage implements INewsPage {
-    String web;
-    String encoding;
-    ArrayList<String> activeLinks;
-
-    @Override
-    public ArrayList<String> getActiveLinksFromJavaScript(String encoding) {
-
-//        String web = "https://www.delfi.lt/";
-//        String activeTag = "headline-image";
-//        String hrefTag = "\"";
-//
-//        Working code:
-        // alfa tested: OK
-        // delfi tested: OK
-        // diena tested: OK
-        // vz tested: OK
-
-
-        web = "https://www.vz.lt/";
-        encoding = "windows-1257";
-        String activeTag = "\"article\"";
-        String hrefTag = "\"";
-
-
-        // if true: add www.vz.lt to the dynamic link
-        boolean addWebPageDomain = false;
-//        boolean addWebPageDomain = false;
-
-        ActiveLinksFromJS cal = new ActiveLinksFromJS();
-        this.activeLinks = cal.getActiveLinksFromJavaScript(web, encoding, activeTag, addWebPageDomain, hrefTag);
-        return activeLinks;
-
-    }
+    String web = "https://www.alfa.lt";;
+    String encoding = "utf-8";;
+    String activeTag = "article-card";
+    String hrefTag = "\"";
+    ArrayList<String> activeLinks = null;
+    // if true: add www.alfa.lt to the dynamic link
+    boolean addWebPageDomain = true;
 
     @Override
     public String getWebDomain(){
@@ -52,9 +24,29 @@ public class TestNewsPage implements INewsPage {
     }
 
     @Override
+    public String getActiveTag() {
+        return activeTag;
+    }
+
+    @Override
+    public String getHrefTag() {
+        return hrefTag;
+    }
+
+    @Override
+    public void setActiveLinks(ArrayList<String> activeLinks){
+
+        this.activeLinks = activeLinks;
+    }
+
+    @Override
     public ArrayList<String> getActiveLinks(){
 
         return activeLinks;
     }
+
+    @Override
+    public boolean isAddWebPageDomain() {
+        return addWebPageDomain;
+    }
 }
-// Page codec: <meta http-equiv="content-type" content="text/html; charset=windows-1257"
