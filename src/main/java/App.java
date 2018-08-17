@@ -32,7 +32,7 @@ public class App {
 
     public App() {
         lr_range= SortRange.range(.0001, .0002, .0001);
-        smp_range = SortRange.range(800, 2700, 800);
+        smp_range = SortRange.range(80, 270, 20);
 
         for (Integer sm : smp_range) {
             for (Double lrate : lr_range) {

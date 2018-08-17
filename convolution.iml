@@ -97,5 +97,9 @@
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: oro:oro:2.0.8" level="project" />
     <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.yannrichet:JMathPlot:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.yannrichet:JMathIO:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.yannrichet:JMathArray:1.0" level="project" />
+    <orderEntry type="library" name="Maven: gov.nist.math:jama:1.0.3" level="project" />
   </component>
 </module>

@@ -11,8 +11,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-
-public class Plot extends Application {
+public class Plot2 extends Application {
 
     private Integer min;
     private Integer max;
@@ -75,10 +74,6 @@ public class Plot extends Application {
         }
     }
 
-    public static void main(String[] args) {
-
-        start_x(args);
-    }
 
     private static void start_x(String[] args) { launch(args);
     }
