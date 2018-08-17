@@ -1,6 +1,4 @@
-package com.vcs.toptags.io;
-
-import com.vcs.toptags.io.URLReader;
+package com.vcs.toptags.page_adapters.io;
 
 import java.util.ArrayList;
 

@@ -53,3 +53,6 @@ public class OpenUselesWordFile {
         }
 
         return loadArray;
+    }
+}
+
