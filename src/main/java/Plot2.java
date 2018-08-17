@@ -74,7 +74,6 @@ public class Plot2 extends Application {
         }
     }
 
-
     private static void start_x(String[] args) { launch(args);
     }
 }

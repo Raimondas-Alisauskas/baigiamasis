@@ -1,6 +1,4 @@
-import com.sun.javafx.application.LauncherImpl;
-
-public class Plotter extends Plot2{
+public class Plotter extends Plot2{ //alternatyvus paleidimas
 
 //    public static void main(String[] args) {
 //
