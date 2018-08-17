@@ -1,6 +1,7 @@
 package com.vcs.ds._30_proposal;
 
 
+import com.vcs.ds._10_model.input.ProducerInput;
 
 public class ProposalPriceCalculator {
 
@@ -18,12 +19,13 @@ public class ProposalPriceCalculator {
      * public double price;  // = material + programming + production + handling + delivering
      */
 
+
     private double programingPrice; //todo? kaip aprasyti skaiciavimus?
     private double productionPrice;
     private double orderPrice;
 
 
-    private static void materialPrice(double materialCost, double mass) {
+    private void materialPrice(double materialCost, double mass) {
 
         double materialPrice = materialCost * mass;
     }
@@ -35,12 +37,12 @@ public class ProposalPriceCalculator {
 
     private double productionPrice(double processingTime, double machineUsageRate) {
 
-        return productionPrice = processingTime * machineUsageRate;
+        return processingTime * machineUsageRate;
     }
 
     private double orderPrice(double material, double programming, double production, double handling, double delivering) {
 
-        return orderPrice = material + programming + production + handling + delivering;
+        return material + programming + production + handling + delivering;
     }
 
 

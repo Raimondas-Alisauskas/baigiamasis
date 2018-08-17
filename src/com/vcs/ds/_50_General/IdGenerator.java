@@ -4,9 +4,11 @@ import java.time.Instant;
 
 public class IdGenerator {
 
-    public static String generateIdKey(String prefix) { // TODO: V Sudeti prefiksus i viena vieta
 
-        return prefix + Instant.now();
+
+    public String generateIdKey(String prefix) {
+
+        return  prefix + Instant.now();
     }
 
 

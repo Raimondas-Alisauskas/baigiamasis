@@ -53,20 +53,20 @@ public class Band {
         //System.out.println("6 " + UUID.randomUUID().timestamp());
         Timestamp.from(Instant.now());
 */
-        String str;
-        str = IdGenerator.generateIdKey("Cl ");
-        System.out.println("6 " + str);
-
-
-
-        Band2 obj = new Band2("a", "120", "",
-                "", "", "", "");
-
-        Map<String, String> mapas = new HashMap<>();
-        mapas.put("client name", "a");
-
-        RequestInput obj2 = new RequestInput();
-        String s2 = new RequestInput().getClientName();
+//        String str;
+//        str = IdGenerator.generateIdKey("Cl ");
+//        System.out.println("6 " + str);
+//
+//
+//
+//        Band2 obj = new Band2("a", "120", "",
+//                "", "", "", "");
+//
+//        Map<String, String> mapas = new HashMap<>();
+//        mapas.put("client name", "a");
+//
+//        RequestInput obj2 = new RequestInput();
+//        String s2 = new RequestInput().getClientName();
 
 //        RequestInput ri;
 //        String c = ri.getClientName();

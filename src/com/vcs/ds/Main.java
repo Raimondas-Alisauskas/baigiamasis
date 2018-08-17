@@ -1,24 +1,43 @@
 package com.vcs.ds;
 
+import com.vcs.ds._10_model.database.RequestsDatabase;
+import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._20_request.Request;
+import com.vcs.ds._30_proposal.Proposal;
+import com.vcs.ds._50_General.DateToInteger;
 
 public class Main {
 
     public static void main(String[] args) {
 
-//        ClientsDatabase todo
-//        RequestsDatbase todo
-//        ProducersDatabase todo
-//        ProposalsDatabase todo
+//        ClientsDatabase
+//        RequestsDatabase
+//        ProducersDatabase
+//        ProposalsDatabase
 //
 //
 //        Receive RequestInput
+
+//        Create RequestInput
+        RequestInput requestInput = new RequestInput();
+
+//       DateToInteger a = new DateToInteger();
+//       int b = a.stringToIntegerCalc("1", "1");
+       int b = new DateToInteger().stringToIntegerCalc("2","3");
+
 //        If Client is new, create new Client id, put in to ClientDatabase todo V
-//        Create RequestId
+//        Create RequestId    todo? ar cia ar Requeste?
+
 //        Create new Request
-//        Put Request in to RequestsDatbase todo
+        Request request = new Request(requestInput);
+
+//        Put Request in to RequestsDatabase
+        RequestsDatabase addRequest = new RequestsDatabase();
+        addRequest.requestsDatabase.add(request);
 
 //        Create new Proposal todo
+        Proposal proposal = new Proposal();
+
 //        Calculate Avalibility. If True => Proposal is Valid todo
 //        Calculate Price. If < MaxPrice   => Proposal is Valid todo
 //        Calculate Score todo
@@ -38,10 +57,6 @@ public class Main {
 //        Put to ProducersDatabase
 //
 //        Active/NotActive Producer, Proposal
-
-        Request request = new Request();
-
-
 
 
     }
