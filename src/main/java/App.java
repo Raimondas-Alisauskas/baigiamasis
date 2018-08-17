@@ -16,7 +16,6 @@ import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * Created by duser on 18.8.2.
@@ -35,7 +34,7 @@ public class App {
 
     public App() {
         lr_range= SortRange.range(.0001, .0002, .0001);
-        smp_range = SortRange.range(80, 360, 20);
+        smp_range = SortRange.range(80, 140, 20);
 
         for (Integer sm : smp_range) {
             for (Double lrate : lr_range) {
