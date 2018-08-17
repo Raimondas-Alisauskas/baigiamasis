@@ -19,7 +19,7 @@ public class CleanAndCalculate {
         this.qtyTopWords = qtyTopWords;
     }
 
-    public String[] actionsWithNewsWebPages() {
+    public void actionsWithNewsWebPages() {
 
 
         //Get html of text pages by the plain text
@@ -36,10 +36,8 @@ public class CleanAndCalculate {
         HashMap<String, Integer> map = calculatedWords(allWordsArray);
 
         TopWords tw = new TopWords();
-        String[] filteredTopWordsArray = tw.getTopWords(map, qtyTopWords);
+        pageClass.setFilteredTopWordsArray(tw.getTopWords(map, qtyTopWords));
 
-
-        return filteredTopWordsArray;
     }
 
     // Pages Names And Tags From Enum List
