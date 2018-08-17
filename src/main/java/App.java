@@ -16,6 +16,7 @@ import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by duser on 18.8.2.
@@ -27,6 +28,8 @@ public class App {
     ArrayList<Double> f1 = new ArrayList<Double>();
     ArrayList<Double> prec = new ArrayList<Double>();
     ArrayList<Double> rec = new ArrayList<Double>();
+    ArrayList<Double> far = new ArrayList<Double>();
+
     public ArrayList<Integer> smp_range;
     public ArrayList<Double> lr_range;
 
@@ -44,12 +47,16 @@ public class App {
                 f1.add(evaler.f1());
                 prec.add(evaler.precision());
                 rec.add(evaler.recall());
+                far.add(evaler.falseAlarmRate());
+
             }
         }
+
         rec = SortRange.round_(rec);
         f1 = SortRange.round_(f1);
         acc = SortRange.round_(acc);
         prec = SortRange.round_(prec);
+        far = SortRange.round_(far);
     }
 
 
