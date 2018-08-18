@@ -1,19 +1,18 @@
 package com.vcs.projektas;
 
-public class inputReturn extends tasks {
+class InputReturn {
 
-    //1. Lygio identifikavimas
-    //2. levelsDescription -> true
-    //3. įrašytų reikšmių atvaizdavimas ekrane
+    LygioLogika atsTeisingumas = new LygioLogika();
+    ColorsRowInput spalvuEile = new ColorsRowInput();
+    String colorsRow[] = spalvuEile.ColorsRowInputMethod();
 
-   // public rightInput() {
+public void inputCorrect() {
 
+    if(atsTeisingumas.rightLevel()){
+        //TODO make it print spalvuEile on the left side + TEISINGAI
+    } //TODO make it print spalvuEile on the right side + NETEISINGAI
+return;
+}
 
- //   }
-
-  //  public wrongInput() {
-
-
- //   }
 
 }
