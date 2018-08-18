@@ -1,5 +1,7 @@
 package vehicles;
 
+import vehicles.TypeOfVehicle;
+
 import java.util.Random;
 
 public abstract class Vehicle {
@@ -20,24 +22,18 @@ public abstract class Vehicle {
 
     protected boolean autoGearBox;
 
-    protected boolean availableOrNot;
+    public static int vehicleId;
 
-    protected int vehicleId=111;
+    protected TypeOfVehicle typeOfVehicle;
 
-    protected  TypeOfVehicle typeOfVehicle;
+    public static int counter = vehicleId +1;
 
-    Random rand = new Random();
+    protected double pricePerDay;
 
-    public int counter = this.vehicleId +1;
+    protected int ClientId;
 
 
-    public boolean isAvailableOrNot() {
-        return availableOrNot;
-    }
 
-    public void setAvailableOrNot(boolean availableOrNot) {
-        this.availableOrNot = availableOrNot;
-    }
 
     public void setColour(String colour) {
         this.colour = colour;
@@ -111,11 +107,23 @@ public abstract class Vehicle {
         this.typeOfVehicle = typeOfVehicle;
     }
 
-    public Random getRand() {
-        return rand;
+    public double getPricePerDay() {
+        return pricePerDay;
     }
 
-    public void setRand(Random rand) {
-        this.rand = rand;
+    public void setPricePerDay(double pricePerDay) {
+        this.pricePerDay = pricePerDay;
+    }
+
+    public void setVehicleId(int vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public int getClientId() {
+        return ClientId;
+    }
+
+    public void setClientId(int clientId) {
+        ClientId = clientId;
     }
 }

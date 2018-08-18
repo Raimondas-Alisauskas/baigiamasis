@@ -1,5 +1,7 @@
 package vehicles;
 
+import operators.RentalShop;
+
 import static vehicles.TypeOfVehicle.JEEP;
 
 public class Jeep extends Vehicle {
@@ -22,7 +24,7 @@ public class Jeep extends Vehicle {
         setProductionYear(productionYear);
         setTypeOfVehicle(JEEP);
         setVehicleId();
-
+        RentalShop.generalList.add(Jeep.this);
 
 
     }

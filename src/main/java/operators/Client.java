@@ -1,6 +1,8 @@
-package main.java;
+package operators;
 
-public class Client {
+import rentalOperations.InfoOperationsForClient;
+
+public class Client extends InfoOperationsForClient {
 
     private String name;
 
@@ -14,6 +16,10 @@ public class Client {
 
     private boolean creditCardValidity;
 
+    private int clientId=100;
+
+    private int counter = this.clientId +1;
+
     public Client (boolean driverLicense, boolean creditCardValidity){
         setName("Andrius");
         setSurname("Vaitiekunas");
@@ -21,6 +27,7 @@ public class Client {
         setDriverLicense(driverLicense);
         setCreditCardNo(12345678);
         setCreditCardValidity(creditCardValidity);
+        setClientId();
     }
 
     public Client (String name, String surname, int age, boolean driverLicense, int creditCardNo, boolean creditCardValidity){
@@ -78,5 +85,21 @@ public class Client {
 
     public void setDriverLicense(boolean driverLicense) {
         this.driverLicense = driverLicense;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId() {
+        this.clientId = counter;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
     }
 }

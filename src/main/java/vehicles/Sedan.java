@@ -1,6 +1,8 @@
 package vehicles;
 
 
+import operators.RentalShop;
+
 public class Sedan extends Vehicle {
 
     public Sedan() {
@@ -19,7 +21,7 @@ public class Sedan extends Vehicle {
         setProductionYear(productionYear);
         setTypeOfVehicle(TypeOfVehicle.SEDAN);
         setVehicleId();
-
+        RentalShop.generalList.add(Sedan.this);
     }
 
 

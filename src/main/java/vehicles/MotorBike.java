@@ -1,5 +1,7 @@
 package vehicles;
 
+import operators.RentalShop;
+
 public class MotorBike extends Vehicle {
 
     private boolean sideSeat;
@@ -20,6 +22,7 @@ public class MotorBike extends Vehicle {
         setProductionYear(productionYear);
         setTypeOfVehicle(TypeOfVehicle.MOTORBIKE);
         setVehicleId();
+        RentalShop.generalList.add(MotorBike.this);
     }
 
     public boolean isSideSeat() {

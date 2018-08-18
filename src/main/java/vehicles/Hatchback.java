@@ -1,5 +1,7 @@
 package vehicles;
 
+import operators.RentalShop;
+
 public class Hatchback extends Vehicle {
 
     private int doorNo;
@@ -24,7 +26,7 @@ public class Hatchback extends Vehicle {
         setProductionYear(productionYear);
         setTypeOfVehicle(TypeOfVehicle.HATCHBACK);
         setVehicleId();
-
+        RentalShop.generalList.add(Hatchback.this);
     }
 
     public int getDoorNo() {
