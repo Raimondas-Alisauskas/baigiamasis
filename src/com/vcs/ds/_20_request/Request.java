@@ -8,24 +8,28 @@ public class Request {
 
     //id
     private String requestId;
-    private String clientName; // TODO: V  Sukurti atpazinima ar tai senas ar naujas klientas. Priskirti nauja arba sena ID
+    private String clientName; // TODO: Stage2  Sukurti atpazinima ar tai senas ar naujas klientas. Priskirti nauja arba sena ID
 
     //scope
-    private double maxDimensionsMM; // TODO: V Validumo Tikrinimas.
-    private double volumeCM3; // TODO: V Validumo Tikrinimas.
+    private double maxDimensionsMM; // TODO: Stage2 Validumo Tikrinimas.
+    private double volumeCM3; // TODO: Stage2 Validumo Tikrinimas.
 
     //time
-    private int deadline;
+    private LocalDate deadline;
 
-    //price
-    private double maxPrice; // TODO: V Validumo Tikrinimas.
+//    todo  Stage2
+//    //price
+//    private double maxPrice; // TODO: V Validumo Tikrinimas.
+//
+//    //priorities
+//    private double prioritiesTime; // TODO: V Validumo Tikrinimas.
+//    private double prioritiesPrice;  // TODO: V Validumo Tikrinimas.
 
-    //priorities
-    private double prioritiesTime; // TODO: V Validumo Tikrinimas.
-    private double prioritiesPrice;  // TODO: V Validumo Tikrinimas.
+
 
 
     public Request( RequestInput requestInput) {
+
 
         requestId = new IdGenerator().generateIdKey("Rk ");
 
@@ -35,18 +39,19 @@ public class Request {
 
         volumeCM3 = Double.parseDouble(requestInput.getVolumeCM3());
 
-  //      deadline = LocalDate.parse(requestInput.getDeadline()); // TODO: 18.8.17  padaryti paketima i integer
+        deadline = LocalDate.parse(requestInput.getDeadline());
 
-        maxPrice = Double.parseDouble(requestInput.getMaxPrice());
-
-        prioritiesTime = Double.parseDouble(requestInput.getTimePriority());
-
-        prioritiesPrice = Double.parseDouble(requestInput.getPricePriority());
+//         TODO: 18.8.18 Stage2
+//        maxPrice = Double.parseDouble(requestInput.getMaxPrice());
+//
+//        prioritiesTime = Double.parseDouble(requestInput.getTimePriority());
+//
+//        prioritiesPrice = Double.parseDouble(requestInput.getPricePriority());
  }
 
 
 
-    //get-set
+    //set get
 
     public String getRequestId() {
         return requestId;
@@ -80,11 +85,11 @@ public class Request {
         this.volumeCM3 = volumeCM3;
     }
 
-    public int getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(int deadline) {
+    public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
 
@@ -111,6 +116,7 @@ public class Request {
     public void setPrioritiesPrice(double prioritiesPrice) {
         this.prioritiesPrice = prioritiesPrice;
     }
+
 
     //    //id
 //    private String requestId;

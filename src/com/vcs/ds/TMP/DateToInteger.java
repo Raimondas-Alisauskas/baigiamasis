@@ -1,4 +1,4 @@
-package com.vcs.ds._50_General;
+package com.vcs.ds.TMP;
 
 public class DateToInteger {
     String month;
