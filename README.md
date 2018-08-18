@@ -1,2 +1,2 @@
-# baigiamasis
-Baigiamųjų darbu GIT repozitorija
+# Keliu ir transporto simuliatorius
+Baigiamasis projektelis
