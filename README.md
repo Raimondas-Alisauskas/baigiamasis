@@ -6,4 +6,4 @@ TODO:
 - Modelis: Json'o format'as duomenims
 - Alg: trumpiausi keliai - prefilled
 - Alg: vaziavimas laikantis atstumo
-- GUI: javaFX tik atvaizdavimas (kolkas)
+- GUI: javaFX tik atvaizdavimas (kolkas), atkarpas ispaisant kaip kūbinį spalin'ą
