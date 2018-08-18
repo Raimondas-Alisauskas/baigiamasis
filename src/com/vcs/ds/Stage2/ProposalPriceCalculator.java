@@ -1,4 +1,4 @@
-package com.vcs.ds._30_proposal;
+package com.vcs.ds.Stage2;
 
 
 import com.vcs.ds._10_model.input.ProducerInput;

@@ -1,37 +1,85 @@
 package com.vcs.ds._40_producer;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Producer {
 
     //id
-    private static int producerId;
-
-    private static String producerName;
-
-    //scope
-    private String maxDimensionsMM;
-
+    private String producerName;
      //time
-    private double programingTime; // TODO: 18.8.13 string to double
+    private double programingTime;
+    private LocalDate availableStart; // TODO: 18.8.18 availability to Dates Stage1.1 - to list of dates
+    private LocalDate availableFinish;
+    private int processingSpeed;
 
-    private LocalDate availableStart; // TODO: 18.8.13 string to date
 
-    private LocalDate availableFinish;// TODO: 18.8.13 string to date
+    public Producer(String producerName, String programingTime, String availableStart, String availableFinish, String processingSpeed) {
+        this.producerName = producerName;
+        this.programingTime = Double.parseDouble(programingTime);
+        this.availableStart = LocalDate.parse(availableStart, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        this.availableFinish = LocalDate.parse(availableFinish, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        this.processingSpeed = Integer.valueOf(processingSpeed);
+    }
 
-    private int processingSpeed; // TODO: 18.8.13 string to integer
 
-    //price
-    private double materialCost; // TODO: 18.8.13 string to double
+ //getset
+    public String getProducerName() {
+        return producerName;
+    }
 
-    private double programmingRate; // TODO: 18.8.13 string to double
+    public void setProducerName(String producerName) {
+        this.producerName = producerName;
+    }
 
-    private double machineUsageRate; // TODO: 18.8.13 string to double
+    public double getProgramingTime() {
+        return programingTime;
+    }
 
-    private double handlingCost; // TODO: 18.8.13 string to double
+    public void setProgramingTime(double programingTime) {
+        this.programingTime = programingTime;
+    }
 
-    private double deliveringCost;  // TODO: 18.8.13 string to double
+    public LocalDate getAvailableStart() {
+        return availableStart;
+    }
 
-    // todo Sudeti i lista
+    public void setAvailableStart(LocalDate availableStart) {
+        this.availableStart = availableStart;
+    }
 
+    public LocalDate getAvailableFinish() {
+        return availableFinish;
+    }
+
+    public void setAvailableFinish(LocalDate availableFinish) {
+        this.availableFinish = availableFinish;
+    }
+
+    public int getProcessingSpeed() {
+        return processingSpeed;
+    }
+
+    public void setProcessingSpeed(int processingSpeed) {
+        this.processingSpeed = processingSpeed;
+    }
 }
+
+// TODO: 18.8.18 Stage2
+//    // id
+//    private static int producerId; ??
+
+//    //scope
+//    private String maxDimensionsMM;
+
+//    //price
+//    private double materialCost; //
+//
+//    private double programmingRate; //
+//
+//    private double machineUsageRate; //
+//
+//    private double handlingCost; //
+//
+//    private double deliveringCost;  //

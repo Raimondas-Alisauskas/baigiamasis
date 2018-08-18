@@ -2,57 +2,31 @@ package com.vcs.ds._20_request;
 
 import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._50_General.IdGenerator;
+
 import java.time.LocalDate;
 
 public class Request {
 
     //id
     private String requestId;
-    private String clientName; // TODO: Stage2  Sukurti atpazinima ar tai senas ar naujas klientas. Priskirti nauja arba sena ID
-
+    private String clientName; // TODO: Stage2  Sukurti atpazinima ar tai senas ar naujas klientas. Deti i ClientsDatabase jei naujas
     //scope
-    private double maxDimensionsMM; // TODO: Stage2 Validumo Tikrinimas.
-    private double volumeCM3; // TODO: Stage2 Validumo Tikrinimas.
-
+    private long maxDimensionsMM; // TODO: Stage2 Validumo Tikrinimas.
+    private long volumeCM3; // TODO: Stage2 Validumo Tikrinimas.
     //time
     private LocalDate deadline;
 
-//    todo  Stage2
-//    //price
-//    private double maxPrice; // TODO: V Validumo Tikrinimas.
-//
-//    //priorities
-//    private double prioritiesTime; // TODO: V Validumo Tikrinimas.
-//    private double prioritiesPrice;  // TODO: V Validumo Tikrinimas.
 
-
-
-
-    public Request( RequestInput requestInput) {
-
-
+    public Request(String clientName, String maxDimensionsMM, String volumeCM3, String deadline) {
         requestId = new IdGenerator().generateIdKey("Rk ");
-
-        clientName = requestInput.getClientName();
-
-        maxDimensionsMM = Double.parseDouble( requestInput.getMaxDimensionMM());
-
-        volumeCM3 = Double.parseDouble(requestInput.getVolumeCM3());
-
-        deadline = LocalDate.parse(requestInput.getDeadline());
-
-//         TODO: 18.8.18 Stage2
-//        maxPrice = Double.parseDouble(requestInput.getMaxPrice());
-//
-//        prioritiesTime = Double.parseDouble(requestInput.getTimePriority());
-//
-//        prioritiesPrice = Double.parseDouble(requestInput.getPricePriority());
- }
+        this.clientName = clientName;
+        this.maxDimensionsMM = Long.valueOf(maxDimensionsMM);
+        this.volumeCM3 = Long.valueOf(volumeCM3);
+        this.deadline = LocalDate.parse(deadline);
+    }
 
 
-
-    //set get
-
+    //getset
     public String getRequestId() {
         return requestId;
     }
@@ -69,19 +43,19 @@ public class Request {
         this.clientName = clientName;
     }
 
-    public double getMaxDimensionsMM() {
+    public long getMaxDimensionsMM() {
         return maxDimensionsMM;
     }
 
-    public void setMaxDimensionsMM(double maxDimensionsMM) {
+    public void setMaxDimensionsMM(long maxDimensionsMM) {
         this.maxDimensionsMM = maxDimensionsMM;
     }
 
-    public double getVolumeCM3() {
+    public long getVolumeCM3() {
         return volumeCM3;
     }
 
-    public void setVolumeCM3(double volumeCM3) {
+    public void setVolumeCM3(long volumeCM3) {
         this.volumeCM3 = volumeCM3;
     }
 
@@ -93,67 +67,23 @@ public class Request {
         this.deadline = deadline;
     }
 
-    public double getMaxPrice() {
-        return maxPrice;
-    }
-
-    public void setMaxPrice(double maxPrice) {
-        this.maxPrice = maxPrice;
-    }
-
-    public double getPrioritiesTime() {
-        return prioritiesTime;
-    }
-
-    public void setPrioritiesTime(double prioritiesTime) {
-        this.prioritiesTime = prioritiesTime;
-    }
-
-    public double getPrioritiesPrice() {
-        return prioritiesPrice;
-    }
-
-    public void setPrioritiesPrice(double prioritiesPrice) {
-        this.prioritiesPrice = prioritiesPrice;
-    }
-
-
-    //    //id
-//    private String requestId;
-//    private String clientName; // TODO: V  Sukurti atpazinima ar tai senas ar naujas klientas. Priskirti nauja arba sena ID
-//
-//    //scope
-//    private double maxDimensionsMM; // TODO: V Validumo Tikrinimas.
-//    private double volumeCM3; // TODO: V Validumo Tikrinimas.
-//
-//    //time
-//    private int deadline;
-//
-//    //price
-//    private double maxPrice; // TODO: V Validumo Tikrinimas.
-//
-//    //priorities
-//    private double prioritiesTime; // TODO: V Validumo Tikrinimas.
-//    private double prioritiesPrice;  // TODO: V Validumo Tikrinimas.
-//
-//    public Request(String requestId, String clientName, double maxDimensionsMM, double volumeCM3, int deadline, double maxPrice, double prioritiesTime, double prioritiesPrice) {
-//        this.requestId = requestId;
-//        this.clientName = clientName;
-//        this.maxDimensionsMM = maxDimensionsMM;
-//        this.volumeCM3 = volumeCM3;
-//        this.deadline = deadline;
-//        this.maxPrice = maxPrice;
-//        this.prioritiesTime = prioritiesTime;
-//        this.prioritiesPrice = prioritiesPrice;
-//    }
-
-
-
-
 
 }
 
 
+//    todo  Stage2
+//    //price
+//    private double maxPrice; //
+//
+//    //priorities
+//    private double prioritiesTime; //
+//    private double prioritiesPrice;  //
+//
+//        maxPrice = Double.parseDouble(requestInput.getMaxPrice());
+//
+//        prioritiesTime = Double.parseDouble(requestInput.getTimePriority());
+//
+//        prioritiesPrice = Double.parseDouble(requestInput.getPricePriority());
 
 
 

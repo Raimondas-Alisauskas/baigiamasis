@@ -6,16 +6,8 @@ public class RequestInput {
     private String clientName;
     private String maxDimensionMM;
     private String volumeCM3;
-
     //time
     private String deadline;
-
-    //price
-    private String maxPrice;
-
-    //priorities
-    private String timePriority;
-    private String pricePriority;
 
 
     public RequestInput() {
@@ -23,11 +15,9 @@ public class RequestInput {
         maxDimensionMM = "100";
         volumeCM3 = "10";
         deadline = "2018-09-15";
-        maxPrice = "200";
-        timePriority = "30";
-        pricePriority = "70";
     }
 
+    //getset
     public String getClientName() {
         return clientName;
     }
@@ -44,16 +34,16 @@ public class RequestInput {
         return deadline;
     }
 
-    public String getMaxPrice() {
-        return maxPrice;
-    }
-
-    public String getTimePriority() {
-        return timePriority;
-    }
-
-    public String getPricePriority() {
-        return pricePriority;
-    }
-
 }
+
+// TODO: 18.8.18 Stage 2
+//    //price
+//    private String maxPrice;
+//
+//    //priorities
+//    private String timePriority;
+//    private String pricePriority;
+
+//        maxPrice = "200";
+////        timePriority = "30";
+////        pricePriority = "70";

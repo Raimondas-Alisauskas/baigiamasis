@@ -7,12 +7,9 @@ import java.util.List;
 
 public class ClientsDatabase {
 
-
-
     private List<Client> clientsList;
 
-    //Construct
-    public ClientsDatabase() {
+     public ClientsDatabase() {
 
         clientsList = new ArrayList<>();
         clientsList.add( 0 , new Client("C0"));

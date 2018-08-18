@@ -1,4 +1,4 @@
-package com.vcs.ds._30_proposal;
+package com.vcs.ds.Stage2;
 
 public class MassCalculator {
 

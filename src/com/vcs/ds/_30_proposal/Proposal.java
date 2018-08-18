@@ -1,59 +1,40 @@
 package com.vcs.ds._30_proposal;
 
-import com.vcs.ds._20_client.Client;
-import com.vcs.ds._20_request.Request;
-import com.vcs.ds._40_producer.Producer;
-import com.vcs.ds._50_General.IdGenerator;
-
 import java.time.Duration;
 import java.time.LocalDate;
 
 public class Proposal {
+
     //id
     private String proposalId;
     private String clientName;
     private String requestId;
-    private String producerId;
-    
-//    //scope todo trinti?
-//    private double productVolume;
+    private String producerName;
     
     //time
     private Duration productionDuration;
-    private LocalDate availableStart; // TODO: 18.8.17 V pateikti availability List 
+    private LocalDate availableStart; // TODO: 18.8.18 availability to Dates Stage1.1 - to list of dates
     private LocalDate availableFinish;
-    
-    //price
-    private double proposalPrice;
-    
-    //score
-    private int score;
-    
-        
-   //constructor
-   public Proposal(String requestId, String producerId){
-  //      proposalId = new IdGenerator().generateIdKey("Pr "); todo trinti?
-         this.requestId = requestId;
-        this.producerId = producerId;
-        
+
+    public Proposal(String proposalId, String clientName, String requestId, String producerName, Duration productionDuration, LocalDate availableStart, LocalDate availableFinish) {
+        this.proposalId = proposalId;
+        this.clientName = clientName;
+        this.requestId = requestId;
+        this.producerName = producerName;
+        this.productionDuration = productionDuration;
+        this.availableStart = availableStart;
+        this.availableFinish = availableFinish;
     }
-    
-   
-    //set get
+
+   //getset
+
+
     public String getProposalId() {
         return proposalId;
     }
 
     public void setProposalId(String proposalId) {
         this.proposalId = proposalId;
-    }
-
-    public String getRequestId() {
-        return requestId;
-    }
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
     }
 
     public String getClientName() {
@@ -64,21 +45,21 @@ public class Proposal {
         this.clientName = clientName;
     }
 
-    public String getProducerId() {
-        return producerId;
+    public String getRequestId() {
+        return requestId;
     }
 
-    public void setProducerId(String producerId) {
-        this.producerId = producerId;
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
     }
 
-//    public double getProductMass() { todo trinti?
-//        return productVolume;
-//    }
-//
-//    public void setProductMass(double productMass) {
-//        this.productVolume = productMass;
-//    }
+    public String getProducerName() {
+        return producerName;
+    }
+
+    public void setProducerName(String producerName) {
+        this.producerName = producerName;
+    }
 
     public Duration getProductionDuration() {
         return productionDuration;
@@ -103,20 +84,13 @@ public class Proposal {
     public void setAvailableFinish(LocalDate availableFinish) {
         this.availableFinish = availableFinish;
     }
-
-    public double getProposalPrice() {
-        return proposalPrice;
-    }
-
-    public void setProposalPrice(double proposalPrice) {
-        this.proposalPrice = proposalPrice;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
 }
+// TODO: 18.8.18 Stage2
+//    //scope todo trinti?
+//    private double productVolume;
+////price
+//private double proposalPrice;
+//
+//    //score
+//    private int score;
+
