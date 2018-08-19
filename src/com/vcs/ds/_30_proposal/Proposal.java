@@ -12,7 +12,7 @@ public class Proposal {
     private String producerName;
 
     //time
-    private boolean producerIsAvailable;
+ //   private boolean producerIsAvailable;
     private LocalDateTime availableStart; // TODO: Stage1.1 - to list of dates availableTime;
     private LocalDateTime availableFinish;
     private LocalDateTime earlyFinish;
@@ -23,17 +23,7 @@ public class Proposal {
         this.requestId = requestId;
         this.producerName = producerName;
 
-        PropTimeCalculator propTimeCalculator = new PropTimeCalculator(requestId, producerName);
-        this.producerIsAvailable = propTimeCalculator.isProducerAvailable();
-        if (producerIsAvailable) {
 
-            availableStart = propTimeCalculator.getAvailableStart();
-            availableFinish = propTimeCalculator.getAvailableFinish();
-
-        } else {
-
-            System.out.println(producerIsAvailable);
-        }
     }
 
 

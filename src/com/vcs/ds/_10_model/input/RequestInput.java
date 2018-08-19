@@ -13,7 +13,7 @@ public class RequestInput {
     public RequestInput() {
         clientName = "ClName";
         maxDimensionMM = "100";
-        volumeCM3 = "10";
+        volumeCM3 = "100";
         deadline = "2018-09-15";
     }
 

@@ -13,8 +13,8 @@ public class Producer {
     private LocalDateTime availableStart; // TODO: 18.8.18 availability to Dates Stage1.1 - to list of dates
     private LocalDateTime availableFinish;
     private int processingSpeedCM3pH;
-//    private LocalDateTime handlingTimeH;// TODO: 18.8.19 add at Stage 1.1
-//    private LocalDateTime deliveringTimeH; // TODO: 18.8.19 add at Stage 1.1
+//    private Duration handlingTimeH;// TODO: 18.8.19 add at Stage 1.1
+//    private Duration deliveringTimeH; // TODO: 18.8.19 add at Stage 1.1
 
 
     public Producer(String producerName, String programingTimeH, String availableStart, String availableFinish, String processingSpeedCM3pH) {

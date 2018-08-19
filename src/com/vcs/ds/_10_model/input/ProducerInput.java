@@ -20,8 +20,8 @@ public class ProducerInput {
         programingTimeH = "2";
         availableStart = "2018-09-15";
         availableFinish = "2018-09-21";
-        processingSpeedCM3pH = "15";
-        handlingTimeH = "1";
+        processingSpeedCM3pH = "1";
+  //      handlingTimeH = "1";
         deliveringTimeH = "24";
     }
 }

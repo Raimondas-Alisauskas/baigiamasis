@@ -7,10 +7,12 @@ import com.vcs.ds._10_model.database.RequestsDatabase;
 import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._20_client.Client;
 import com.vcs.ds._20_request.Request;
+import com.vcs.ds._30_proposal.PropTimeCalculator;
 import com.vcs.ds._30_proposal.Proposal;
 import com.vcs.ds._40_producer.Producer;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Main {
 
@@ -40,17 +42,35 @@ public class Main {
 
 //        Create Proposals for all Producers
 
-        for(int i = 0; i < producersDatabase.getProducersList().size();i++) {
+        for (int i = 0; i < producersDatabase.getProducersList().size(); i++) {
             String requestId = thisRequest.getRequestId();
             String producerName = producersDatabase.getProducersList().get(i).getProducerName();
+            // Calculate productionDuration
 
-            Proposal proposal = new Proposal(requestId, producerName);
-            proposalsDatabase.getProposalsList().add(proposal);
+            //check Produser availability and earlyFinish date
+            PropTimeCalculator propTimeCalculator = new PropTimeCalculator(requestId, producerName);
+            //           if (propTimeCalculator.isProducerAvailable()) {
+            LocalDateTime availableStart = producersDatabase.getProducersList().get(i).getAvailableStart();
+            LocalDateTime availableFinish = producersDatabase.getProducersList().get(i).getAvailableFinish();
+
+            //              propTimeCalculator.calculateEarlyFinish();
         }
 
 
+        //          Proposal proposal = new Proposal(requestId, producerName);
+        //          proposalsDatabase.getProposalsList().add(proposal);
 
 
+//        this.producerIsAvailable = propTimeCalculator.isProducerAvailable();
+//        if (producerIsAvailable) {
+//
+//            availableStart = propTimeCalculator.getAvailableStart();
+//            availableFinish = propTimeCalculator.getAvailableFinish();
+//
+//        } else {
+//
+//            System.out.println(producerIsAvailable);
+//        }
 
 
 //        Sort ProposalsValid todo

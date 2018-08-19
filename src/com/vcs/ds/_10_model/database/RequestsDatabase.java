@@ -13,10 +13,10 @@ public class RequestsDatabase {
 
     public RequestsDatabase() {
         requestsList = new ArrayList<>();
-        requestsList.add(0, new Request("C10", "100", "10", "2018-09-15"));
-        requestsList.add(1, new Request("C1", "200", "20", "2018-09-10"));
-        requestsList.add(2, new Request("C2", "200", "10", "2018-09-20"));
-        requestsList.add(3, new Request("C3", "300", "30", "2018-09-10"));
+        requestsList.add(0, new Request("C10", "100", "100", "2018-09-15"));
+        requestsList.add(1, new Request("C1", "200", "200", "2018-09-10"));
+        requestsList.add(2, new Request("C2", "200", "100", "2018-09-20"));
+        requestsList.add(3, new Request("C3", "300", "300", "2018-09-10"));
 
     }
 
