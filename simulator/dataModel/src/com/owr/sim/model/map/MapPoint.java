@@ -1,15 +1,15 @@
-package com.owr.sim.model.json;
+package com.owr.sim.model.map;
 
-public class PointJson {
+public class MapPoint {
 
 	private int x;
 	private int y;
 
-	public PointJson() {
+	public MapPoint() {
 
 	}
 
-	public PointJson(int x, int y) {
+	public MapPoint(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}

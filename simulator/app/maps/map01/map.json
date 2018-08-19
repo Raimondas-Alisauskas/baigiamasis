@@ -13,15 +13,12 @@
 					"crossRoadId" : 1
 				},
 				{
-					"x" : 12,
-					"y" : 324,
+					"point" : {"x" : 12, "y" : 324},
 					"speedLimit" : 50,
-					"underGround" : true
+					"tunnel" : true
 				},
 				{
-					"x" : 125,
-					"y" : 374,
-					"underGround" : false
+					"point" : {"x" : 125, "y" : 374}
 				},
 				{
 					"crossRoadId" : 2

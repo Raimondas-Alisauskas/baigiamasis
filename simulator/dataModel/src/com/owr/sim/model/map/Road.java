@@ -1,10 +1,13 @@
 package com.owr.sim.model.map;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Road implements IWayElement {
 
 	private int id;
 	private String name;
-	private RoadSection[] sections;
+	private List<RoadSection> sections = new ArrayList<RoadSection>();
 	private CrossRoad crossRoadIn;
 	private CrossRoad crossRoadOut;
 
@@ -23,11 +26,11 @@ public class Road implements IWayElement {
 		return name;
 	}
 
-	public RoadSection[] getSections() {
+	public List<RoadSection> getSections() {
 		return sections;
 	}
 
-	public void setSections(RoadSection[] sections) {
+	public void setSections(List<RoadSection> sections) {
 		this.sections = sections;
 	}
 

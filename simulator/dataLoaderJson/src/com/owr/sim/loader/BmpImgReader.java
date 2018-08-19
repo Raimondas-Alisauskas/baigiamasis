@@ -1,4 +1,4 @@
-package com.owr.sim.data;
+package com.owr.sim.loader;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -16,6 +16,8 @@ public class BmpImgReader {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		
+		
 		
 		img.getHeight();
 		img.getWidth();
