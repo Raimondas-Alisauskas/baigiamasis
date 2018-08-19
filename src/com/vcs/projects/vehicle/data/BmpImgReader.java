@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+@Deprecated
 public class BmpImgReader {
 
 	public static void readBmp(String bmpName) {

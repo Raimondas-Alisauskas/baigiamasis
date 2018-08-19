@@ -1,0 +1,45 @@
+{
+	"mapName": "Test map 01",
+	"background": "",
+	"roads" : 
+	[
+		{
+			"id" : 1,
+			"name" : "Elm street",
+			"points" : 
+			[
+				{
+					"speedLimit" : 70,
+					"crossRoadId" : 1
+				},
+				{
+					"x" : 12,
+					"y" : 324,
+					"speedLimit" : 50,
+					"underGround" : true
+				},
+				{
+					"x" : 125,
+					"y" : 374,
+					"underGround" : false
+				},
+				{
+					"crossRoadId" : 2
+				}
+			]
+		}
+	],
+
+	"crossRoads" : 
+	[
+		{
+			"id" : 1,
+			"point" : {"x" : 35, "y" : 80}
+		},
+		{
+			"id" : 2,
+			"point" : {"x" : 56, "y" : 67}
+		}
+	]
+
+}
