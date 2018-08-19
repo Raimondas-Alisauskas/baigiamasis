@@ -8,9 +8,9 @@ public class ProposalPriceCalculator {
     /*
      * public double material ; //  = materialCost (ProducerInput)* mass (MassCalculator)
      * <p>
-     * public double programing; //= programingTime (AvailabilityCalculator)* programmingRate (ProducerInput)
+     * public double programing; //= programingTime (PropTimeCalculator)* programmingRate (ProducerInput)
      * <p>
-     * public double production; //= processingTime (AvailabilityCalculator)* machineUsageRate (ProducerInput)
+     * public double production; //= processingTime (PropTimeCalculator)* machineUsageRate (ProducerInput)
      * <p>
      * public double handling;// ProducerInput
      * <p>
@@ -51,11 +51,11 @@ public class ProposalPriceCalculator {
     private double mass = new ProductInput().getMass();
     private double materialPrice = materialCost * mass;
 
-    private double programingTime = new AvailabilityCalculator().getProgramingTime();
+    private double programingTime = new PropTimeCalculator().getProgramingTime();
     private double programmingRate = new ProducerInput().getProgrammingRate();
     private double programingPrice = programingTime * programmingRate;
 
-    private double processingTime = new AvailabilityCalculator().getProcessingTime();
+    private double processingTime = new PropTimeCalculator().getProcessingTime();
     private double machineUsageRate = new ProducerInput().getMachineUsageRate();
     private double productionPrice = processingTime * machineUsageRate;
 

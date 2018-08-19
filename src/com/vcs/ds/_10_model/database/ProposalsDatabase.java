@@ -7,6 +7,17 @@ import java.util.List;
 
 public class ProposalsDatabase {
 
-    public List<Proposal> proposalsDatabase = new ArrayList<>();
+
+    private List<Proposal> proposalsList;
+
+
+    public ProposalsDatabase() {
+        proposalsList =  new ArrayList<>();
+    }
+
+    //getset
+    public List<Proposal> getProposalsList() {
+        return proposalsList;
+    }
 
 }

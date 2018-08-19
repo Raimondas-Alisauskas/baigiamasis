@@ -2,6 +2,7 @@ package com.vcs.ds;
 
 import com.vcs.ds._10_model.database.ClientsDatabase;
 import com.vcs.ds._10_model.database.ProducersDatabase;
+import com.vcs.ds._10_model.database.ProposalsDatabase;
 import com.vcs.ds._10_model.database.RequestsDatabase;
 import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._20_client.Client;
@@ -18,29 +19,37 @@ public class Main {
 //      Create mock initial Databases
 //        ClientsDatabase
         ClientsDatabase clientsDatabase = new ClientsDatabase();
-
 //        RequestsDatabase
         RequestsDatabase requestsDatabase = new RequestsDatabase();
-
 //        ProducersDatabase
         ProducersDatabase producersDatabase = new ProducersDatabase();
-
 //        ProposalsDatabase
-
+        ProposalsDatabase proposalsDatabase = new ProposalsDatabase();
 //
-
-//        Create mock RequestInput
+//
+//        Receiving Request for production: Create mock RequestInput
         RequestInput requestInput = new RequestInput();
 
 //        If Client is new, create new Client id, put in to ClientDatabase todo Stage2
 
 //        Create new Request
-        Request request = new Request(requestInput.getClientName(),requestInput.getMaxDimensionMM(),requestInput.getVolumeCM3(), requestInput.getDeadline());// TODO: 18.8.18 Stage 1.1 get from list
+        Request thisRequest = new Request(requestInput.getClientName(), requestInput.getMaxDimensionMM(), requestInput.getVolumeCM3(), requestInput.getDeadline());// TODO: 18.8.18 Stage 1.1 get from list
 
 //        Put Request in to RequestsDatabase
-          requestsDatabase.getRequestsList().add(request);
+        requestsDatabase.getRequestsList().add(thisRequest);
 
-//        Initiate Proposal
+//        Create Proposals for all Producers
+
+        for(int i = 0; i < producersDatabase.getProducersList().size();i++) {
+            String requestId = thisRequest.getRequestId();
+            String producerName = producersDatabase.getProducersList().get(i).getProducerName();
+
+            Proposal proposal = new Proposal(requestId, producerName);
+            proposalsDatabase.getProposalsList().add(proposal);
+        }
+
+
+
 
 
 
@@ -48,7 +57,8 @@ public class Main {
 //        Put ProposalsValid to ProposalsDatabase todo
 //
 //        Create OutputToClient put Producer name, availale time, price todo
-//
+
+        System.out.println("Pabaiga");
 //
 //       todo Stage3:
 //        Receive ProducerInput

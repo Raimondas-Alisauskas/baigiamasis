@@ -2,29 +2,31 @@ package com.vcs.ds._40_producer;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalTime;
 
 public class Producer {
 
     //id
     private String producerName;
-     //time
-    private double programingTime;
-    private LocalDate availableStart; // TODO: 18.8.18 availability to Dates Stage1.1 - to list of dates
-    private LocalDate availableFinish;
-    private int processingSpeed;
+    //time
+    private double programingTimeH;
+    private LocalDateTime availableStart; // TODO: 18.8.18 availability to Dates Stage1.1 - to list of dates
+    private LocalDateTime availableFinish;
+    private int processingSpeedCM3pH;
+//    private LocalDateTime handlingTimeH;// TODO: 18.8.19 add at Stage 1.1
+//    private LocalDateTime deliveringTimeH; // TODO: 18.8.19 add at Stage 1.1
 
 
-    public Producer(String producerName, String programingTime, String availableStart, String availableFinish, String processingSpeed) {
+    public Producer(String producerName, String programingTimeH, String availableStart, String availableFinish, String processingSpeedCM3pH) {
         this.producerName = producerName;
-        this.programingTime = Double.parseDouble(programingTime);
-        this.availableStart = LocalDate.parse(availableStart, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        this.availableFinish = LocalDate.parse(availableFinish, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        this.processingSpeed = Integer.valueOf(processingSpeed);
+        this.programingTimeH = Double.parseDouble(programingTimeH);
+        this.availableStart = LocalDateTime.of(LocalDate.parse(availableStart), LocalTime.MIDNIGHT);
+        this.availableFinish = LocalDateTime.of(LocalDate.parse(availableFinish), LocalTime.MIDNIGHT);
+        this.processingSpeedCM3pH = Integer.valueOf(processingSpeedCM3pH);
     }
 
 
- //getset
+    //getset
     public String getProducerName() {
         return producerName;
     }
@@ -34,35 +36,35 @@ public class Producer {
     }
 
     public double getProgramingTime() {
-        return programingTime;
+        return programingTimeH;
     }
 
     public void setProgramingTime(double programingTime) {
-        this.programingTime = programingTime;
+        this.programingTimeH = programingTime;
     }
 
-    public LocalDate getAvailableStart() {
+    public LocalDateTime getAvailableStart() {
         return availableStart;
     }
 
-    public void setAvailableStart(LocalDate availableStart) {
+    public void setAvailableStart(LocalDateTime availableStart) {
         this.availableStart = availableStart;
     }
 
-    public LocalDate getAvailableFinish() {
+    public LocalDateTime getAvailableFinish() {
         return availableFinish;
     }
 
-    public void setAvailableFinish(LocalDate availableFinish) {
+    public void setAvailableFinish(LocalDateTime availableFinish) {
         this.availableFinish = availableFinish;
     }
 
-    public int getProcessingSpeed() {
-        return processingSpeed;
+    public int getProcessingSpeedCM3pH() {
+        return processingSpeedCM3pH;
     }
 
-    public void setProcessingSpeed(int processingSpeed) {
-        this.processingSpeed = processingSpeed;
+    public void setProcessingSpeedCM3pH(int processingSpeedCM3pH) {
+        this.processingSpeedCM3pH = processingSpeedCM3pH;
     }
 }
 
