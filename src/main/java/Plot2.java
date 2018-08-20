@@ -20,7 +20,7 @@ public class Plot2 extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         try {
-            App model = new App();
+            ConvModel model = new ConvModel();
 
             ArrayList<Double> acc = model.getAcc();
             ArrayList<Double> prec = model.getPrec();

@@ -16,12 +16,12 @@ public class Analitics {
 
     Analitics () {
 
-        App app = new App();
-        this.f1 = app.getF1();
-        this.acc = app.getAcc();
-        this.rec = app.getRec();
-        this.prec = app.getPrec();
-        this.far = app.far;
+        ConvModel convModel = new ConvModel();
+        this.f1 = convModel.getF1();
+        this.acc = convModel.getAcc();
+        this.rec = convModel.getRec();
+        this.prec = convModel.getPrec();
+        this.far = convModel.far;
 
         double[] f1 = this.f1.stream().mapToDouble(Double::doubleValue).toArray(); //via method reference
         double[] acc = this.acc.stream().mapToDouble(Double::doubleValue).toArray(); //via method reference

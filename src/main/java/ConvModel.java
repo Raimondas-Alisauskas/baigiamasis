@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * Created by duser on 18.8.2.
  */
 
-public class App {
+public class ConvModel {
 
     ArrayList<Double> acc = new ArrayList<Double>();
     ArrayList<Double> f1 = new ArrayList<Double>();
@@ -32,13 +32,13 @@ public class App {
     public ArrayList<Integer> smp_range;
     public ArrayList<Double> lr_range;
 
-    public App() {
+    public ConvModel() {
         lr_range= SortRange.range(.0001, .0002, .0001);
-        smp_range = SortRange.range(80, 140, 20);
+        smp_range = SortRange.range(80, 360, 20);
 
         for (Integer sm : smp_range) {
             for (Double lrate : lr_range) {
-                Evaluation evaler = App.createModel(sm, lrate);
+                Evaluation evaler = ConvModel.createModel(sm, lrate);
                 System.out.println(String.format("smp_size: %s, l_rate: %.3f, fp:%.3f, fn: %.3f, posit: %s, rec:%.3f",
                         sm, lrate, evaler.falsePositiveRate(), evaler.falseNegativeRate(),
                         evaler.positive(), evaler.recall()));
