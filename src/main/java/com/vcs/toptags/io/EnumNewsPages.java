@@ -1,4 +1,4 @@
-package com.vcs.toptags.page_adapters.io;
+package com.vcs.toptags.io;
 
 public enum EnumNewsPages {
     NewsPageAlfaLt, NewsPageDelfiLt, NewsPageDienaLt, NewsPageVZLt;

@@ -15,12 +15,6 @@ public class CleanTheText {
         // Method, that replaces TABs in the String HTML to the Spaces to avoid collisions
         htmlFromWebArray = replaceTabsWithSpaces(htmlFromWebArray);
 
-//        //TODO delete System.out.println();
-//        for (int i = 0; i < htmlFromWebArray.size(); i++) {
-//            System.out.println(htmlFromWebArray.get(i));
-//        }
-//        System.out.println(" After: Method, that replaces  TABs ");
-
         // Method, that replaces <style> ... </style> Tags in the String HTML to the Spaces to avoid collisions
         htmlFromWebArray = replaceStyleTagsWithSpaces(htmlFromWebArray);
 

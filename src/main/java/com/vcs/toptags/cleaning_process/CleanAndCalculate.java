@@ -1,4 +1,4 @@
-package com.vcs.toptags;
+package com.vcs.toptags.cleaning_process;
 
 import com.vcs.toptags.cleaning_process.FormatWebPageText;
 import com.vcs.toptags.counting.CountWords;
@@ -31,9 +31,14 @@ public class CleanAndCalculate {
         FormatWebPageText fwpt = new FormatWebPageText(htmlFromWebArray);
         ArrayList<String> allWordsArray = fwpt.getFormatedWords();
 
+        // Adding Unique words quantity to the Object parameter
+        pageClass.setCheckedWordsQty(allWordsArray.size());
 
         // Calculate same words
         HashMap<String, Integer> map = calculatedWords(allWordsArray);
+
+        // Adding Unique words quantity to the Object parameter
+        pageClass.setUniqueWordsQty(map.size());
 
         TopWords tw = new TopWords();
         pageClass.setFilteredTopWordsArray(tw.getTopWords(map, qtyTopWords));
