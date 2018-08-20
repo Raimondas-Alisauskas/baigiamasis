@@ -2,6 +2,7 @@ package com.kursinis;
 
 import java.util.List;
 
+//pirmas bandymas
 public class Kelias {
 
 	static final char OPEN = 'O';
@@ -11,7 +12,7 @@ public class Kelias {
 
 	public static boolean ieskotiKelio(char[][] labirintas, int x, int y, int a, int b, List<Integer> kelias) {
 
-		if (labirintas[x][y] == PELE) {
+		if (labirintas[x][y] == labirintas[a][b]) {
 			kelias.add(x);
 			kelias.add(y);
 			return true;

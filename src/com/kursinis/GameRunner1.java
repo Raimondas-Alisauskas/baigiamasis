@@ -1,11 +1,12 @@
 package com.kursinis;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GameRunner1 {
 
-
+	// senas pirmas bandymas
 	public static void main(String[] args) {
 		
 
@@ -16,7 +17,7 @@ public class GameRunner1 {
 				{ 'X', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'X', 'O', 'X' },
 				{ 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'O', 'O', 'X' },
 				{ 'X', 'O', 'X', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'X', 'O', 'X' },
-				{ 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'O', 'X', '?', 'X', 'O', 'X' },
+				{ 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'X', 'O', 'X' },
 				{ 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'X' },
 				{ 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X' }
 		};
@@ -33,7 +34,9 @@ public class GameRunner1 {
 		}
 
 		List<Integer> kelias = new ArrayList<Integer>();
-		System.out.println(Kelias.ieskotiKelio(labirintas, 1, 1, 8, 10, kelias));
+		Kelias.ieskotiKelio(labirintas, 1, 1, 1, 3, kelias);
+
+		Collections.reverse(kelias);
 
 		for (int k = 0; k < kelias.size(); k += 2) {
 			int kx = kelias.get(k);
