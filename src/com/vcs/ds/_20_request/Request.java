@@ -1,9 +1,10 @@
 package com.vcs.ds._20_request;
 
-import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._50_General.IdGenerator;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Request {
 
@@ -14,7 +15,7 @@ public class Request {
     private long maxDimensionsMM; // TODO: Stage2 Validumo Tikrinimas.
     private long volumeCM3; // TODO: Stage2 Validumo Tikrinimas.
     //time
-    private LocalDate deadline;
+    private LocalDateTime deadline;
 
 
     public Request(String clientName, String maxDimensionsMM, String volumeCM3, String deadline) {
@@ -22,7 +23,7 @@ public class Request {
         this.clientName = clientName;
         this.maxDimensionsMM = Long.valueOf(maxDimensionsMM);
         this.volumeCM3 = Long.valueOf(volumeCM3);
-        this.deadline = LocalDate.parse(deadline);
+        this.deadline = LocalDateTime.of(LocalDate.parse(deadline), LocalTime.MIDNIGHT);
     }
 
 
@@ -59,11 +60,11 @@ public class Request {
         this.volumeCM3 = volumeCM3;
     }
 
-    public LocalDate getDeadline() {
+    public LocalDateTime getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDate deadline) {
+    public void setDeadline(LocalDateTime deadline) {
         this.deadline = deadline;
     }
 

@@ -12,7 +12,7 @@ public class PropTimeCalculatorTests {
 
     public static void main(String[] args) {
 
-        PropTimeCalculator a = new PropTimeCalculator("aa", "bb");
+        PropTimeCalculator a = new PropTimeCalculator();
 
         Duration progTime = Duration.ofHours(2);
         Duration prodDur = a.calculateProductionDuration(progTime, 1L, 100L);

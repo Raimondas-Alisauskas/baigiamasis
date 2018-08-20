@@ -1,7 +1,5 @@
 package com.vcs.ds._30_proposal;
 
-import com.vcs.ds._50_General.IdGenerator;
-
 import java.time.LocalDateTime;
 
 public class Proposal {
@@ -12,29 +10,26 @@ public class Proposal {
     private String producerName;
 
     //time
- //   private boolean producerIsAvailable;
     private LocalDateTime availableStart; // TODO: Stage1.1 - to list of dates availableTime;
     private LocalDateTime availableFinish;
     private LocalDateTime earlyFinish;
 
 
-    public Proposal(String requestId, String producerName) {
-        proposalId = new IdGenerator().generateIdKey("Pr ");
+    public Proposal(String proposalId, String requestId, String producerName, LocalDateTime availableStart, LocalDateTime availableFinish, LocalDateTime earlyFinish) {
+        this.proposalId = proposalId;
         this.requestId = requestId;
         this.producerName = producerName;
-
-
+        this.availableStart = availableStart;
+        this.availableFinish = availableFinish;
+        this.earlyFinish = earlyFinish;
     }
 
-
-    //getset
+//getset
 
 
 }
 
 // TODO: 18.8.18 Stage2
-//    //scope todo trinti?
-//    private double productVolume;
 ////price
 //private double proposalPrice;
 //

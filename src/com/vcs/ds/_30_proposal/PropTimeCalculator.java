@@ -16,11 +16,11 @@ public class PropTimeCalculator {
     private LocalDateTime earlyFinish;
 
 
-    public PropTimeCalculator(String requestId, String producerName) {
-        this.requestId = requestId;
-        this.producerName = producerName;
-
-    }
+//    public PropTimeCalculator(String requestId, String producerName) {
+//        this.requestId = requestId;
+//        this.producerName = producerName;
+//
+//    }
 
     public Duration calculateProductionDuration(Duration programingTime, long processingSpeedUnitpH, long volumeUnit) {
 

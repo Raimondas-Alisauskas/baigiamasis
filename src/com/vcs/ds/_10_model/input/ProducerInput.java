@@ -1,7 +1,5 @@
 package com.vcs.ds._10_model.input;
 
-import java.util.List;
-
 public class ProducerInput {
 
     //id
@@ -21,8 +19,7 @@ public class ProducerInput {
         availableStart = "2018-09-15";
         availableFinish = "2018-09-21";
         processingSpeedCM3pH = "1";
-  //      handlingTimeH = "1";
-        deliveringTimeH = "24";
+         deliveringTimeH = "24";
     }
 }
 // TODO: 18.8.18 Stage2
@@ -36,3 +33,5 @@ public class ProducerInput {
 //    private String machineUsageRate;
 //    private String handlingCost;
 //    private String deliveringCost;
+//    //time
+//      handlingTimeH = "1";

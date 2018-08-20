@@ -13,6 +13,16 @@ public class BandTime {
 
      //   System.out.println( kint.productionTime(0, 5));
 
+        Long a1=Long.parseLong("1");
+        Long a2= Long.valueOf("1");
+
+
+        Duration programingTimeH = Duration.ofHours(Long.parseLong("1"));
+ //       Duration programingTimeH2 = Duration.ofHours(Long.getLong("10"));
+        Long maxDimensionsMM = Long.valueOf("1");
+
+                LocalDateTime deadline = LocalDateTime.of(LocalDate.parse("2018-09-18"), LocalTime.MIDNIGHT);
+
         LocalDateTime aa = LocalDateTime.of(2018, Month.APRIL, 13, 12, 0);
         LocalDateTime bb = LocalDateTime.of(2018, Month.APRIL, 26, 17, 0);
 
@@ -46,7 +56,11 @@ public class BandTime {
         LocalDate dateTime2 = LocalDate.parse(str2, formatter2);
         System.out.println(dateTime2);
 
+
+
         LocalDateTime date = dateTime2.atStartOfDay();
+
+
 
         //   long processingTime;
         long productionTime;
