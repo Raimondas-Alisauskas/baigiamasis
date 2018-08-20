@@ -1,0 +1,17 @@
+
+
+	HTTP (1.1) - 
+	
+	
+	Url - adresas (portas)
+	Headers - meta, kontekstine, tarnybine informacija
+	Body - duomenu paketas
+	
+	
+	GET - issitraukti kazka pagal ID
+	POST - paieska (body naudojamas kaip paiesko parametram)
+	PUT - nauji duomenys
+	UPDATE - atnaujint pagal ... ID ar pan.
+	DELETE - panaikinti pagal ID
+	
+
