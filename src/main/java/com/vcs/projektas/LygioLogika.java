@@ -1,17 +1,20 @@
 package com.vcs.projektas;
 
 import projektas.algoritmai.Algoritmas;
+import projektas.algoritmai.PrIrPabSimetrija;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class LygioLogika {
 
+    //private Map<Integer, List<Algoritmas>> algsByLevel = new HashMap<>();
 
-    private Map<Integer, List<Algoritmas>> algsByLevel = new HashMap<>();
+    private Map<Integer, List<Algoritmas>> algsByLevel;
 
+    public LygioLogika() {
+        algsByLevel = new HashMap<Integer, List<Algoritmas>>();
+List
+    }
 
     // TODO konstruktorius kuriame supildysim sita map'a
 
@@ -23,30 +26,5 @@ public class LygioLogika {
 
         return algs.get(rnd.nextInt(algs.size())); //grazina atsitiktini dydi
     }
-
-
-// gal switch? Kaip pasikviesti tinkamą lygį?
-//    private void level1() {
-//        Simetrija logika1 = new Simetrija();
-//        logika1.pirmaFormule();
-//
-//    }
-//
-//    private void level2() {
-//
-//        KaimynesRaidesNesutampa logika2 = new KaimynesRaidesNesutampa();
-//        logika2.antraFormule();
-//
-//    }
-//
-//    private void level3() {
-//
-//        PrIrPabAsimetrija logika3 = new PrIrPabAsimetrija();
-//        logika3.treciaFormule();
-//
-//    }
-
-    // ....
-    // in char type (perhaps)
 
 }

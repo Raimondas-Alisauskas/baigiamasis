@@ -11,11 +11,11 @@ public class KaimynesRaidesNesutampa implements Algoritmas {
         int count = 0;
 
         for (int i = 0; i < eilute.getEilute().size(); i++) {
-            if (eilute.getEilute().get(i) != (eilute.getEilute().get(i + 1)))
+            if (eilute.eilute.get(i) != (eilute.eilute.get(i + 1)))
                 count++;
         }
 
-        return count == eilute.getEilute().size() - 1;
+        return count == eilute.eilute.size() - 1;
     }
 
     public int sudetingumas() {
