@@ -13,7 +13,7 @@ public class LygioLogika {
 
     public LygioLogika() {
         algsByLevel = new HashMap<Integer, List<Algoritmas>>();
-List
+
     }
 
     // TODO konstruktorius kuriame supildysim sita map'a
