@@ -1,49 +1,33 @@
 package com.vcs.bogdan.Beans;
 
-import javax.naming.Name;
+public class Month extends Id {
 
-public class Month {
-
-    private long id;
     private int workDays;
     private int workHours;
-    private double minMonthlyWage;
-    private double minHourlyWage;
+    private double min;
+    private double hourlyMin;
     private double moreTimeCoefficient;
     private double redDayCoefficient;
 
     public Month(){}
 
-    public Month(Month month){
-        this.setId(month.getId());
-        this.setWorkDays(month.getWorkDays());
-        this.setWorkHours(month.getWorkHours());
-        this.setMinMonthlyWage(month.getMinMonthlyWage());
-        this.setMinHourlyWage(month.getMinHourlyWage());
-        this.setMoreTimeCoefficient(month.getMoreTimeCoefficient());
-        this.setRedDayCoefficient(month.getRedDayCoefficient());
-    }
-
-    public Month(long id, int workDays, int workHours, double minMonthlyWage, double minHourlyWage, double moreTimeCoefficient, double redDayCoefficient) {
-        this.id = id;
+    public Month(int workDays, int workHours, double min, double hourlyMin, double moreTimeCoefficient, double redDayCoefficient) {
         this.workDays = workDays;
         this.workHours = workHours;
-        this.minMonthlyWage = minMonthlyWage;
-        this.minHourlyWage = minHourlyWage;
+        this.min = min;
+        this.hourlyMin = hourlyMin;
         this.moreTimeCoefficient = moreTimeCoefficient;
         this.redDayCoefficient = redDayCoefficient;
     }
 
-    public String toString(){
-        return "month";
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public Month(String id, int workDays, int workHours, double min, double HourlyMin, double moreTimeCoefficient, double redDayCoefficient) {
+        super(id);
+        this.workDays = workDays;
+        this.workHours = workHours;
+        this.min = min;
+        this.hourlyMin = HourlyMin;
+        this.moreTimeCoefficient = moreTimeCoefficient;
+        this.redDayCoefficient = redDayCoefficient;
     }
 
     public int getWorkDays() {
@@ -62,20 +46,20 @@ public class Month {
         this.workHours = workHours;
     }
 
-    public double getMinMonthlyWage() {
-        return minMonthlyWage;
+    public double getMin() {
+        return min;
     }
 
-    public void setMinMonthlyWage(double minMonthlyWage) {
-        this.minMonthlyWage = minMonthlyWage;
+    public void setMin(double min) {
+        this.min = min;
     }
 
-    public double getMinHourlyWage() {
-        return minHourlyWage;
+    public double getHourlyMin() {
+        return hourlyMin;
     }
 
-    public void setMinHourlyWage(double minHourlyWage) {
-        this.minHourlyWage = minHourlyWage;
+    public void setHourlyMin(double hourlyMin) {
+        this.hourlyMin = hourlyMin;
     }
 
     public double getMoreTimeCoefficient() {
@@ -93,6 +77,4 @@ public class Month {
     public void setRedDayCoefficient(double redDayCoefficient) {
         this.redDayCoefficient = redDayCoefficient;
     }
-
-
 }

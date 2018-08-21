@@ -2,12 +2,14 @@ package com.vcs.bogdan.Service;
 
 import com.vcs.bogdan.Beans.*;
 import com.vcs.bogdan.Beans.Enums.DeductionType;
-import com.vcs.bogdan.Beans.ListData.TimeList;
 
-public class CalcSalary {
+import java.util.List;
 
-    public double getIncomeWage(Employee employee, TimeList timeList, Period period) {
-        return Math.max(calcIncomeWage(employee, timeList, period), period.getMinMonthlyWage());
+
+public class CalcService {
+
+    public double getIncomeWage(Employee employee, List<TimeList> timeList, Period period) {
+        return Math.max(calcIncomeWage(employee, timeList, period), period.getMonth().getMin());
     }
 
     public double getIncomeTax(double incomeWage, Employee employee, Tax tax) {
@@ -20,7 +22,7 @@ public class CalcSalary {
     }
 
     public double getHealthInsuranceDeductionFromEmployee(double incomeWage, Insurance insurance) {
-        return getCalculatePercentageFromNumber(incomeWage, insurance.getHealthFromEmployee());
+        return getCalculatePercentageFromNumber(incomeWage, insurance.getHealthEmployee());
     }
 
     public double getGuaranteeFundDeductionSum(double incomeWage, Insurance insurance) {
@@ -32,7 +34,7 @@ public class CalcSalary {
             case TAX:
                 return 0;
             case SIFEE:
-                return Math.max(period.getInsurance().getSocialFromEmployee(), employee.getSocialInsurance());
+                return Math.max(period.getInsurance().getSocialEmployee(), employee.getSocialInsurance());
             case SIFNEE:
                 return 0;
             case SIFER:
@@ -48,13 +50,14 @@ public class CalcSalary {
         }
     }
 
-    private double calcIncomeWage(Employee employee, TimeList timeList, Period period) {
-        switch (employee.getSalaryCalcType().getIndex()) {
-            case 0:
-                return getMultiply(timeList.getHoursAmount(employee.getId(), period.getId()), employee.getWage());
-            case 1:
-                return getMultiply(timeList.getDaysAmount(employee.getId(), period.getId()), employee.getWage());
-            case 2:
+    private double calcIncomeWage(Employee employee, List<TimeList> timeList, Period period) {
+        TimeListService timeListService = new TimeListService();
+        switch (employee.getCalcType()) {
+            case DAY:
+                return getMultiply(timeListService.getHours(timeList, employee.getId(), period.getId()), employee.getWage());
+            case HOUR:
+                return getMultiply(timeListService.getDays(timeList, employee.getId(), period.getId()), employee.getWage());
+            case MONTH:
                 return getMultiply(1, employee.getWage());
             default:
                 return 0;
@@ -71,7 +74,7 @@ public class CalcSalary {
 
     private double getTaxFree(double incomeWage, Employee employee, Tax tax) {
         double result = tax.getTaxFree() + employee.getPnpd();
-        if (employee.isMainWorkPlace()) {
+        if (employee.isMain()) {
             if (incomeWage >= tax.getBase()) {
                 result = result - (incomeWage - tax.getBase()) * tax.getCoefficient();
             }

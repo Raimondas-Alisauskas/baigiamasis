@@ -6,10 +6,19 @@ public class Person {
     private String name;
     private String surname;
 
+    public Person() {}
 
-    public String getId() {
-        return id;
+    public Person(String id){
+        this.id = id;
     }
+
+    public Person(String id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public String getId() { return id;}
 
     public void setId(String id) {
         this.id = id;
@@ -31,11 +40,4 @@ public class Person {
         this.surname = surname;
     }
 
-    public Person(){}
-
-    public Person(String id, String name, String surname) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-    }
 }

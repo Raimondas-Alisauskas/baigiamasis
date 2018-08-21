@@ -1,9 +1,6 @@
 package com.vcs.bogdan.Beans;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-
-public class Tax {
+public class Tax extends Id {
 
     private double taxFree;
     private double coefficient;
@@ -11,9 +8,19 @@ public class Tax {
     private double percent;
     private double pnpd;
 
-    public Tax(){ }
+    public Tax() {
+    }
 
     public Tax(double taxFree, double coefficient, double base, double percent, double pnpd) {
+        this.taxFree = taxFree;
+        this.coefficient = coefficient;
+        this.base = base;
+        this.percent = percent;
+        this.pnpd = pnpd;
+    }
+
+    public Tax(String id, double taxFree, double coefficient, double base, double percent, double pnpd) {
+        super(id);
         this.taxFree = taxFree;
         this.coefficient = coefficient;
         this.base = base;

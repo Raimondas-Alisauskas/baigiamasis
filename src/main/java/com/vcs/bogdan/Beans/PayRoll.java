@@ -2,18 +2,18 @@ package com.vcs.bogdan.Beans;
 
 public class PayRoll {
 
-    private long month;
+    private String month;
     private String employeeName;
     private double income;
     private double deductTax;
     private double deductInsurance;
     private double out;
 
-    public long getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(long month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 

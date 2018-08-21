@@ -1,0 +1,35 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch bogdan
+# Your branch is up to date with 'origin/bogdan'.
+#
+# Changes to be committed:
+#	new file:   .gitignore
+#	new file:   pom.xml
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Employee.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Enums/DeductionType.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Enums/JobEvenType.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Enums/SalaryCalcType.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/EventData.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Insurance.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/ListData/EmployeeList.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/ListData/PeriodList.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/ListData/TimeList.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Month.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/PayRoll.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Period.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Person.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/Tax.java
+#	new file:   src/main/java/com/vcs/bogdan/Beans/data.txt
+#	new file:   src/main/java/com/vcs/bogdan/Service/CalcSalary.java
+#	new file:   src/main/java/com/vcs/bogdan/Service/MySQL.java
+#	new file:   src/main/java/com/vcs/bogdan/Ui/App.java
+#	new file:   src/main/java/com/vcs/bogdan/Ui/Table.java
+#
+# Untracked files:
+#	Y
+#
+Inint commit
+

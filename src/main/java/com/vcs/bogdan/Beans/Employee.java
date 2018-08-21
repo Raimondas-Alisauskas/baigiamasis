@@ -1,16 +1,16 @@
 package com.vcs.bogdan.Beans;
 
-import com.vcs.bogdan.Beans.Enums.JobEvenType;
-import com.vcs.bogdan.Beans.Enums.SalaryCalcType;
+import com.vcs.bogdan.Beans.Enums.CalcType;
+import com.vcs.bogdan.Beans.Enums.EvenType;
 
 public class Employee extends Person {
 
-    private JobEvenType jobEventType;
-    private SalaryCalcType salaryCalcType;
     private long date;
+    private EvenType eventType;
+    private CalcType calcType;
     private double dayHours;
     private double wage;
-    private boolean isMainWorkPlace; // the main workplace
+    private boolean isMain; // the main workplace
     private double socialInsurance;
     private double tax;
     private double pnpd;
@@ -18,34 +18,41 @@ public class Employee extends Person {
     public Employee() {
     }
 
-    public Employee(String id, String name, String surname,
-                    JobEvenType jobEventType, SalaryCalcType salaryCalcType, long date, double dayHours, double wage, boolean isMainWorkPlace, double socialInsurance, double tax, double pnpd) {
-        super(id, name, surname);
-        this.jobEventType = jobEventType;
-        this.salaryCalcType = salaryCalcType;
+    public Employee(String id, long date, EvenType eventType, CalcType calcType, double dayHours, double wage, boolean isMain, double socialInsurance, double tax, double pnpd) {
+        super(id);
         this.date = date;
+        this.eventType = eventType;
+        this.calcType = calcType;
         this.dayHours = dayHours;
         this.wage = wage;
-        this.isMainWorkPlace = isMainWorkPlace;
+        this.isMain = isMain;
         this.socialInsurance = socialInsurance;
         this.tax = tax;
         this.pnpd = pnpd;
     }
 
-    public JobEvenType getJobEventType() {
-        return jobEventType;
+    public EvenType getEventType() {
+        return eventType;
     }
 
-    public void setJobEventType(JobEvenType jobEventType) {
-        this.jobEventType = jobEventType;
+    public void setEventType(EvenType jobEventType) {
+        this.eventType = eventType;
     }
 
-    public SalaryCalcType getSalaryCalcType() {
-        return salaryCalcType;
+    public void setEventType(String str) {
+        this.eventType = EvenType.valueOf(str);
     }
 
-    public void setSalaryCalcType(SalaryCalcType salaryCalcType) {
-        this.salaryCalcType = salaryCalcType;
+    public CalcType getCalcType() {
+        return calcType;
+    }
+
+    public void setCalcType(CalcType salaryCalcType) {
+        this.calcType = calcType;
+    }
+
+    public void setCalcType(String str) {
+        this.calcType = CalcType.valueOf(str);
     }
 
     public long getDate() {
@@ -72,12 +79,12 @@ public class Employee extends Person {
         this.wage = wage;
     }
 
-    public boolean isMainWorkPlace() {
-        return isMainWorkPlace;
+    public boolean isMain() {
+        return isMain;
     }
 
-    public void setMainWorkPlace(boolean mainWorkPlace) {
-        isMainWorkPlace = mainWorkPlace;
+    public void setMain(boolean isMain) {
+        isMain = isMain;
     }
 
     public double getSocialInsurance() {

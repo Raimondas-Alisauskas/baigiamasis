@@ -1,20 +1,29 @@
 package com.vcs.bogdan.Beans;
 
-public class Period extends Month {
+public class Period {
 
+    private Month month;
     private Tax tax;
     private Insurance insurance;
 
-    public Period(long id, int workDays, int workHours, double minMonthlyWage, double minHourlyWage, double moreTimeCoefficient, double redDayCoefficient, Tax tax, Insurance insurance) {
-        super(id, workDays, workHours, minMonthlyWage, minHourlyWage, moreTimeCoefficient, redDayCoefficient);
+    public Period(){}
+
+    public Period(Month month, Tax tax, Insurance insurance) {
+        this.month = month;
         this.tax = tax;
         this.insurance = insurance;
     }
 
-    public Period(Month month, Tax tax, Insurance insurance) {
-        super(month);
-        this.tax = tax;
-        this.insurance = insurance;
+    public String getId(){
+        return this.getMonth().getId();
+    }
+
+    public Month getMonth() {
+        return month;
+    }
+
+    public void setMonth(Month month) {
+        this.month = month;
     }
 
     public Tax getTax() {
@@ -32,4 +41,5 @@ public class Period extends Month {
     public void setInsurance(Insurance insurance) {
         this.insurance = insurance;
     }
+
 }

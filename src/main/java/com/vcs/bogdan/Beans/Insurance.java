@@ -1,65 +1,73 @@
 package com.vcs.bogdan.Beans;
 
-public class Insurance {
+public class Insurance extends Id {
 
-    private double healthFromEmployee;
-    private double healthFromNewEmployee;
-    private double healthFromEmployer;
-    private double socialFromEmployee;
-    private double socialFromEmployer;
+    private double healthEmployee;
+    private double healthNewEmployee;
+    private double healthEmployer;
+    private double socialEmployee;
+    private double socialEmployer;
     private double guaranteeFund;
     private int sickPayDay;
     private double sickPayCoefficient;
 
-    public Insurance(double healthFromEmployee, double healthFromNewEmployee, double healthFromEmployer, double socialFromEmployee, double socialFromEmployer, double guaranteeFund, int sickPayDay, double sickPayCoefficient) {
-        this.healthFromEmployee = healthFromEmployee;
-        this.healthFromNewEmployee = healthFromNewEmployee;
-        this.healthFromEmployer = healthFromEmployer;
-        this.socialFromEmployee = socialFromEmployee;
-        this.socialFromEmployer = socialFromEmployer;
+    public Insurance() {
+    }
+
+    public Insurance(double healthEmployee, double healthNewEmployee, double healthEmployer, double socialEmployee, double socialEmployer, double guaranteeFund, int sickPayDay, double sickPayCoefficient) {
+        this.healthEmployee = healthEmployee;
+        this.healthNewEmployee = healthNewEmployee;
+        this.healthEmployer = healthEmployer;
+        this.socialEmployee = socialEmployee;
+        this.socialEmployer = socialEmployer;
         this.guaranteeFund = guaranteeFund;
         this.sickPayDay = sickPayDay;
         this.sickPayCoefficient = sickPayCoefficient;
     }
 
-    public double getHealthFromEmployee() {
-        return healthFromEmployee;
+    public Insurance(String id, Insurance insurance) {
+        super(id);
+        new Insurance(healthEmployee,healthNewEmployee,healthEmployer,socialEmployee,socialEmployer,guaranteeFund,sickPayDay, sickPayCoefficient);
     }
 
-    public void setHealthFromEmployee(double healthFromEmployee) {
-        this.healthFromEmployee = healthFromEmployee;
+    public double getHealthEmployee() {
+        return healthEmployee;
     }
 
-    public double getHealthFromNewEmployee() {
-        return healthFromNewEmployee;
+    public void setHealthEmployee(double healthEmployee) {
+        this.healthEmployee = healthEmployee;
     }
 
-    public void setHealthFromNewEmployee(double healthFromNewEmployee) {
-        this.healthFromNewEmployee = healthFromNewEmployee;
+    public double getHealthNewEmployee() {
+        return healthNewEmployee;
     }
 
-    public double getHealthFromEmployer() {
-        return healthFromEmployer;
+    public void setHealthNewEmployee(double healthNewEmployee) {
+        this.healthNewEmployee = healthNewEmployee;
     }
 
-    public void setHealthFromEmployer(double healthFromEmployer) {
-        this.healthFromEmployer = healthFromEmployer;
+    public double getHealthEmployer() {
+        return healthEmployer;
     }
 
-    public double getSocialFromEmployee() {
-        return socialFromEmployee;
+    public void setHealthEmployer(double healthEmployer) {
+        this.healthEmployer = healthEmployer;
     }
 
-    public void setSocialFromEmployee(double socialFromEmployee) {
-        this.socialFromEmployee = socialFromEmployee;
+    public double getSocialEmployee() {
+        return socialEmployee;
     }
 
-    public double getSocialFromEmployer() {
-        return socialFromEmployer;
+    public void setSocialEmployee(double socialEmployee) {
+        this.socialEmployee = socialEmployee;
     }
 
-    public void setSocialFromEmployer(double socialFromEmployer) {
-        this.socialFromEmployer = socialFromEmployer;
+    public double getSocialEmployer() {
+        return socialEmployer;
+    }
+
+    public void setSocialEmployer(double socialEmployer) {
+        this.socialEmployer = socialEmployer;
     }
 
     public double getGuaranteeFund() {
