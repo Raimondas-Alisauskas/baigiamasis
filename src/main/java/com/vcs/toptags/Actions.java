@@ -13,7 +13,7 @@ public class Actions {
 
     public void actionsWithNewsWebPages() {
 
-        int qtyTopWords = 10;
+        int qtyTopWords = 20;
 
         ArrayList<INewsPage> newsPageList = generateNewsPageObjects();
 
