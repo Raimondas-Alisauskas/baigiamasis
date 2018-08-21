@@ -13,7 +13,10 @@ public class Actions {
 
     public void actionsWithNewsWebPages() {
 
-        int qtyTopWords = 20;
+        //TODO Delete sout from Action.java and move it to web app.
+        System.out.println("Program has started. Counting could take up to 3-5 min, so plz. be patient! :)");
+
+        int qtyTopWords = getQtyTopWords();
 
         ArrayList<INewsPage> newsPageList = generateNewsPageObjects();
 
@@ -36,23 +39,30 @@ public class Actions {
 
     }
 
-        // Get News Pages Object Array
-        private ArrayList<INewsPage> generateNewsPageObjects(){
-            NewsPageObjects npo = new NewsPageObjects();
+    // Get Quantity of Listed Words form /src/main/resources
 
-            return npo.getNewsPageObjects();
-        }
+    private int getQtyTopWords(){
 
-        // get active links from thePage Java Script Dynamic links nad Set it To Page Object
-        private void setJSLinksFromWebPageToObject(INewsPage newsPage){
+        return (new TopWordsQty()).getQtyTopWords();
+    }
 
-            newsPage.setActiveLinks(new ActiveLinksFromJS().getActiveLinksFromJavaScript(newsPage));
-        }
+    // Get News Pages Object Array
+    private ArrayList<INewsPage> generateNewsPageObjects(){
+        NewsPageObjects npo = new NewsPageObjects();
+
+        return npo.getNewsPageObjects();
+    }
+
+    // get active links from thePage Java Script Dynamic links nad Set it To Page Object
+    private void setJSLinksFromWebPageToObject(INewsPage newsPage){
+
+        newsPage.setActiveLinks(new ActiveLinksFromJS().getActiveLinksFromJavaScript(newsPage));
+    }
 
 
-        private void printIt (INewsPage newsPage){
-            // Print Top Words
-            new PrintAll().printTopWords(newsPage);
+    private void printIt (INewsPage newsPage){
+        // Print Top Words
+        new PrintAll().printTopWords(newsPage);
 
-        }
+    }
 }
