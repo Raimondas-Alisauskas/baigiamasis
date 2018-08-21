@@ -1,6 +1,6 @@
 package com.vcs.ds;
 
-import com.vcs.ds._10_model.database.*;
+import com.vcs.ds._10_model.data.*;
 import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._20_request.Request;
 import com.vcs.ds._30_proposal.PropTimeCalculator;
@@ -16,8 +16,9 @@ public class Main {
 
 //      Create mock initial Databases
 //        ClientsData
-        DataStorage clientsDatabase = new ClientsData();// TODO: 18.8.21 Pakeista i DataStorage
+        ClientsData clientsDatabase = new ClientsData();
 //        RequestsData
+        // DataStorage requestsData = new RequestsData();todo trinti
         RequestsData requestsData = new RequestsData();
 //        ProducersData
         ProducersData producersData = new ProducersData();
@@ -34,6 +35,7 @@ public class Main {
         Request theRequest = new Request(requestInput.getClientName(), requestInput.getMaxDimensionMM(), requestInput.getVolumeCM3(), requestInput.getDeadline());// TODO: 18.8.18 Stage 1.1 get from list
 
 //        Put the Request in to RequestsData
+        //RequestsData.dataList.add(theRequest); todo trinti
         requestsData.getRequestsList().add(theRequest);
 
 //        Create Proposals for all suitable Producers to meet the Request
@@ -49,7 +51,7 @@ public class Main {
             //check Producer availability (producer availability 24 hours)
             LocalDateTime availableStart = producersData.getProducersList().get(i).getAvailableStart();
             LocalDateTime availableFinish = producersData.getProducersList().get(i).getAvailableFinish();
-            boolean available =propTimeCalculator.checkAvailability(availableStart, availableFinish, productionDuration);
+            boolean available = propTimeCalculator.checkAvailability(availableStart, availableFinish, productionDuration);
 
             if (available) {
 
@@ -73,20 +75,16 @@ public class Main {
                     //put Proposal to proposalsList
                     proposalsData.getProposalsList().add(proposal);
 
-                    //put proposalsList to ProposalsDetabase
-
-
-
                 }
 
             }
 
         }
 
-//        Put Proposals to ProposalsData todo
-        //          proposalsData.getProposalsList().add(proposal);
+//        Put Proposals to ProposalsData
+        proposalsData.getProposalsDatalist().add(proposalsData.getProposalsList());
 
-//        Create OutputToClient put Producer name, availale time, price todo
+//        Create OutputToClient put Producer name, availale time, earlyFinish todo
 
 
         //exeptions todo

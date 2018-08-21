@@ -1,4 +1,4 @@
-package com.vcs.ds._10_model.database;
+package com.vcs.ds._10_model.data;
 
 import com.vcs.ds._40_producer.Producer;
 
@@ -8,7 +8,7 @@ import java.util.List;
 public class ProducersData implements DataStorage{
 
 
-    private static List<Producer> ProducersList;
+    private List<Producer> ProducersList;
 
 
     public ProducersData() {
@@ -21,7 +21,7 @@ public class ProducersData implements DataStorage{
 
 
 //getset
-    public  static List<Producer> getProducersList() {
+    public  List<Producer> getProducersList() {
         return ProducersList;
     }
 

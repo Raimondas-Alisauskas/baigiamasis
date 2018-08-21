@@ -1,4 +1,4 @@
-package com.vcs.ds._10_model.database;
+package com.vcs.ds._10_model.data;
 
 import com.vcs.ds._20_request.Request;
 
@@ -8,8 +8,7 @@ import java.util.List;
 public class RequestsData implements DataStorage{
 
 
-    private static List<Request> requestsList;
-    private static List<Request> requestsList2;
+    private  List<Request> requestsList;
 
     public RequestsData() {
         requestsList = new ArrayList<>();
@@ -21,7 +20,7 @@ public class RequestsData implements DataStorage{
     }
 
     //get set
-    public List<Request> getRequestsList() {
+    public  List<Request> getRequestsList() {
         return requestsList;
     }
 

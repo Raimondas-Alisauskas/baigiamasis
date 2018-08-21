@@ -1,4 +1,4 @@
-package com.vcs.ds._10_model.database;
+package com.vcs.ds._10_model.data;
 
 public class InitialDataCreator {
 

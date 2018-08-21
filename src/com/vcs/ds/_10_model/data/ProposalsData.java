@@ -1,4 +1,4 @@
-package com.vcs.ds._10_model.database;
+package com.vcs.ds._10_model.data;
 
 import com.vcs.ds._30_proposal.Proposal;
 
@@ -8,8 +8,8 @@ import java.util.List;
 public class ProposalsData {
 
 
-    private static List<Proposal> proposalsList;
-    private static List<List<Proposal>> proposalsDatalist;
+    private  List<Proposal> proposalsList;
+    private  List<List<Proposal>> proposalsDatalist;
 
     public ProposalsData() {
 
@@ -26,4 +26,7 @@ public class ProposalsData {
         return proposalsList;
     }
 
+    public List<List<Proposal>> getProposalsDatalist() {
+        return proposalsDatalist;
+    }
 }

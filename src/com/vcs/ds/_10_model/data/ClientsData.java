@@ -1,4 +1,4 @@
-package com.vcs.ds._10_model.database;
+package com.vcs.ds._10_model.data;
 
 import com.vcs.ds._20_client.Client;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ClientsData implements DataStorage{
 
-    private static List<Client> clientsList;
+    private  List<Client> clientsList;
 
      public ClientsData() {
 
