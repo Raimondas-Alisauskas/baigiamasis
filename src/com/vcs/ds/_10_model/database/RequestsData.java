@@ -5,13 +5,13 @@ import com.vcs.ds._20_request.Request;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RequestsDatabase {
+public class RequestsData implements DataStorage{
 
 
-    private List<Request> requestsList;
+    private static List<Request> requestsList;
+    private static List<Request> requestsList2;
 
-
-    public RequestsDatabase() {
+    public RequestsData() {
         requestsList = new ArrayList<>();
         requestsList.add(0, new Request("C10", "100", "100", "2018-09-15"));
         requestsList.add(1, new Request("C1", "200", "200", "2018-09-10"));

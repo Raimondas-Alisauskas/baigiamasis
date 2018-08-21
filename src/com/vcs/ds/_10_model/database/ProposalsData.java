@@ -5,15 +5,21 @@ import com.vcs.ds._30_proposal.Proposal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProposalsDatabase {
+public class ProposalsData {
 
 
-    private List<Proposal> proposalsList;
+    private static List<Proposal> proposalsList;
+    private static List<List<Proposal>> proposalsDatalist;
 
+    public ProposalsData() {
 
-    public ProposalsDatabase() {
         proposalsList =  new ArrayList<>();
+        proposalsDatalist =  new ArrayList<>();
     }
+
+
+
+
 
     //getset
     public List<Proposal> getProposalsList() {

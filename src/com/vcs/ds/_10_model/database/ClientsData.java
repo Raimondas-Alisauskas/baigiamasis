@@ -5,11 +5,11 @@ import com.vcs.ds._20_client.Client;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientsDatabase {
+public class ClientsData implements DataStorage{
 
-    private List<Client> clientsList;
+    private static List<Client> clientsList;
 
-     public ClientsDatabase() {
+     public ClientsData() {
 
         clientsList = new ArrayList<>();
         clientsList.add( 0 , new Client("C0"));

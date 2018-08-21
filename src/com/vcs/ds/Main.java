@@ -1,9 +1,6 @@
 package com.vcs.ds;
 
-import com.vcs.ds._10_model.database.ClientsDatabase;
-import com.vcs.ds._10_model.database.ProducersDatabase;
-import com.vcs.ds._10_model.database.ProposalsDatabase;
-import com.vcs.ds._10_model.database.RequestsDatabase;
+import com.vcs.ds._10_model.database.*;
 import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._20_request.Request;
 import com.vcs.ds._30_proposal.PropTimeCalculator;
@@ -18,14 +15,14 @@ public class Main {
     public static void main(String[] args) {
 
 //      Create mock initial Databases
-//        ClientsDatabase
-        ClientsDatabase clientsDatabase = new ClientsDatabase();
-//        RequestsDatabase
-        RequestsDatabase requestsDatabase = new RequestsDatabase();
-//        ProducersDatabase
-        ProducersDatabase producersDatabase = new ProducersDatabase();
-//        ProposalsDatabase
-        ProposalsDatabase proposalsDatabase = new ProposalsDatabase();
+//        ClientsData
+        DataStorage clientsDatabase = new ClientsData();// TODO: 18.8.21 Pakeista i DataStorage
+//        RequestsData
+        RequestsData requestsData = new RequestsData();
+//        ProducersData
+        ProducersData producersData = new ProducersData();
+//        ProposalsData
+        ProposalsData proposalsData = new ProposalsData();
 //
 //
 //        Receiving Request for production: Create mock RequestInput
@@ -33,31 +30,31 @@ public class Main {
 
 //        If Client is new, create new Client id, put in to ClientDatabase todo Stage2
 
-//        Create the Request to answer
+//        Create the Request
         Request theRequest = new Request(requestInput.getClientName(), requestInput.getMaxDimensionMM(), requestInput.getVolumeCM3(), requestInput.getDeadline());// TODO: 18.8.18 Stage 1.1 get from list
 
-//        Put the Request in to RequestsDatabase
-        requestsDatabase.getRequestsList().add(theRequest);
+//        Put the Request in to RequestsData
+        requestsData.getRequestsList().add(theRequest);
 
 //        Create Proposals for all suitable Producers to meet the Request
-        for (int i = 0; i < producersDatabase.getProducersList().size(); i++) {
+        for (int i = 0; i < producersData.getProducersList().size(); i++) {
 
             // Calculate productionDuration
             PropTimeCalculator propTimeCalculator = new PropTimeCalculator();
-            Duration programingTime = producersDatabase.getProducersList().get(i).getProgramingTimeH();
-            long processingSpeedUnitpH = producersDatabase.getProducersList().get(i).getProcessingSpeedCM3pH();
+            Duration programingTime = producersData.getProducersList().get(i).getProgramingTimeH();
+            long processingSpeedUnitpH = producersData.getProducersList().get(i).getProcessingSpeedCM3pH();
             long volumeUnit = theRequest.getVolumeCM3();
             Duration productionDuration = propTimeCalculator.calculateProductionDuration(programingTime, processingSpeedUnitpH, volumeUnit);
 
-            //check Producer availability
-            LocalDateTime availableStart = producersDatabase.getProducersList().get(i).getAvailableStart();
-            LocalDateTime availableFinish = producersDatabase.getProducersList().get(i).getAvailableFinish();
+            //check Producer availability (producer availability 24 hours)
+            LocalDateTime availableStart = producersData.getProducersList().get(i).getAvailableStart();
+            LocalDateTime availableFinish = producersData.getProducersList().get(i).getAvailableFinish();
             boolean available =propTimeCalculator.checkAvailability(availableStart, availableFinish, productionDuration);
 
             if (available) {
 
                 //calculate earlyFinish date of Proposal
-                Duration deliveringTime = producersDatabase.getProducersList().get(i).getDeliveringTimeH();
+                Duration deliveringTime = producersData.getProducersList().get(i).getDeliveringTimeH();
                 LocalDateTime earlyFinish = propTimeCalculator.calculateEarlyFinish(availableStart, productionDuration, deliveringTime);
 
                 //check Request's deadline
@@ -69,11 +66,12 @@ public class Main {
                     //create Proposal
                     String proposalId = new IdGenerator().generateIdKey("Pr ");
                     String requestId = theRequest.getRequestId();
-                    String producerName = producersDatabase.getProducersList().get(i).getProducerName();
+                    String producerName = producersData.getProducersList().get(i).getProducerName();
                     Proposal proposal = new Proposal(proposalId, requestId, producerName, availableStart, availableFinish, earlyFinish);
                     System.out.println();
 
                     //put Proposal to proposalsList
+                    proposalsData.getProposalsList().add(proposal);
 
                     //put proposalsList to ProposalsDetabase
 
@@ -85,13 +83,14 @@ public class Main {
 
         }
 
-//        Put Proposals to ProposalsDatabase todo
-        //          proposalsDatabase.getProposalsList().add(proposal);
+//        Put Proposals to ProposalsData todo
+        //          proposalsData.getProposalsList().add(proposal);
 
 //        Create OutputToClient put Producer name, availale time, price todo
 
-        // Tests todo
 
+        //exeptions todo
+        //tests todo
 
 
         System.out.println("Pabaiga");
@@ -106,6 +105,6 @@ public class Main {
 //        Receive ProducerInput
 //        Check validity
 //        Create ProducerId
-//        Put to ProducersDatabase
+//        Put to ProducersData
 //
 //        Active/NotActive Producer, Proposal

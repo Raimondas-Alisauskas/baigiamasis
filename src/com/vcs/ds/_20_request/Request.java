@@ -10,7 +10,7 @@ public class Request {
 
     //id
     private String requestId;
-    private String clientName; // TODO: Stage2  Sukurti atpazinima ar tai senas ar naujas klientas. Deti i ClientsDatabase jei naujas
+    private String clientName; // TODO: Stage2  Sukurti atpazinima ar tai senas ar naujas klientas. Deti i ClientsData jei naujas
     //scope
     private long maxDimensionsMM; // TODO: Stage2 Validumo Tikrinimas.
     private long volumeCM3; // TODO: Stage2 Validumo Tikrinimas.

@@ -5,13 +5,13 @@ import com.vcs.ds._40_producer.Producer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProducersDatabase {
+public class ProducersData implements DataStorage{
 
 
-    private List<Producer> ProducersList;
+    private static List<Producer> ProducersList;
 
 
-    public ProducersDatabase() {
+    public ProducersData() {
         ProducersList = new ArrayList<>();
         ProducersList.add(0, new Producer("P10", "1", "2018-09-10", "2018-09-15", "1", "24"));
         ProducersList.add(1, new Producer("P11", "2", "2018-09-01", "2018-10-15", "2", "12"));
@@ -21,7 +21,7 @@ public class ProducersDatabase {
 
 
 //getset
-    public  List<Producer> getProducersList() {
+    public  static List<Producer> getProducersList() {
         return ProducersList;
     }
 
