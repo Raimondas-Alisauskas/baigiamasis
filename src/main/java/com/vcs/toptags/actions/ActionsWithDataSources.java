@@ -1,14 +1,16 @@
-package com.vcs.toptags;
+package com.vcs.toptags.actions;
 
 import com.vcs.toptags.cleaning_process.ActiveLinksFromJS;
 import com.vcs.toptags.cleaning_process.CleanAndCalculate;
-import com.vcs.toptags.io.*;
-import com.vcs.toptags.page_adapters.*;
+import com.vcs.toptags.io.PrintAll;
+import com.vcs.toptags.io.TopWordsQty;
+import com.vcs.toptags.page_adapters.INewsPage;
+import com.vcs.toptags.page_adapters.NewsPageObjects;
 
 import java.util.ArrayList;
 
 
-public class Actions {
+public class ActionsWithDataSources {
 
 
     public void actionsWithNewsWebPages() {
