@@ -1,5 +1,4 @@
-																		Kursas: Java-0730 
-																		Andrius Prišmantas
+																Kursas: Java-0730 													Andrius Prišmantas
 
 					Vaizdų atpažinimo tinklo analitika
 
