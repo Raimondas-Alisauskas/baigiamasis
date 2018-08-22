@@ -22,15 +22,17 @@ public abstract class Vehicle {
 
     protected boolean autoGearBox;
 
-    public static int vehicleId;
+    protected int vehicleId;
 
     protected TypeOfVehicle typeOfVehicle;
 
-    public static int counter = vehicleId +1;
+    protected static int counter=0;
 
     protected double pricePerDay;
 
     protected int ClientId;
+
+    protected double VehPrice;
 
 
 
@@ -91,13 +93,7 @@ public abstract class Vehicle {
         return autoGearBox;
     }
 
-    public int getVehicleId() {
-        return vehicleId;
-    }
 
-    public void setVehicleId() {
-        this.vehicleId = counter;
-    }
 
     public TypeOfVehicle getTypeOfVehicle() {
         return typeOfVehicle;
@@ -115,9 +111,7 @@ public abstract class Vehicle {
         this.pricePerDay = pricePerDay;
     }
 
-    public void setVehicleId(int vehicleId) {
-        this.vehicleId = vehicleId;
-    }
+
 
     public int getClientId() {
         return ClientId;
@@ -125,5 +119,22 @@ public abstract class Vehicle {
 
     public void setClientId(int clientId) {
         ClientId = clientId;
+    }
+
+    public int getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId() {
+        counter++;
+        this.vehicleId = counter;
+    }
+
+    public double getVehPrice() {
+        return VehPrice;
+    }
+
+    protected void setVehPrice(double vehPrice) {
+        VehPrice = vehPrice;
     }
 }

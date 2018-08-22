@@ -25,6 +25,7 @@ public class Hatchback extends Vehicle {
         setPower(power);
         setProductionYear(productionYear);
         setTypeOfVehicle(TypeOfVehicle.HATCHBACK);
+        setVehPrice(30);
         setVehicleId();
         RentalShop.generalList.add(Hatchback.this);
     }

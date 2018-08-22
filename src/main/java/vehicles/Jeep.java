@@ -25,6 +25,7 @@ public class Jeep extends Vehicle {
         setTypeOfVehicle(JEEP);
         setVehicleId();
         RentalShop.generalList.add(Jeep.this);
+        setVehPrice(50);
 
 
     }

@@ -23,6 +23,7 @@ public class MotorBike extends Vehicle {
         setTypeOfVehicle(TypeOfVehicle.MOTORBIKE);
         setVehicleId();
         RentalShop.generalList.add(MotorBike.this);
+        setVehPrice(20);
     }
 
     public boolean isSideSeat() {

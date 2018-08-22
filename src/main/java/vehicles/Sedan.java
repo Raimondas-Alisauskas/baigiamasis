@@ -22,6 +22,7 @@ public class Sedan extends Vehicle {
         setTypeOfVehicle(TypeOfVehicle.SEDAN);
         setVehicleId();
         RentalShop.generalList.add(Sedan.this);
+        setVehPrice(40);
     }
 
 

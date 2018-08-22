@@ -1,6 +1,9 @@
 package operators;
 
-public class Administrator {
+import rentalOperations.AdminOps;
+import rentalOperations.InfoOperationsForAdmin;
+
+public class Administrator extends AdminOps {
 
 public String name;
 public String surname;

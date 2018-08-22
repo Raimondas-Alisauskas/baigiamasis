@@ -5,7 +5,7 @@ import vehicles.*;
 
 import java.util.*;
 
-public class RentalShop extends RentOperations {
+public class RentalShop{
 
 
 
@@ -18,15 +18,7 @@ public class RentalShop extends RentOperations {
 
 
 
-    public void howManyCarsWePosses() {
-        System.out.println("We have " + generalList.size() + " vehicles");
-        System.out.println("List of vehicles:");
-        for (int i = 0; i < generalList.size(); i++) {
-            System.out.println("Model: " + generalList.get(i).getModel() + " ID: " + generalList.get(i).getVehicleId());
-        }
 
-
-    }
 
 
 
@@ -82,18 +74,7 @@ public class RentalShop extends RentOperations {
 //
 //    }
 
-    public void showHowManyVehiclesByTypeAreAvailabl(TypeOfVehicle type) {
-        int qttyVehicles = 0;
-        for (Vehicle vehicle : generalList
-        ) {
-            if (vehicle.getTypeOfVehicle() == type) {
-                qttyVehicles++;
-            }
 
-
-        }
-        System.out.println("There are available " + qttyVehicles + " " + type + "(s).");
-    }
 
     public void addToGeneralList(Vehicle vehicle) {
         generalList.add(vehicle);

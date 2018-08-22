@@ -1,8 +1,9 @@
 package operators;
 
+import rentalOperations.ClientOps;
 import rentalOperations.InfoOperationsForClient;
 
-public class Client extends InfoOperationsForClient {
+public class Client extends ClientOps {
 
     private String name;
 
@@ -16,27 +17,30 @@ public class Client extends InfoOperationsForClient {
 
     private boolean creditCardValidity;
 
-    private int clientId=100;
+    private int clientId;
 
-    private int counter = this.clientId +1;
+    private  static int counter = 0;
 
     public Client (boolean driverLicense, boolean creditCardValidity){
+        counter++;
         setName("Andrius");
         setSurname("Vaitiekunas");
         setAge(29);
         setDriverLicense(driverLicense);
         setCreditCardNo(12345678);
         setCreditCardValidity(creditCardValidity);
-        setClientId();
+        this.clientId=counter;
     }
 
     public Client (String name, String surname, int age, boolean driverLicense, int creditCardNo, boolean creditCardValidity){
+        counter++;
         setName(name);
         setSurname(surname);
         setAge(age);
         setDriverLicense(driverLicense);
         setCreditCardNo(creditCardNo);
         setCreditCardValidity(creditCardValidity);
+        this.clientId=counter;
     }
 
     public String getName() {

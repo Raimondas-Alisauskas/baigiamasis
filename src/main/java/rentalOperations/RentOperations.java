@@ -8,20 +8,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public abstract class RentOperations {
+public abstract class RentOperations extends ReturnOperations{
 
 
     public void rent(int id, int startDate, int endDate, Client client){
         if (client.isCreditCardValidity()&& client.isDriverLicense()&& client.getAge()>17){
         if(checkIfVehIsAvl(id, startDate, endDate)){
             rentAVehicle(id, startDate, endDate, client);
+            int days=endDate-startDate+1;
+            double pricePerDay=selectVehicle(id).getVehPrice()*days;
+            System.out.println("Your selected vehicle was rented to you. You have been charged "+pricePerDay+" EUR.");
         } else {System.out.println("Vehicle with ID: "+ id+" is rented during your selected dates");}} else{
             System.out.println("Sorry, you do not meet the requirements and can not be rented a vehicle.");
         }
     }
 
     private void rentAVehicle(int id, int startDate, int endDate, Client client) {
-        //TODO
+
         Vehicle vehicle=selectVehicle(id);
         vehicle.setClientId(client.getClientId());
         for (int i=startDate; i<=endDate; i++){
@@ -62,7 +65,7 @@ public abstract class RentOperations {
 
 
 
-    public Vehicle selectVehicle(int ID) {
+    private Vehicle selectVehicle(int ID) {
         for (Vehicle vehicle : RentalShop.generalList) {
             if (vehicle.getVehicleId() == ID) {
                 return vehicle;
