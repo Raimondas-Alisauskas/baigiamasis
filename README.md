@@ -4,7 +4,7 @@
     parametrus pagal pageidavimą, nusakančius modelio efektyvumą: recall, accuracy, precision, f1 ir kt.
 	Aplikacija yra sudaryta iš keturių klasių. Klasių aprašai pagal hierarchiją:
 1. Analitics
-Ši klasė randasi hierarchijos viršuje. Joje naudojamas org.math.plot.PlotPanel modulis. Ji paima reikiamus modelio duomenis ir gali juos vizualizuoti įvairiais būdais (2d , 3d, scatter, line ir kt.). Iš šios klasės paleidžiamas kodas.
+Ši klasė randasi hierarchijos viršuje. Duomeinms vizualizuoti paimtas org.math.plot.PlotPanel modulis. Jis paima reikiamus modelio duomenis ir gali juos vizualizuoti įvairiais būdais (2d , 3d, scatter, line ir kt.). Iš šios klasės paleidžiamas kodas.
 2. Plot2
 Ši klasė panašiai kaip ir Analitics ima modelio duomenis ir juos vizualizuoja naudojant JFreeChart modulį. Nuo anksčiau minėtos klasės ši klasė skiriasi tuo, jog yra mažiau lanksti gaunant vizualizavimo duomenis bei naudoja sudėtingesnį vizualizavimo kodą. Iš šios klasės paleidžiamas kodas.
 3. ConvModel
