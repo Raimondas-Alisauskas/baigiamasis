@@ -1,7 +1,7 @@
-																							Kursas: Java-0730 
-																							Andrius Prišmantas
+																						Kursas: Java-0730 
+																						Andrius Prišmantas
 
-										Vaizdų atpažinimo tinklo analitika
+					Vaizdų atpažinimo tinklo analitika
 
     Ši programa skirta generuoti bei vizualizuoti (analizuoti) Convolution Network (vaizdų atpažinimo Neural-net) 
     parametrus pagal pageidavimą, nusakančius modelio efektyvumą: recall, accuracy, precision, f1 ir kt.
