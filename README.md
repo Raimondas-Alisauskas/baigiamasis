@@ -8,6 +8,6 @@
 2. Plot2
 Ši klasė panašiai kaip ir Analitics ima modelio duomenis ir juos vizualizuoja naudojant JFreeChart modulį. Nuo anksčiau minėtos klasės ši klasė skiriasi tuo, jog yra mažiau lanksti gaunant vizualizavimo duomenis bei naudoja sudėtingesnį vizualizavimo kodą. Iš šios klasės paleidžiamas kodas.
 3. ConvModel
-Šioje klasėje sukuriamas Convolution modelis (metodu createModel), užduodamas reikiamas parametrų grid’as, kurį iteruojant renkami modelio duomenys; jie veliau naudojami vizualizavime. Klasė naudoja deeplearning4j paketą. Patogesniam darbui su duomenimis suprogramuoti gaunamų parametrų getter’iai. Konkrečiai šiuo atveju parametrų tinklas sudarytas iš 2 parametrų: sample size (vaizdų skaičius naudojamas treniravimuisi bei testavimui) bei learning rate (mokymosi greitis).
+Šioje klasėje panaudojant "Builder Pattern" sukuriamas Convolution modelis (metodu createModel), užduodamas reikiamas parametrų grid’as, kurį iteruojant renkami modelio duomenys; jie veliau naudojami vizualizavime. Klasė naudoja deeplearning4j paketą. Patogesniam darbui su duomenimis suprogramuoti gaunamų parametrų getter’iai. Konkrečiai šiuo atveju parametrų tinklas sudarytas iš 2 parametrų: sample size (vaizdų skaičius naudojamas treniravimuisi bei testavimui) bei learning rate (mokymosi greitis).
 4. SortRange
 Į šią klasę sudėti pagalbiniai metodai darbui su duomenimis, grid’o sukūrimui, double reikšmių masyvų apvalinimui, įvairios masyvų rūšiavimo implementacijos: range(start, stop, step), round_(ArrayList), sort(ArrayList).
