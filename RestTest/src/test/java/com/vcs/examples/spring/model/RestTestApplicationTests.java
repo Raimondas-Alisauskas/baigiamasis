@@ -1,4 +1,4 @@
-package com.vcs.examples.spring.RestTest;
+package com.vcs.examples.spring.model;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

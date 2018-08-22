@@ -14,6 +14,14 @@ public interface CarService {
 
 	public void remove(int id);
 
+	/**
+	 * General search
+	 * 
+	 * @param car
+	 *            - only not null fields will be use in search criteria. Attribute
+	 *            with value Null means - not for search
+	 * @return list of result
+	 */
 	public List<Car> search(Car car);
 
 }
