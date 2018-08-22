@@ -2,8 +2,6 @@ package com.vilniuscodingschool.baigiamasis;
 
 public class KnyguAprasas extends KnyguSaugykla {
 
-    // sasaja -> collections -> person
-
     private String author;
     private String title;
     private String numberISBN;
@@ -12,8 +10,9 @@ public class KnyguAprasas extends KnyguSaugykla {
     private String bookGenre;
     private int popularity;
     private int availability;
+    private int numeration;
 
-    public KnyguAprasas(String author, String title, String numberISBN, String pressHouse, String language,
+    public KnyguAprasas(int numeracy, String author, String title, String numberISBN, String pressHouse, String language,
                         String bookGenre, int popularity, int availability) {
         this.author = author;
         this.title = title;
@@ -23,8 +22,8 @@ public class KnyguAprasas extends KnyguSaugykla {
         this.bookGenre = bookGenre;
         this.popularity = popularity;
         this.availability = availability;
+        this.numeration = numeracy;
     }
-
 
     public String getAuthor() {
         return author;
@@ -57,14 +56,16 @@ public class KnyguAprasas extends KnyguSaugykla {
     public int getAvailability() {
         return availability;
     }
+    public int getNumeracy() {
+        return numeration;
+    }
 
-
-    /*@Override
+    @Override
     public String toString() {
-        return "Author: " + author + "; title: " + title + "; numberISBN: " + numberISBN + "; pressHouse " + pressHouse
+        return "Numeracy in library: " + numeration + "; Author: " + author + "; title: " + title + "; numberISBN: " + numberISBN + "; pressHouse " + pressHouse
                 + "; language: " + language + "; bookGenre: " + bookGenre + "; popularity: " + popularity +
                 "; availability: " + availability;
-    }*/
+    }
 
 }
 

@@ -2,134 +2,83 @@ package com.vilniuscodingschool.baigiamasis;
 
 import java.util.Scanner;
 
-
 public class GrafineVartotojoSasaja {
 
     public static void main(String[] args) {
 
-        // sukuriame objektą
+        KnyguSaugykla knyguSaugykla = new KnyguSaugykla();
+
         Scanner scanner = new Scanner(System.in);
 
         boolean engageSearch = true;
 
         while (engageSearch) {
 
-            System.out.println("Knygas galite ieškoti pagal šiuos kriterijus, prašome išsirinkti (tiesiog nukopijuokite į ekraną pasirinktą būdą ir paspauskite Enter): ");
-            System.out.println("autorius, pavadinimas, ISBN, leidykla, kalba, žanras.");
+            System.out.println("Knygas galite ieškoti pagal šiuos kriterijus, prašome išsirinkti\n(tiesiog paspauskite skaičių atitinkantį paieškos kriterijų ir paspauskite Enter): ");
+            System.out.println("1 - autorius\n2 - pavadinimas\n3 - ISBN\n4 - leidykla\n5 - kalba\n6 - žanras");
 
             String searchOption = scanner.nextLine();
 
-            if (searchOption.equals("autorius") || searchOption.equals("pavadinimas") || searchOption.equals("ISBN") || searchOption.equals("leidykla") || searchOption.equals("kalba") || searchOption.equals("žanras")) {
+            if (searchOption.equals("1") || searchOption.equals("2") || searchOption.equals("3") || searchOption.equals("4") || searchOption.equals("5") || searchOption.equals("6")) {
 
-                System.out.println("Jūsų pasirinktas paieškos būdas: " + "'" + searchOption + "'");
-                System.out.println("Paieškai pradėti spauskite bet kurį klavišą.");
-
-                String userOption = scanner.nextLine();
-
-            } else
-
-                System.out.println("Jūs pasirinkote nežinomą paieškos būdą!");
-
-
-
-            if (searchOption.equals("autorius")) {
-
-                System.out.println("Įveskite ieškomo autoriaus vardą arba pavardę: ");
-
-                String searchAuthor = scanner.nextLine();
-
-
-
+                System.out.println("Jūsų pasirinktas paieškos būdas: " + searchOption);
+                System.out.println("Paieškai pradėti spauskite ENTER.");
 
                 scanner.nextLine();
 
-                // atspausdinam paieškos rezultatą
+            } else {
 
-                scanner.close();
-                break;
+                System.out.println("Jūs pasirinkote nežinomą paieškos būdą! -> " + searchOption);
+            }
 
+            if (searchOption.equals("1")) {
+
+                PaieskuModulis uzklausaAutoriui = new PaieskuModulis();
+                uzklausaAutoriui.IeskomPagalAutoriu(knyguSaugykla);
+            }
+
+            if (searchOption.equals("2")) {
+
+                PaieskuModulis uzklausaPavadinimui = new PaieskuModulis();
+                uzklausaPavadinimui.IeskomPagalPavadinima(knyguSaugykla);
+
+            }
+            if (searchOption.equals("3")) {
+
+                PaieskuModulis uzklausaISBN = new PaieskuModulis();
+                uzklausaISBN.IeskomPagalISBN(knyguSaugykla);
+
+            }
+            if (searchOption.equals("4")) {
+
+                PaieskuModulis uzklausaLeidyklai = new PaieskuModulis();
+                uzklausaLeidyklai.IeskomPagalLeidykla(knyguSaugykla);
+
+            }
+            if (searchOption.equals("5")) {
+
+                PaieskuModulis uzklausaKalba = new PaieskuModulis();
+                uzklausaKalba.IeskomPagalKalba(knyguSaugykla);
+
+            }
+            if (searchOption.equals("6")) {
+
+                PaieskuModulis uzklausaZanras = new PaieskuModulis();
+                uzklausaZanras.IeskomPagalZanra(knyguSaugykla);
 
             }
 
+            System.out.println("\nPaieška baigta.\nAr norite ją pradėti iš naujo?");
+            System.out.println("\nTaip - spauskite bet kokį klavišą ir jus būsite nukreipti į paieškos pradžią\nNe - paieškai baigti, spauskite n");
 
-            if (searchOption.equals("pavadinimas")) {
-
-                System.out.println("Įveskite ieškomos knygos pavadinimą: ");
-
-                String searchTitle = scanner.nextLine();
-
-                scanner.nextLine();
-
-                // atspausdinam paieškos rezultatą
-
+            String arTesiamPaieska = scanner.nextLine();
+            if (arTesiamPaieska.equals("n")) {
                 scanner.close();
-                break;
+                engageSearch = false;
 
-
+            } else {
+                engageSearch = true;
             }
-            if (searchOption.equals("ISBN")) {
-
-                System.out.println("Įveskite ieškomos knygos ISBN: ");
-
-                String searchISBN = scanner.nextLine();
-
-                scanner.nextLine();
-
-                // atspausdinam paieškos rezultatą
-
-                scanner.close();
-                break;
-
-
-            }
-            if (searchOption.equals("leidykla")) {
-
-                System.out.println("Įveskite ieškomos knygos leidyklos pavadinimą: ");
-
-                String searchPressHouse = scanner.nextLine();
-
-                scanner.nextLine();
-
-                // atspausdinam paieškos rezultatą
-
-                scanner.close();
-                break;
-
-
-            }
-            if (searchOption.equals("kalba")) {
-
-                System.out.println("Įveskite ieškomos knygos kalbą: ");
-                // gal reiktų System.out.println(kalbos); kalbos iš List????
-
-
-                String searchLanguage = scanner.nextLine();
-                scanner.nextLine();
-
-                // atspausdinam paieškos rezultatą
-
-                scanner.close();
-                break;
-
-
-            }
-            if (searchOption.equals("žanras")) {
-
-                System.out.println("Įveskite knygos žanrą: ");
-                // gal reiktų System.out.println(zanrai); žanrai iš List????
-
-                String searchGenre = scanner.nextLine();
-                scanner.nextLine();
-
-                // atspausdinam paieškos rezultatą
-
-                scanner.close();
-                break;
-
-            }
-
         }
-
-        engageSearch = true;
     }
 }
