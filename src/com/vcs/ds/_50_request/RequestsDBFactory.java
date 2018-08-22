@@ -1,4 +1,4 @@
-package com.vcs.ds._20_request;
+package com.vcs.ds._50_request;
 
 import com.vcs.ds._10_model.data.DataInterface;
 

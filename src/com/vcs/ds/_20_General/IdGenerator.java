@@ -1,4 +1,4 @@
-package com.vcs.ds._50_General;
+package com.vcs.ds._20_General;
 
 import java.time.Instant;
 

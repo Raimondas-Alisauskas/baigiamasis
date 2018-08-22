@@ -1,6 +1,7 @@
-package com.vcs.ds._30_proposal;
+package com.vcs.ds._70_answers;
 
 import com.vcs.ds._10_model.data.DataInterface;
+import com.vcs.ds._60_proposal.Proposal;
 
 import java.util.List;
 

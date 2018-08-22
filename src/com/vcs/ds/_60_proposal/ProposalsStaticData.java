@@ -1,4 +1,4 @@
-package com.vcs.ds._30_proposal;
+package com.vcs.ds._60_proposal;
 
 import com.vcs.ds._10_model.data.DataInterface;
 

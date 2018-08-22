@@ -1,8 +1,8 @@
-package com.vcs.ds._30_proposal;
+package com.vcs.ds._70_answers;
 
 import com.vcs.ds._10_model.data.DataInterface;
 
-public class ProposalsDBFactory {
+public class AnswersDBFactory {
 
     private static DataInterface dbInstance = null;
 
@@ -21,7 +21,7 @@ public class ProposalsDBFactory {
 
        switch (mode){
            case 0:
-               return new ProposalsStaticData();
+               return new AnswersStaticData();
            default:
                break;
         }

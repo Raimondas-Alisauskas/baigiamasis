@@ -1,4 +1,4 @@
-package com.vcs.ds._40_producer;
+package com.vcs.ds._30_producer;
 
 import java.time.Duration;
 import java.time.LocalDate;

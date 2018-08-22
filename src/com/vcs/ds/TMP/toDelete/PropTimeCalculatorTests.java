@@ -1,6 +1,6 @@
 package com.vcs.ds.TMP.toDelete;
 
-import com.vcs.ds._30_proposal.ProposalTimeCalculator;
+import com.vcs.ds._60_proposal.ProposalTimeCalculator;
 
 import java.time.Duration;
 import java.time.LocalDate;

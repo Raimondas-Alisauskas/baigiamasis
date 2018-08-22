@@ -1,4 +1,4 @@
-package com.vcs.ds._30_proposal;
+package com.vcs.ds._60_proposal;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

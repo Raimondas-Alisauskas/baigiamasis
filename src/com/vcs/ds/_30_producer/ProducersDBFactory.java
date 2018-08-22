@@ -1,4 +1,4 @@
-package com.vcs.ds._40_producer;
+package com.vcs.ds._30_producer;
 
 import com.vcs.ds._10_model.data.DataInterface;
 
