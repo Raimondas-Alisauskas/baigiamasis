@@ -1,12 +1,17 @@
 package com.vcs.toptags;
 
 import com.vcs.toptags.actions.Actions;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
+@SpringBootApplication
+@ComponentScan({ "com.vcs.toptags.*" })
 public class Application {
 
     public static void main(String[] args) {
-
-        Actions act = new Actions();
-        act.actionsWithNewsWebPages();
+        SpringApplication.run(Application.class, args);
+//        Actions act = new Actions();
+//        act.actionsWithNewsWebPages();
     }
 }

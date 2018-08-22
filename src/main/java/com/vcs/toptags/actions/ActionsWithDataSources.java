@@ -2,25 +2,23 @@ package com.vcs.toptags.actions;
 
 import com.vcs.toptags.cleaning_process.ActiveLinksFromJS;
 import com.vcs.toptags.cleaning_process.CleanAndCalculate;
-import com.vcs.toptags.io.PrintAll;
 import com.vcs.toptags.io.TopWordsQty;
 import com.vcs.toptags.page_adapters.INewsPage;
 import com.vcs.toptags.page_adapters.NewsPageObjects;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static com.vcs.toptags.actions.Actions.LAST_TOP_WORDS;
 
 
 public class ActionsWithDataSources {
 
-
     public void actionsWithNewsWebPages() {
-
-        //TODO Delete sout from Action.java and move it to web app.
-        System.out.println("Program has started. Counting could take up to 3-5 min, so plz. be patient! :)");
 
         int qtyTopWords = getQtyTopWords();
 
-        ArrayList<INewsPage> newsPageList = generateNewsPageObjects();
+        List<INewsPage> newsPageList = generateNewsPageObjects();
 
         //Get Active (JavaScript) links of pages with text
         for (int i = 0; i < newsPageList.size(); i++) {
@@ -30,15 +28,10 @@ public class ActionsWithDataSources {
 
             // filteredTopWordsArray [] moved to the Object value
             new CleanAndCalculate(newsPageList.get(i), qtyTopWords).actionsWithNewsWebPages();
-
         }
 
-            // TODO DELETE PrintIt
-        for (int i = 0; i < newsPageList.size(); i++) {
-
-            printIt(newsPageList.get(i));
-        }
-
+        // adding dynamic scanned words to the static array for the upload
+        LAST_TOP_WORDS.setWordsDB(newsPageList);
     }
 
     // Get Quantity of Listed Words form /src/main/resources
@@ -61,10 +54,4 @@ public class ActionsWithDataSources {
         newsPage.setActiveLinks(new ActiveLinksFromJS().getActiveLinksFromJavaScript(newsPage));
     }
 
-
-    private void printIt (INewsPage newsPage){
-        // Print Top Words
-        new PrintAll().printTopWords(newsPage);
-
-    }
 }
