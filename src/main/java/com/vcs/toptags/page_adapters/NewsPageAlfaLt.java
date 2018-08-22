@@ -3,8 +3,10 @@ package com.vcs.toptags.page_adapters;
 import java.util.ArrayList;
 
 public class NewsPageAlfaLt implements INewsPage {
-    String web = "https://www.alfa.lt";;
-    String encoding = "utf-8";;
+    String web = "https://www.alfa.lt";
+
+    String encoding = "utf-8";
+
     String activeTag = "article-card";
     String hrefTag = "\"";
     // Internal Page links taked from Dynamic JavaScript Array
@@ -14,19 +16,19 @@ public class NewsPageAlfaLt implements INewsPage {
     // if true: add www.alfa.lt to the dynamic link
     boolean addWebPageDomain = true;
     // Quantity of the Checked words grabbed from the page
-    Integer checkedWordsQty =0;
+    Integer checkedWordsQty = 0;
     // Quantity of the Unique words grabbed from the page
-    Integer uniqueWordsQty =0;
+    Integer uniqueWordsQty = 0;
 
 
     @Override
-    public String getWebDomain(){
+    public String getWebDomain() {
 
         return web;
     }
 
     @Override
-    public String getEncoding(){
+    public String getEncoding() {
 
         return encoding;
     }
@@ -42,13 +44,13 @@ public class NewsPageAlfaLt implements INewsPage {
     }
 
     @Override
-    public void setActiveLinks(ArrayList<String> activeLinks){
+    public void setActiveLinks(ArrayList<String> activeLinks) {
 
         this.activeLinks = activeLinks;
     }
 
     @Override
-    public ArrayList<String> getActiveLinks(){
+    public ArrayList<String> getActiveLinks() {
 
         return activeLinks;
     }

@@ -6,7 +6,7 @@ public class AllTagRemover {
     }
 
 
-    private StringBuffer cleanText(StringBuffer buffer){
+    private StringBuffer cleanText(StringBuffer buffer) {
         try {
             int start, end;
 

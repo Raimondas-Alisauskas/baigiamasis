@@ -10,9 +10,9 @@ public class ActiveLinksFromJS {
     ArrayList<String> textLinksArray = new ArrayList<>();
 
 
-    public ArrayList<String> getActiveLinksFromJavaScript(INewsPage newsPage){
+    public ArrayList<String> getActiveLinksFromJavaScript(INewsPage newsPage) {
         // Get Plain Text from the Web Page
-        StringBuffer bufferedWebPage = grabPlainTextFromWeb(newsPage.getWebDomain(),newsPage.getEncoding());
+        StringBuffer bufferedWebPage = grabPlainTextFromWeb(newsPage.getWebDomain(), newsPage.getEncoding());
 
         // Change HTML to the LowerCase: StringBuffer => String => StringBuffer
         bufferedWebPage = convertToLowerCase(bufferedWebPage);
@@ -21,7 +21,7 @@ public class ActiveLinksFromJS {
 //        System.out.println(bufferedWebPage);
 
         // Clean Active Links and move it to ArrayList
-        textLinksArray = cleanDynamicTextLinksFromJS(bufferedWebPage, newsPage.getActiveTag(),newsPage.getWebDomain(),newsPage.isAddWebPageDomain(),newsPage.getHrefTag());
+        textLinksArray = cleanDynamicTextLinksFromJS(bufferedWebPage, newsPage.getActiveTag(), newsPage.getWebDomain(), newsPage.isAddWebPageDomain(), newsPage.getHrefTag());
 
         // Returns ArrayList with Web Page Links
         return textLinksArray;
@@ -34,12 +34,12 @@ public class ActiveLinksFromJS {
         return url.getPlainText(web, encoding);
     }
 
-    private StringBuffer convertToLowerCase(StringBuffer bufferedWebPage){
+    private StringBuffer convertToLowerCase(StringBuffer bufferedWebPage) {
         String toLowerCase = bufferedWebPage.toString().toLowerCase();
         return new StringBuffer(toLowerCase.subSequence(0, toLowerCase.length()));
     }
 
-    private ArrayList<String> cleanDynamicTextLinksFromJS(StringBuffer bufferedWebPage, String textDivTag, String web, boolean addWebPageDomain, String hrefTag ) {
+    private ArrayList<String> cleanDynamicTextLinksFromJS(StringBuffer bufferedWebPage, String textDivTag, String web, boolean addWebPageDomain, String hrefTag) {
 
         try {
             // Strat of search in String
@@ -47,7 +47,7 @@ public class ActiveLinksFromJS {
             int startHref, endHref, endHrefSpace, endHrefArrow;
             String linkToPage;
 
-               while (startDiv >= 0) {
+            while (startDiv >= 0) {
 
                 startDiv = bufferedWebPage.indexOf(textDivTag, startDiv);
                 startHref = bufferedWebPage.indexOf("a href=" + hrefTag, startDiv);
@@ -55,17 +55,17 @@ public class ActiveLinksFromJS {
                 endHrefArrow = bufferedWebPage.indexOf(hrefTag + ">", startHref);
 
                 // Checking for the right finish point of href Link
-                 if (endHrefSpace > endHrefArrow){
-                     endHref = endHrefArrow;
-                 } else {
-                     endHref = endHrefSpace;
-                 }
+                if (endHrefSpace > endHrefArrow) {
+                    endHref = endHrefArrow;
+                } else {
+                    endHref = endHrefSpace;
+                }
 
 
 //                   // TODO: delete System.out.println(bufferedWebPage);
 //                   System.out.println("startDiv: " + startDiv + " startHref: " + startHref + " endHref: " + endHref);
 
-                if ((startDiv > 0) && (startDiv < bufferedWebPage.length() && (endHref < bufferedWebPage.length()) && (startHref > 0) && (endHref > 0))){
+                if ((startDiv > 0) && (startDiv < bufferedWebPage.length() && (endHref < bufferedWebPage.length()) && (startHref > 0) && (endHref > 0))) {
 
                     if (addWebPageDomain == true) {
                         linkToPage = web + bufferedWebPage.substring(startHref + 8, endHref);
@@ -86,6 +86,6 @@ public class ActiveLinksFromJS {
             System.out.println("You catched: " + siobe.getMessage());
         }
 
-    return textLinksArray;
+        return textLinksArray;
     }
 }

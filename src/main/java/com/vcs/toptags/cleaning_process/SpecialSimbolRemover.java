@@ -6,7 +6,7 @@ public class SpecialSimbolRemover {
         return cleanText(buffer);
     }
 
-    private StringBuffer cleanText(StringBuffer buffer){
+    private StringBuffer cleanText(StringBuffer buffer) {
         try {
             int start, end;
 

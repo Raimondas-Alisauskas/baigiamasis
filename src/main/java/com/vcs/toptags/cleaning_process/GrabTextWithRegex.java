@@ -1,4 +1,6 @@
-package com.vcs.toptags.cleaning_process;;
+package com.vcs.toptags.cleaning_process;
+
+;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -10,7 +12,7 @@ public class GrabTextWithRegex {
     }
 
 
-    private ArrayList<String>  cleanText(StringBuffer buffer){
+    private ArrayList<String> cleanText(StringBuffer buffer) {
 
         ArrayList<String> pureTextList = new ArrayList();
 

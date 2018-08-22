@@ -9,12 +9,9 @@ import com.vcs.toptags.page_adapters.NewsPageObjects;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.vcs.toptags.actions.Actions.LAST_TOP_WORDS;
-
-
 public class ActionsWithDataSources {
 
-    public void actionsWithNewsWebPages() {
+    public List<INewsPage> actionsWithNewsWebPages() {
 
         int qtyTopWords = getQtyTopWords();
 
@@ -31,25 +28,26 @@ public class ActionsWithDataSources {
         }
 
         // adding dynamic scanned words to the static array for the upload
-        LAST_TOP_WORDS.setWordsDB(newsPageList);
+
+        return newsPageList;
     }
 
     // Get Quantity of Listed Words form /src/main/resources
 
-    private int getQtyTopWords(){
+    private int getQtyTopWords() {
 
         return (new TopWordsQty()).getQtyTopWords();
     }
 
     // Get News Pages Object Array
-    private ArrayList<INewsPage> generateNewsPageObjects(){
+    private ArrayList<INewsPage> generateNewsPageObjects() {
         NewsPageObjects npo = new NewsPageObjects();
 
         return npo.getNewsPageObjects();
     }
 
     // get active links from thePage Java Script Dynamic links nad Set it To Page Object
-    private void setJSLinksFromWebPageToObject(INewsPage newsPage){
+    private void setJSLinksFromWebPageToObject(INewsPage newsPage) {
 
         newsPage.setActiveLinks(new ActiveLinksFromJS().getActiveLinksFromJavaScript(newsPage));
     }

@@ -6,7 +6,7 @@ public class CleanTheText {
 
     private ArrayList<StringBuffer> htmlFromWebArray;
 
-    public ArrayList<String> getCleanTextArray(ArrayList<StringBuffer> htmlFromWebArray){
+    public ArrayList<String> getCleanTextArray(ArrayList<StringBuffer> htmlFromWebArray) {
         this.htmlFromWebArray = htmlFromWebArray;
 
         // Change HTML Array to the LowerCase: StringBuffer => String => StringBuffer
@@ -32,8 +32,7 @@ public class CleanTheText {
     }
 
 
-
-    private ArrayList<StringBuffer> convertToLowerCase(ArrayList<StringBuffer> htmlFromWebArray){
+    private ArrayList<StringBuffer> convertToLowerCase(ArrayList<StringBuffer> htmlFromWebArray) {
 
         String toLowerCase;
 
@@ -71,7 +70,7 @@ public class CleanTheText {
         return removedStyleTagsArray;
     }
 
-    private ArrayList<StringBuffer> replaceScriptTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray){
+    private ArrayList<StringBuffer> replaceScriptTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray) {
 
         ScriptTagRemover str = new ScriptTagRemover();
         ArrayList<StringBuffer> removedScriptTagsArray = new ArrayList<>();
@@ -82,7 +81,7 @@ public class CleanTheText {
         return removedScriptTagsArray;
     }
 
-    private ArrayList<StringBuffer> replaceAllTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray){
+    private ArrayList<StringBuffer> replaceAllTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray) {
 
         // remove All Tags from "<"  till ">"
         AllTagRemover atr = new AllTagRemover();
@@ -94,7 +93,7 @@ public class CleanTheText {
         return removedAllTagsArray;
     }
 
-    private ArrayList<StringBuffer> replaceSpecialTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray){
+    private ArrayList<StringBuffer> replaceSpecialTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray) {
 
         // remove All Special Tags ( starts with "&"  to " ;", till the 7 char long)
         SpecialSimbolRemover ssr = new SpecialSimbolRemover();
@@ -106,7 +105,7 @@ public class CleanTheText {
         return removedSpecialTagsArray;
     }
 
-    private ArrayList<String> grabTextWithRegex(ArrayList<StringBuffer> htmlFromWebArray){
+    private ArrayList<String> grabTextWithRegex(ArrayList<StringBuffer> htmlFromWebArray) {
 
         // grab the text with Regex and move to ArrayList and MERGE them to one
         GrabTextWithRegex gttwr = new GrabTextWithRegex();

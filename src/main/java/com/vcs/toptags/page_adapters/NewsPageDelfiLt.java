@@ -16,7 +16,7 @@ public class NewsPageDelfiLt implements INewsPage {
     // Quantity of the Checked words grabbed from the page
     Integer checkedWordsQty =0;
     // Quantity of the Unique words grabbed from the page
-    Integer uniqueWordsQty =0;
+    Integer uniqueWordsQty = 0;
 
     @Override
     public String getWebDomain(){

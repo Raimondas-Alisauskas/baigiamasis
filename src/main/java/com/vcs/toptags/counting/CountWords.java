@@ -10,7 +10,7 @@ public class CountWords {
 
         for (int i = 0; i < pureTextList.size(); i++) {
 
-            if (map.containsKey(pureTextList.get(i))){
+            if (map.containsKey(pureTextList.get(i))) {
                 map.put(pureTextList.get(i), map.get(pureTextList.get(i)) + 1);
             } else {
                 map.put(pureTextList.get(i), 1);

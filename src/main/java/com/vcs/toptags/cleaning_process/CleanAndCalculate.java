@@ -48,9 +48,9 @@ public class CleanAndCalculate {
     // Pages Names And Tags From Enum List
 
 
-        // Words Calculation
-        private HashMap<String, Integer> calculatedWords (ArrayList < String > pureTextList) {
-            CountWords cw = new CountWords();
-            return cw.getCountedWordsArray(pureTextList);
-        }
+    // Words Calculation
+    private HashMap<String, Integer> calculatedWords(ArrayList<String> pureTextList) {
+        CountWords cw = new CountWords();
+        return cw.getCountedWordsArray(pureTextList);
+    }
 }

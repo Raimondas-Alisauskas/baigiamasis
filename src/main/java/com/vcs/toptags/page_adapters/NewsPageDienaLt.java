@@ -15,18 +15,18 @@ public class NewsPageDienaLt implements INewsPage {
     // if true: add www.diena.lt to the dynamic link
     boolean addWebPageDomain = true;
     // Quantity of the Checked words grabbed from the page
-    Integer checkedWordsQty =0;
+    Integer checkedWordsQty = 0;
     // Quantity of the Unique words grabbed from the page
-    Integer uniqueWordsQty =0;
+    Integer uniqueWordsQty = 0;
 
     @Override
-    public String getWebDomain(){
+    public String getWebDomain() {
 
         return web;
     }
 
     @Override
-    public String getEncoding(){
+    public String getEncoding() {
 
         return encoding;
     }
@@ -42,13 +42,13 @@ public class NewsPageDienaLt implements INewsPage {
     }
 
     @Override
-    public void setActiveLinks(ArrayList<String> activeLinks){
+    public void setActiveLinks(ArrayList<String> activeLinks) {
 
         this.activeLinks = activeLinks;
     }
 
     @Override
-    public ArrayList<String> getActiveLinks(){
+    public ArrayList<String> getActiveLinks() {
 
         return activeLinks;
     }
@@ -67,6 +67,7 @@ public class NewsPageDienaLt implements INewsPage {
     public void setFilteredTopWordsArray(String[] filteredTopWordsArray) {
         this.filteredTopWordsArray = filteredTopWordsArray;
     }
+
     @Override
     public Integer getCheckedWordsQty() {
         return checkedWordsQty;

@@ -5,10 +5,10 @@ public class StyleTagRemover {
         try {
 
 
-            int start  = buffer.indexOf("<style>");
+            int start = buffer.indexOf("<style>");
             int end = buffer.indexOf("</style>", start);
 
-            while (start> 0 && end > 0 && start < end) {
+            while (start > 0 && end > 0 && start < end) {
 
 
                 // Delete Tags from "<style>" to "</style>"
@@ -20,21 +20,19 @@ public class StyleTagRemover {
             }
 
 
-
-            start  = buffer.indexOf("<style type");
+            start = buffer.indexOf("<style type");
             end = buffer.indexOf("</style>", start);
 
-            while (start> 0 && end > 0 && start < end) {
+            while (start > 0 && end > 0 && start < end) {
 
 
                 // Delete Tags from "<<style type>" to "</style>"
                 if ((start > 0) && (start < buffer.length()) && (start < end)) {
-                    buffer.replace(start, end + 8,"");
+                    buffer.replace(start, end + 8, "");
                 }
-                start  = buffer.indexOf("<style type");
+                start = buffer.indexOf("<style type");
                 end = buffer.indexOf("</style>", start);
             }
-
 
 
         } catch (StringIndexOutOfBoundsException siobe) {

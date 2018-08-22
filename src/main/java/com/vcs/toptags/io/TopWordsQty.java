@@ -5,7 +5,7 @@ import java.util.Properties;
 
 public class TopWordsQty {
     public int getQtyTopWords() {
-        try{
+        try {
             File f = new File("config.properties");
             InputStream inStream = new FileInputStream(f);
             Properties prop = new Properties();
@@ -13,9 +13,9 @@ public class TopWordsQty {
 
             return Integer.valueOf(prop.getProperty("qtyTopWords", "5"));
 
-        } catch (FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
-        } catch (IOException ioe){
+        } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
         return 5;

@@ -5,22 +5,22 @@ import java.util.ArrayList;
 
 public class OpenUselesWordFile {
 
-    public ArrayList<String> getUselesWordsList(){
+    public ArrayList<String> getUselesWordsList() {
 
         return loadList();
     }
 
     // --------- Duomenu ATKURIMAS ---------
 
-    public ArrayList<String> loadList(){
+    public ArrayList<String> loadList() {
 
         final String FILE_NAME = "useleswords.txt";
 //        System.out.println(FILE_NAME);
-        try{
+        try {
             File file = new File(FILE_NAME);
 
             // Patikrinimas ar failas egzistuoja
-            if(file.exists()){
+            if (file.exists()) {
 //               System.out.println("File Egzists!!!");
                 //	Jeigu failas egzistuoja - tai nieko nedarome
 
@@ -29,26 +29,26 @@ public class OpenUselesWordFile {
                 file.createNewFile();
 //                System.out.println("File Created!!!");
             }
-        } catch(IOException ioe){
+        } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
 
-     // Atkuriame duomenys is failo
+        // Atkuriame duomenys is failo
         ArrayList loadArray = new ArrayList<String>();
 
-        try{
+        try {
             FileInputStream is = new FileInputStream(FILE_NAME);
             BufferedReader reader = new BufferedReader(new InputStreamReader(is, "Unicode"));
 
             // Perkeliam visus irasus i ArrayList
             String readline;
-            while((readline = reader.readLine()) != null){
+            while ((readline = reader.readLine()) != null) {
                 loadArray.add(readline);
             }
 
-        } catch (FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
-        } catch (IOException ioe){
+        } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
 

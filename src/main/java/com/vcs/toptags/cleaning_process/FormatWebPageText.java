@@ -9,7 +9,7 @@ public class FormatWebPageText {
 
     ArrayList<StringBuffer> htmlFromWebArray;
 
-    public FormatWebPageText(ArrayList<StringBuffer> htmlFromWebArray){
+    public FormatWebPageText(ArrayList<StringBuffer> htmlFromWebArray) {
         this.htmlFromWebArray = htmlFromWebArray;
     }
 
@@ -39,7 +39,7 @@ public class FormatWebPageText {
     }
 
 
-    private ArrayList<String> cleanUselessWords(ArrayList<String> array){
+    private ArrayList<String> cleanUselessWords(ArrayList<String> array) {
         CleanUselesWords cuw = new CleanUselesWords();
         return cuw.getClean(array);
     }

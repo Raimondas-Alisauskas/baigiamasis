@@ -11,13 +11,13 @@ public class TopWords {
     }
 
 
-     private String[] calculateTop(HashMap<String, Integer> map, int qtyTopWords){
+    private String[] calculateTop(HashMap<String, Integer> map, int qtyTopWords) {
         String[] array = new String[qtyTopWords];
 
         // searching for the highest number of word Repeats - topRepeats
         int topRepeats = 0;
 
-        for ( Map.Entry<String, Integer> entry : map.entrySet()) {
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
 
             if (topRepeats < entry.getValue()) {
                 topRepeats = entry.getValue();
@@ -26,20 +26,24 @@ public class TopWords {
 
         // number of TOP Words
         int count = 0;
-        for (int i = topRepeats; i > 0; i--){
+        for (int i = topRepeats; i > 0; i--) {
 
-                for ( Map.Entry<String, Integer> entry : map.entrySet()) {
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
 
-                    if (i == entry.getValue()) {
+                if (i == entry.getValue()) {
 
-                        array[count] = entry.getKey();
+                    array[count] = entry.getKey();
 
-                        // counting TOP words Qty.
-                        count++;
-                        if (count == qtyTopWords) { break; }
+                    // counting TOP words Qty.
+                    count++;
+                    if (count == qtyTopWords) {
+                        break;
                     }
                 }
-                if (count == qtyTopWords) { break; }
+            }
+            if (count == qtyTopWords) {
+                break;
+            }
         }
         return array;
     }
