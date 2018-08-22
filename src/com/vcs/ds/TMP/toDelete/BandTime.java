@@ -1,4 +1,4 @@
-package com.vcs.ds.TMP;
+package com.vcs.ds.TMP.toDelete;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -9,7 +9,7 @@ public class BandTime {
 
 
 
-     //   PropTimeCalculator kint = new PropTimeCalculator();
+     //   ProposalTimeCalculator kint = new ProposalTimeCalculator();
 
      //   System.out.println( kint.productionTime(0, 5));
 
@@ -65,7 +65,7 @@ public class BandTime {
         //   long processingTime;
         long productionTime;
 
-        //   long processingTime = new PropTimeCalculator().processingTime(ProducerInput)
+        //   long processingTime = new ProposalTimeCalculator().processingTime(ProducerInput)
 
         ///  Duration productionDuration = Duration.ofHours(productionDuration(processingTime, productionTime));
 

@@ -1,4 +1,4 @@
-package com.vcs.ds.TMP;
+package com.vcs.ds.TMP.toDelete;
 
 public class DateToInteger {
     String month;

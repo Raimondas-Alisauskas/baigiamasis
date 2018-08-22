@@ -24,15 +24,10 @@ public class Proposal {
         this.earlyFinish = earlyFinish;
     }
 
-//getset
-
-
 }
-
 // TODO: 18.8.18 Stage2
 ////price
 //private double proposalPrice;
 //
 //    //score
 //    private int score;
-

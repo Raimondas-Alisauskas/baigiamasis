@@ -1,4 +1,4 @@
-package com.vcs.ds.TMP;
+package com.vcs.ds.TMP.toDelete;
 
 import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._50_General.IdGenerator;

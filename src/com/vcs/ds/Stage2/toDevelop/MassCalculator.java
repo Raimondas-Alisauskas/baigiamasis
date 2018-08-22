@@ -1,4 +1,4 @@
-package com.vcs.ds.Stage2.toDelete;
+package com.vcs.ds.Stage2.toDevelop;
 
 public class MassCalculator {
 

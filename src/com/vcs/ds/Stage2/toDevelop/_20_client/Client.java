@@ -1,4 +1,4 @@
-package com.vcs.ds._20_client;
+package com.vcs.ds.Stage2.toDevelop._20_client;
 
 public class Client {
 

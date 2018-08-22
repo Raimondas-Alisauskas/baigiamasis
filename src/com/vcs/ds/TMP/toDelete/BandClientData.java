@@ -1,11 +1,9 @@
-package com.vcs.ds.TMP;
+package com.vcs.ds.TMP.toDelete;
 
-import com.vcs.ds._20_client.Client;
+import com.vcs.ds.Stage2.toDevelop._20_client.Client;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class BandClientData {
 

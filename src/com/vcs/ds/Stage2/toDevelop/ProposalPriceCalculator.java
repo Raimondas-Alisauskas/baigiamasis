@@ -1,16 +1,14 @@
-package com.vcs.ds.Stage2.toDelete;
+package com.vcs.ds.Stage2.toDevelop;
 
-
-import com.vcs.ds._10_model.input.ProducerInput;
 
 public class ProposalPriceCalculator {
 
     /*
      * public double material ; //  = materialCost (ProducerInput)* mass (MassCalculator)
      * <p>
-     * public double programing; //= programingTime (PropTimeCalculator)* programmingRate (ProducerInput)
+     * public double programing; //= programingTime (ProposalTimeCalculator)* programmingRate (ProducerInput)
      * <p>
-     * public double production; //= processingTime (PropTimeCalculator)* machineUsageRate (ProducerInput)
+     * public double production; //= processingTime (ProposalTimeCalculator)* machineUsageRate (ProducerInput)
      * <p>
      * public double handling;// ProducerInput
      * <p>

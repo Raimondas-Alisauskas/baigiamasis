@@ -3,7 +3,7 @@ package com.vcs.ds._30_proposal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class PropTimeCalculator {
+public class ProposalTimeCalculator {
 
     //id
     private String requestId;
@@ -16,7 +16,7 @@ public class PropTimeCalculator {
     private LocalDateTime earlyFinish;
 
 
-//    public PropTimeCalculator(String requestId, String producerName) {
+//    public ProposalTimeCalculator(String requestId, String producerName) {
 //        this.requestId = requestId;
 //        this.producerName = producerName;
 //
