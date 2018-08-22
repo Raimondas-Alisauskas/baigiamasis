@@ -2,11 +2,11 @@ package com.vcs.toptags.page_adapters;
 
 import java.util.ArrayList;
 
-public interface INewsPage extends INewsPageTopWords {
+public interface INewsPage extends INewsPageTopWordsWithLink {
 
-    public String getWebDomain();
+//    public String getWebDomain();
 
-    public String getEncoding();
+//    public String getEncoding();
 
     public String getActiveTag();
 
@@ -18,12 +18,11 @@ public interface INewsPage extends INewsPageTopWords {
 
     public boolean isAddWebPageDomain();
 
-
-    public Integer getCheckedWordsQty();
+//    public Integer getCheckedWordsQty();
 
     public void setCheckedWordsQty(Integer checkedWordsQty);
 
-    public Integer getUniqueWordsQty();
+//    public Integer getUniqueWordsQty();
 
     public void setUniqueWordsQty(Integer uniqueWordsQty);
 
