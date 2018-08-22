@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef8438bc-3b0f-42a5-851a-f8d5218b45b9" name="Default" comment="updater">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Analitics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Analitics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConvModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConvModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Plot2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Plot2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SortRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SortRange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Analitics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Analitics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Plot2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Plot2.class" afterDir="false" />
-    </list>
+    <list default="true" id="ef8438bc-3b0f-42a5-851a-f8d5218b45b9" name="Default" comment="updater" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,17 +60,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="-8">
               <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SortRange.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3482">
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Plot2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1197">
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+            <state relative-caret-position="-8">
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ConvModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2117">
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+            <state relative-caret-position="-8">
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,17 +105,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Plotter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="61" lean-forward="true" selection-start-column="61" selection-end-column="61" />
+            <state relative-caret-position="-8">
+              <caret column="61" selection-start-column="61" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Analitics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-122">
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+            <state relative-caret-position="-8">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -265,13 +257,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534849386903" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534918348841" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -285,7 +277,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Plot2">
+  <component name="RunManager" selected="Application.Analitics">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -437,8 +429,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Plot2" />
         <item itemvalue="Application.Analitics" />
+        <item itemvalue="Application.Plot2" />
         <item itemvalue="Application.Plot" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.Charts" />
@@ -490,7 +482,7 @@
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" x="0" y="286" width="1280" height="324" id="Messages" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4330357" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.503125" side_tool="true" weight="0.32857144" />
-      <window_info anchor="bottom" x="0" y="529" width="1280" height="409" id="Run" internal_type="SLIDING" order="2" type="SLIDING" weight="0.27571428" />
+      <window_info active="true" anchor="bottom" x="0" y="529" width="1280" height="409" id="Run" internal_type="SLIDING" order="2" type="SLIDING" visible="true" weight="0.2765043" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32890856" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.496875" weight="0.32965517" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.60714287" />
@@ -657,7 +649,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
+        <state relative-caret-position="-8">
           <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
         </state>
       </provider>
@@ -669,30 +661,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ConvModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2117">
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SortRange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3482">
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Plot2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1197">
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="-8">
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Analitics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -701,15 +683,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Plotter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="61" lean-forward="true" selection-start-column="61" selection-end-column="61" />
+        <state relative-caret-position="-8">
+          <caret column="61" selection-start-column="61" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Analitics.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ConvModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122">
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="-8">
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SortRange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
