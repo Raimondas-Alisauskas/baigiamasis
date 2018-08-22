@@ -39,9 +39,8 @@ public class Analitics {
         plot.setAxisLabel(1, "acc");
 
         PlotPanel plot3d = new Plot3DPanel();
-        ((Plot3DPanel) plot3d).addLinePlot
-                ("prec versus rec versus f1",
-                Color.BLUE, fn, rec, prec);
+        ((Plot3DPanel) plot3d).addLinePlot("acc versus rec versus f1",
+                Color.BLUE, acc, rec, f1);
         plot3d.setAxisLabel(0, "prec");
         plot3d.setAxisLabel(1, "rec");
         plot3d.setAxisLabel(2, "f1");
