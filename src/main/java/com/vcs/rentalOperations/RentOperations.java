@@ -1,8 +1,8 @@
-package rentalOperations;
+package com.vcs.rentalOperations;
 
-import operators.Client;
-import operators.RentalShop;
-import vehicles.Vehicle;
+import com.vcs.operators.Client;
+import com.vcs.operators.RentalShop;
+import com.vcs.vehicles.Vehicle;
 
 import java.util.ArrayList;
 import java.util.HashMap;

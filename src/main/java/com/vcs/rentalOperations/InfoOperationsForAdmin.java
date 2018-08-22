@@ -1,13 +1,17 @@
-package rentalOperations;
+package com.vcs.rentalOperations;
 
-import vehicles.TypeOfVehicle;
+import com.vcs.vehicles.TypeOfVehicle;
+import com.vcs.vehicles.Vehicle;
+
+import java.util.List;
+import java.util.Map;
 
 public interface InfoOperationsForAdmin {
 
-    public void showWhatIsRented ();
+    public Map<Vehicle,List<Integer>> showWhatIsRented ();
 
-    public void addNewVehicle(TypeOfVehicle type);
+    public Vehicle addNewVehicle(TypeOfVehicle type);
 
-    public void howManyCarsWePosses();
+    public List<Vehicle> howManyCarsWePosses();
 }
 

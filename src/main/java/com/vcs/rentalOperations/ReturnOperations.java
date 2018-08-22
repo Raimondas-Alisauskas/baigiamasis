@@ -1,15 +1,15 @@
-package rentalOperations;
+package com.vcs.rentalOperations;
 
-import operators.Client;
-import operators.RentalShop;
-import vehicles.Vehicle;
+import com.vcs.operators.Client;
+import com.vcs.operators.RentalShop;
+import com.vcs.vehicles.Vehicle;
 
 public abstract class ReturnOperations {
 
-    public void returnVehicle(int id, int startDate, int endDate, Client client, int returnDate){
+    public void returnVehicle(int id, int startDate, int endDate, int returnDate){
 
         Vehicle vehicle=selectVehicle(id);
-            returnAVehicle(id,startDate,endDate,client);
+            returnAVehicle(id,startDate,endDate);
             if (returnDate>endDate){
                 double toPay=(returnDate-endDate)*vehicle.getVehPrice();
                 System.out.println("You have exceeded your rent period, please pay additional sum of "+toPay+" EUR.");
@@ -17,7 +17,7 @@ public abstract class ReturnOperations {
 
     }
 
-    private void returnAVehicle(int id, int startDate, int endDate, Client client) {
+    private void returnAVehicle(int id, int startDate, int endDate) {
 
         Vehicle vehicle=selectVehicle(id);
 
@@ -31,20 +31,7 @@ public abstract class ReturnOperations {
         }
     }
 
-    private boolean checkIfVehIsAvl(int id, int startDate, int endDate) {
 
-        for (int a=startDate; a<=endDate; a++){
-            if(RentalShop.rentedList.containsKey(a)){
-                for (Vehicle vehicle: RentalShop.rentedList.get(a)){
-                    if (vehicle.getVehicleId()==id){
-                        System.out.println("Vehicle is not available during your selected period");
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
 
 
     private Vehicle selectVehicle(int ID) {

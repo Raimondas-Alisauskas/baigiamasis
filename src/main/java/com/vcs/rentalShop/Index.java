@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 
-public class Business {
+public class Index {
     @Autowired
     public Vc vc;
 

@@ -1,22 +1,28 @@
-package rentalOperations;
+package com.vcs.rentalOperations;
 
-import operators.RentalShop;
+import com.vcs.operators.RentalShop;
 
-import vehicles.*;
+import com.vcs.vehicles.*;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class AdminOps extends ClientOps implements InfoOperationsForAdmin {
+
+@Service
+@Qualifier("admin")
+public class AdminOps extends ClientOps implements InfoOperationsForAdmin {
     @Override
-    public void showWhatIsRented (){
-        Map<Vehicle,List<Integer>> rentedVehicles = new HashMap<>();
-        for (int i=0; i<=365;i++){
-            if(RentalShop.rentedList.containsKey(i)){
-                for (Vehicle vehicle: RentalShop.rentedList.get(i)
-                ) { rentedVehicles.putIfAbsent(vehicle,new ArrayList<>());
+    public Map<Vehicle, List<Integer>> showWhatIsRented() {
+        Map<Vehicle, List<Integer>> rentedVehicles = new HashMap<>();
+        for (int i = 0; i <= 365; i++) {
+            if (RentalShop.rentedList.containsKey(i)) {
+                for (Vehicle vehicle : RentalShop.rentedList.get(i)
+                ) {
+                    rentedVehicles.putIfAbsent(vehicle, new ArrayList<>());
                     rentedVehicles.get(vehicle).add(i);
 
                 }
@@ -24,52 +30,51 @@ public abstract class AdminOps extends ClientOps implements InfoOperationsForAdm
         }
 
 
-        for (Vehicle vehicle: rentedVehicles.keySet()
-        ) { System.out.println("Model: "+ vehicle.getModel());
+        for (Vehicle vehicle : rentedVehicles.keySet()
+        ) {
+            System.out.println("Model: " + vehicle.getModel());
             System.out.println("Vehicle ID: " + vehicle.getVehicleId());
             System.out.println("Rent days:");
 
-            for (Integer integer:rentedVehicles.get(vehicle)
+            for (Integer integer : rentedVehicles.get(vehicle)
             ) {
 
-                System.out.println(integer+";");
+                System.out.println(integer + ";");
 
             }
             System.out.println();
 
 
         }
-
-
-
-    }
-    @Override
-    public void howManyCarsWePosses() {
-        System.out.println("We have " + RentalShop.generalList.size() + "com/vcs/project/rent/vehicles");
-        System.out.println("List of com.vcs.project.rent.vehicles:");
-        for (int i = 0; i < RentalShop.generalList.size(); i++) {
-            System.out.println("Model: " + RentalShop.generalList.get(i).getModel() + " ID: " + RentalShop.generalList.get(i).getVehicleId());
-        }
+        return rentedVehicles;
 
 
     }
 
     @Override
-    public void addNewVehicle(TypeOfVehicle type) {
+    public List<Vehicle> howManyCarsWePosses() {
+        return RentalShop.generalList;
+
+
+    }
+
+    @Override
+    public Vehicle addNewVehicle(TypeOfVehicle type) {
         switch (type) {
             case HATCHBACK:
-                new Hatchback();
-                break;
+
+                return new Hatchback();
             case JEEP:
-                new Jeep();
-                break;
+
+                return new Jeep();
             case MOTORBIKE:
-                new MotorBike();
-                break;
+
+                return new MotorBike();
             case SEDAN:
-                new Sedan();
-                break;
+
+                return new Sedan();
         }
+        return null;
 
     }
 }

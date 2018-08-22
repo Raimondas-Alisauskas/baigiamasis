@@ -1,4 +1,4 @@
-package vehicles;
+package com.vcs.vehicles;
 
 public abstract class Vehicle {
 

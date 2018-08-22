@@ -1,6 +1,6 @@
-package operators;
+package com.vcs.operators;
 
-import rentalOperations.AdminOps;
+import com.vcs.rentalOperations.AdminOps;
 
 public class Administrator extends AdminOps {
 

@@ -1,7 +1,7 @@
-package vehicles;
+package com.vcs.vehicles;
 
 
-import operators.RentalShop;
+import com.vcs.operators.RentalShop;
 
 public class Sedan extends Vehicle {
 

@@ -1,8 +1,8 @@
-package vehicles;
+package com.vcs.vehicles;
 
-import operators.RentalShop;
+import com.vcs.operators.RentalShop;
 
-import static vehicles.TypeOfVehicle.JEEP;
+import static com.vcs.vehicles.TypeOfVehicle.JEEP;
 
 public class Jeep extends Vehicle {
 

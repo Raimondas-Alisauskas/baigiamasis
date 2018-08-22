@@ -1,8 +1,12 @@
-package operators;
+package com.vcs.operators;
 
-import rentalOperations.ClientOps;
+import com.vcs.rentalOperations.ClientOps;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-
+@Component
+@Qualifier("client")
 public class Client extends ClientOps {
 
     private String name;
