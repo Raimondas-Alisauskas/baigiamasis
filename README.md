@@ -3,7 +3,9 @@ Andrius Prišmantas
 
 Vaizdų atpažinimo tinklo analitika
 
-    Ši programa skirta generuoti bei vizualizuoti (analizuoti) Convolution Network (vaizdų atpažinimo Neural-net) parametrus pagal pageidavimą, nusakančius modelio efektyvumą: recall, accuracy, precision, f1 ir kt.
+    Ši programa skirta generuoti bei vizualizuoti (analizuoti) Convolution Network 
+    (vaizdų atpažinimo Neural-net) parametrus pagal pageidavimą, nusakančius modelio 
+    efektyvumą: recall, accuracy, precision, f1 ir kt.
 	Aplikacija yra sudaryta iš keturių klasių. Klasių aprašai pagal hierarchiją:
 1. Analitics
 Ši klasė randasi hierarchijos viršuje. Joje naudojamas org.math.plot.PlotPanel modulis. Ji paima reikiamus modelio duomenis ir gali juos vizualizuoti įvairiais būdais (2d , 3d, scatter, line ir kt.). Iš šios klasės paleidžiamas kodas.
