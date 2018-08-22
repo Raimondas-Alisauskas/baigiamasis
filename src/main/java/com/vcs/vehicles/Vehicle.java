@@ -1,9 +1,5 @@
 package vehicles;
 
-import vehicles.TypeOfVehicle;
-
-import java.util.Random;
-
 public abstract class Vehicle {
 
 // TODO static counter for vehicle ID

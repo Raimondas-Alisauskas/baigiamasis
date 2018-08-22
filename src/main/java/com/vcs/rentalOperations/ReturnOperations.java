@@ -4,13 +4,9 @@ import operators.Client;
 import operators.RentalShop;
 import vehicles.Vehicle;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public abstract class ReturnOperations {
 
-    public void rent(int id, int startDate, int endDate, Client client, int returnDate){
+    public void returnVehicle(int id, int startDate, int endDate, Client client, int returnDate){
 
         Vehicle vehicle=selectVehicle(id);
             returnAVehicle(id,startDate,endDate,client);
@@ -41,7 +37,7 @@ public abstract class ReturnOperations {
             if(RentalShop.rentedList.containsKey(a)){
                 for (Vehicle vehicle: RentalShop.rentedList.get(a)){
                     if (vehicle.getVehicleId()==id){
-                        System.out.println("vehicles.Vehicle is not available during your selected period");
+                        System.out.println("Vehicle is not available during your selected period");
                         return false;
                     }
                 }

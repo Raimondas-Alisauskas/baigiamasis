@@ -9,7 +9,7 @@ public class Jeep extends Vehicle {
     private boolean offRoad;
 
     public  Jeep (){
-        this (4, "vehicles.Jeep", "Diesel", "Black", false, true, "3,5L", 2015);
+        this (4, "Jeep", "Diesel", "Black", false, true, "3,5L", 2015);
     }
 
     public Jeep(int noOfSeats, String model, String fuelType, String colour, boolean autoGearBox, boolean offRoad, String power, int productionYear){

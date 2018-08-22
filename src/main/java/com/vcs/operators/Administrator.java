@@ -1,7 +1,6 @@
 package operators;
 
 import rentalOperations.AdminOps;
-import rentalOperations.InfoOperationsForAdmin;
 
 public class Administrator extends AdminOps {
 
@@ -16,4 +15,6 @@ public Administrator (){
         this.name=n;
         this.surname=s;
     }
+
+
 }

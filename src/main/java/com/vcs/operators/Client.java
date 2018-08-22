@@ -1,7 +1,7 @@
 package operators;
 
 import rentalOperations.ClientOps;
-import rentalOperations.InfoOperationsForClient;
+
 
 public class Client extends ClientOps {
 
@@ -21,14 +21,21 @@ public class Client extends ClientOps {
 
     private  static int counter = 0;
 
-    public Client (boolean driverLicense, boolean creditCardValidity){
+    public void create (){
+        new Client();
+    }
+    public Client (){
         counter++;
         setName("Andrius");
         setSurname("Vaitiekunas");
         setAge(29);
-        setDriverLicense(driverLicense);
+        setDriverLicense(true);
         setCreditCardNo(12345678);
-        setCreditCardValidity(creditCardValidity);
+        setCreditCardValidity(true);
+        System.out.println("labadiena");
+
+
+
         this.clientId=counter;
     }
 
@@ -83,7 +90,7 @@ public class Client extends ClientOps {
         this.creditCardValidity = creditCardValidity;
     }
 
-    public boolean isDriverLicense() {
+    public boolean isDriverLicense(boolean b) {
         return driverLicense;
     }
 

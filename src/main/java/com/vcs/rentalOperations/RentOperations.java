@@ -12,7 +12,7 @@ public abstract class RentOperations extends ReturnOperations{
 
 
     public void rent(int id, int startDate, int endDate, Client client){
-        if (client.isCreditCardValidity()&& client.isDriverLicense()&& client.getAge()>17){
+        if (client.isCreditCardValidity()&& client.isDriverLicense(true)&& client.getAge()>17){
         if(checkIfVehIsAvl(id, startDate, endDate)){
             rentAVehicle(id, startDate, endDate, client);
             int days=endDate-startDate+1;
@@ -41,7 +41,7 @@ public abstract class RentOperations extends ReturnOperations{
             if(RentalShop.rentedList.containsKey(a)){
                 for (Vehicle vehicle: RentalShop.rentedList.get(a)){
                     if (vehicle.getVehicleId()==id){
-                        System.out.println("vehicles.Vehicle is not available during your selected period");
+                        System.out.println("Vehicle is not available during your selected period");
                         return false;
                     }
                 }
@@ -55,7 +55,7 @@ public abstract class RentOperations extends ReturnOperations{
             if(list.containsKey(a)){
                 for (Vehicle vehicle: RentalShop.rentedList.get(a)){
                     if (vehicle.getVehicleId()==id){
-                        System.out.println("vehicles.Vehicle is not available during your selected period");
+                        System.out.println("Vehicle is not available during your selected period");
 
                     }
                 }

@@ -1,10 +1,8 @@
 package rentalOperations;
 
-import operators.RentalShop;
 import vehicles.TypeOfVehicle;
 import vehicles.Vehicle;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface InfoOperationsForClient {

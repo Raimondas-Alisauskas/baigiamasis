@@ -1,7 +1,8 @@
 package rentalOperations;
 
 import operators.RentalShop;
-import vehicles.Vehicle;
+
+import vehicles.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,12 +45,31 @@ public abstract class AdminOps extends ClientOps implements InfoOperationsForAdm
     }
     @Override
     public void howManyCarsWePosses() {
-        System.out.println("We have " + RentalShop.generalList.size() + " vehicles");
-        System.out.println("List of vehicles:");
+        System.out.println("We have " + RentalShop.generalList.size() + "com/vcs/project/rent/vehicles");
+        System.out.println("List of com.vcs.project.rent.vehicles:");
         for (int i = 0; i < RentalShop.generalList.size(); i++) {
             System.out.println("Model: " + RentalShop.generalList.get(i).getModel() + " ID: " + RentalShop.generalList.get(i).getVehicleId());
         }
 
+
+    }
+
+    @Override
+    public void addNewVehicle(TypeOfVehicle type) {
+        switch (type) {
+            case HATCHBACK:
+                new Hatchback();
+                break;
+            case JEEP:
+                new Jeep();
+                break;
+            case MOTORBIKE:
+                new MotorBike();
+                break;
+            case SEDAN:
+                new Sedan();
+                break;
+        }
 
     }
 }

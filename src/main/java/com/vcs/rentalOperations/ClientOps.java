@@ -75,7 +75,7 @@ public abstract class ClientOps extends ReturnOperations implements InfoOperatio
     }
 
     public void rent(int id, int startDate, int endDate, Client client){
-        if (client.isCreditCardValidity()&& client.isDriverLicense()&& client.getAge()>17){
+        if (client.isCreditCardValidity()&& client.isDriverLicense(true)&& client.getAge()>17){
             if(checkIfVehIsAvl(id, startDate, endDate)){
                 rentAVehicle(id, startDate, endDate, client);
             } else {System.out.println("Vehicle with ID: "+ id+" is rented during your selected dates");}} else{
@@ -101,7 +101,7 @@ public abstract class ClientOps extends ReturnOperations implements InfoOperatio
             if(RentalShop.rentedList.containsKey(a)){
                 for (Vehicle vehicle: RentalShop.rentedList.get(a)){
                     if (vehicle.getVehicleId()==id){
-                        System.out.println("vehicles.Vehicle is not available during your selected period");
+                        System.out.println("Vehicle is not available during your selected period");
                         return false;
                     }
                 }
@@ -115,7 +115,7 @@ public abstract class ClientOps extends ReturnOperations implements InfoOperatio
             if(list.containsKey(a)){
                 for (Vehicle vehicle: RentalShop.rentedList.get(a)){
                     if (vehicle.getVehicleId()==id){
-                        System.out.println("vehicles.Vehicle is not available during your selected period");
+                        System.out.println("Vehicle is not available during your selected period");
 
                     }
                 }
