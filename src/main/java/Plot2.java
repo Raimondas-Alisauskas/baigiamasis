@@ -1,7 +1,3 @@
-/**
- * Created by duser on 18.8.7.
- */
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -24,9 +20,11 @@ public class Plot2 extends Application {
 
             ArrayList<Double> acc = model.getAcc();
             ArrayList<Double> prec = model.getPrec();
-            ArrayList<Integer> rang = model.getRang();
             ArrayList<Double> rec = model.getRec();
             ArrayList<Double> f1 = model.getF1();
+            ArrayList<Double> far = model.far; // neduoda 5 kreivių atvaizduoti
+            ArrayList<Integer> rang = model.getRang();
+
             min = rang.get(0);
             max = rang.get(rang.size()-1);
 
@@ -44,25 +42,30 @@ public class Plot2 extends Application {
             XYChart.Series series = new XYChart.Series();
             XYChart.Series series2 = new XYChart.Series();
             XYChart.Series series3 = new XYChart.Series();
-            XYChart.Series series4 = new XYChart.Series();
-            series.setName("accuracy");
-            series2.setName("precision");
-            series3.setName("recall");
-            series4.setName("f1");
+            //XYChart.Series series4 = new XYChart.Series();
+            XYChart.Series series5 = new XYChart.Series();
+            series.setName("acc");
+            series2.setName("prec");
+            series3.setName("rec");
+            //series4.setName("f1");
+            series5.setName("far");
             // populatin' series with data
 
             for (int i = 0; i < acc.size(); i += 1) {
 
-                //series.getData().add(new XYChart.Data(rang.get(i), acc.get(i)));
+                series.getData().add(new XYChart.Data(rang.get(i), acc.get(i)));
                 series2.getData().add(new XYChart.Data(rang.get(i), prec.get(i)));
-                //series3.getData().add(new XYChart.Data(rang.get(i), rec.get(i)));
+                series3.getData().add(new XYChart.Data(rang.get(i), rec.get(i)));
                 //series4.getData().add(new XYChart.Data(rang.get(i), f1.get(i)));
+                series5.getData().add(new XYChart.Data(rang.get(i), far.get(i)));
             }
 
-            //lineChart.getData().add(series);
+            lineChart.getData().add(series);
             lineChart.getData().add(series2);
-            //lineChart.getData().add(series3);
+            lineChart.getData().add(series3);
             //lineChart.getData().add(series4);
+            lineChart.getData().add(series5);
+
 
             Scene scene = new Scene(lineChart, 800, 600);
             primaryStage.setScene(scene);

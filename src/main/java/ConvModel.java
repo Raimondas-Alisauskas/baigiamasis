@@ -17,10 +17,6 @@ import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.util.ArrayList;
 
-/**
- * Created by duser on 18.8.2.
- */
-
 public class ConvModel {
 
     ArrayList<Double> acc = new ArrayList<Double>();
@@ -28,13 +24,14 @@ public class ConvModel {
     ArrayList<Double> prec = new ArrayList<Double>();
     ArrayList<Double> rec = new ArrayList<Double>();
     ArrayList<Double> far = new ArrayList<Double>();
+    ArrayList<Double> fn  = new ArrayList<>();
 
     public ArrayList<Integer> smp_range;
     public ArrayList<Double> lr_range;
 
     public ConvModel() {
         lr_range= SortRange.range(.0001, .0002, .0001);
-        smp_range = SortRange.range(80, 360, 20);
+        smp_range = SortRange.range(80, 3000, 500);
 
         for (Integer sm : smp_range) {
             for (Double lrate : lr_range) {
@@ -47,6 +44,7 @@ public class ConvModel {
                 prec.add(evaler.precision());
                 rec.add(evaler.recall());
                 far.add(evaler.falseAlarmRate());
+                fn.add(evaler.falseNegativeRate());
 
             }
         }
@@ -56,6 +54,7 @@ public class ConvModel {
         acc = SortRange.round_(acc);
         prec = SortRange.round_(prec);
         far = SortRange.round_(far);
+        fn = SortRange.round_(fn);
     }
 
 

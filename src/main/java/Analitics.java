@@ -13,6 +13,7 @@ public class Analitics {
     private final ArrayList<Double> f1;
     private final ArrayList<Double> acc;
     private final ArrayList<Double> far;
+    private final ArrayList<Double> fn;
 
     Analitics () {
 
@@ -22,12 +23,14 @@ public class Analitics {
         this.rec = convModel.getRec();
         this.prec = convModel.getPrec();
         this.far = convModel.far;
+        this.fn = convModel.fn;
 
         double[] f1 = this.f1.stream().mapToDouble(Double::doubleValue).toArray(); //via method reference
-        double[] acc = this.acc.stream().mapToDouble(Double::doubleValue).toArray(); //via method reference
-        double[] prec = this.prec.stream().mapToDouble(Double::doubleValue).toArray(); //via method reference
-        double[] rec = this.prec.stream().mapToDouble(Double::doubleValue).toArray(); //via method reference
-        double[] far = this.far.stream().mapToDouble(Double::doubleValue).toArray(); //via method reference
+        double[] acc = this.acc.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] prec = this.prec.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] rec = this.prec.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] far = this.far.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] fn = this.fn.stream().mapToDouble(Double::doubleValue).toArray();
 
         PlotPanel plot = new Plot2DPanel();
         ((Plot2DPanel) plot).addLinePlot("f1 versus accuracy", Color.BLUE,
@@ -37,12 +40,11 @@ public class Analitics {
 
         PlotPanel plot3d = new Plot3DPanel();
         ((Plot3DPanel) plot3d).addLinePlot
-                ("f1 versus accuracy versus prec",
-                Color.BLUE,
-                far, acc, prec);
-        plot3d.setAxisLabel(0, "fp");
-        plot3d.setAxisLabel(1, "acc");
-        plot3d.setAxisLabel(2, "prec");
+                ("fn versus rec versus f1",
+                Color.BLUE, fn, rec, prec);
+        plot3d.setAxisLabel(0, "fn");
+        plot3d.setAxisLabel(1, "rec");
+        plot3d.setAxisLabel(2, "f1");
 
         JFrame frame = new JFrame("a plot panel");
         frame.setContentPane(plot3d);

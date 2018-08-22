@@ -5,9 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 
-/**
- * Created by duser on 18.8.8.
- */
 public class SortRange {
 
     public ArrayList<Integer> swap_sort(ArrayList<Integer> li) {
