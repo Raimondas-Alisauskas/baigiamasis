@@ -1,5 +1,8 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +11,11 @@ public class PrIrPabSimetrija implements Algoritmas {
 
     public boolean patikrink(SpalvotaEilute eilute) {
         // pirma spalva lygi paskutinei
-        return eilute.eilute.get(0)==(eilute.eilute.get(eilute.eilute.size() - 1));
+        return eilute.getEilute().get(0)==(eilute.getEilute().get(eilute.getEilute().size() - 1));
     }
 
-    public int sudetingumas() {
-        return 0;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL0;
     }
 
     public List<SpalvotaEilute> getTeisingos() {

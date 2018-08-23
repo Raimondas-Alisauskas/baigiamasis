@@ -1,5 +1,8 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,8 +15,8 @@ public class ArNeraZalios implements Algoritmas {
         //TODO
     }
 
-    public int sudetingumas() {
-        return 5;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL5;
     }
 
     public List<SpalvotaEilute> getTeisingos() {

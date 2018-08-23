@@ -1,6 +1,6 @@
 package com.vcs.projektas;
 
-public class hints {
+public class Hints {
 
    // public hint1() {
 

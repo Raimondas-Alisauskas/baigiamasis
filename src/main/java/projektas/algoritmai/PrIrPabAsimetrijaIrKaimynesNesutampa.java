@@ -1,5 +1,8 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,19 +14,19 @@ public class PrIrPabAsimetrijaIrKaimynesNesutampa implements Algoritmas {
 
         int count = 0;
 
-        for (int i = 0; i < eilute.eilute.size(); i++) {
-            if (eilute.eilute.get(i) != (eilute.eilute.get(i + 1)))
+        for (int i = 0; i < eilute.getEilute().size(); i++) {
+            if (eilute.getEilute().get(i) != (eilute.getEilute().get(i + 1)))
                 count++;
         }
 
-        return (count == eilute.eilute.size() - 1) &&
-                (eilute.eilute.get(0) != (eilute.eilute.get(eilute.eilute.size() - 1)));
+        return (count == eilute.getEilute().size() - 1) &&
+                (eilute.getEilute().get(0) != (eilute.getEilute().get(eilute.getEilute().size() - 1)));
 
 
     }
 
-    public int sudetingumas() {
-        return 6;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL6;
     }
 
     public List<SpalvotaEilute> getTeisingos() {

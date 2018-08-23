@@ -1,18 +1,21 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PirmaArbaAntraSpalvaSutampaSuPaskutine implements Algoritmas {
     public boolean patikrink(SpalvotaEilute eilute) {
         //eilute ilgesne nei 2
-        return eilute.eilute.size() >= 2 &&
-                (eilute.eilute.get(0).equals(eilute.eilute.get(eilute.eilute.size() - 1)) ||
-                        (eilute.eilute.get(0).equals(eilute.eilute.get(eilute.eilute.size() - 2))));
+        return eilute.getEilute().size() >= 2 &&
+                (eilute.getEilute().get(0).equals(eilute.getEilute().get(eilute.getEilute().size() - 1)) ||
+                        (eilute.getEilute().get(0).equals(eilute.getEilute().get(eilute.getEilute().size() - 2))));
     }
 
-    public int sudetingumas() {
-        return 7;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL7;
     }
 
     public List<SpalvotaEilute> getTeisingos() {

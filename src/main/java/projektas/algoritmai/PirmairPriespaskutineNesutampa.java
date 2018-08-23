@@ -1,16 +1,19 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PirmairPriespaskutineNesutampa implements Algoritmas {
     public boolean patikrink(SpalvotaEilute eilute) {
         //eilute > 2 ir pirma ir priespaskutine spalva nesutampa
-        return (eilute.eilute.size() > 2) && !(eilute.eilute.get(0).equals(eilute.eilute.get(eilute.eilute.size() - 2)));
+        return (eilute.getEilute().size() > 2) && !(eilute.getEilute().get(0).equals(eilute.getEilute().get(eilute.getEilute().size() - 2)));
     }
 
-    public int sudetingumas() {
-        return 4;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL4;
     }
 
     public List<SpalvotaEilute> getTeisingos() {

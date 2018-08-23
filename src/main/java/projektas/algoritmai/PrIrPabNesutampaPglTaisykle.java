@@ -1,5 +1,8 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,23 +11,23 @@ public class PrIrPabNesutampaPglTaisykle implements Algoritmas {
     //3...2; 2...1; 1...0; 0...3;
 
     public boolean patikrink(SpalvotaEilute eilute) {
-        if (eilute.eilute.get(0) == (eilute.eilute.get(eilute.eilute.size() - 1))) {
+        if (eilute.getEilute().get(0) == (eilute.getEilute().get(eilute.getEilute().size() - 1))) {
             return false;
-        } else if ((eilute.eilute.get(0) == 3) && (eilute.eilute.get(eilute.eilute.size() - 1)) == 2) {
+        } else if ((eilute.getEilute().get(0) == 3) && (eilute.getEilute().get(eilute.getEilute().size() - 1)) == 2) {
             return true;
-        } else if ((eilute.eilute.get(0) == 2) && (eilute.eilute.get(eilute.eilute.size() - 1)) == 1) {
+        } else if ((eilute.getEilute().get(0) == 2) && (eilute.getEilute().get(eilute.getEilute().size() - 1)) == 1) {
             return true;
-        } else if ((eilute.eilute.get(0) == 1) && (eilute.eilute.get(eilute.eilute.size() - 1)) == 0) {
+        } else if ((eilute.getEilute().get(0) == 1) && (eilute.getEilute().get(eilute.getEilute().size() - 1)) == 0) {
             return true;
-        } else if ((eilute.eilute.get(0) == 0) && (eilute.eilute.get(eilute.eilute.size() - 1)) == 3) {
+        } else if ((eilute.getEilute().get(0) == 0) && (eilute.getEilute().get(eilute.getEilute().size() - 1)) == 3) {
             return true;
         } else {
             return false;
         }
     }
 
-    public int sudetingumas() {
-        return 9;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL9;
     }
 
     public List<SpalvotaEilute> getTeisingos() {

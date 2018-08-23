@@ -1,15 +1,18 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class LyginisKiekis implements Algoritmas {
     public boolean patikrink(SpalvotaEilute eilute) {
-        return eilute.eilute.size() % 2 == 0;
+        return eilute.getEilute().size() % 2 == 0;
     }
 
-    public int sudetingumas() {
-        return 1;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL1;
     }
 
     public List<SpalvotaEilute> getTeisingos() {

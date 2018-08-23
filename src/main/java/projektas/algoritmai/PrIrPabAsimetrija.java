@@ -1,5 +1,8 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +11,11 @@ public class PrIrPabAsimetrija implements Algoritmas {
     public boolean patikrink(SpalvotaEilute eilute) {
         // pradžia ir pabaiga nesutampa
 
-        return eilute.eilute.get(0) != (eilute.eilute.get(eilute.eilute.size() - 1));
+        return eilute.getEilute().get(0) != (eilute.getEilute().get(eilute.getEilute().size() - 1));
     }
 
-    public int sudetingumas() {
-        return 2;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL2;
     }
 
     public List<SpalvotaEilute> getTeisingos() {

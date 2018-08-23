@@ -1,4 +1,4 @@
-package projektas.algoritmai;
+package projektas.algoritmai.eilute;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SpalvotaEilute {
 
-    List<Integer> eilute = new ArrayList<Integer>();
+    private List<Integer> eilute = new ArrayList<Integer>();
 
     public List<Integer> getEilute() {
         return eilute;

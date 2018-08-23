@@ -1,5 +1,8 @@
 package projektas.algoritmai;
 
+import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.SpalvotaEilute;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +10,18 @@ public class PirmaIrTreciaSpalvosNeRaudonos implements Algoritmas {
 
     public boolean patikrink(SpalvotaEilute eilute) {
         //pirma ir trecia spalva negali buti raudona, eilute gali buti bet kokio ilgio
-        if (eilute.eilute.size() <= 1 && eilute.eilute.get(0) != 2) {
+        if (eilute.getEilute().size() <= 1 && eilute.getEilute().get(0) != 2) {
             return true;
-        } else if(eilute.eilute.size() <= 1) {
+        } else if(eilute.getEilute().size() <= 1) {
             return false;
-        } else if (eilute.eilute.get(0) != 2 && eilute.eilute.get(2) != 2) {
+        } else if (eilute.getEilute().get(0) != 2 && eilute.getEilute().get(2) != 2) {
             return true;
         }
         return false;
     }
 
-    public int sudetingumas() {
-        return 8;
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL8;
     }
 
     public List<SpalvotaEilute> getTeisingos() {
