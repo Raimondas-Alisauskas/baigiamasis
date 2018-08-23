@@ -1,59 +1,32 @@
-import org.math.plot.Plot2DPanel;
 import org.math.plot.Plot3DPanel;
-import org.math.plot.PlotPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.List;
 
 public class Analitics {
 
-    private final ArrayList<Double> rec;
-    private final ArrayList<Double> prec;
-    private final ArrayList<Double> f1;
-    private final ArrayList<Double> acc;
-    private final ArrayList<Double> far;
-    private final ArrayList<Double> fn;
+    private final RangeCustom ran;
 
     Analitics () {
 
-        ConvModel convModel = new ConvModel();
-        this.f1 = convModel.getF1();
-        this.acc = convModel.getAcc();
-        this.rec = convModel.getRec();
-        this.prec = convModel.getPrec();
-        this.far = convModel.far;
-        this.fn = convModel.fn;
+        ran = new RangeCustom();
 
-        double[] f1 = this.f1.stream().mapToDouble(Double::doubleValue).toArray(); //via method reference
-        double[] acc = this.acc.stream().mapToDouble(Double::doubleValue).toArray();
-        double[] prec = this.prec.stream().mapToDouble(Double::doubleValue).toArray();
-        double[] rec = this.prec.stream().mapToDouble(Double::doubleValue).toArray();
-        double[] far = this.far.stream().mapToDouble(Double::doubleValue).toArray();
-        double[] fn = this.fn.stream().mapToDouble(Double::doubleValue).toArray();
+        List<Double> lr = ran.range(.01,.02, .01);
+        List<Integer> samples = ran.range(80, 3000, 292);
 
-        PlotPanel plot = new Plot2DPanel();
-        ((Plot2DPanel) plot).addLinePlot("f1 versus accuracy", Color.BLUE,
-                f1, acc);
-        plot.setAxisLabel(0, "f1");
-        plot.setAxisLabel(1, "acc");
+        ConvModel convModel = new ConvModel(samples, lr);
 
-        PlotPanel plot3d = new Plot3DPanel();
-        ((Plot3DPanel) plot3d).addLinePlot("acc versus rec versus f1",
-                Color.BLUE, acc, rec, f1);
-        plot3d.setAxisLabel(0, "prec");
-        plot3d.setAxisLabel(1, "rec");
-        plot3d.setAxisLabel(2, "f1");
+        Plot3DPanel plot3d = new Plot3DPanel();
+        plot3d.addLinePlot("rec versus prec versus acc",
+                Color.BLUE, convModel.getRec(), convModel.getPrec(), convModel.getAcc());
+        plot3d.setAxisLabel(0, "rec");
+        plot3d.setAxisLabel(1, "prec");
+        plot3d.setAxisLabel(2, "acc");
 
         JFrame frame = new JFrame("a plot panel");
         frame.setContentPane(plot3d);
         frame.setSize(700,700);
         frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-
-       new Analitics();
-
     }
 }
