@@ -1,16 +1,15 @@
 package com.vcs.bogdan.Beans;
 
+import java.util.List;
+
 public class Person {
 
     private String id;
     private String name;
     private String surname;
+    private List<Contract> list;
 
     public Person() {}
-
-    public Person(String id){
-        this.id = id;
-    }
 
     public Person(String id, String name, String surname) {
         this.id = id;
@@ -18,7 +17,14 @@ public class Person {
         this.surname = surname;
     }
 
-    public String getId() { return id;}
+    public Person(List<Contract> list) {
+        new Person(id, name, surname);
+        this.list = list;
+    }
+
+    public String getId() {
+        return id;
+    }
 
     public void setId(String id) {
         this.id = id;
@@ -40,4 +46,11 @@ public class Person {
         this.surname = surname;
     }
 
+    public List<Contract> getList() {
+        return list;
+    }
+
+    public void setList(List<Contract> list) {
+        this.list = list;
+    }
 }

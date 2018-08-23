@@ -1,6 +1,7 @@
 package com.vcs.bogdan.Service;
 
 import com.mysql.jdbc.StringUtils;
+import com.vcs.bogdan.Beans.Contract;
 import com.vcs.bogdan.Beans.Person;
 
 import java.sql.ResultSet;
@@ -23,11 +24,6 @@ public class PersonService implements DBService<Person> {
     private static final String ID = "id";
     private static final String NAME = "name";
     private static final String SURNAME = "surname";
-
-    @Override
-    public Person get(List<Object> id) {
-        return null;
-    }
 
     @Override
     public Person get(String id) {
@@ -90,11 +86,6 @@ public class PersonService implements DBService<Person> {
             e.printStackTrace();
         }
         return result;
-    }
-
-    @Override
-    public void remove(List<Object> id) {
-
     }
 
     @Override

@@ -2,23 +2,28 @@ package com.vcs.bogdan.Beans;
 
 public class TimeList {
 
+    private String id;
     private long date;
-    private String employeeId;
-    private String eventName;
+    private String personId;
+    private String name;
     private double value;
 
     public TimeList() {
     }
 
-    public TimeList(long date) {
+    public TimeList(long date, String personId, String eventName, double value) {
         this.date = date;
+        this.personId = personId;
+        this.name = eventName;
+        this.value = value;
     }
 
-    public TimeList(long date, String employeeId, String eventName, double value) {
-        this.date = date;
-        this.employeeId = employeeId;
-        this.eventName = eventName;
-        this.value = value;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public long getDate() {
@@ -29,20 +34,20 @@ public class TimeList {
         this.date = date;
     }
 
-    public String getEmployeeId() {
-        return employeeId;
+    public String getPersonId() {
+        return personId;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    public void setPersonId(String personId) {
+        this.personId = personId;
     }
 
-    public String getEventName() {
-        return eventName;
+    public String getName() {
+        return name;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    public void setName(String eventName) {
+        this.name = name;
     }
 
     public double getValue() {

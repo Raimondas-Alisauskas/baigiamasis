@@ -1,82 +1,87 @@
 package com.vcs.bogdan.Service;
 
 import com.vcs.bogdan.Beans.*;
-import com.vcs.bogdan.Beans.Enums.DeductionType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class CalcService {
 
-    public double getIncomeWage(Employee employee, List<TimeList> timeList, Period period) {
-        return Math.max(calcIncomeWage(employee, timeList, period), period.getMonth().getMin());
-    }
 
-    public double getIncomeTax(double incomeWage, Employee employee, Tax tax) {
-        double taxFree = roundTo00(getTaxFree(incomeWage, employee, tax));
-        return roundTo00((incomeWage - taxFree) * tax.getPercent() / 100);
-    }
+    public List<PayRoll> getPayRoll(Period period, List<Person> persons, List<TimeList> timeLists) {
 
-    public double getSocialInsuranceDeductionFromEmployee(double incomeWage, Employee employee, Period period) {
-        return getCalculatePercentageFromNumber(incomeWage, getActualPercentValue(employee, period, DeductionType.SIFEE));
-    }
+        List<PayRoll> result = new ArrayList<>();
 
-    public double getHealthInsuranceDeductionFromEmployee(double incomeWage, Insurance insurance) {
-        return getCalculatePercentageFromNumber(incomeWage, insurance.getHealthEmployee());
-    }
-
-    public double getGuaranteeFundDeductionSum(double incomeWage, Insurance insurance) {
-        return getCalculatePercentageFromNumber(incomeWage, insurance.getGuaranteeFund());
-    }
-
-    private double getActualPercentValue(Employee employee, Period period, DeductionType type) {
-        switch (type) {
-            case TAX:
-                return 0;
-            case SIFEE:
-                return Math.max(period.getInsurance().getSocialEmployee(), employee.getSocialInsurance());
-            case SIFNEE:
-                return 0;
-            case SIFER:
-                return 0;
-            case HIFEE:
-                return 0;
-            case HIFER:
-                return 0;
-            case GFI:
-                return 0;
-            default:
-                return 0;
+        for (int i = 0; i < persons.size(); i++) {
+            PayRoll payRoll = new PayRoll();
+            payRoll.setPeriodId(period.getId());
+            payRoll.setNameSurname(persons.get(i).getName() + " " + persons.get(i).getSurname());
+            ContractService contractService = new ContractService();
+            Contract contract = contractService.getContractWithEarlyValidDate(period.getId(), persons.get(i).getId());
+            payRoll.setIncome(getIncome(period, contract, timeLists));
+            payRoll.setTax(getIncomeTax(period, contract, payRoll.getIncome()));
+            double deductInsurance = getSocialInsuranceDeductionFromEmployee(period, contract, payRoll.getIncome()) +
+                    getHealthInsuranceDeductionFromEmployee(period.getHealthEmployee(), payRoll.getIncome()) +
+                    getGuaranteeFundDeductionSum(period.getGuaranteeFund(), payRoll.getIncome());
+            payRoll.setInsurance(deductInsurance);
+            payRoll.setOut(payRoll.getIncome() - payRoll.getTax() - payRoll.getInsurance());
+            new PayRollService().add(payRoll);
+            result.add(payRoll);
         }
+        return result;
     }
 
-    private double calcIncomeWage(Employee employee, List<TimeList> timeList, Period period) {
-        TimeListService timeListService = new TimeListService();
-        switch (employee.getCalcType()) {
+
+    public double getIncome(Period period, Contract contract, List<TimeList> timeLists) {
+        return Math.max(calcIncomeWage(period, contract, timeLists), period.getMin());
+    }
+
+    public double getIncomeTax(Period period, Contract contract, double incomeWage) {
+        double taxFree = round(getCalcTaxFree(incomeWage, contract, period), 2);
+        return round((incomeWage - taxFree) * period.getPercent() / 100, 2);
+    }
+
+    public double getSocialInsuranceDeductionFromEmployee(Period period, Contract contract, double incomeWage) {
+        return getCalculatePercentageFromNumber(incomeWage, period.getSocialEmployee());
+    }
+
+    public double getHealthInsuranceDeductionFromEmployee(double healthEmploye, double incomeWage) {
+        return getCalculatePercentageFromNumber(incomeWage, healthEmploye);
+    }
+
+    public double getGuaranteeFundDeductionSum(double guaranteeFund, double incomeWage) {
+        return getCalculatePercentageFromNumber(incomeWage, guaranteeFund);
+    }
+
+    private double calcIncomeWage(Period period, Contract contract, List<TimeList> timeLists) {
+
+        switch (contract.getType()) {
             case DAY:
-                return getMultiply(timeListService.getHours(timeList, employee.getId(), period.getId()), employee.getWage());
+                return getMultiply(new TimeListService().getHours(timeLists, contract.getPersonId(), period.getId()), contract.getWage());
             case HOUR:
-                return getMultiply(timeListService.getDays(timeList, employee.getId(), period.getId()), employee.getWage());
+                return getMultiply(new TimeListService().getDays(timeLists, contract.getPersonId(), period.getId()), contract.getWage());
             case MONTH:
-                return getMultiply(1, employee.getWage());
+                return getMultiply(1, contract.getWage());
             default:
                 return 0;
         }
     }
 
     private double getCalculatePercentageFromNumber(double incomeWage, double percent) {
-        return roundTo00(incomeWage * percent / 100);
+        return round(incomeWage * percent / 100, 2);
     }
 
-    private double roundTo00(double number) {
-        return Math.floor(number * 100 + 0.5) / 100;
+    private double round(double number, int decPlace) {
+        double dP = Math.pow(10, decPlace);
+        return Math.floor(number * dP + 0.5) / dP;
     }
 
-    private double getTaxFree(double incomeWage, Employee employee, Tax tax) {
-        double result = tax.getTaxFree() + employee.getPnpd();
-        if (employee.isMain()) {
-            if (incomeWage >= tax.getBase()) {
-                result = result - (incomeWage - tax.getBase()) * tax.getCoefficient();
+    private double getCalcTaxFree(double incomeWage, Contract contract, Period period) {
+        double result = period.getTaxFree();
+        if (contract.isMain()) {
+            if (incomeWage >= period.getBase()) {
+                result = result - (incomeWage - period.getBase()) * period.getCoefficient();
             }
         } else {
             result = 0;

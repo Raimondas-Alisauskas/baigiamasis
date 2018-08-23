@@ -2,27 +2,36 @@ package com.vcs.bogdan.Beans;
 
 public class PayRoll {
 
-    private String month;
-    private String employeeName;
+    private String id;
+    private String periodId;
+    private String nameSurname;
     private double income;
-    private double deductTax;
-    private double deductInsurance;
+    private double tax;
+    private double insurance;
     private double out;
 
-    public String getMonth() {
-        return month;
+    public String getId() {
+        return id;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
+    public String getPeriodId() {
+        return periodId;
     }
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    public void setPeriodId(String periodId) {
+        this.periodId = periodId;
+    }
+
+    public String getNameSurname() {
+        return nameSurname;
+    }
+
+    public void setNameSurname(String nameSurname) {
+        this.nameSurname = nameSurname;
     }
 
     public double getIncome() {
@@ -33,20 +42,20 @@ public class PayRoll {
         this.income = income;
     }
 
-    public double getDeductTax() {
-        return deductTax;
+    public double getTax() {
+        return tax;
     }
 
-    public void setDeductTax(double deductTax) {
-        this.deductTax = deductTax;
+    public void setTax(double tax) {
+        this.tax = tax;
     }
 
-    public double getDeductInsurance() {
-        return deductInsurance;
+    public double getInsurance() {
+        return insurance;
     }
 
-    public void setDeductInsurance(double deductInsurance) {
-        this.deductInsurance = deductInsurance;
+    public void setInsurance(double insurance) {
+        this.insurance = insurance;
     }
 
     public double getOut() {
