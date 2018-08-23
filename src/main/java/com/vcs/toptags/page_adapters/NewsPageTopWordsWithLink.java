@@ -2,7 +2,6 @@ package com.vcs.toptags.page_adapters;
 
 public class NewsPageTopWordsWithLink implements INewsPageTopWordsWithLink {
     String web;
-    String encoding;
     // Filterred Top Words Array
     String[] filteredTopWordsArray;
     // Quantity of the Checked words grabbed from the page
@@ -13,9 +12,8 @@ public class NewsPageTopWordsWithLink implements INewsPageTopWordsWithLink {
     public NewsPageTopWordsWithLink() {
     }
 
-    public NewsPageTopWordsWithLink(String web, String encoding, String[] filteredTopWordsArray, Integer checkedWordsQty, Integer uniqueWordsQty) {
+    public NewsPageTopWordsWithLink(String web, String[] filteredTopWordsArray, Integer checkedWordsQty, Integer uniqueWordsQty) {
         this.web = web;
-        this.encoding = encoding;
         this.filteredTopWordsArray = filteredTopWordsArray;
         this.checkedWordsQty = checkedWordsQty;
         this.uniqueWordsQty = uniqueWordsQty;
@@ -25,12 +23,6 @@ public class NewsPageTopWordsWithLink implements INewsPageTopWordsWithLink {
     public String getWebDomain() {
 
         return web;
-    }
-
-    @Override
-    public String getEncoding() {
-
-        return encoding;
     }
 
     @Override

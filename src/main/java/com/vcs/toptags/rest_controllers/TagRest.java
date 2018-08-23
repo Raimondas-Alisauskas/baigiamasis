@@ -52,7 +52,7 @@ public class TagRest {
     private List<INewsPageTopWordsWithLink> getPageObjectWithWebAndQty() {
         List<INewsPageTopWordsWithLink> pageList = new ArrayList();
         for (INewsPage page : LAST_TOP_WORDS.getWordsDB()) {
-            pageList.add(new NewsPageTopWordsWithLink(page.getWebDomain(), page.getEncoding(), page.getFilteredTopWordsArray(), page.getCheckedWordsQty(), page.getUniqueWordsQty()));
+            pageList.add(new NewsPageTopWordsWithLink(page.getWebDomain(), page.getFilteredTopWordsArray(), page.getCheckedWordsQty(), page.getUniqueWordsQty()));
         }
 
         return pageList;

@@ -6,7 +6,7 @@ public interface INewsPage extends INewsPageTopWordsWithLink {
 
 //    public String getWebDomain();
 
-//    public String getEncoding();
+    public String getEncoding();
 
     public String getActiveTag();
 

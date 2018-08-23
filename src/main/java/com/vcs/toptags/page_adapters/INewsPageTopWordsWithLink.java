@@ -5,8 +5,6 @@ public interface INewsPageTopWordsWithLink extends INewsPageTopWords {
 
     public String getWebDomain();
 
-    public String getEncoding();
-
     public Integer getCheckedWordsQty();
 
     public Integer getUniqueWordsQty();
