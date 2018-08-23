@@ -9,12 +9,15 @@ public class NewsPageTopWords implements INewsPageTopWords {
     }
 
     public NewsPageTopWords(String[] filteredTopWordsArray) {
-        this.filteredTopWordsArray = filteredTopWordsArray;
+        synchronized(filteredTopWordsArray) {
+            this.filteredTopWordsArray = filteredTopWordsArray;
+        }
     }
 
     @Override
     public String[] getFilteredTopWordsArray() {
-        return filteredTopWordsArray;
+
+        synchronized(filteredTopWordsArray) {return filteredTopWordsArray;}
     }
 
 }

@@ -7,10 +7,10 @@ public class Time {
 
     public String getTime() {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("mm");
-        String minutes = sdf.format(new Date());
-        return minutes;
-    }
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+
+        return sdf.format(new Date());
+        }
 }
 
 

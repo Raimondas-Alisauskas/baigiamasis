@@ -18,11 +18,11 @@ import static com.vcs.toptags.actions.Actions.LAST_TOP_WORDS;
 public class TagRest {
 
     @Autowired
-    private NewsService service;
+    private HTMLService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHTML() {
-        return service.getHTML();
+        return service.getHTML(getPageObjectWithWebAndQty());
     }
 
     @RequestMapping(value = "/json", method = RequestMethod.GET)
@@ -45,9 +45,16 @@ public class TagRest {
 
     @RequestMapping(value = "/{text}", method = RequestMethod.GET)
     public String wrongText(@PathVariable("text") String textFromRequest) {
-        return "<!DOCTYPE html><html><body><h1>Neteisingas pletinys</h1><tr><td><p>tokio pletinio nera:<b> " + textFromRequest +
-                "</p></td>Naudok: <b>/</b>  arba  <b>/json  arba  <b>/jason/web_page_name</b></tr></body></html>";
+        return "<!DOCTYPE html><html><body><h1>Neteisingas pletinys</h1><br><p>tokio pletinio nera:<b> " + textFromRequest +
+                "</p>Naudok: <b>/</b>  arba  <b>/json  arba  <b>/jason/web_page_name (alfa, delfi, diena, vz)</b></body></html>";
     }
+
+// TODO - sutvarkyti klaidas ivedant netinkama pletini: /jason/belia_koks_tekstas
+//    @RequestMapping(value = "/json/{text}", method = RequestMethod.GET)
+//    public String wrongJsonText(@PathVariable("text") String textFromRequest) {
+//        return "<!DOCTYPE html><html><body><h1>Neteisingas pletinys</h1><br><p>tokio pletinio nera:<b> " + textFromRequest +
+//                "</p>Naudok: <b>/jason/web_page_name (alfa, delfi, diena, vz)</b></body></html>";
+//    }
 
     private List<INewsPageTopWordsWithLink> getPageObjectWithWebAndQty() {
         List<INewsPageTopWordsWithLink> pageList = new ArrayList();

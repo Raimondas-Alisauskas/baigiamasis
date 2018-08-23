@@ -1,18 +1,23 @@
 package com.vcs.toptags.rest_controllers;
 
 import com.vcs.toptags.actions.ActionsWithDataSources;
+import com.vcs.toptags.io.RereadDelay;
+import com.vcs.toptags.io.TopWordsQty;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
 import static com.vcs.toptags.actions.Actions.LAST_TOP_WORDS;
 
+@Component
 public class CalculationThread extends Thread {
+    int timeOutMin = getTimeOutMin();
 
     public void run() {
 
         getNewData();
         try {
-            TimeUnit.MINUTES.sleep(15);
+            TimeUnit.MINUTES.sleep(timeOutMin);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -21,5 +26,12 @@ public class CalculationThread extends Thread {
     private void getNewData() {
 
         LAST_TOP_WORDS.setWordsDB((new ActionsWithDataSources()).actionsWithNewsWebPages());
+    }
+
+    // Get Timeout Minutes of Listed Words form /src/main/resources
+
+    private int getTimeOutMin() {
+
+        return (new RereadDelay()).getTimeOutMin();
     }
 }

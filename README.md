@@ -12,13 +12,12 @@ Atlikta:
 8. zodziu perkelimas i Array[] pagal ju populiaruma (pupuliariausi arciau 0)
 9. spausdinamu zodziu kiekio kintamosios nustatymas perkeltas i config.properties faila
 10. spausdinami TOP zodziai visu 4 News puslapiu is eiles
- 
+11. Paleistas Spring Boot
+12. sukurtas class esamam laikui nustatyti - reikia kad nuimtu minutes 
+13. sukurtas metoda kuris skenuotu puslapiu zodzius kas 15 min, pvz: 00, 15, 30, 45 - kintamosios nustatymas config.properties, ir perkeltu i statini ArrayList? (kad butu prieinamas is visur)
+14. sukurtas class duomenu perkelima i json (ateiti ir html) formata
+15. sukurti spring boot metoda kuris grazintu json stringa is static array pagal uzklausa: localhost:8080/json
+16. sukurti paraleliniai Thread'ai: zodziu nuskaitimas veikia atskirai nuo duomenu perdavimo naudojant json 
+17. sukurtas web outas naudojant sugeneruota html lentele 
 
 Reikia atlikti:
-1. Paleisti Spring Boot
-2. sukurti class esamam laikui nustatyti - reikia kad nuimtu minutes 
-3. sukurti metoda kuris skenuotu puslapiu zodzius kas 15 min, pvz: 00, 15, 30, 45 - kintamosios nustatymas config.properties, ir perkeltu i statini ArrayList? (kad butu prieinamas is visur)
-4. sukurti class duomenu perkelima i json (ateiti ir html) formata
-5. sukurti spring boot metoda kuris grazintu json stringa is static array pagal uzklausa: localhost:8080/json
-
-Sunkumai: zodziu nuskaitimas turi veikti atskirai nuo duomenu perdavimo naudojant json 
