@@ -1,6 +1,6 @@
 package com.vcs.vehicles;
 
-import com.vcs.operators.RentalShop;
+import com.vcs.operators.KeepsVehicles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -14,8 +14,8 @@ private final int SEDAN_PRICE=40;
     private final int MOTORBIKE_PRICE=20;
     private final int JEEP_PRICE=50;
     @Autowired
-    @Qualifier("rentalShop")
-    protected RentalShop rentalShop;
+    @Qualifier("keepsVehicles")
+    protected KeepsVehicles keepsVehicles;
 
 
     private String model;

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 @Component
-@Qualifier("rentalShop")
-public class RentalShop {
+@Qualifier("keepsVehicles")
+public class KeepsVehicles {
 
 
     public List<Vehicle> generalList = new ArrayList<>();

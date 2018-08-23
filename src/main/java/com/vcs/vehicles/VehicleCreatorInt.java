@@ -1,5 +1,5 @@
 package com.vcs.vehicles;
 
-public interface Vc {
+public interface VehicleCreatorInt {
     public void addCars();
 }

@@ -15,15 +15,15 @@ import static com.vcs.vehicles.TypeOfVehicle.*;
 
 @Service
 @Qualifier("admin")
-public class AdminOps extends ClientOps implements InfoOperationsForAdmin {
+public class AdminOperations extends ClientOperations implements InfoOperationsForAdmin {
 
 
     @Override
     public Map<Vehicle, List<Integer>> showWhatIsRented() {
         Map<Vehicle, List<Integer>> rentedVehicles = new HashMap<>();
         for (int i = 0; i <= 365; i++) {
-            if (rentalShop.rentedList.containsKey(i)) {
-                for (Vehicle vehicle : rentalShop.rentedList.get(i)) {
+            if (keepsVehicles.rentedList.containsKey(i)) {
+                for (Vehicle vehicle : keepsVehicles.rentedList.get(i)) {
                     rentedVehicles.putIfAbsent(vehicle, new ArrayList<>());
                     rentedVehicles.get(vehicle).add(i);
                 }
@@ -52,7 +52,7 @@ public class AdminOps extends ClientOps implements InfoOperationsForAdmin {
 
     @Override
     public List<Vehicle> howManyCarsWePosses() {
-        return rentalShop.generalList;
+        return keepsVehicles.generalList;
 
 
     }

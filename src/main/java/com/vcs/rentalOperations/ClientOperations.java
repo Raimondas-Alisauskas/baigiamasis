@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Qualifier("clientOps")
-public class ClientOps extends RentOperations implements InfoOperationsForClient {
+public class ClientOperations extends RentOperations implements InfoOperationsForClient {
 
 
     @Override
@@ -19,9 +19,9 @@ public class ClientOps extends RentOperations implements InfoOperationsForClient
         List<Vehicle> busyVehicles = getListOfBusyVehicles(startDate, endDate);
         List<Vehicle> availableVeh = new ArrayList<>();
         if (busyVehicles.isEmpty()) {
-            return rentalShop.generalList;
+            return keepsVehicles.generalList;
         }
-        for (Vehicle fvehicle : rentalShop.generalList) {
+        for (Vehicle fvehicle : keepsVehicles.generalList) {
             for (Vehicle bvehicle : busyVehicles) {
                 if (fvehicle.getVehicleId() != bvehicle.getVehicleId()) {
                     availableVeh.add(fvehicle);
@@ -38,12 +38,20 @@ public class ClientOps extends RentOperations implements InfoOperationsForClient
 
         List<Vehicle> busyVehicles = getListOfBusyVehicles(startDate, endDate);
         List<Vehicle> availableVeh = new ArrayList<>();
-        System.out.println("List of available vehicle of specific type during your selected dates:");
-        for (Vehicle fvehicle : rentalShop.generalList
-        ) {
+
+        if(busyVehicles.isEmpty()){
+            for (Vehicle vehicle: keepsVehicles.generalList
+                 ) { if (vehicle.getTypeOfVehicle()==type){
+                     availableVeh.add(vehicle);
+            }
+
+            }
+        }
+
+        for (Vehicle fvehicle : keepsVehicles.generalList) {
             for (Vehicle bvehicle : busyVehicles
             ) {
-                if (fvehicle.getTypeOfVehicle() != bvehicle.getTypeOfVehicle() && fvehicle.getTypeOfVehicle() == type) {
+                if (fvehicle.getVehicleId() != bvehicle.getVehicleId() && fvehicle.getTypeOfVehicle() == type) {
                     availableVeh.add(fvehicle);
                 }
             }
@@ -56,8 +64,8 @@ public class ClientOps extends RentOperations implements InfoOperationsForClient
     public List<Vehicle> getListOfBusyVehicles(int startDate, int endDate) {
         List<Vehicle> busyVehicles = new ArrayList<>();
         for (int i = startDate; i <= endDate; i++) {
-            if (rentalShop.rentedList.containsKey(i)) {
-                for (Vehicle vehicle : rentalShop.rentedList.get(i)
+            if (keepsVehicles.rentedList.containsKey(i)) {
+                for (Vehicle vehicle : keepsVehicles.rentedList.get(i)
                 ) {
                     if (!busyVehicles.contains(vehicle)) {
                         busyVehicles.add(vehicle);

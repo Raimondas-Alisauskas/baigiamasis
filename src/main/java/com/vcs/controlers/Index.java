@@ -1,9 +1,8 @@
-package com.vcs.rentalShop;
+package com.vcs.controlers;
 
 
 
-import com.vcs.operators.RentalShop;
-import com.vcs.vehicles.Vc;
+import com.vcs.vehicles.VehicleCreatorInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class Index {
     @Autowired
-    public Vc vc;
+    public VehicleCreatorInt vehicleCreatorInt;
 
     @RequestMapping("/")
     public String create() {
 
-        vc.addCars();
+        vehicleCreatorInt.addCars();
 
 
         return "For clients go to clients, for admins, go to admin";

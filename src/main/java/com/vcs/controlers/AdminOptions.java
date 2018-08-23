@@ -1,6 +1,6 @@
-package com.vcs.rentalShop;
+package com.vcs.controlers;
 
-import com.vcs.rentalOperations.AdminOps;
+import com.vcs.rentalOperations.AdminOperations;
 import com.vcs.vehicles.TypeOfVehicle;
 import com.vcs.vehicles.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class AdminOptions extends ClientOptions {
 
     @Autowired
     @Qualifier("admin")
-    AdminOps forAdmin;
+    AdminOperations forAdmin;
 
     @RequestMapping(value="/addNewCar/{type}", method= RequestMethod.GET)
     public Vehicle addNewCar (@PathVariable("type") TypeOfVehicle type){

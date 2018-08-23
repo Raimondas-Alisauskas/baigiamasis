@@ -1,9 +1,7 @@
-package com.vcs.rentalShop;
+package com.vcs.controlers;
 
 
-import com.vcs.operators.RentalShop;
-import com.vcs.rentalOperations.ClientOps;
-import com.vcs.rentalOperations.InfoOperationsForClient;
+import com.vcs.rentalOperations.ClientOperations;
 import com.vcs.vehicles.TypeOfVehicle;
 import com.vcs.vehicles.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,7 @@ import java.util.List;
 public class ClientOptions {
     @Autowired
     @Qualifier("clientOps")
-    public ClientOps forClient;
+    public ClientOperations forClient;
 
     @RequestMapping("/")
     public String commandLines() {

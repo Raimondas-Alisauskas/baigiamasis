@@ -1,6 +1,6 @@
 package com.vcs.vehicles;
 
-import com.vcs.operators.RentalShop;
+import com.vcs.operators.KeepsVehicles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import static com.vcs.vehicles.TypeOfVehicle.*;
 
 @Service
-public class VehicleCreator implements Vc {
+public class VehicleCreator implements VehicleCreatorInt {
 
     @Autowired
-    @Qualifier("rentalShop")
-    RentalShop shop;
+    @Qualifier("keepsVehicles")
+    KeepsVehicles shop;
 
 
     @Override
