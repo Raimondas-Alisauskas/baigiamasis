@@ -1,6 +1,5 @@
 package com.vcs.rentalOperations;
 
-import com.vcs.operators.RentalShop;
 
 import com.vcs.vehicles.*;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,33 +10,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.vcs.vehicles.TypeOfVehicle.*;
+
 
 @Service
 @Qualifier("admin")
 public class AdminOps extends ClientOps implements InfoOperationsForAdmin {
+
+
     @Override
     public Map<Vehicle, List<Integer>> showWhatIsRented() {
         Map<Vehicle, List<Integer>> rentedVehicles = new HashMap<>();
         for (int i = 0; i <= 365; i++) {
-            if (RentalShop.rentedList.containsKey(i)) {
-                for (Vehicle vehicle : RentalShop.rentedList.get(i)
-                ) {
+            if (rentalShop.rentedList.containsKey(i)) {
+                for (Vehicle vehicle : rentalShop.rentedList.get(i)) {
                     rentedVehicles.putIfAbsent(vehicle, new ArrayList<>());
                     rentedVehicles.get(vehicle).add(i);
-
                 }
             }
         }
 
 
-        for (Vehicle vehicle : rentedVehicles.keySet()
-        ) {
+        for (Vehicle vehicle : rentedVehicles.keySet()) {
             System.out.println("Model: " + vehicle.getModel());
             System.out.println("Vehicle ID: " + vehicle.getVehicleId());
             System.out.println("Rent days:");
 
-            for (Integer integer : rentedVehicles.get(vehicle)
-            ) {
+            for (Integer integer : rentedVehicles.get(vehicle)) {
 
                 System.out.println(integer + ";");
 
@@ -53,7 +52,7 @@ public class AdminOps extends ClientOps implements InfoOperationsForAdmin {
 
     @Override
     public List<Vehicle> howManyCarsWePosses() {
-        return RentalShop.generalList;
+        return rentalShop.generalList;
 
 
     }
@@ -63,16 +62,16 @@ public class AdminOps extends ClientOps implements InfoOperationsForAdmin {
         switch (type) {
             case HATCHBACK:
 
-                return new Hatchback();
+                return new Vehicle(HATCHBACK);
             case JEEP:
 
-                return new Jeep();
+                return new Vehicle(JEEP);
             case MOTORBIKE:
 
-                return new MotorBike();
+                return new Vehicle(MOTORBIKE);
             case SEDAN:
 
-                return new Sedan();
+                return new Vehicle(SEDAN);
         }
         return null;
 

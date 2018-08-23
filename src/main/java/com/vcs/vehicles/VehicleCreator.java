@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import static com.vcs.vehicles.TypeOfVehicle.*;
+
 @Service
 public class VehicleCreator implements Vc {
 
@@ -14,14 +16,16 @@ public class VehicleCreator implements Vc {
 
 
     @Override
-    public void addCars(){
-        if (shop.generalList.isEmpty()){
+    public void addCars() {
+        if (shop.generalList.isEmpty()) {
 
-        for(int i=0; i<3; i++){
+            for (int i = 0; i < 3; i++) {
 
-        new Hatchback();
-        new Jeep();
-        new Sedan();
-        new MotorBike();
-    }}}
+                shop.generalList.add(new Vehicle(JEEP));
+                shop.generalList.add(new Vehicle(MOTORBIKE));
+                shop.generalList.add(new Vehicle(HATCHBACK));
+                shop.generalList.add(new Vehicle(SEDAN));
+            }
+        }
+    }
 }

@@ -23,12 +23,13 @@ public class Client extends ClientOps {
 
     private int clientId;
 
-    private  static int counter = 0;
+    private static int counter = 0;
 
-    public void create (){
+    public void create() {
         new Client();
     }
-    public Client (){
+
+    public Client() {
         counter++;
         setName("Andrius");
         setSurname("Vaitiekunas");
@@ -39,11 +40,10 @@ public class Client extends ClientOps {
         System.out.println("labadiena");
 
 
-
-        this.clientId=counter;
+        this.clientId = counter;
     }
 
-    public Client (String name, String surname, int age, boolean driverLicense, int creditCardNo, boolean creditCardValidity){
+    public Client(String name, String surname, int age, boolean driverLicense, int creditCardNo, boolean creditCardValidity) {
         counter++;
         setName(name);
         setSurname(surname);
@@ -51,7 +51,7 @@ public class Client extends ClientOps {
         setDriverLicense(driverLicense);
         setCreditCardNo(creditCardNo);
         setCreditCardValidity(creditCardValidity);
-        this.clientId=counter;
+        this.clientId = counter;
     }
 
     public String getName() {

@@ -9,17 +9,13 @@ import java.util.*;
 
 @Component
 @Qualifier("rentalShop")
-public class RentalShop{
+public class RentalShop {
 
 
-
-    public static List<Vehicle> generalList = new ArrayList<>();
-
+    public List<Vehicle> generalList = new ArrayList<>();
 
 
-    public static Map<Integer, List<Vehicle>> rentedList = new HashMap();
-
-
+    public Map<Integer, List<Vehicle>> rentedList = new HashMap();
 
 
 }

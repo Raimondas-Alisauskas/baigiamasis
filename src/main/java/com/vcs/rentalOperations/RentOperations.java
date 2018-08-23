@@ -3,44 +3,55 @@ package com.vcs.rentalOperations;
 import com.vcs.operators.Client;
 import com.vcs.operators.RentalShop;
 import com.vcs.vehicles.Vehicle;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public abstract class RentOperations extends ReturnOperations{
+public abstract class RentOperations extends ReturnOperations {
+
+    @Autowired
+    @Qualifier("client")
+    Client client;
 
 
-    public void rent(int id, int startDate, int endDate, Client client){
-        if (client.isCreditCardValidity()&& client.isDriverLicense(true)&& client.getAge()>17){
-        if(checkIfVehIsAvl(id, startDate, endDate)){
-            rentAVehicle(id, startDate, endDate, client);
-            int days=endDate-startDate+1;
-            double pricePerDay=selectVehicle(id).getVehPrice()*days;
-            System.out.println("Your selected vehicle was rented to you. You have been charged "+pricePerDay+" EUR.");
-        } else {System.out.println("Vehicle with ID: "+ id+" is rented during your selected dates");}} else{
-            System.out.println("Sorry, you do not meet the requirements and can not be rented a vehicle.");
+    public String rent(int id, int startDate, int endDate) {
+
+        if (client.isCreditCardValidity() && client.isDriverLicense(true) && client.getAge() > 17) {
+            if (checkIfVehIsAvl(id, startDate, endDate)) {
+                Vehicle vehicle = rentAVehicle(id, startDate, endDate, client);
+                return "The Vehicle is rented to you." + "Model: " + vehicle.getModel() + ". ID: " + vehicle.getVehicleId() + ".";
+            } else {
+                return "Vehicle with ID: " + id + " is rented during your selected dates";
+            }
+        } else {
+            return "Sorry, you do not meet the requirements and can not be rented a vehicle.";
         }
     }
 
-    private void rentAVehicle(int id, int startDate, int endDate, Client client) {
+    private Vehicle rentAVehicle(int id, int startDate, int endDate, Client client) {
 
-        Vehicle vehicle=selectVehicle(id);
-        vehicle.setClientId(client.getClientId());
-        for (int i=startDate; i<=endDate; i++){
-            if (!RentalShop.rentedList.containsKey(i)){
-                RentalShop.rentedList.put(i, new ArrayList<>());
+        Vehicle vehicle = selectVehicle(id);
+
+        for (int i = startDate; i <= endDate; i++) {
+            if (!rentalShop.rentedList.containsKey(i)) {
+                rentalShop.rentedList.put(i, new ArrayList<Vehicle>());
+
             }
-            RentalShop.rentedList.get(i).add(vehicle);
+            rentalShop.rentedList.get(i).add(vehicle);
+
         }
+        return vehicle;
     }
 
     private boolean checkIfVehIsAvl(int id, int startDate, int endDate) {
 
-            for (int a=startDate; a<=endDate; a++){
-            if(RentalShop.rentedList.containsKey(a)){
-                for (Vehicle vehicle: RentalShop.rentedList.get(a)){
-                    if (vehicle.getVehicleId()==id){
+        for (int a = startDate; a <= endDate; a++) {
+            if (rentalShop.rentedList.containsKey(a)) {
+                for (Vehicle vehicle : rentalShop.rentedList.get(a)) {
+                    if (vehicle.getVehicleId() == id) {
                         System.out.println("Vehicle is not available during your selected period");
                         return false;
                     }
@@ -50,31 +61,15 @@ public abstract class RentOperations extends ReturnOperations{
         return true;
     }
 
-    private void removeFromList (int id, int startDate, int endDate, HashMap <Integer,List<Vehicle>> list){
-        for (int a=startDate; a<=endDate; a++){
-            if(list.containsKey(a)){
-                for (Vehicle vehicle: RentalShop.rentedList.get(a)){
-                    if (vehicle.getVehicleId()==id){
-                        System.out.println("Vehicle is not available during your selected period");
 
-                    }
-                }
-            }
-        }
-    }
-
-
-
-    private Vehicle selectVehicle(int ID) {
-        for (Vehicle vehicle : RentalShop.generalList) {
+    public Vehicle selectVehicle(int ID) {
+        for (Vehicle vehicle : rentalShop.generalList) {
             if (vehicle.getVehicleId() == ID) {
                 return vehicle;
             }
         }
         return null;
     }
-
-
 
 
 }
