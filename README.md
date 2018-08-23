@@ -1,2 +1,1 @@
-# baigiamasis
-Baigiamųjų darbu GIT repozitorija
+# Paskaitų live pavyzdeliai
