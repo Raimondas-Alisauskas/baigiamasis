@@ -4,7 +4,6 @@ import com.vcs.examples.transport.Dviratis;
 import com.vcs.examples.transport.ElektrinisDviratis;
 import com.vcs.examples.transport.Kateris;
 import com.vcs.examples.transport.Keltas;
-import com.vcs.examples.transport.Traleris;
 import com.vcs.examples.transport.TransportoPriemone;
 
 public class RealWorld {

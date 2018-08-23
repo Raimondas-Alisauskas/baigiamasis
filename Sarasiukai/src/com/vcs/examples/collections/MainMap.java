@@ -10,6 +10,7 @@ import java.util.Set;
 
 public class MainMap {
 
+	@SuppressWarnings({ "unlikely-arg-type", "unused" })
 	public static void main(String[] args) {
 		// Map----------------------------------------------
 		Map<Integer, String> map = new HashMap<>();

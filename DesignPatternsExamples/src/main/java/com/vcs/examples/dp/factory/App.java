@@ -17,6 +17,7 @@ public class App {
 
 	}
 
+	@SuppressWarnings("unused")
 	public void workWithDB() {
 
 		ManoDB dbResource = ManoDBFactory.getInstance();

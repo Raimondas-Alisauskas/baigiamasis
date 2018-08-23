@@ -2,9 +2,7 @@ package com.vcs.examples.spring.app;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.vcs.examples.spring.tr.Automobilis;
 import com.vcs.examples.spring.tr.Motociklas;
-import com.vcs.examples.spring.tr.TransportoPriemone;
 import com.vcs.examples.spring.tr.Vaziuoti;
 
 /**

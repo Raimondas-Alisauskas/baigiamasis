@@ -7,6 +7,7 @@ public class StringsTest {
 	
 	private static String text;
 	
+	@SuppressWarnings("unused")
 	public static void main(String ... args){
 		text = null;
 		text = "";

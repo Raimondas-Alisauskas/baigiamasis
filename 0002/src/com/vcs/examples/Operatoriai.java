@@ -2,6 +2,7 @@ package com.vcs.examples;
 
 public class Operatoriai {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 		// Aritmetiniai operatoriai

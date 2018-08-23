@@ -5,19 +5,16 @@ package com.vcs.examples.ways;
  *
  */
 public class FlowControl {
-	
-	
-	
-	
+
 	/**
 	 * 
 	 * Padavus validzia data, turetu grazinti:
 	 * 
-	 *  2018, 08, 01, 12, 15, 10 => Du tukstanciai astuoniolikti metai, rugpjucio pirma. Dvylika val. ....
-	 *  
-	 *  
-	 *  FuzzyTime on:
-	 *  Siu metu, rupjucio pati pradzia siektiek po vidurdienio
+	 * 2018, 08, 01, 12, 15, 10 => Du tukstanciai astuoniolikti metai, rugpjucio
+	 * pirma. Dvylika val. ....
+	 * 
+	 * 
+	 * FuzzyTime on: Siu metu, rupjucio pati pradzia siektiek po vidurdienio
 	 * 
 	 * 
 	 * @param metai
@@ -29,20 +26,18 @@ public class FlowControl {
 	 * @return
 	 */
 	public String getDateTimeHumanReadable(int metai, int menuo, int diena, int hh, int mm, int ss, boolean fuzzyTime) {
-		
-		
-		
-		
+
 		return "";
 	}
-	
 
 	private FastestWay fw = new FastestWay();
 
 	/**
 	 * Kas nors funkcija kur kviecia bileKa funkcija ir grazina... niekas nezino ka
-	 * <p>:D public FastestWay kasNors(String param) { ... kita funkcija() }
+	 * <p>
+	 * :D public FastestWay kasNors(String param) { ... kita funkcija() }
 	 * </p>
+	 * 
 	 * <pre>
 	 * public FastestWay kasNors(String param) {
 	 * 
@@ -52,7 +47,8 @@ public class FlowControl {
 	 * 
 	 * @see FastestWay
 	 * 
-	 * @param param - string'as kuris jau yra pravaliduotas ir paruostas apdorojimui
+	 * @param param
+	 *            - string'as kuris jau yra pravaliduotas ir paruostas apdorojimui
 	 * @return veiklos obj pagal parametra
 	 */
 	public FastestWay kasNors(String param) {
@@ -80,10 +76,6 @@ public class FlowControl {
 		}
 
 		return fw;
-	}
-
-	private void bileKas() {
-
 	}
 
 }

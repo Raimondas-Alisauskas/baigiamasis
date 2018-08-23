@@ -2,6 +2,8 @@ package com.vcs.examples.spring.RestTest;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,15 +21,24 @@ import com.vcs.examples.spring.model.ErrorMsg;
 @RequestMapping("/car")
 public class CarController {
 
+	private final static Logger LOG = LoggerFactory.getLogger(CarController.class);
+
 	@Autowired
 	private CarService service;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> carGet(@PathVariable("id") int id) {
 
+		if (LOG.isInfoEnabled()) {
+			LOG.info("carGet: " + id);
+		}
+
 		try {
 			return ResponseEntity.ok(service.getCar(id));
 		} catch (RuntimeException e) {
+
+			LOG.warn("Not found", e.getMessage());
+
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorMsg("Nerasta", e.getMessage()));
 		}
 
@@ -35,6 +46,7 @@ public class CarController {
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public List<Car> getAll() {
+		LOG.info("getAll");
 		return service.getAll();
 	}
 

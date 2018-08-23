@@ -4,6 +4,7 @@ public class VadybinikoUzduotis extends LoadSave {
 
 	// Inner
 	private class Point {
+		@SuppressWarnings("unused")
 		int x, y;
 
 	}

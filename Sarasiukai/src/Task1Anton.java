@@ -14,7 +14,7 @@ public class Task1Anton {
 	}
 
 	List<Mokinys> getArrayList(Map<String, List<Mokinys>> mokiniai) {
-		List<Mokinys> list = new ArrayList();
+		List<Mokinys> list = new ArrayList<>();
 
 		// Perkeliam masyvus i patogu formata
 		for (String key : mokiniai.keySet()) {
@@ -25,7 +25,7 @@ public class Task1Anton {
 	}
 
 	List<List<Mokinys>> getListListNotCorrect(List<Mokinys> getArrayList) {
-		List<Mokinys> tempList = new ArrayList();
+		List<Mokinys> tempList = new ArrayList<>();
 		List<List<Mokinys>> mokinys = new ArrayList<>();
 
 		double pazymys;

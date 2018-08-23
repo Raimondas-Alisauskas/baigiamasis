@@ -1,7 +1,5 @@
 package com.vcs.examples.cycles;
 
-import java.util.Arrays;
-
 public class ArrayOrder {
 
 	private static final int ARR_ORDER_INDEX = 0;

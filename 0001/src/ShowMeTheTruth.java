@@ -1,6 +1,7 @@
 
 public class ShowMeTheTruth {
 
+	@SuppressWarnings("unused")
 	private static final int MONTH_PER_YEAR = 12;
 
 	public static void main(String[] args) {

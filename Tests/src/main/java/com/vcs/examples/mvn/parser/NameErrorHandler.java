@@ -1,7 +1,5 @@
 package com.vcs.examples.mvn.parser;
 
-import org.apache.commons.lang3.NotImplementedException;
-
 import com.vcs.examples.mvn.tests.NameUniqService;
 import com.vcs.examples.mvn.tests.NevalidusVardas;
 

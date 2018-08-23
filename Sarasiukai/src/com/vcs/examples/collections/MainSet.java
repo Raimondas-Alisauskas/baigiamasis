@@ -3,10 +3,10 @@ package com.vcs.examples.collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.SortedSet;
 
 public class MainSet {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 		

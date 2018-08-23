@@ -1,9 +1,8 @@
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Tipai {
 
+	@SuppressWarnings({ "null", "unused" })
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -60,6 +59,7 @@ public class Tipai {
 		Boolean taipArNe = false; // true
 		Boolean bool = null;
 		
+		//Error goes here
 		if (bool.equals(Boolean.FALSE)) {
 			
 		}

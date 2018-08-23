@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class DatosKonverteris {
 
 	public String convert(int menuo, int diena) {

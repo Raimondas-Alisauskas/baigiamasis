@@ -7,6 +7,7 @@ public class Modifiers {
 	
 	int defaultinis; // tik tam paciam package'ui matomas
 	
+	@SuppressWarnings("unused")
 	private int privatus; // tik klases viduje
 	
 	protected int dalinaiPrieinamas; // tik peveldejimui

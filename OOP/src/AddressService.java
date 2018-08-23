@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class AddressService {
 
 	// public
@@ -16,6 +14,7 @@ public class AddressService {
 
 	}
 
+	@SuppressWarnings("unused")
 	public String getAddress(char id, String ak, String name) {
 
 		Person p = new Person();

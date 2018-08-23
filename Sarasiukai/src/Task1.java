@@ -8,6 +8,9 @@ import java.util.Set;
 
 public class Task1 {
 
+	
+	private static final int REZIAI = 10;
+	
 	/**
 	 * 
 	 * 
@@ -23,13 +26,13 @@ public class Task1 {
 	private List<List<Mokinys>> orderByAvg(List<Mokinys> prData) {
 		Map<String, List<Mokinys>> byAvg = initMapByAvg();
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < REZIAI; i++) {
 			groupByRange(i, prData, byAvg);
 		}
 
 		// paskutinis rezis [9..10] yra su 10 iskaitytinai. Po kiekvieno rezio salinam
 		// is pradiniu duomenu mokinius, tad liks tik su 10 vidurkiais
-		byAvg.get("9").addAll(prData);
+		byAvg.get("" + (REZIAI - 1)).addAll(prData);
 
 		return constructReturn(byAvg);
 	}
@@ -72,7 +75,7 @@ public class Task1 {
 	private Map<String, List<Mokinys>> initMapByAvg() {
 		Map<String, List<Mokinys>> result = new HashMap<>();
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < REZIAI; i++) {
 			result.put("" + i, new LinkedList<>());
 		}
 

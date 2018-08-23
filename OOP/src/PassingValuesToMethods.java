@@ -34,6 +34,7 @@ public class PassingValuesToMethods {
 	}
 	
 	
+	@SuppressWarnings("unused")
 	private void metodas1(int id, Person p) {
 		
 		this.id = 60;

@@ -1,10 +1,8 @@
 package com.vcs.examples.parameters;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Run {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 //		MotorinePriemone<DyzelinisVariklis> va = new ValtisTDI<DyzelinisVariklis>(new DyzelinisVariklis());
