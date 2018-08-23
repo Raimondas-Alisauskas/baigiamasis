@@ -1,4 +1,4 @@
-package com.kursinis;
+package com.kursinis.pathSearch;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+
+import com.kursinis.model.Maze;
+import com.kursinis.model.Point;
 
 public class ShortestPathSearch {
 
@@ -22,7 +25,7 @@ public class ShortestPathSearch {
 		this.mazePlan = mazePlan;
 		this.cat = cat;
 		this.mouse = mouse;
-		this.visitedMaze = new boolean[mazePlan.getHeight()][mazePlan.getWidth()];
+		this.visitedMaze = new boolean[mazePlan.getWidth()][mazePlan.getHeight()];
 		this.parents = new HashMap<>();
 		this.parents.put(cat, null);
 	}
@@ -73,10 +76,10 @@ public class ShortestPathSearch {
 
 	private List<Point> getKaimynuSarasas(Point dabartinisPoint) {
 
-		Point up = new Point(dabartinisPoint.getX() - 1, dabartinisPoint.getY());
-		Point down = new Point(dabartinisPoint.getX() + 1, dabartinisPoint.getY());
-		Point toLeft = new Point(dabartinisPoint.getX(), dabartinisPoint.getY() - 1);
-		Point toRight = new Point(dabartinisPoint.getX(), dabartinisPoint.getY() + 1);
+		Point up = new Point(dabartinisPoint.getX(), dabartinisPoint.getY() - 1);
+		Point down = new Point(dabartinisPoint.getX(), dabartinisPoint.getY() + 1);
+		Point toLeft = new Point(dabartinisPoint.getX() - 1, dabartinisPoint.getY());
+		Point toRight = new Point(dabartinisPoint.getX() + 1, dabartinisPoint.getY());
 
 		List<Point> kaimynuSarasas = new ArrayList<>(4);
 

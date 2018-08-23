@@ -1,4 +1,4 @@
-package com.kursinis;
+package com.kursinis.model;
 
 public class Maze {
 
@@ -25,18 +25,22 @@ public class Maze {
 
 
 	public int getWidth() {
-		return maze[0].length;
+		return maze.length;
 	}
 
 	public int getHeight() {
-		return maze.length;
+		return maze[0].length;
+	}
+
+	public boolean pointIsTransible(Point point) {
+		return pointIsFree(point) && pointIsValid(point);
 	}
 
 	public boolean pointIsFree(Point point) {
 		return pointIsFree(point.getX(), point.getY());
 	}
 
-	private boolean pointIsFree(int x, int y) {
+	public boolean pointIsFree(int x, int y) {
 		return maze[x][y] == OPEN;
 	}
 
@@ -48,14 +52,14 @@ public class Maze {
 		maze[point.getX()][point.getY()] = VISITED;
 	}
 
-	private boolean pointIsValid(int x, int y) {
-		return x > 0 && x <= getHeight() && y > 0 && y <= getWidth();
+	public boolean pointIsValid(int x, int y) {
+		return x > 0 && x <= getWidth() && y > 0 && y <= getHeight();
 	}
 
 	public void drawMaze(char[][] maze) {
-		for (int i = 0; i < maze.length; i++) {
-			for (int j = 0; j < maze[0].length; j++) {
-				if (j < maze[0].length - 1) {
+		for (int i = 0; i < getWidth(); i++) {
+			for (int j = 0; j < getHeight(); j++) {
+				if (j < getHeight() - 1) {
 					System.out.print(maze[i][j] + " ");
 				} else {
 					System.out.print(maze[i][j] + "\n");

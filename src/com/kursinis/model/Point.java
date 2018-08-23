@@ -1,4 +1,4 @@
-package com.kursinis;
+package com.kursinis.model;
 
 public class Point {
 

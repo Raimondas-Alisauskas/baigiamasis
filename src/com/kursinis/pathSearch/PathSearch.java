@@ -1,8 +1,11 @@
-package com.kursinis;
+package com.kursinis.pathSearch;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.kursinis.model.Maze;
+import com.kursinis.model.Point;
 
 //Kelio, bet ne trumpiausio kelio paieska
 public class PathSearch {
