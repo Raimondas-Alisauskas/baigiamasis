@@ -1,6 +1,6 @@
 package com.vilniuscodingschool.baigiamasis;
 
-public class KnyguAprasas extends KnyguSaugykla {
+public class BooksDescription extends BooksRepository {
 
     private String author;
     private String title;
@@ -12,8 +12,8 @@ public class KnyguAprasas extends KnyguSaugykla {
     private int availability;
     private int numeration;
 
-    public KnyguAprasas(int numeracy, String author, String title, String numberISBN, String pressHouse, String language,
-                        String bookGenre, int popularity, int availability) {
+    BooksDescription(int numeracy, String author, String title, String numberISBN, String pressHouse, String language,
+                     String bookGenre, int popularity, int availability) {
         this.author = author;
         this.title = title;
         this.numberISBN = numberISBN;
@@ -25,29 +25,32 @@ public class KnyguAprasas extends KnyguSaugykla {
         this.numeration = numeracy;
     }
 
-    public String getAuthor() {
+    String getAuthor() {
         return author;
     }
 
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 
-    public String getNumberISBN() {
+    String getNumberISBN() {
         return numberISBN;
     }
 
-    public String getPressHouse() {
+    String getPressHouse() {
         return pressHouse;
     }
 
-    public String getLanguage() {
+    String getLanguage() {
         return language;
     }
 
-    public String getBookGenre() {
+    String getBookGenre() {
         return bookGenre;
     }
+
+    /*
+    Part of the code for possible additional search options:
 
     public int getPopularity() {
         return popularity;
@@ -58,7 +61,7 @@ public class KnyguAprasas extends KnyguSaugykla {
     }
     public int getNumeracy() {
         return numeration;
-    }
+    }*/
 
     @Override
     public String toString() {

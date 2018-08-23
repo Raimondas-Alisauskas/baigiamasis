@@ -2,11 +2,11 @@ package com.vilniuscodingschool.baigiamasis;
 
 import java.util.Scanner;
 
-public class GrafineVartotojoSasaja {
+public class GraficalUserInterface {
 
     public static void main(String[] args) {
 
-        KnyguSaugykla knyguSaugykla = new KnyguSaugykla();
+        BooksRepository booksRepository = new BooksRepository();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -33,46 +33,47 @@ public class GrafineVartotojoSasaja {
 
             if (searchOption.equals("1")) {
 
-                PaieskuModulis uzklausaAutoriui = new PaieskuModulis();
-                uzklausaAutoriui.IeskomPagalAutoriu(knyguSaugykla);
+                SearchEngine requestAuthor = new SearchEngine();
+                requestAuthor.SearchOfAuthor(booksRepository);
             }
 
             if (searchOption.equals("2")) {
 
-                PaieskuModulis uzklausaPavadinimui = new PaieskuModulis();
-                uzklausaPavadinimui.IeskomPagalPavadinima(knyguSaugykla);
+                SearchEngine requestTitle = new SearchEngine();
+                requestTitle.SearchOfTitle(booksRepository);
 
             }
             if (searchOption.equals("3")) {
 
-                PaieskuModulis uzklausaISBN = new PaieskuModulis();
-                uzklausaISBN.IeskomPagalISBN(knyguSaugykla);
+                SearchEngine requestISBN = new SearchEngine();
+                requestISBN.SearchOfISBN(booksRepository);
 
             }
             if (searchOption.equals("4")) {
 
-                PaieskuModulis uzklausaLeidyklai = new PaieskuModulis();
-                uzklausaLeidyklai.IeskomPagalLeidykla(knyguSaugykla);
+                SearchEngine requestPressHouse = new SearchEngine();
+                requestPressHouse.SearchOfPressHouse(booksRepository);
 
             }
             if (searchOption.equals("5")) {
 
-                PaieskuModulis uzklausaKalba = new PaieskuModulis();
-                uzklausaKalba.IeskomPagalKalba(knyguSaugykla);
+                SearchEngine requestLanguage = new SearchEngine();
+                requestLanguage.SearchOfLanguage(booksRepository);
 
             }
             if (searchOption.equals("6")) {
 
-                PaieskuModulis uzklausaZanras = new PaieskuModulis();
-                uzklausaZanras.IeskomPagalZanra(knyguSaugykla);
+                SearchEngine requestGenre = new SearchEngine();
+                requestGenre.SearchOfGenre(booksRepository);
 
             }
 
             System.out.println("\nPaieška baigta.\nAr norite ją pradėti iš naujo?");
-            System.out.println("\nTaip - spauskite bet kokį klavišą ir jus būsite nukreipti į paieškos pradžią\nNe - paieškai baigti, spauskite n");
+            System.out.println("\nTaip - spauskite bet kokį klavišą ir jus būsite nukreipti į paieškos pradžią\nNe - paieškai baigti, spauskite n + Enter");
 
-            String arTesiamPaieska = scanner.nextLine();
-            if (arTesiamPaieska.equals("n")) {
+            String resumeSearch = scanner.nextLine();
+
+            if (resumeSearch.equals("n")) {
                 scanner.close();
                 engageSearch = false;
 
