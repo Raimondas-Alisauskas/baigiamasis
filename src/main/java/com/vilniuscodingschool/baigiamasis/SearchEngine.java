@@ -6,6 +6,8 @@ class SearchEngine {
 
     private Scanner scanner = new Scanner(System.in);
 
+    private String nope = "Nieko nerasta";
+
     void SearchOfAuthor(BooksRepository booksRepository) {
 
         System.out.println("Atlikti paieškai pakanka įvesti autoriaus pirmąsias vardo raides");
@@ -23,7 +25,7 @@ class SearchEngine {
                 System.out.println(book);
             }
         } else {
-            System.out.println("Nieko nerasta.");
+            System.out.println(nope);
 
         }
     }
@@ -45,7 +47,7 @@ class SearchEngine {
                 System.out.println(book);
             }
         } else {
-            System.out.println("Nieko nerasta.");
+            System.out.println(nope);
         }
 
     }
@@ -67,7 +69,7 @@ class SearchEngine {
                 System.out.println(book);
             }
         } else {
-            System.out.println("Nieko nerasta.");
+            System.out.println(nope);
         }
     }
 
@@ -89,25 +91,21 @@ class SearchEngine {
                 System.out.println(book);
             }
         } else {
-            System.out.println("Nieko nerasta.");
+            System.out.println(nope);
         }
     }
 
     void SearchOfLanguage(BooksRepository booksRepository) {
 
         System.out.println("Įveskite ieškomos knygos kalbos kalbą.");
+        System.out.println("Nukopijuokite kalbos indeksą ir paspauskite Enter");
         System.out.println("Galimi kalbų indeksai:");
-
-        Languages objectLanguages = new Languages();
-        List<String> languageList = objectLanguages.getLDescription();
-        System.out.println(languageList);
+        System.out.println(Arrays.toString(Languages.values()));
 
         String searchByLanguage = scanner.nextLine();
 
         SearchCriteria searchLang = new SearchCriteria();
         searchLang.setSearchLanguage(searchByLanguage);
-
-        System.out.println("Ieškosime knygų pagal kalbos indeksą: " + searchLang.getSearchLanguage());
 
         SearchCriteria paramForSearch = new SearchCriteria();
         paramForSearch.setSearchLanguage(searchByLanguage);
@@ -120,18 +118,15 @@ class SearchEngine {
                 System.out.println(book);
             }
         } else {
-            System.out.println("Nieko nerasta.");
+            System.out.println(nope);
         }
     }
 
     void SearchOfGenre(BooksRepository booksRepository) {
 
-        System.out.println("Įveskite knygos žanrą: ");
-        System.out.println("Galimi žanrai:");
-
-        Genres objectGenres = new Genres();
-        List<String> listGenres = objectGenres.getGDescription();
-        System.out.println(listGenres);
+        System.out.println("Galimi tipai(žanrai):");
+        System.out.println(Arrays.toString(Genres.values()));
+        System.out.println("Nukopijuokite tipą ir paspauskite Enter");
 
         String searchByGenre = scanner.nextLine();
 
@@ -146,9 +141,8 @@ class SearchEngine {
                 System.out.println(book);
             }
         } else {
-            System.out.println("Nieko nerasta.");
+            System.out.println(nope);
         }
-
     }
 
     private List<BooksDescription> search(List<BooksDescription> books, SearchCriteria k) {

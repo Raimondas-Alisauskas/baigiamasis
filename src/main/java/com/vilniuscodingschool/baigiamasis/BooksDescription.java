@@ -49,20 +49,6 @@ public class BooksDescription extends BooksRepository {
         return bookGenre;
     }
 
-    /*
-    Part of the code for possible additional search options:
-
-    public int getPopularity() {
-        return popularity;
-    }
-
-    public int getAvailability() {
-        return availability;
-    }
-    public int getNumeracy() {
-        return numeration;
-    }*/
-
     @Override
     public String toString() {
         return "Numeracy in library: " + numeration + "; Author: " + author + "; title: " + title + "; numberISBN: " + numberISBN + "; pressHouse " + pressHouse

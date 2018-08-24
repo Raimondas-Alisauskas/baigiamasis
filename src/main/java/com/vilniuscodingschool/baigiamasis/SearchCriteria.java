@@ -2,6 +2,8 @@ package com.vilniuscodingschool.baigiamasis;
 
 class SearchCriteria {
 
+    // susieti su searchOptions enums'ais?
+
     private String searchAuthor;
     private String searchTitle;
     private String searchISBN;
