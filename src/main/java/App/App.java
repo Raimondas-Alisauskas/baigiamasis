@@ -1,12 +1,11 @@
 package App;
-
-import convolution.Analitics;
+import static org.junit.Assert.assertEquals;
 
 public class App {
 
     public static void main(String[] args) {
 
-        new Analitics();
-
+        //new Analitics();
+        assertEquals("aaa".length(), "bbb".length());
     }
 }

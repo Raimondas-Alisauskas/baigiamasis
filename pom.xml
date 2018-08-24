@@ -35,6 +35,11 @@
                 <artifactId>JMathPlot</artifactId>
                 <version>1.0.1</version>
             </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version> <!-- Or whatever JUnit you're using. -->
+        </dependency>
     </dependencies>
 
     <groupId>convol_groupid</groupId>
