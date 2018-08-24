@@ -2,7 +2,6 @@ package com.vcs.toptags.rest_controllers;
 
 import com.vcs.toptags.actions.ActionsWithDataSources;
 import com.vcs.toptags.io.RereadDelay;
-import com.vcs.toptags.io.TopWordsQty;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
@@ -13,13 +12,17 @@ import static com.vcs.toptags.actions.Actions.LAST_TOP_WORDS;
 public class CalculationThread extends Thread {
     int timeOutMin = getTimeOutMin();
 
+    @Override
     public void run() {
+        while (true) {
+            getNewData();
 
-        getNewData();
-        try {
-            TimeUnit.MINUTES.sleep(timeOutMin);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            try {
+                Thread.sleep(timeOutMin * 60000);
+                //           TimeUnit.MINUTES.sleep(timeOutMin);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 

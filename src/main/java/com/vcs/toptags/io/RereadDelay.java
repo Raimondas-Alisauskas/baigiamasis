@@ -18,6 +18,6 @@ public class RereadDelay {
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
-        return 5;
+        return 15;
     }
 }

@@ -26,14 +26,8 @@ public class FormatWebPageText {
         CleanTheText ctt = new CleanTheText();
         ArrayList<String> allWordsArray = ctt.getCleanTextArray(htmlFromWebArray);
 
-        //TODO delete System.out.println(); " Words, before cleanining:
-//        System.out.println(" Words, before cleanining: " + allWordsArray.size());
-
         // clean useless words
         allWordsArray = cleanUselessWords(allWordsArray);
-
-        //TODO delete System.out.println(); " Words, after cleanining: "
-//        System.out.println(" Words, after cleanining: " + allWordsArray.size());
 
         return allWordsArray;
     }

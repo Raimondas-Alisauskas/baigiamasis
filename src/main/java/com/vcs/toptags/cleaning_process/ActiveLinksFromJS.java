@@ -17,9 +17,6 @@ public class ActiveLinksFromJS {
         // Change HTML to the LowerCase: StringBuffer => String => StringBuffer
         bufferedWebPage = convertToLowerCase(bufferedWebPage);
 
-//// TODO: delete System.out.println(bufferedWebPage);
-//        System.out.println(bufferedWebPage);
-
         // Clean Active Links and move it to ArrayList
         textLinksArray = cleanDynamicTextLinksFromJS(bufferedWebPage, newsPage.getActiveTag(), newsPage.getWebDomain(), newsPage.isAddWebPageDomain(), newsPage.getHrefTag());
 
@@ -62,9 +59,6 @@ public class ActiveLinksFromJS {
                 }
 
 
-//                   // TODO: delete System.out.println(bufferedWebPage);
-//                   System.out.println("startDiv: " + startDiv + " startHref: " + startHref + " endHref: " + endHref);
-
                 if ((startDiv > 0) && (startDiv < bufferedWebPage.length() && (endHref < bufferedWebPage.length()) && (startHref > 0) && (endHref > 0))) {
 
                     if (addWebPageDomain == true) {
@@ -73,8 +67,6 @@ public class ActiveLinksFromJS {
                     } else {
                         linkToPage = bufferedWebPage.substring(startHref + 8, endHref);
                     }
-//                    //TODO Delete it
-//                    System.out.println("linkToPage: " + linkToPage);
 
                     // Add Links to Array
                     textLinksArray.add(linkToPage);

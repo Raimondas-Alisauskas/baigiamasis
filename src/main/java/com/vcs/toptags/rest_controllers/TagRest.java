@@ -49,12 +49,6 @@ public class TagRest {
                 "</p>Naudok: <b>/</b>  arba  <b>/json  arba  <b>/jason/web_page_name (alfa, delfi, diena, vz)</b></body></html>";
     }
 
-// TODO - sutvarkyti klaidas ivedant netinkama pletini: /jason/belia_koks_tekstas
-//    @RequestMapping(value = "/json/{text}", method = RequestMethod.GET)
-//    public String wrongJsonText(@PathVariable("text") String textFromRequest) {
-//        return "<!DOCTYPE html><html><body><h1>Neteisingas pletinys</h1><br><p>tokio pletinio nera:<b> " + textFromRequest +
-//                "</p>Naudok: <b>/jason/web_page_name (alfa, delfi, diena, vz)</b></body></html>";
-//    }
 
     private List<INewsPageTopWordsWithLink> getPageObjectWithWebAndQty() {
         List<INewsPageTopWordsWithLink> pageList = new ArrayList();
