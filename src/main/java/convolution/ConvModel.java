@@ -33,9 +33,10 @@ public class ConvModel {
     private MultiLayerNetwork network;
     private CifarDataSetIterator dataSetIterator;
     private int batchSize = 2;
+    private Integer divizor = 4;
 
     public ConvModel(List<Integer> samples, List<Double> learningRate, Integer nIn, Integer nOut,Integer pad,
-                     Integer kernSize, Integer stride, double moment, Integer builder, boolean pretrain) {
+                     Integer kernSize, Integer stride, double moment, Integer builder, Integer iters, boolean pretrain) {
 
         this.acc = new ArrayList<>();
         this.f1 = new ArrayList<>();
@@ -48,7 +49,7 @@ public class ConvModel {
             for (int lr = 0; lr < learningRate.size(); lr += 1) {
 
                 Evaluation evaler = createModel(samples.get(s), learningRate.get(lr), nIn, nOut, pad, kernSize, stride,
-                        moment, builder, pretrain);
+                        moment, builder, iters, pretrain);
 
                 this.acc.add(evaler.accuracy() * toPercent);
                 this.f1.add(evaler.f1() * toPercent);
@@ -61,7 +62,7 @@ public class ConvModel {
     }
 
     private Evaluation createModel(Integer samplesize, Double lr, Integer nIn, Integer nOut, Integer pad, Integer
-                                   kernSize, Integer stride, double moment, Integer builder, boolean pretrain) {
+                                   kernSize, Integer stride, double moment, Integer builder, Integer iters, boolean pretrain) {
 
         BasicConfigurator.configure(); // dingsta WARN bekompiliuojant
         dataSetIterator = new CifarDataSetIterator(batchSize, samplesize, true);
@@ -86,7 +87,7 @@ public class ConvModel {
                 .activation(Activation.SOFTMAX).weightInit(WeightInit.XAVIER)
                 .name("Output").nOut(10).build();
         MultiLayerConfiguration configuration = new NeuralNetConfiguration.Builder()
-                .seed(12345).iterations(3).optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
+                .seed(12345).iterations(iters).optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
                 .learningRate(lr).regularization(true).l2(lr).updater(Updater.NESTEROVS)
                 .momentum(moment).list().layer(0, lay0).layer(1, lay1).layer(2, lay2).layer(3, lay3)
                 .layer(4, lay4).layer(5, lay5).layer(6, lay6).pretrain(pretrain).backprop(true)
@@ -98,7 +99,7 @@ public class ConvModel {
         network.init();
         network.fit(dataSetIterator); // training of network
 
-        return network.evaluate(new CifarDataSetIterator(batchSize, samplesize / 4, true));
+        return network.evaluate(new CifarDataSetIterator(batchSize, samplesize / divizor, true));
     }
 
     double[] getAcc() {
