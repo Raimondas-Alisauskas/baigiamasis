@@ -1,3 +1,5 @@
+package convolution;
+
 import org.apache.log4j.BasicConfigurator;
 import org.deeplearning4j.datasets.iterator.impl.CifarDataSetIterator;
 import org.deeplearning4j.eval.Evaluation;
@@ -20,15 +22,14 @@ import java.util.List;
 
 public class ConvModel {
 
-    final List<Double> acc;
-    final List<Double> f1;
-    final List<Double> prec;
-    final List<Double> rec;
-    final List<Double> far;
-    final List<Double> fn;
+    private final List<Double> acc;
+    private final List<Double> f1;
+    private final List<Double> prec;
+    private final List<Double> rec;
+    private final List<Double> far;
+    private final List<Double> fn;
 
     private MultiLayerNetwork network;
-    private Evaluation evaler;
     private CifarDataSetIterator dataSetIterator;
 
     public ConvModel(List<Integer> samples, List<Double> learningRate) {
@@ -43,19 +44,19 @@ public class ConvModel {
         for (int s = 0; s < samples.size(); s += 1) {
             for (int lr = 0; lr < learningRate.size(); lr += 1) {
 
-                evaler = createModel(samples.get(s), learningRate.get(lr));
+                Evaluation evaler = createModel(samples.get(s), learningRate.get(lr));
 
-                this.acc.add(evaler.accuracy()*100.);
-                this.f1.add(evaler.f1()*100.);
-                this.prec.add(evaler.precision()*100.);
-                this.rec.add(evaler.recall()*100.);
-                this.far.add(evaler.falseAlarmRate()*100.);
-                this.fn.add(evaler.falseNegativeRate()*100.);
+                this.acc.add(evaler.accuracy() * 100.);
+                this.f1.add(evaler.f1() * 100.);
+                this.prec.add(evaler.precision() * 100.);
+                this.rec.add(evaler.recall() * 100.);
+                this.far.add(evaler.falseAlarmRate() * 100.);
+                this.fn.add(evaler.falseNegativeRate() * 100.);
             }
         }
     }
 
-    public Evaluation createModel(Integer samplesize, Double lr) {
+    private Evaluation createModel(Integer samplesize, Double lr) {
 
         BasicConfigurator.configure(); // dingsta WARN bekompiliuojant
         dataSetIterator = new CifarDataSetIterator(2, samplesize, true);
@@ -95,12 +96,20 @@ public class ConvModel {
         return network.evaluate(new CifarDataSetIterator(2, samplesize / 4, true));
     }
 
-    public double[] getAcc() { return acc.stream().mapToDouble(Double::doubleValue).toArray(); }
+    double[] getAcc() {
+        return acc.stream().mapToDouble(Double::doubleValue).toArray();
+    }
 
-    public double[] getRec() { return rec.stream().mapToDouble(Double::doubleValue).toArray(); }
+    double[] getRec() {
+        return rec.stream().mapToDouble(Double::doubleValue).toArray();
+    }
 
-    public double[] getPrec() { return prec.stream().mapToDouble(Double::doubleValue).toArray(); }
+    double[] getPrec() {
+        return prec.stream().mapToDouble(Double::doubleValue).toArray();
+    }
 
-    public double[] getFar() { return far.stream().mapToDouble(Double::doubleValue).toArray(); }
+    double[] getFar() {
+        return far.stream().mapToDouble(Double::doubleValue).toArray();
+    }
 
 }

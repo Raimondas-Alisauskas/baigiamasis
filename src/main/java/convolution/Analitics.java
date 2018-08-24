@@ -1,3 +1,5 @@
+package convolution;
+
 import org.math.plot.Plot3DPanel;
 
 import javax.swing.*;
@@ -8,12 +10,12 @@ public class Analitics {
 
     private final RangeCustom ran;
 
-    Analitics () {
+    Analitics() {
 
         ran = new RangeCustom();
 
-        List<Double> lr = ran.range(.01,.02, .01);
-        List<Integer> samples = ran.range(80, 3000, 292);
+        List<Double> lr = ran.range(.01, .02, .01);
+        List<Integer> samples = ran.range(80, 2416, 292);
 
         ConvModel convModel = new ConvModel(samples, lr);
 
@@ -26,7 +28,7 @@ public class Analitics {
 
         JFrame frame = new JFrame("a plot panel");
         frame.setContentPane(plot3d);
-        frame.setSize(700,700);
+        frame.setSize(700, 700);
         frame.setVisible(true);
     }
 }
