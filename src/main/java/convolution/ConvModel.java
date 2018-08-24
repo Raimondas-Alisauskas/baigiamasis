@@ -33,7 +33,7 @@ public class ConvModel {
     private CifarDataSetIterator dataSetIterator;
 
     public ConvModel(List<Integer> samples, List<Double> learningRate, Integer nIn, Integer nOut,Integer pad,
-                     Integer kernSize, Integer stride, double moment) {
+                     Integer kernSize, Integer stride, double moment, boolean pretrain) {
 
         this.acc = new ArrayList<>();
         this.f1 = new ArrayList<>();
@@ -46,7 +46,7 @@ public class ConvModel {
             for (int lr = 0; lr < learningRate.size(); lr += 1) {
 
                 Evaluation evaler = createModel(samples.get(s), learningRate.get(lr), nIn, nOut, pad, kernSize, stride,
-                        moment);
+                        moment, pretrain);
 
                 this.acc.add(evaler.accuracy() * 100.);
                 this.f1.add(evaler.f1() * 100.);
@@ -59,7 +59,7 @@ public class ConvModel {
     }
 
     private Evaluation createModel(Integer samplesize, Double lr, Integer nIn, Integer nOut, Integer pad, Integer
-                                   kernSize, Integer stride, double moment) {
+                                   kernSize, Integer stride, double moment, boolean pretrain) {
 
         BasicConfigurator.configure(); // dingsta WARN bekompiliuojant
         dataSetIterator = new CifarDataSetIterator(2, samplesize, true);
@@ -87,7 +87,7 @@ public class ConvModel {
                 .seed(12345).iterations(3).optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
                 .learningRate(lr).regularization(true).l2(lr).updater(Updater.NESTEROVS)
                 .momentum(moment).list().layer(0, lay0).layer(1, lay1).layer(2, lay2).layer(3, lay3)
-                .layer(4, lay4).layer(5, lay5).layer(6, lay6).pretrain(true).backprop(true)
+                .layer(4, lay4).layer(5, lay5).layer(6, lay6).pretrain(pretrain).backprop(true)
                 .setInputType(InputType.convolutional(32, 32, 3)).backpropType(BackpropType.TruncatedBPTT)
                 .tBPTTForwardLength(50).tBPTTBackwardLength(50).build();
 

@@ -25,9 +25,9 @@ public class Analitics {
         ran = new RangeCustom();
 
         List<Double> lr = ran.range(.01, .02, .01);
-        List<Integer> samples = ran.range(80, 564, 292);
+        List<Integer> samples = ran.range(80, 1128, 292);
 
-        ConvModel convModel = new ConvModel(samples, lr, nIn, nOut, pad, kernSize, stride, moment);
+        ConvModel convModel = new ConvModel(samples, lr, nIn, nOut, pad, kernSize, stride, moment, true);
 
         plot3d = new Plot3DPanel();
         plot3d.addLinePlot("recall versus precision versus accurat",
