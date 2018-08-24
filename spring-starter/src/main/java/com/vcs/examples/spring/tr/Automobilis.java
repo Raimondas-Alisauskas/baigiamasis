@@ -1,11 +1,13 @@
 package com.vcs.examples.spring.tr;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(scopeName=ConfigurableBeanFactory.SCOPE_PROTOTYPE )
+//@Scope(scopeName=ConfigurableBeanFactory.SCOPE_PROTOTYPE )
+@Qualifier("a")
 public class Automobilis implements TransportoPriemone {
 
 	
