@@ -1,6 +1,7 @@
 package com.vcs.ds._60_proposal;
 
 import com.vcs.ds._10_model.data.DataInterface;
+import com.vcs.ds._10_model.data.ProposalsDBFactory;
 import com.vcs.ds._20_General.IdGenerator;
 import com.vcs.ds._30_producer.Producer;
 import com.vcs.ds._50_request.Request;
@@ -12,13 +13,15 @@ import java.util.List;
 
 public class ProposalTimeEvaluator {
 
-//    private Request request;
-//    private DataInterface<Producer> producersData;
 
+    private DataInterface<Producer> availableProducers;
 
-    public List<Proposal>  availableProducers(Request request, DataInterface<Producer> producersData) {
+    public ProposalTimeEvaluator() {
+        this.availableProducers = availableProducers;
+    }
 
-        List<Proposal> availableProducers = new ArrayList<>();
+    public DataInterface<Producer> availableProducers(Request request, DataInterface<Producer> producersData) {
+
 
         for (int i = 0; i < producersData.getData().size(); i++) {
 
@@ -54,7 +57,7 @@ public class ProposalTimeEvaluator {
                     Proposal proposal = new Proposal(proposalId, requestId, producerName, availableStart, availableFinish, earlyFinish);
 
                     //put Proposal to proposalsList
-                    availableProducers.add(proposal);
+                    availableProducers.getData().add(producersData.getData().get(i));
 
                 }
 
@@ -63,5 +66,6 @@ public class ProposalTimeEvaluator {
         return availableProducers;
     }
 
- }
+
+}
 

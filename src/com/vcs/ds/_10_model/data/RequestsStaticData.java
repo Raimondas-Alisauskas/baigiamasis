@@ -1,6 +1,7 @@
-package com.vcs.ds._50_request;
+package com.vcs.ds._10_model.data;
 
 import com.vcs.ds._10_model.data.DataInterface;
+import com.vcs.ds._50_request.Request;
 
 import java.util.List;
 

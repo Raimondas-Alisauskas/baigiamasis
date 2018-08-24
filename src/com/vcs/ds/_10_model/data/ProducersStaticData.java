@@ -1,6 +1,7 @@
-package com.vcs.ds._30_producer;
+package com.vcs.ds._10_model.data;
 
 import com.vcs.ds._10_model.data.DataInterface;
+import com.vcs.ds._30_producer.Producer;
 
 import java.util.List;
 

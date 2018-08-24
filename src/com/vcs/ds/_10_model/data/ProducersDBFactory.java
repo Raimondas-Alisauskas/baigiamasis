@@ -1,8 +1,6 @@
-package com.vcs.ds._50_request;
+package com.vcs.ds._10_model.data;
 
-import com.vcs.ds._10_model.data.DataInterface;
-
-public class RequestsDBFactory {
+public class ProducersDBFactory {
 
     private static DataInterface dbInstance = null;
 
@@ -21,7 +19,7 @@ public class RequestsDBFactory {
 
        switch (mode){
            case 0:
-               return new RequestsStaticData();
+               return new ProducersStaticData();
            default:
                break;
         }

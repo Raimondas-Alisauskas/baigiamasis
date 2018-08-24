@@ -3,15 +3,16 @@ package com.vcs.ds;
 import com.vcs.ds._10_model.data.*;
 import com.vcs.ds._10_model.input.RequestInput;
 import com.vcs.ds._50_request.Request;
-import com.vcs.ds._50_request.RequestsDBFactory;
+import com.vcs.ds._10_model.data.RequestsDBFactory;
 import com.vcs.ds._60_proposal.*;
 import com.vcs.ds._30_producer.Producer;
-import com.vcs.ds._30_producer.ProducersDBFactory;
-import com.vcs.ds._70_answers.AnswersDBFactory;
+import com.vcs.ds._10_model.data.ProducersDBFactory;
+import com.vcs.ds._10_model.data.AnswersDBFactory;
 
 import java.util.List;
 
 public class Main {
+
 
     public static void main(String[] args) {
 
@@ -31,12 +32,10 @@ public class Main {
 //        Put the Request in to RequestsStaticData
         requestData.getData().add(request);
 
-//        Evaluate Proposals for meeting Request's time requirements
+        //Get availableProducers list which meets Request's time requirements
+
         ProposalTimeEvaluator proposalTimeEvaluator = new ProposalTimeEvaluator();
-        List<Proposal> a = proposalTimeEvaluator.availableProducers(request, producersData);// TODO ? kaip paversti i  DataInterface<Proposal>
-
-
-
+        DataInterface<Producer> availableProducers =  proposalTimeEvaluator.availableProducers(request, producersData);
 
 //        Put Proposals to AnswersStaticData
         answersData.getData().add(proposalsData);
