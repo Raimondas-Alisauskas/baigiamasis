@@ -2,8 +2,8 @@ package convolution;
 
 import org.math.plot.Plot3DPanel;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.Color;
 import java.util.List;
 
 public class Analitics {
