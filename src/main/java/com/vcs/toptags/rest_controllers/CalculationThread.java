@@ -8,7 +8,7 @@ import static com.vcs.toptags.actions.Actions.LAST_TOP_WORDS;
 
 @Component
 public class CalculationThread extends Thread {
-    int timeOutMin = getTimeOutMin();
+    private int timeOutMin = getTimeOutMin();
 
     @Override
     public void run() {

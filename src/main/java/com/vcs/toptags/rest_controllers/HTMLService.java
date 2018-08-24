@@ -1,7 +1,9 @@
 package com.vcs.toptags.rest_controllers;
 
-import com.vcs.toptags.io.Time;
+import com.vcs.toptags.io.CheckTime;
 import com.vcs.toptags.page_adapters.INewsPageTopWordsWithLink;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,6 +12,12 @@ import java.util.List;
 @Component
 public class HTMLService {
 
+//    @Value("${timeCheck}")
+//    private String lockalTime;
+
+    @Autowired
+    private  CheckTime checkTime;
+
     public String getHTML(List<INewsPageTopWordsWithLink> pageList) {
 
         String htmlCode;
@@ -17,9 +25,7 @@ public class HTMLService {
         htmlCode = "" + "<!DOCTYPE html><html><body><table width = \"100%\"><tbody>" +
                 "<tr><td align = \"center\"><h2>Top Tags from News Pages</h2></td></tr>";
 
-        Time time = new Time();
-
-        htmlCode += "<tr><td><p align = \"center\">Data update Time: " + time.getTime() + "</h2></td></tr>";
+        htmlCode += "<tr><td><p align = \"center\">Data update CheckTime: " + checkTime.getTime() + "</h2></td></tr>";
         htmlCode += "<tr><td align= \"center\"><table><tbody align = \"justify\">";
 
         htmlCode += addWebPageToTitle(pageList);
