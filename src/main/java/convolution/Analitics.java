@@ -19,6 +19,7 @@ public class Analitics {
     private final Integer kernSize = 2;
     private final Integer stride = 2;
     private final double moment = .5;
+    private final Integer builder = 5;
 
     public Analitics() {
 
@@ -27,7 +28,7 @@ public class Analitics {
         List<Double> lr = ran.range(.01, .02, .01);
         List<Integer> samples = ran.range(80, 1128, 292);
 
-        ConvModel convModel = new ConvModel(samples, lr, nIn, nOut, pad, kernSize, stride, moment, true);
+        ConvModel convModel = new ConvModel(samples, lr, nIn, nOut, pad, kernSize, stride, moment, builder,true);
 
         plot3d = new Plot3DPanel();
         plot3d.addLinePlot("recall versus precision versus accurat",

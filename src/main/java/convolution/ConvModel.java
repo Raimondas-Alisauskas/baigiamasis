@@ -34,7 +34,7 @@ public class ConvModel {
     private CifarDataSetIterator dataSetIterator;
 
     public ConvModel(List<Integer> samples, List<Double> learningRate, Integer nIn, Integer nOut,Integer pad,
-                     Integer kernSize, Integer stride, double moment, boolean pretrain) {
+                     Integer kernSize, Integer stride, double moment, Integer builder, boolean pretrain) {
 
         this.acc = new ArrayList<>();
         this.f1 = new ArrayList<>();
@@ -47,7 +47,7 @@ public class ConvModel {
             for (int lr = 0; lr < learningRate.size(); lr += 1) {
 
                 Evaluation evaler = createModel(samples.get(s), learningRate.get(lr), nIn, nOut, pad, kernSize, stride,
-                        moment, pretrain);
+                        moment, builder, pretrain);
 
                 this.acc.add(evaler.accuracy() * toPercent);
                 this.f1.add(evaler.f1() * toPercent);
@@ -60,23 +60,23 @@ public class ConvModel {
     }
 
     private Evaluation createModel(Integer samplesize, Double lr, Integer nIn, Integer nOut, Integer pad, Integer
-                                   kernSize, Integer stride, double moment, boolean pretrain) {
+                                   kernSize, Integer stride, double moment, Integer builder, boolean pretrain) {
 
         BasicConfigurator.configure(); // dingsta WARN bekompiliuojant
         dataSetIterator = new CifarDataSetIterator(2, samplesize, true);
         // gauname train dataset////
 
-        ConvolutionLayer lay0 = new ConvolutionLayer.Builder(5, 5)
+        ConvolutionLayer lay0 = new ConvolutionLayer.Builder(builder, builder)
                 .nIn(nIn).nOut(16).stride(1, 1).padding(pad, pad).weightInit(WeightInit.XAVIER)
                 .name("First conv layer").activation(Activation.RELU).build();
         SubsamplingLayer lay1 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
                 .kernelSize(kernSize, kernSize).stride(stride, stride).name("First subsmpl layer").build();
-        ConvolutionLayer lay2 = new ConvolutionLayer.Builder(5, 5)
+        ConvolutionLayer lay2 = new ConvolutionLayer.Builder(builder, builder)
                 .nOut(nOut).stride(1, 1).padding(pad, pad).weightInit(WeightInit.XAVIER)
                 .name("Second conv layer").activation(Activation.RELU).build();
         SubsamplingLayer lay3 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
                 .kernelSize(kernSize, kernSize).stride(stride, stride).name("Second subsmpl layer").build();
-        ConvolutionLayer lay4 = new ConvolutionLayer.Builder(5, 5)
+        ConvolutionLayer lay4 = new ConvolutionLayer.Builder(builder, builder)
                 .nOut(nOut).stride(1, 1).padding(pad, pad).weightInit(WeightInit.XAVIER)
                 .name("Third conv layer").activation(Activation.RELU).build();
         SubsamplingLayer lay5 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
