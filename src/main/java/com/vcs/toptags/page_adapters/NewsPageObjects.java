@@ -6,7 +6,7 @@ import java.util.List;
 
 public class NewsPageObjects {
 
-    List<INewsPage> newsPageList = new ArrayList<>();
+    private List<INewsPage> newsPageList = new ArrayList<>();
 
     public List<INewsPage> getNewsPageObjects() {
 

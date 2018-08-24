@@ -4,8 +4,6 @@ import com.vcs.toptags.actions.ActionsWithDataSources;
 import com.vcs.toptags.io.RereadDelay;
 import org.springframework.stereotype.Component;
 
-import java.util.concurrent.TimeUnit;
-
 import static com.vcs.toptags.actions.Actions.LAST_TOP_WORDS;
 
 @Component

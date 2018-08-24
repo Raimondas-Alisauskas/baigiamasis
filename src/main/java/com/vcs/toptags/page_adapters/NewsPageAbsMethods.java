@@ -4,20 +4,20 @@ import java.util.List;
 
 
 public abstract class NewsPageAbsMethods implements INewsPage {
-    String web;
-    String encoding ;
-    String activeTag;
-    String hrefTag;
+    protected String web;
+    protected String encoding;
+    protected String activeTag;
+    protected String hrefTag;
     // Internal Page links taked from Dynamic JavaScript Array
-    List<String> activeLinks;
+    protected List<String> activeLinks;
     // Filterred Top Words Array
-    String[] filteredTopWordsArray;
+    protected String[] filteredTopWordsArray;
     // if true: add www.alfa.lt to the dynamic link
-    boolean addWebPageDomain;
+    protected boolean addWebPageDomain;
     // Quantity of the Checked words grabbed from the page
-    Integer checkedWordsQty = 0;
+    protected Integer checkedWordsQty = 0;
     // Quantity of the Unique words grabbed from the page
-    Integer uniqueWordsQty = 0;
+    protected Integer uniqueWordsQty = 0;
 
 
     @Override

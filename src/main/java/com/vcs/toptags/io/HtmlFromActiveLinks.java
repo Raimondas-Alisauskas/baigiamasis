@@ -7,7 +7,7 @@ public class HtmlFromActiveLinks {
 
     public List<StringBuffer> getHTMLArray(List<String> activeLinks, String encoding) {
 
-         return grabHTMLinkPlainText(activeLinks, encoding);
+        return grabHTMLinkPlainText(activeLinks, encoding);
     }
 
     private List<StringBuffer> grabHTMLinkPlainText(List<String> activeLinks, String encoding) {

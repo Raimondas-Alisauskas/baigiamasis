@@ -3,10 +3,10 @@ package com.vcs.toptags.page_adapters;
 
 public class NewsPage extends NewsPageAbsMethods implements INewsPage {
 
-    public NewsPage(){
+    protected NewsPage() {
     }
 
-    public NewsPage(String web, String encoding, String activeTag, String hrefTag, boolean addWebPageDomain) {
+    protected NewsPage(String web, String encoding, String activeTag, String hrefTag, boolean addWebPageDomain) {
         this.web = web;
         this.encoding = encoding;
         this.activeTag = activeTag;

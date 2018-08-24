@@ -5,15 +5,13 @@ import com.vcs.toptags.counting.TopWords;
 import com.vcs.toptags.io.*;
 import com.vcs.toptags.page_adapters.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
 public class CleanAndCalculate {
-    int qtyTopWords;
-    INewsPage pageClass;
+    private int qtyTopWords;
+    private INewsPage pageClass;
 
     public CleanAndCalculate(INewsPage pageClass, int qtyTopWords) {
         this.pageClass = pageClass;

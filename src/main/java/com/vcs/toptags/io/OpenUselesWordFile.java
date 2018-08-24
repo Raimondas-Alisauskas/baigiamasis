@@ -13,7 +13,7 @@ public class OpenUselesWordFile {
 
     // --------- Duomenu ATKURIMAS ---------
 
-    public List<String> loadList() {
+    private List<String> loadList() {
 
         final String FILE_NAME = "useleswords.txt";
 
