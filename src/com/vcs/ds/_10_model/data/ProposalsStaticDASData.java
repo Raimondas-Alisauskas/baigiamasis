@@ -1,19 +1,19 @@
 package com.vcs.ds._10_model.data;
 
-import com.vcs.ds._10_model.data.DataInterface;
 import com.vcs.ds._60_proposal.Proposal;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ProposalsStaticData implements DataInterface<Proposal> {
+public class ProposalsStaticDASData implements DASData<Proposal> {
 
-    private String requestId;
-    private List<Proposal> proposals;
+ //   private String requestId;
+    private List<Proposal> proposals = new ArrayList<>();
 
     /**
      * Use ProducersDBFactory
      */
-    ProposalsStaticData() {
+    ProposalsStaticDASData() {
     }
 
     @Override

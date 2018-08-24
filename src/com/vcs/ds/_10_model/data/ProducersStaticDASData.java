@@ -1,19 +1,19 @@
 package com.vcs.ds._10_model.data;
 
-import com.vcs.ds._10_model.data.DataInterface;
 import com.vcs.ds._30_producer.Producer;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ProducersStaticData implements DataInterface<Producer> {
+public class ProducersStaticDASData implements DASData<Producer> {
 
 
-    private static List<Producer>  producersList;
+    private  List<Producer>  producersList = new ArrayList<>();
 
     /**
      * Use ProducersDBFactory
      */
-    ProducersStaticData() {
+    ProducersStaticDASData() {
        }
 
 

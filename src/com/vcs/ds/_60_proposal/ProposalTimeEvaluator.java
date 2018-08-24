@@ -1,27 +1,21 @@
 package com.vcs.ds._60_proposal;
 
-import com.vcs.ds._10_model.data.DataInterface;
+import com.vcs.ds._10_model.data.DASData;
 import com.vcs.ds._10_model.data.ProposalsDBFactory;
-import com.vcs.ds._20_General.IdGenerator;
+import com.vcs.ds.idgen.IdGenerator;
 import com.vcs.ds._30_producer.Producer;
 import com.vcs.ds._50_request.Request;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProposalTimeEvaluator {
 
 
-    private DataInterface<Producer> availableProducers;
 
-    public ProposalTimeEvaluator() {
-        this.availableProducers = availableProducers;
-    }
+    public DASData<Proposal> availableProposals(Request request, DASData<Producer> producersData) {
 
-    public DataInterface<Producer> availableProducers(Request request, DataInterface<Producer> producersData) {
-
+        DASData<Proposal> proposalsData = ProposalsDBFactory.getDbInstance();
 
         for (int i = 0; i < producersData.getData().size(); i++) {
 
@@ -57,13 +51,12 @@ public class ProposalTimeEvaluator {
                     Proposal proposal = new Proposal(proposalId, requestId, producerName, availableStart, availableFinish, earlyFinish);
 
                     //put Proposal to proposalsList
-                    availableProducers.getData().add(producersData.getData().get(i));
-
+                    proposalsData.getData().add(proposal);
                 }
 
             }
         }
-        return availableProducers;
+        return proposalsData;
     }
 
 

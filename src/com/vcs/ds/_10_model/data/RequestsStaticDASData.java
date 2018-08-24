@@ -1,19 +1,19 @@
 package com.vcs.ds._10_model.data;
 
-import com.vcs.ds._10_model.data.DataInterface;
 import com.vcs.ds._50_request.Request;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RequestsStaticData implements DataInterface<Request> {
+public class RequestsStaticDASData implements DASData<Request> {
 
 
-    private static List<Request> requestsList;
+    private List<Request> requestsList = new ArrayList<>();
 
     /**
      * Use ProducersDBFactory
      */
-    RequestsStaticData() {
+    RequestsStaticDASData() {
     }
 
     @Override

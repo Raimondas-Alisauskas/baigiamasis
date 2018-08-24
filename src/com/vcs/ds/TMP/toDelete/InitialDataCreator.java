@@ -6,11 +6,11 @@ public class InitialDataCreator {
 
 //    //        ClientsData
 //    ClientsData clientsDatabase = new ClientsData();
-//    //        RequestsStaticData
-//    RequestsStaticData requestsData = new RequestsStaticData();
-//    //        ProducersStaticData
-//    ProducersStaticData producersStaticData = new ProducersStaticData();
-//    //        AnswersStaticData
-//    AnswersStaticData proposalsData = new AnswersStaticData();
+//    //        RequestsStaticDASData
+//    RequestsStaticDASData requestsData = new RequestsStaticDASData();
+//    //        ProducersStaticDASData
+//    ProducersStaticDASData producersStaticData = new ProducersStaticDASData();
+//    //        AnswersStaticDASData
+//    AnswersStaticDASData proposalsData = new AnswersStaticDASData();
 
  }

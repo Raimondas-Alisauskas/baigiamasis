@@ -1,6 +1,6 @@
 package com.vcs.ds._50_request;
 
-import com.vcs.ds._20_General.IdGenerator;
+import com.vcs.ds.idgen.IdGenerator;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

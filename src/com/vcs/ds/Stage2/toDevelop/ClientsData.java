@@ -1,7 +1,7 @@
 package com.vcs.ds.Stage2.toDevelop;
 
 public class ClientsData
-  //      implements DataInterface
+  //      implements DASData
 {
 
 //    private  List<Client> clientsList;

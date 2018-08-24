@@ -1,12 +1,10 @@
 package com.vcs.ds._10_model.data;
 
-import java.util.List;
-
 public class ProposalsDBFactory  {
 
-    private static DataInterface dbInstance = null;
+    private static DASData dbInstance = null;
 
-    public static DataInterface getDbInstance(){
+    public static DASData getDbInstance(){
 
 
         if (dbInstance == null) {
@@ -15,13 +13,13 @@ public class ProposalsDBFactory  {
         return dbInstance;
     }
 
-    private static DataInterface creteDbInstance(){
+    private static DASData creteDbInstance(){
         //config mode
         int mode = 0;//For static data mode
 
        switch (mode){
            case 0:
-               return new ProposalsStaticData();
+               return new ProposalsStaticDASData();
            default:
                break;
         }

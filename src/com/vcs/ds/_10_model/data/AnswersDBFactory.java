@@ -2,9 +2,9 @@ package com.vcs.ds._10_model.data;
 
 public class AnswersDBFactory {
 
-    private static DataInterface dbInstance = null;
+    private static DASData dbInstance = null;
 
-    public static DataInterface getDbInstance(){
+    public static DASData getDbInstance(){
 
 
         if (dbInstance == null) {
@@ -13,13 +13,13 @@ public class AnswersDBFactory {
         return dbInstance;
     }
 
-    private static DataInterface creteDbInstance(){
+    private static DASData creteDbInstance(){
         //config mode
         int mode = 0;//For static data mode
 
        switch (mode){
            case 0:
-               return new AnswersStaticData();
+               return new AnswersStaticDASData();
            default:
                break;
         }

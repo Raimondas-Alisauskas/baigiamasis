@@ -1,12 +1,12 @@
-import com.vcs.ds._10_model.data.DataInterface;
+import com.vcs.ds._10_model.data.DASData;
 import com.vcs.ds._10_model.data.ProducersDBFactory;
 import com.vcs.ds._30_producer.Producer;
 
-public class TestDataPutter {
+public class TestDataPopulator {
 
-    DataInterface<Producer> producersData;
+    DASData<Producer> producersData;
 
-     TestDataPutter() {
+     TestDataPopulator() {
         this.producersData = ProducersDBFactory.getDbInstance();
 
          producersData.getData().add(0, new Producer("P10", "1", "2018-09-10", "2018-09-15", "1", "24"));
@@ -16,13 +16,13 @@ public class TestDataPutter {
 
      }
 
-   public  void putProducerData ( DataInterface<Producer> producersData) {
-        producersData.getData().add( new Producer("P10", "1", "2018-09-10", "2018-09-15", "1", "24"));
-        producersData.getData().add( new Producer("P11", "2", "2018-09-01", "2018-10-15", "2", "12"));
-        producersData.getData().add( new Producer("P12", "1", "2018-09-10", "2018-09-12", "3", "18"));
-        producersData.getData().add( new Producer("P13", "2", "2018-09-20", "2018-10-01", "1", "24"));
-
-    }
+//   public  void putProducerData ( DASData<Producer> producersData) {
+//        producersData.getData().add( new Producer("P10", "1", "2018-09-10", "2018-09-15", "1", "24"));
+//        producersData.getData().add( new Producer("P11", "2", "2018-09-01", "2018-10-15", "2", "12"));
+//        producersData.getData().add( new Producer("P12", "1", "2018-09-10", "2018-09-12", "3", "18"));
+//        producersData.getData().add( new Producer("P13", "2", "2018-09-20", "2018-10-01", "1", "24"));
+//
+//    }
 
 
 
@@ -31,15 +31,15 @@ public class TestDataPutter {
 
 //    private List<Producer> producersList;
 //    private  List<Request> requestsList;
-//    private  List<ProposalsStaticData> proposalsList;
-//    private  List<List<ProposalsStaticData>> proposalsDatalist;
-//    public TestDataPutter() {
+//    private  List<ProposalsStaticDASData> proposalsList;
+//    private  List<List<ProposalsStaticDASData>> proposalsDatalist;
+//    public TestDataPopulator() {
 //        this.producersList = producersList;
 
 
 //
 //        this.requestsList = requestsList;
-//        //    public RequestsStaticData() {
+//        //    public RequestsStaticDASData() {
 ////    requestsList = new ArrayList<>();
 ////        requestsList.add(0, new Request("C10", "100", "100", "2018-09-15"));
 ////        requestsList.add(1, new Request("C1", "200", "200", "2018-09-10"));
