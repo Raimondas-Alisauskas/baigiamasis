@@ -1,4 +1,4 @@
-package com.vcs.ds;
+package com.vcs.ds._20_General;
 
 import com.vcs.ds._10_model.data.*;
 import com.vcs.ds._10_model.input.RequestInput;
@@ -11,18 +11,10 @@ import com.vcs.ds._10_model.data.AnswersDBFactory;
 
 import java.util.List;
 
-public class Main {
+public class App {
 
+    public void runApp(DataInterface<Request> requestData, DataInterface<Producer> producersData, DataInterface<Proposal> proposalsData, DataInterface<DataInterface<Proposal>> answersData) {
 
-    public static void main(String[] args) {
-
-
-//       Create generic request and producers Data's
-        DataInterface<Request> requestData = RequestsDBFactory.getDbInstance();
-        DataInterface<Producer> producersData = ProducersDBFactory.getDbInstance();
-        DataInterface<Proposal> proposalsData = ProposalsDBFactory.getDbInstance();
-        DataInterface<DataInterface<Proposal>> answersData = AnswersDBFactory.getDbInstance();
-//
 //        Receiving Request for production: Create mock RequestInput
         RequestInput requestInput = new RequestInput();
 
@@ -31,6 +23,8 @@ public class Main {
 
 //        Put the Request in to RequestsStaticData
         requestData.getData().add(request);
+
+
 
         //Get availableProducers list which meets Request's time requirements
 
@@ -48,6 +42,7 @@ public class Main {
 
 
         System.out.println("Pabaiga");
+
 
     }
 }
