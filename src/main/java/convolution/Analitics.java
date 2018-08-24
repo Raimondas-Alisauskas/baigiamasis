@@ -21,6 +21,7 @@ public class Analitics {
     private final double moment = .5;
     private final Integer builder = 5;
     private final Integer iters = 5;
+    private final boolean pretrain = true;
 
     public Analitics() {
 
@@ -29,7 +30,7 @@ public class Analitics {
         List<Double> lr = ran.range(.01, .02, .01);
         List<Integer> samples = ran.range(80, 1128, 584);
 
-        ConvModel convModel = new ConvModel(samples, lr, nIn, nOut, pad, kernSize, stride, moment, builder, iters,true);
+        ConvModel convModel = new ConvModel(samples, lr, nIn, nOut, pad, kernSize, stride, moment, builder, iters, pretrain);
 
         plot3d = new Plot3DPanel();
         plot3d.addLinePlot("recall versus precision versus accurat",
