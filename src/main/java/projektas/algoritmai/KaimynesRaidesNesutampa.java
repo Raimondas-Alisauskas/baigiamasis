@@ -1,47 +1,56 @@
 package projektas.algoritmai;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.Spalva;
 import projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class KaimynesRaidesNesutampa implements Algoritmas {
+/*
+salia esancios spalvos nesutampa
+*/
 
+public class KaimynesRaidesNesutampa implements Algoritmas {
+    @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        //salia esancios spalvos nesutampa
 
         int count = 0;
 
         for (int i = 0; i < eilute.getEilute().size(); i++) {
-            if (eilute.getEilute().get(i) != (eilute.getEilute().get(i+1)))
+            if (eilute.getEilute().get(i) != (eilute.getEilute().get(i + 1))) {
                 count++;
+            }
         }
 
         return count == eilute.getEilute().size() - 1;
     }
 
+    @Override
     public Lygis sudetingumas() {
         return Lygis.LEVEL1;
     }
 
+    @Override
     public List<SpalvotaEilute> getTeisingos() {
         List<SpalvotaEilute> r = new ArrayList<SpalvotaEilute>();
-        r.add(new SpalvotaEilute(1,2,0));
-        r.add(new SpalvotaEilute(1));
-        r.add(new SpalvotaEilute(0,3,0));
-        r.add(new SpalvotaEilute(2,1));
-        r.add(new SpalvotaEilute(2,3,1,2,0));
+        r.add(new SpalvotaEilute(Spalva.BLUE, Spalva.GREEN, Spalva.YELLOW));
+        r.add(new SpalvotaEilute(Spalva.BLUE));
+        r.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.RED, Spalva.YELLOW));
+        r.add(new SpalvotaEilute(Spalva.GREEN, Spalva.BLUE));
+        r.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.RED, Spalva.BLUE, Spalva.GREEN, Spalva.BLUE));
         return r;
     }
 
+    @Override
     public List<SpalvotaEilute> getNeteisingos() {
         List<SpalvotaEilute> r = new ArrayList<SpalvotaEilute>();
-        r.add(new SpalvotaEilute(1,1,2,0));
-        r.add(new SpalvotaEilute(2,3,1,1));
-        r.add(new SpalvotaEilute(0,0,2,2,3,3));
-        r.add(new SpalvotaEilute(2,2));
-        r.add(new SpalvotaEilute(2,3,0,1,1));
+        r.add(new SpalvotaEilute(Spalva.BLUE, Spalva.BLUE, Spalva.YELLOW, Spalva.GREEN));
+        r.add(new SpalvotaEilute(Spalva.RED, Spalva.GREEN, Spalva.GREEN, Spalva.GREEN));
+        r.add(new SpalvotaEilute(Spalva.BLUE, Spalva.BLUE, Spalva.GREEN, Spalva.YELLOW, Spalva.YELLOW));
+        r.add(new SpalvotaEilute(Spalva.GREEN, Spalva.GREEN));
+        r.add(new SpalvotaEilute(Spalva.BLUE, Spalva.YELLOW, Spalva.YELLOW, Spalva.RED, Spalva.RED));
         return r;
     }
 }

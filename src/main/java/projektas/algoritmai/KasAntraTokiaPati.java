@@ -1,6 +1,8 @@
 package projektas.algoritmai;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.Spalva;
 import projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ import java.util.List;
 
 public class KasAntraTokiaPati implements Algoritmas {
 
-
+    @Override
     public boolean patikrink(SpalvotaEilute eilute) {
         // kas antra tokia pati nuo pirmo
 
@@ -23,28 +25,32 @@ public class KasAntraTokiaPati implements Algoritmas {
             return true;
         }
     }
-            public Lygis sudetingumas () {
-            return Lygis.LEVEL0;
-        }
 
+    @Override
+    public Lygis sudetingumas() {
+        return Lygis.LEVEL0;
+    }
+
+    @Override
     public List<SpalvotaEilute> getTeisingos() {
         List<SpalvotaEilute> kasAntrat = new ArrayList<SpalvotaEilute>();
-        kasAntrat.add(new SpalvotaEilute(1,1,1));
-        kasAntrat.add(new SpalvotaEilute(2,3,2,3,2));
-        kasAntrat.add(new SpalvotaEilute(0,1,0,2));
-        kasAntrat.add(new SpalvotaEilute(3));
-        kasAntrat.add(new SpalvotaEilute(2,2));
+        kasAntrat.add(new SpalvotaEilute(Spalva.BLUE, Spalva.BLUE, Spalva.BLUE));
+        kasAntrat.add(new SpalvotaEilute(Spalva.BLUE, Spalva.GREEN, Spalva.BLUE, Spalva.GREEN, Spalva.BLUE));
+        kasAntrat.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.BLUE, Spalva.YELLOW, Spalva.GREEN));
+        kasAntrat.add(new SpalvotaEilute(Spalva.GREEN));
+        kasAntrat.add(new SpalvotaEilute(Spalva.BLUE, Spalva.BLUE));
 
         return kasAntrat;
     }
 
+    @Override
     public List<SpalvotaEilute> getNeteisingos() {
         List<SpalvotaEilute> kasAntran = new ArrayList<SpalvotaEilute>();
-        kasAntran.add(new SpalvotaEilute(1,2,3));
-        kasAntran.add(new SpalvotaEilute(1,2,2,3));
-        kasAntran.add(new SpalvotaEilute(2,2,0));
-        kasAntran.add(new SpalvotaEilute(0,1,1,1));
-        kasAntran.add(new SpalvotaEilute(0,1,3,1,3));
+        kasAntran.add(new SpalvotaEilute(Spalva.BLUE, Spalva.YELLOW, Spalva.GREEN));
+        kasAntran.add(new SpalvotaEilute(Spalva.BLUE, Spalva.GREEN, Spalva.GREEN, Spalva.RED));
+        kasAntran.add(new SpalvotaEilute(Spalva.GREEN, Spalva.GREEN, Spalva.YELLOW));
+        kasAntran.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.YELLOW, Spalva.GREEN, Spalva.YELLOW));
+        kasAntran.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.BLUE, Spalva.RED, Spalva.BLUE, Spalva.RED));
 
         return kasAntran;
     }

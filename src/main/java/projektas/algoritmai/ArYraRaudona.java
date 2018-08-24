@@ -1,43 +1,46 @@
 package projektas.algoritmai;
 
 import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.Spalva;
 import projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+yra bent viena raudona
+*/
+
 public class ArYraRaudona implements Algoritmas {
 
-
-
+    @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        // yra bent viena raudona
-        return Arrays.asList(eilute).contains(2);
-        //TODO ar 1 raudona?
-    }
 
+        return eilute.isUsing(Spalva.RED);
+    }
+    @Override
     public Lygis sudetingumas() {
         return Lygis.LEVEL3;
     }
-
+    @Override
     public List<SpalvotaEilute> getTeisingos() {
         List<SpalvotaEilute> raudonayrat = new ArrayList<SpalvotaEilute>();
-        raudonayrat.add(new SpalvotaEilute(0,0,2,2,1));
-        raudonayrat.add(new SpalvotaEilute(3,2,1,0));
-        raudonayrat.add(new SpalvotaEilute(2,3));
-        raudonayrat.add(new SpalvotaEilute(2));
-        raudonayrat.add(new SpalvotaEilute(0,2,1));
+        raudonayrat.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.BLUE, Spalva.BLUE, Spalva.GREEN, Spalva.RED));
+        raudonayrat.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.RED));
+        raudonayrat.add(new SpalvotaEilute(Spalva.RED));
+        raudonayrat.add(new SpalvotaEilute(Spalva.BLUE, Spalva.BLUE, Spalva.RED, Spalva.YELLOW));
+        raudonayrat.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.BLUE, Spalva.RED, Spalva.GREEN));
         return raudonayrat;
     }
-
+    @Override
     public List<SpalvotaEilute> getNeteisingos() {
         List<SpalvotaEilute> raudonayran = new ArrayList<SpalvotaEilute>();
-        raudonayran.add(new SpalvotaEilute(1,0));
-        raudonayran.add(new SpalvotaEilute(1,1,1));
-        raudonayran.add(new SpalvotaEilute(3,3,0,0));
-        raudonayran.add(new SpalvotaEilute(0));
-        raudonayran.add(new SpalvotaEilute(3,1));
+        raudonayran.add(new SpalvotaEilute(Spalva.GREEN, Spalva.BLUE));
+        raudonayran.add(new SpalvotaEilute(Spalva.GREEN, Spalva.BLUE, Spalva.BLUE, Spalva.YELLOW));
+        raudonayran.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.YELLOW, Spalva.BLUE));
+        raudonayran.add(new SpalvotaEilute(Spalva.GREEN));
+        raudonayran.add(new SpalvotaEilute(Spalva.GREEN, Spalva.RED));
         return raudonayran;
     }
 

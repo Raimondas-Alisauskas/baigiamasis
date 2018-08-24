@@ -1,41 +1,47 @@
 package projektas.algoritmai;
 
 import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.Spalva;
 import projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * ar yra bent viena melyna
+ */
+
 public class ArYraMelyna implements Algoritmas {
-
+    @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        // yra bent viena mėlyna
-        return Arrays.asList(eilute).contains(1);
-        //TODO ar 1 melyna?
-    }
 
+        return eilute.isUsing(Spalva.BLUE);
+
+    }
+    @Override
     public Lygis sudetingumas() {
         return Lygis.LEVEL3;
     }
-
+    @Override
     public List<SpalvotaEilute> getTeisingos() {
         List<SpalvotaEilute> melynayrat = new ArrayList<SpalvotaEilute>();
-        melynayrat.add(new SpalvotaEilute(2,1,1,3));
-        melynayrat.add(new SpalvotaEilute(0,3,1,1,1));
-        melynayrat.add(new SpalvotaEilute(0,3,2,3,1));
-        melynayrat.add(new SpalvotaEilute(1));
-        melynayrat.add(new SpalvotaEilute(0,3,2,1));
+        melynayrat.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.BLUE, Spalva.BLUE, Spalva.RED));
+        melynayrat.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.RED, Spalva.BLUE, Spalva.BLUE, Spalva.BLUE));
+        melynayrat.add(new SpalvotaEilute(Spalva.BLUE, Spalva.GREEN));
+        melynayrat.add(new SpalvotaEilute(Spalva.BLUE));
+        melynayrat.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.GREEN, Spalva.RED, Spalva.BLUE));
         return melynayrat;
     }
-
+    @Override
     public List<SpalvotaEilute> getNeteisingos() {
         List<SpalvotaEilute> melynayran = new ArrayList<SpalvotaEilute>();
-        melynayran.add(new SpalvotaEilute(2,2));
-        melynayran.add(new SpalvotaEilute(3,2,0));
-        melynayran.add(new SpalvotaEilute(3,2,3,3,0));
-        melynayran.add(new SpalvotaEilute(2));
-        melynayran.add(new SpalvotaEilute(0,0,3,2,3,2,3));
+        melynayran.add(new SpalvotaEilute(Spalva.GREEN, Spalva.YELLOW));
+        melynayran.add(new SpalvotaEilute(Spalva.GREEN, Spalva.RED, Spalva.RED, Spalva.YELLOW));
+        melynayran.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.GREEN, Spalva.RED, Spalva.RED, Spalva.YELLOW));
+        melynayran.add(new SpalvotaEilute(Spalva.RED));
+        melynayran.add(new SpalvotaEilute(Spalva.GREEN, Spalva.RED, Spalva.RED));
         return melynayran;
     }
 }

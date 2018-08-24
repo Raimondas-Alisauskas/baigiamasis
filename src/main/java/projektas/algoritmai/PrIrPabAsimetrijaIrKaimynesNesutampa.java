@@ -1,13 +1,15 @@
 package projektas.algoritmai;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.vcs.projektas.Lygis;
+import projektas.algoritmai.eilute.Spalva;
 import projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PrIrPabAsimetrijaIrKaimynesNesutampa implements Algoritmas {
-
+    @Override
 
     public boolean patikrink(SpalvotaEilute eilute) {
         // pradžia ir pabaiga nesutampa ir salia esancios spalvos nesutampa
@@ -25,27 +27,30 @@ public class PrIrPabAsimetrijaIrKaimynesNesutampa implements Algoritmas {
 
     }
 
+    @Override
     public Lygis sudetingumas() {
         return Lygis.LEVEL6;
     }
 
+    @Override
     public List<SpalvotaEilute> getTeisingos() {
         List<SpalvotaEilute> asimetrijairkaimynest = new ArrayList<SpalvotaEilute>();
-        asimetrijairkaimynest.add(new SpalvotaEilute(1,2,0,2));
-        asimetrijairkaimynest.add(new SpalvotaEilute(0,3));
-        asimetrijairkaimynest.add(new SpalvotaEilute(2,3,1,2,0));
-        asimetrijairkaimynest.add(new SpalvotaEilute(1,3,2));
-        asimetrijairkaimynest.add(new SpalvotaEilute(0,1,2));
+        asimetrijairkaimynest.add(new SpalvotaEilute(Spalva.BLUE, Spalva.GREEN, Spalva.YELLOW, Spalva.GREEN));
+        asimetrijairkaimynest.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.RED));
+        asimetrijairkaimynest.add(new SpalvotaEilute(Spalva.GREEN, Spalva.RED, Spalva.BLUE, Spalva.GREEN, Spalva.YELLOW));
+        asimetrijairkaimynest.add(new SpalvotaEilute(Spalva.BLUE, Spalva.RED, Spalva.GREEN));
+        asimetrijairkaimynest.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.BLUE, Spalva.GREEN));
         return asimetrijairkaimynest;
     }
 
+    @Override
     public List<SpalvotaEilute> getNeteisingos() {
         List<SpalvotaEilute> asimetrijairkaimynesn = new ArrayList<SpalvotaEilute>();
-        asimetrijairkaimynesn.add(new SpalvotaEilute(2,3,1,1));
-        asimetrijairkaimynesn.add(new SpalvotaEilute(2));
-        asimetrijairkaimynesn.add(new SpalvotaEilute(3,1,2,3));
-        asimetrijairkaimynesn.add(new SpalvotaEilute(0,1,2,2,3));
-        asimetrijairkaimynesn.add(new SpalvotaEilute(0,0,0,0));
+        asimetrijairkaimynesn.add(new SpalvotaEilute(Spalva.GREEN, Spalva.RED, Spalva.BLUE, Spalva.BLUE));
+        asimetrijairkaimynesn.add(new SpalvotaEilute(Spalva.GREEN));
+        asimetrijairkaimynesn.add(new SpalvotaEilute(Spalva.RED, Spalva.BLUE, Spalva.GREEN, Spalva.RED));
+        asimetrijairkaimynesn.add(new SpalvotaEilute(Spalva.YELLOW, Spalva.BLUE, Spalva.GREEN, Spalva.GREEN, Spalva.RED));
+        asimetrijairkaimynesn.add(new SpalvotaEilute(Spalva.RED, Spalva.RED, Spalva.RED, Spalva.RED));
         return asimetrijairkaimynesn;
     }
 }
