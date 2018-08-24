@@ -1,6 +1,7 @@
 package com.vcs.toptags.page_adapters;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestNewsPage implements INewsPage {
     String web = "https://www.alfa.lt";
@@ -10,7 +11,7 @@ public class TestNewsPage implements INewsPage {
     String activeTag = "article-card";
     String hrefTag = "\"";
     // Internal Page links taked from Dynamic JavaScript Array
-    ArrayList<String> activeLinks;
+    List<String> activeLinks;
     // Filterred Top Words Array
     String[] filteredTopWordsArray;
     // if true: add www.alfa.lt to the dynamic link
@@ -43,13 +44,13 @@ public class TestNewsPage implements INewsPage {
     }
 
     @Override
-    public void setActiveLinks(ArrayList<String> activeLinks) {
+    public void setActiveLinks(List<String> activeLinks) {
 
         this.activeLinks = activeLinks;
     }
 
     @Override
-    public ArrayList<String> getActiveLinks() {
+    public List<String> getActiveLinks() {
 
         return activeLinks;
     }

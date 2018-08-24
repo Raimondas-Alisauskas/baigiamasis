@@ -1,13 +1,12 @@
 package com.vcs.toptags.cleaning_process;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CleanTheText {
 
-    private ArrayList<StringBuffer> htmlFromWebArray;
 
-    public ArrayList<String> getCleanTextArray(ArrayList<StringBuffer> htmlFromWebArray) {
-        this.htmlFromWebArray = htmlFromWebArray;
+    public List<String> getCleanTextArray(List<StringBuffer> htmlFromWebArray) {
 
         // Change HTML Array to the LowerCase: StringBuffer => String => StringBuffer
         htmlFromWebArray = convertToLowerCase(htmlFromWebArray);
@@ -32,11 +31,11 @@ public class CleanTheText {
     }
 
 
-    private ArrayList<StringBuffer> convertToLowerCase(ArrayList<StringBuffer> htmlFromWebArray) {
+    private List<StringBuffer> convertToLowerCase(List<StringBuffer> htmlFromWebArray) {
 
         String toLowerCase;
 
-        ArrayList<StringBuffer> stringToStringbufferArray = new ArrayList<>();
+        List<StringBuffer> stringToStringbufferArray = new ArrayList<>();
 
         for (int i = 0; i < htmlFromWebArray.size(); i++) {
             toLowerCase = htmlFromWebArray.get(i).toString().toLowerCase();
@@ -45,12 +44,12 @@ public class CleanTheText {
         return stringToStringbufferArray;
     }
 
-    private ArrayList<StringBuffer> replaceTabsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray) {
+    private List<StringBuffer> replaceTabsWithSpaces(List<StringBuffer> htmlFromWebArray) {
 
         // remove Tabs
         String withoutTabs;
 
-        ArrayList<StringBuffer> removedTABsArray = new ArrayList<>();
+        List<StringBuffer> removedTABsArray = new ArrayList<>();
 
         for (int i = 0; i < htmlFromWebArray.size(); i++) {
             withoutTabs = htmlFromWebArray.get(i).toString().toLowerCase().replaceAll("\u0009", " ");
@@ -59,9 +58,9 @@ public class CleanTheText {
         return removedTABsArray;
     }
 
-    private ArrayList<StringBuffer> replaceStyleTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray) {
+    private List<StringBuffer> replaceStyleTagsWithSpaces(List<StringBuffer> htmlFromWebArray) {
         StyleTagRemover str = new StyleTagRemover();
-        ArrayList<StringBuffer> removedStyleTagsArray = new ArrayList<>();
+        List<StringBuffer> removedStyleTagsArray = new ArrayList<>();
 
         // remove Style Tags
         for (int i = 0; i < htmlFromWebArray.size(); i++) {
@@ -70,10 +69,10 @@ public class CleanTheText {
         return removedStyleTagsArray;
     }
 
-    private ArrayList<StringBuffer> replaceScriptTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray) {
+    private List<StringBuffer> replaceScriptTagsWithSpaces(List<StringBuffer> htmlFromWebArray) {
 
         ScriptTagRemover str = new ScriptTagRemover();
-        ArrayList<StringBuffer> removedScriptTagsArray = new ArrayList<>();
+        List<StringBuffer> removedScriptTagsArray = new ArrayList<>();
 
         for (int i = 0; i < htmlFromWebArray.size(); i++) {
             removedScriptTagsArray.add(str.getCleanText(htmlFromWebArray.get(i)));
@@ -81,11 +80,11 @@ public class CleanTheText {
         return removedScriptTagsArray;
     }
 
-    private ArrayList<StringBuffer> replaceAllTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray) {
+    private List<StringBuffer> replaceAllTagsWithSpaces(List<StringBuffer> htmlFromWebArray) {
 
         // remove All Tags from "<"  till ">"
         AllTagRemover atr = new AllTagRemover();
-        ArrayList<StringBuffer> removedAllTagsArray = new ArrayList<>();
+        List<StringBuffer> removedAllTagsArray = new ArrayList<>();
 
         for (int i = 0; i < htmlFromWebArray.size(); i++) {
             removedAllTagsArray.add(atr.getCleanText(htmlFromWebArray.get(i)));
@@ -93,11 +92,11 @@ public class CleanTheText {
         return removedAllTagsArray;
     }
 
-    private ArrayList<StringBuffer> replaceSpecialTagsWithSpaces(ArrayList<StringBuffer> htmlFromWebArray) {
+    private List<StringBuffer> replaceSpecialTagsWithSpaces(List<StringBuffer> htmlFromWebArray) {
 
         // remove All Special Tags ( starts with "&"  to " ;", till the 7 char long)
         SpecialSimbolRemover ssr = new SpecialSimbolRemover();
-        ArrayList<StringBuffer> removedSpecialTagsArray = new ArrayList<>();
+        List<StringBuffer> removedSpecialTagsArray = new ArrayList<>();
 
         for (int i = 0; i < htmlFromWebArray.size(); i++) {
             removedSpecialTagsArray.add(ssr.getCleanText(htmlFromWebArray.get(i)));
@@ -105,11 +104,11 @@ public class CleanTheText {
         return removedSpecialTagsArray;
     }
 
-    private ArrayList<String> grabTextWithRegex(ArrayList<StringBuffer> htmlFromWebArray) {
+    private List<String> grabTextWithRegex(List<StringBuffer> htmlFromWebArray) {
 
         // grab the text with Regex and move to ArrayList and MERGE them to one
         GrabTextWithRegex gttwr = new GrabTextWithRegex();
-        ArrayList<String> cleanTextArray = new ArrayList<>();
+        List<String> cleanTextArray = new ArrayList<>();
 
         for (int i = 0; i < htmlFromWebArray.size(); i++) {
             cleanTextArray.addAll(gttwr.getThePureText(htmlFromWebArray.get(i)));

@@ -1,16 +1,17 @@
 package com.vcs.toptags.io;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HtmlFromActiveLinks {
 
-    public ArrayList<StringBuffer> getHTMLArray(ArrayList<String> activeLinks, String encoding) {
+    public List<StringBuffer> getHTMLArray(List<String> activeLinks, String encoding) {
 
          return grabHTMLinkPlainText(activeLinks, encoding);
     }
 
-    private ArrayList<StringBuffer> grabHTMLinkPlainText(ArrayList<String> activeLinks, String encoding) {
-        ArrayList<StringBuffer> htmlArray = new ArrayList<>();
+    private List<StringBuffer> grabHTMLinkPlainText(List<String> activeLinks, String encoding) {
+        List<StringBuffer> htmlArray = new ArrayList<>();
 
         URLReader url = new URLReader();
 

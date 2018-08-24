@@ -1,30 +1,27 @@
 package com.vcs.toptags.cleaning_process;
 
-import com.vcs.toptags.cleaning_process.CleanTheText;
-import com.vcs.toptags.cleaning_process.CleanUselesWords;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class FormatWebPageText {
 
-    ArrayList<StringBuffer> htmlFromWebArray;
+    List<StringBuffer> htmlFromWebArray;
 
-    public FormatWebPageText(ArrayList<StringBuffer> htmlFromWebArray) {
+    public FormatWebPageText(List<StringBuffer> htmlFromWebArray) {
         this.htmlFromWebArray = htmlFromWebArray;
     }
 
 
-    public ArrayList<String> getFormatedWords() {
+    public List<String> getFormatedWords() {
 
         return grabAndFormatWordsFromWebPage();
     }
 
 
-    private ArrayList<String> grabAndFormatWordsFromWebPage() {
+    private List<String> grabAndFormatWordsFromWebPage() {
 
         //Get text Array clean from tags and etc.
         CleanTheText ctt = new CleanTheText();
-        ArrayList<String> allWordsArray = ctt.getCleanTextArray(htmlFromWebArray);
+        List<String> allWordsArray = ctt.getCleanTextArray(htmlFromWebArray);
 
         // clean useless words
         allWordsArray = cleanUselessWords(allWordsArray);
@@ -33,7 +30,7 @@ public class FormatWebPageText {
     }
 
 
-    private ArrayList<String> cleanUselessWords(ArrayList<String> array) {
+    private List<String> cleanUselessWords(List<String> array) {
         CleanUselesWords cuw = new CleanUselesWords();
         return cuw.getClean(array);
     }

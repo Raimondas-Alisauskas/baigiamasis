@@ -1,21 +1,20 @@
 package com.vcs.toptags.cleaning_process;
 
-;
-
 import com.vcs.toptags.io.OpenUselesWordFile;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class CleanUselesWords {
 
-    public ArrayList<String> getClean(ArrayList<String> inArray) {
+    public List<String> getClean(List<String> inArray) {
 
         return cleanText(inArray);
     }
 
-    private ArrayList<String> cleanText(ArrayList<String> inArray) {
+    private List<String> cleanText(List<String> inArray) {
         OpenUselesWordFile ouwf = new OpenUselesWordFile();
-        ArrayList<String> uselessWords = ouwf.getUselesWordsList();
+        List<String> uselessWords = ouwf.getUselesWordsList();
 
         for (int i = 0; i < uselessWords.size(); i++) {
             for (int j = (inArray.size() - 1); j >= 0; j--) {

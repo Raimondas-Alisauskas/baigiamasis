@@ -1,12 +1,13 @@
 package com.vcs.toptags.page_adapters;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NewsPageObjects {
 
-    ArrayList<INewsPage> newsPageList = new ArrayList<>();
+    List<INewsPage> newsPageList = new ArrayList<>();
 
-    public ArrayList<INewsPage> getNewsPageObjects() {
+    public List<INewsPage> getNewsPageObjects() {
 
 //        newsPageList.add(new TestNewsPage());
 

@@ -5,13 +5,13 @@ import java.util.Map;
 
 public class TopWords {
 
-    public String[] getTopWords(HashMap<String, Integer> map, int qtyTopWords) {
+    public String[] getTopWords(Map<String, Integer> map, int qtyTopWords) {
 
         return calculateTop(map, qtyTopWords);
     }
 
 
-    private String[] calculateTop(HashMap<String, Integer> map, int qtyTopWords) {
+    private String[] calculateTop(Map<String, Integer> map, int qtyTopWords) {
         String[] array = new String[qtyTopWords];
 
         // searching for the highest number of word Repeats - topRepeats

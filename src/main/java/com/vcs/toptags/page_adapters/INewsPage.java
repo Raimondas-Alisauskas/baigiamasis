@@ -1,6 +1,7 @@
 package com.vcs.toptags.page_adapters;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface INewsPage extends INewsPageTopWordsWithLink {
 
@@ -12,9 +13,9 @@ public interface INewsPage extends INewsPageTopWordsWithLink {
 
     public String getHrefTag();
 
-    public void setActiveLinks(ArrayList<String> activeLinks);
+    public void setActiveLinks(List<String> activeLinks);
 
-    public ArrayList<String> getActiveLinks();
+    public List<String> getActiveLinks();
 
     public boolean isAddWebPageDomain();
 

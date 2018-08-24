@@ -1,6 +1,5 @@
 package com.vcs.toptags.cleaning_process;
 
-;
 
 public class ScriptTagRemover {
     public StringBuffer getCleanText(StringBuffer buffer) {

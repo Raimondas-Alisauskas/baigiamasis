@@ -6,7 +6,6 @@ import com.vcs.toptags.io.TopWordsQty;
 import com.vcs.toptags.page_adapters.INewsPage;
 import com.vcs.toptags.page_adapters.NewsPageObjects;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ActionsWithDataSources {
@@ -40,7 +39,7 @@ public class ActionsWithDataSources {
     }
 
     // Get News Pages Object Array
-    private ArrayList<INewsPage> generateNewsPageObjects() {
+    private List<INewsPage> generateNewsPageObjects() {
         NewsPageObjects npo = new NewsPageObjects();
 
         return npo.getNewsPageObjects();

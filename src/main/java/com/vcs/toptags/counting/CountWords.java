@@ -1,12 +1,13 @@
 package com.vcs.toptags.counting;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CountWords {
-    public HashMap<String, Integer> getCountedWordsArray(ArrayList<String> pureTextList) {
+    public Map<String, Integer> getCountedWordsArray(List<String> pureTextList) {
 
-        HashMap<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
 
         for (int i = 0; i < pureTextList.size(); i++) {
 

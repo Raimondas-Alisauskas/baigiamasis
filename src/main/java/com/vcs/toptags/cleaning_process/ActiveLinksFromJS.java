@@ -4,13 +4,14 @@ import com.vcs.toptags.io.URLReader;
 import com.vcs.toptags.page_adapters.INewsPage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ActiveLinksFromJS {
 
-    ArrayList<String> textLinksArray = new ArrayList<>();
+    List<String> textLinksArray = new ArrayList<>();
 
 
-    public ArrayList<String> getActiveLinksFromJavaScript(INewsPage newsPage) {
+    public List<String> getActiveLinksFromJavaScript(INewsPage newsPage) {
         // Get Plain Text from the Web Page
         StringBuffer bufferedWebPage = grabPlainTextFromWeb(newsPage.getWebDomain(), newsPage.getEncoding());
 
@@ -36,7 +37,7 @@ public class ActiveLinksFromJS {
         return new StringBuffer(toLowerCase.subSequence(0, toLowerCase.length()));
     }
 
-    private ArrayList<String> cleanDynamicTextLinksFromJS(StringBuffer bufferedWebPage, String textDivTag, String web, boolean addWebPageDomain, String hrefTag) {
+    private List<String> cleanDynamicTextLinksFromJS(StringBuffer bufferedWebPage, String textDivTag, String web, boolean addWebPageDomain, String hrefTag) {
 
         try {
             // Strat of search in String

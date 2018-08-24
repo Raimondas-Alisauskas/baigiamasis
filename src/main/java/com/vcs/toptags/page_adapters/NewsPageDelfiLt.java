@@ -1,6 +1,7 @@
 package com.vcs.toptags.page_adapters;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NewsPageDelfiLt implements INewsPage {
     String web = "https://www.delfi.lt/";
@@ -8,7 +9,7 @@ public class NewsPageDelfiLt implements INewsPage {
     String activeTag = "headline-image";
     String hrefTag = "\"";
     // Internal Page links taked from Dynamic JavaScript Array
-    ArrayList<String> activeLinks;
+    List<String> activeLinks;
     // Filterred Top Words Array
     String[] filteredTopWordsArray;
     // if true: www.delfi.lt to the dynamic link
@@ -41,13 +42,13 @@ public class NewsPageDelfiLt implements INewsPage {
     }
 
     @Override
-    public void setActiveLinks(ArrayList<String> activeLinks){
+    public void setActiveLinks(List<String> activeLinks){
 
         this.activeLinks = activeLinks;
     }
 
     @Override
-    public ArrayList<String> getActiveLinks(){
+    public List<String> getActiveLinks(){
 
         return activeLinks;
     }

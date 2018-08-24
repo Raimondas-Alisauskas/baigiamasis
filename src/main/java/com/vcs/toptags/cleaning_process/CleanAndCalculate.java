@@ -1,6 +1,5 @@
 package com.vcs.toptags.cleaning_process;
 
-import com.vcs.toptags.cleaning_process.FormatWebPageText;
 import com.vcs.toptags.counting.CountWords;
 import com.vcs.toptags.counting.TopWords;
 import com.vcs.toptags.io.*;
@@ -8,6 +7,8 @@ import com.vcs.toptags.page_adapters.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class CleanAndCalculate {
@@ -24,18 +25,18 @@ public class CleanAndCalculate {
 
         //Get html of text pages by the plain text
         HtmlFromActiveLinks hfal = new HtmlFromActiveLinks();
-        ArrayList<StringBuffer> htmlFromWebArray = hfal.getHTMLArray(pageClass.getActiveLinks(), pageClass.getEncoding());
+        List<StringBuffer> htmlFromWebArray = hfal.getHTMLArray(pageClass.getActiveLinks(), pageClass.getEncoding());
 
 
         // Clean HTML and return filtered words
         FormatWebPageText fwpt = new FormatWebPageText(htmlFromWebArray);
-        ArrayList<String> allWordsArray = fwpt.getFormatedWords();
+        List<String> allWordsArray = fwpt.getFormatedWords();
 
         // Adding Unique words quantity to the Object parameter
         pageClass.setCheckedWordsQty(allWordsArray.size());
 
         // Calculate same words
-        HashMap<String, Integer> map = calculatedWords(allWordsArray);
+        Map<String, Integer> map = calculatedWords(allWordsArray);
 
         // Adding Unique words quantity to the Object parameter
         pageClass.setUniqueWordsQty(map.size());
@@ -49,7 +50,7 @@ public class CleanAndCalculate {
 
 
     // Words Calculation
-    private HashMap<String, Integer> calculatedWords(ArrayList<String> pureTextList) {
+    private Map<String, Integer> calculatedWords(List<String> pureTextList) {
         CountWords cw = new CountWords();
         return cw.getCountedWordsArray(pureTextList);
     }
