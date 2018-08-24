@@ -15,27 +15,30 @@ public class LygioAlgoritmai {
         visiLygiai = getVisiLygiai();
         algsByLevel = new HashMap<>();
 
+        sarasuLygiamsSukurimas();
+        lygioUzpidymasAlgoritmais();
+    }
+
+    private void sarasuLygiamsSukurimas() {
         for (int i = 0; i < Lygis.values().length; i++) {
             algsByLevel.put(Lygis.values()[i], new ArrayList<>());
         }
-        lygioUzpidymasAlgoritmais();
-
     }
 
     private void lygioUzpidymasAlgoritmais() {
         for (int i = 0; i < Lygis.values().length; i++) {
-            Algoritmas al = findFirstByLevel(visiLygiai, Lygis.values()[i]);
+            Algoritmas al = rastiPirmaPagalLygi(visiLygiai, Lygis.values()[i]);
 
             while (al != null) {
                 algsByLevel.get(Lygis.values()[i]).add(al);
 
-                al = findFirstByLevel(visiLygiai, Lygis.values()[i]);
+                al = rastiPirmaPagalLygi(visiLygiai, Lygis.values()[i]);
             }
         }
 
     }
 
-    private Algoritmas findFirstByLevel(List<Algoritmas> visiLygiai, Lygis value) {
+    private Algoritmas rastiPirmaPagalLygi(List<Algoritmas> visiLygiai, Lygis value) {
 
         for (Algoritmas alg : visiLygiai) {
             if (value.equals(alg.sudetingumas())) {
@@ -74,7 +77,7 @@ public class LygioAlgoritmai {
 
     }
 
-    public Algoritmas getAlgoritmasByLevel(Lygis level) {
+    public Algoritmas atsitiktinioAlgoritmoGavimas(Lygis level) {
 
         List<Algoritmas> algs = algsByLevel.get(level);
         Random rnd = new Random();
