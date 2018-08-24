@@ -32,6 +32,7 @@ public class ConvModel {
 
     private MultiLayerNetwork network;
     private CifarDataSetIterator dataSetIterator;
+    private int batchSize = 2;
 
     public ConvModel(List<Integer> samples, List<Double> learningRate, Integer nIn, Integer nOut,Integer pad,
                      Integer kernSize, Integer stride, double moment, Integer builder, boolean pretrain) {
@@ -63,7 +64,7 @@ public class ConvModel {
                                    kernSize, Integer stride, double moment, Integer builder, boolean pretrain) {
 
         BasicConfigurator.configure(); // dingsta WARN bekompiliuojant
-        dataSetIterator = new CifarDataSetIterator(2, samplesize, true);
+        dataSetIterator = new CifarDataSetIterator(batchSize, samplesize, true);
         // gauname train dataset////
 
         ConvolutionLayer lay0 = new ConvolutionLayer.Builder(builder, builder)
@@ -97,7 +98,7 @@ public class ConvModel {
         network.init();
         network.fit(dataSetIterator); // training of network
 
-        return network.evaluate(new CifarDataSetIterator(2, samplesize / 4, true));
+        return network.evaluate(new CifarDataSetIterator(batchSize, samplesize / 4, true));
     }
 
     double[] getAcc() {

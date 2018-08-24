@@ -26,7 +26,7 @@ public class Analitics {
         ran = new RangeCustom();
 
         List<Double> lr = ran.range(.01, .02, .01);
-        List<Integer> samples = ran.range(80, 1128, 292);
+        List<Integer> samples = ran.range(80, 1128, 584);
 
         ConvModel convModel = new ConvModel(samples, lr, nIn, nOut, pad, kernSize, stride, moment, builder,true);
 
