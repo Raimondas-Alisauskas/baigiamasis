@@ -11,7 +11,6 @@ import java.util.List;
 import static com.vcs.bogdan.Service.DBConnection.connection;
 import static com.vcs.bogdan.Service.DBConnection.preparedStatement;
 
-
 public class PeriodService implements DBService<Period> {
 
     private static final String INSERT_INTO = "INSERT INTO period Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -20,7 +19,7 @@ public class PeriodService implements DBService<Period> {
             "taxFree =?, coefficient =?, base =?, percent =?, pnpd =?," +
             "healthEmployee =?, healthNewEmployee =?, healthEmployer =?, socialEmployee =?, socialEmployer =?, guaranteeFund =?, sickPayCoefficient =?, sickPayDay =? " +
             "WHERE id =";
-    private static final String SELECT = "SELECT * FROM period WHERE id =?";
+    private static final String SELECT = "SELECT * FROM period WHERE id =";
     private static final String SELECT_ALL = "SELECT * FROM period";
     private static final String DELETE = "DELETE FROM period WHERE id ='";
     private static final String INSERT = "I";
@@ -28,39 +27,17 @@ public class PeriodService implements DBService<Period> {
 
     @Override
     public Period get(String id) {
-        Period period = new Period();
+        Period result = new Period();
         try {
-            int index = 1;
-            preparedStatement = connection.prepareStatement(SELECT);
-            preparedStatement.setString(index, id);
+            preparedStatement = connection.prepareStatement(SELECT + id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                period.setId(rs.getString("id"));
-                period.setWorkDays(rs.getInt("workDays"));
-                period.setWorkHours(rs.getInt("workHours"));
-                period.setMin(rs.getDouble("min"));
-                period.setHourlyMin(rs.getDouble("hourlyMin"));
-                period.setMoreTimeCoefficient(rs.getDouble("moreTimeCoefficient"));
-                period.setRedDayCoefficient(rs.getDouble("redDayCoefficient"));
-                period.setTaxFree(rs.getDouble("taxFree"));
-                period.setCoefficient(rs.getDouble("coefficient"));
-                period.setBase(rs.getDouble("base"));
-                period.setPercent(rs.getDouble("percent"));
-                period.setPnpd(rs.getDouble("pnpd"));
-                period.setHealthEmployee(rs.getDouble("healthEmployee"));
-                period.setHealthNewEmployee(rs.getDouble("healthNewEmployee"));
-                period.setHealthEmployer(rs.getDouble("healthEmployer"));
-                period.setSocialEmployee(rs.getDouble("socialEmployee"));
-                period.setSocialEmployer(rs.getDouble("socialEmployer"));
-                period.setGuaranteeFund(rs.getDouble("guaranteeFund"));
-                period.setSickPayCoefficient(rs.getDouble("sickPayCoefficient"));
-                period.setSickPayDay(rs.getInt("sickPayDay"));
-
+               result = setPeriod(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return period;
+        return result;
     }
 
     @Override
@@ -112,28 +89,7 @@ public class PeriodService implements DBService<Period> {
             preparedStatement = connection.prepareStatement(SELECT_ALL);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                Period period = new Period();
-                period.setId(rs.getString("id"));
-                period.setWorkHours(rs.getInt("workDays"));
-                period.setWorkDays(rs.getInt("workHours"));
-                period.setMin(rs.getDouble("min"));
-                period.setHourlyMin(rs.getDouble("hourlyMin"));
-                period.setMoreTimeCoefficient(rs.getDouble("moreTimeCoefficient"));
-                period.setRedDayCoefficient(rs.getDouble("redDayCoefficient"));
-                period.setTaxFree(rs.getInt("taxFree"));
-                period.setCoefficient(rs.getInt("coefficient"));
-                period.setBase(rs.getDouble("base"));
-                period.setPercent(rs.getDouble("percent"));
-                period.setPnpd(rs.getDouble("pnpd"));
-                period.setHealthEmployee(rs.getDouble("healthEmployee"));
-                period.setHealthNewEmployee(rs.getDouble("healthNewEmployee"));
-                period.setHealthEmployer(rs.getDouble("healthEmployer"));
-                period.setSocialEmployee(rs.getDouble("socialEmployee"));
-                period.setSocialEmployer(rs.getDouble("socialEmployer"));
-                period.setGuaranteeFund(rs.getDouble("guaranteeFund"));
-                period.setSickPayCoefficient(rs.getDouble("sickPayCoefficient"));
-                period.setSickPayDay(rs.getInt("sickPayDay"));
-                result.add(period);
+                result.add(setPeriod(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -149,5 +105,30 @@ public class PeriodService implements DBService<Period> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private Period setPeriod(ResultSet rs) throws SQLException {
+        Period result = new Period();
+        result.setId(rs.getString("id"));
+        result.setWorkHours(rs.getInt("workDays"));
+        result.setWorkDays(rs.getInt("workHours"));
+        result.setMin(rs.getDouble("min"));
+        result.setHourlyMin(rs.getDouble("hourlyMin"));
+        result.setMoreTimeCoefficient(rs.getDouble("moreTimeCoefficient"));
+        result.setRedDayCoefficient(rs.getDouble("redDayCoefficient"));
+        result.setTaxFree(rs.getInt("taxFree"));
+        result.setCoefficient(rs.getInt("coefficient"));
+        result.setBase(rs.getDouble("base"));
+        result.setPercent(rs.getDouble("percent"));
+        result.setPnpd(rs.getDouble("pnpd"));
+        result.setHealthEmployee(rs.getDouble("healthEmployee"));
+        result.setHealthNewEmployee(rs.getDouble("healthNewEmployee"));
+        result.setHealthEmployer(rs.getDouble("healthEmployer"));
+        result.setSocialEmployee(rs.getDouble("socialEmployee"));
+        result.setSocialEmployer(rs.getDouble("socialEmployer"));
+        result.setGuaranteeFund(rs.getDouble("guaranteeFund"));
+        result.setSickPayCoefficient(rs.getDouble("sickPayCoefficient"));
+        result.setSickPayDay(rs.getInt("sickPayDay"));
+        return result;
     }
 }

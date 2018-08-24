@@ -34,7 +34,7 @@ public class CalcServiceTest {
 
     @Test
     public void getIncomeTax() {
-        service.getIncomeTax(new Period(), new Contract(), 0.0);
+//        service.getIncomeTax(new Period(), new Contract(), 0.0);
     }
 
     @Test
@@ -47,6 +47,9 @@ public class CalcServiceTest {
 
     @Test
     public void getGuaranteeFundDeductionSum() {
-        service.getGuaranteeFundDeductionSum(100, 100);
+        double wage = service.getGuaranteeFundDeductionSum(100, 100);
+        if (wage == 100) {
+
+        }
     }
 }

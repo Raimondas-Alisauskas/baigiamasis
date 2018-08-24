@@ -27,21 +27,19 @@ public class PersonService implements DBService<Person> {
 
     @Override
     public Person get(String id) {
-        Person person = new Person();
+        Person result = new Person();
         try {
             int index = 1;
             preparedStatement = connection.prepareStatement(SELECT_QUERY_STATEMENT);
             preparedStatement.setString(index, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                person.setId(rs.getString(ID));
-                person.setName(rs.getString(NAME));
-                person.setSurname(rs.getString(SURNAME));
+                result = setPerson(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return person;
+        return result;
     }
 
     @Override
@@ -75,13 +73,7 @@ public class PersonService implements DBService<Person> {
         try {
             preparedStatement = connection.prepareStatement(SELECT_ALL_QUERY_STATEMENT);
             ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                Person person = new Person();
-                person.setId(rs.getString(ID));
-                person.setName(rs.getString(NAME));
-                person.setSurname(rs.getString(SURNAME));
-                result.add(person);
-            }
+            while (rs.next()) result.add(setPerson(rs));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -97,6 +89,14 @@ public class PersonService implements DBService<Person> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private Person setPerson(ResultSet rs) throws SQLException {
+        Person result = new Person();
+        result.setId(rs.getString(ID));
+        result.setName(rs.getString(NAME));
+        result.setSurname(rs.getString(SURNAME));
+        return result;
     }
 
 }

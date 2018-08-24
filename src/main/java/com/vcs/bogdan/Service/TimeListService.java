@@ -11,7 +11,7 @@ import static com.vcs.bogdan.Service.DBConnection.connection;
 import static com.vcs.bogdan.Service.DBConnection.preparedStatement;
 
 public class TimeListService implements DBService<TimeList> {
-    
+
     private static final String INSERT_INTO = "INSERT INTO timeList Values(?,?,?,?,?)";
     private static final String UPDATE = "UPDATE timeList SET id =?, date =?, personId =?, name =?, value =? WHERE id =";
     private static final String SELECT = "SELECT * FROM timeList WHERE id =";
@@ -22,27 +22,22 @@ public class TimeListService implements DBService<TimeList> {
 
     @Override
     public TimeList get(String id) {
-        TimeList timeList = new TimeList();
+        TimeList result = new TimeList();
         try {
-            int index = 1;
             preparedStatement = connection.prepareStatement(SELECT + id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                timeList.setId(rs.getString("id"));
-                timeList.setDate(rs.getLong("date"));
-                timeList.setPersonId(rs.getString("personId"));
-                timeList.setName(rs.getString("name"));
-                timeList.setValue(rs.getDouble("value"));
+                result = setTimeList(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return timeList;
+        return result;
     }
 
     @Override
     public void add(TimeList timeList) {
-        String id = timeList.getId();
+        String id = getId(timeList);
         String queryStatement = "";
 
         if (StringUtils.isNullOrEmpty(get(id).getId())) {
@@ -74,12 +69,7 @@ public class TimeListService implements DBService<TimeList> {
             preparedStatement = connection.prepareStatement(SELECT_ALL);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                TimeList timeList = new TimeList();
-                timeList.setDate(rs.getLong("date"));
-                timeList.setPersonId(rs.getString("personId"));
-                timeList.setName(rs.getString("name"));
-                timeList.setValue(rs.getDouble("value"));
-                result.add(timeList);
+                result.add(setTimeList(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -112,6 +102,30 @@ public class TimeListService implements DBService<TimeList> {
             if (list.get(i).getPersonId().equals(personId) && list.get(i).getDate() / 100 == Integer.valueOf(periodId))
                 result++;
         }
+        return result;
+    }
+
+    private String getId(TimeList timeList) {
+
+        if (StringUtils.isNullOrEmpty(timeList.getId())) {
+            for (TimeList p : getAll()) {
+                if (p.getPersonId().equals(timeList.getPersonId()) && p.getName().equals(timeList.getName()) && p.getDate() == timeList.getDate()) {
+                    return p.getId();
+                }
+            }
+        } else {
+            return timeList.getId();
+        }
+        return null;
+    }
+
+    private TimeList setTimeList(ResultSet rs) throws SQLException {
+        TimeList result = new TimeList();
+        result.setId(rs.getString("id"));
+        result.setDate(rs.getLong("date"));
+        result.setPersonId(rs.getString("personId"));
+        result.setName(rs.getString("name"));
+        result.setValue(rs.getDouble("value"));
         return result;
     }
 

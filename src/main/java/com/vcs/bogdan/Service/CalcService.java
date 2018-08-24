@@ -5,48 +5,61 @@ import com.vcs.bogdan.Beans.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class CalcService {
 
-
-    public List<PayRoll> getPayRoll(Period period, List<Person> persons, List<TimeList> timeLists) {
+    public List<PayRoll> getAllPayRolls(String periodId) {
 
         List<PayRoll> result = new ArrayList<>();
 
-        for (int i = 0; i < persons.size(); i++) {
-            PayRoll payRoll = new PayRoll();
-            payRoll.setPeriodId(period.getId());
-            payRoll.setNameSurname(persons.get(i).getName() + " " + persons.get(i).getSurname());
-            ContractService contractService = new ContractService();
-            Contract contract = contractService.getContractWithEarlyValidDate(period.getId(), persons.get(i).getId());
-            payRoll.setIncome(getIncome(period, contract, timeLists));
-            payRoll.setTax(getIncomeTax(period, contract, payRoll.getIncome()));
-            double deductInsurance = getSocialInsuranceDeductionFromEmployee(period, contract, payRoll.getIncome()) +
-                    getHealthInsuranceDeductionFromEmployee(period.getHealthEmployee(), payRoll.getIncome()) +
-                    getGuaranteeFundDeductionSum(period.getGuaranteeFund(), payRoll.getIncome());
-            payRoll.setInsurance(deductInsurance);
-            payRoll.setOut(payRoll.getIncome() - payRoll.getTax() - payRoll.getInsurance());
-            new PayRollService().add(payRoll);
-            result.add(payRoll);
+        Period period = new PeriodService().get(periodId);
+
+        TimeListService timeListService = new TimeListService();
+        List<TimeList> timeLists = timeListService.getAll();
+
+        ContractService contractService = new ContractService();
+        for (Contract c : contractService.getAll()) {
+            Contract contract = contractService.getContractWithEarlyValidDate(periodId, c.getPersonId());
+            result.add(setPayRoll(period, contract, timeLists));
         }
         return result;
     }
 
+    private PayRoll setPayRoll(Period period, Contract contract, List<TimeList> timeLists) {
 
-    public double getIncome(Period period, Contract contract, List<TimeList> timeLists) {
+        PayRoll result = new PayRoll();
+
+        result.setPeriodId(period.getId());
+        if (contract.getDate() != 0) {
+            Person person = new PersonService().get(contract.getPersonId());
+            result.setId("");
+            result.setPeriodId(period.getId());
+            result.setNameSurname(person.getName() + " " + person.getSurname());
+            result.setIncome(getIncome(period, contract, timeLists));
+            result.setTax(getIncomeTax(period, contract, result.getIncome()));
+            double deductInsurance = getSocialInsuranceDeductionFromEmployee(period, contract, result.getIncome()) +
+                    getHealthInsuranceDeductionFromEmployee(period.getHealthEmployee(), result.getIncome()) +
+                    getGuaranteeFundDeductionSum(period.getGuaranteeFund(), result.getIncome());
+            result.setInsurance(deductInsurance);
+            result.setOut(result.getIncome() - result.getTax() - result.getInsurance());
+            new PayRollService().add(result);
+        }
+        return result;
+    }
+
+    private double getIncome(Period period, Contract contract, List<TimeList> timeLists) {
         return Math.max(calcIncomeWage(period, contract, timeLists), period.getMin());
     }
 
-    public double getIncomeTax(Period period, Contract contract, double incomeWage) {
+    private double getIncomeTax(Period period, Contract contract, double incomeWage) {
         double taxFree = round(getCalcTaxFree(incomeWage, contract, period), 2);
         return round((incomeWage - taxFree) * period.getPercent() / 100, 2);
     }
 
-    public double getSocialInsuranceDeductionFromEmployee(Period period, Contract contract, double incomeWage) {
+    private double getSocialInsuranceDeductionFromEmployee(Period period, Contract contract, double incomeWage) {
         return getCalculatePercentageFromNumber(incomeWage, period.getSocialEmployee());
     }
 
-    public double getHealthInsuranceDeductionFromEmployee(double healthEmploye, double incomeWage) {
+    private double getHealthInsuranceDeductionFromEmployee(double healthEmploye, double incomeWage) {
         return getCalculatePercentageFromNumber(incomeWage, healthEmploye);
     }
 
@@ -92,6 +105,5 @@ public class CalcService {
     private double getMultiply(double data, double wage) {
         return data * wage;
     }
-
 
 }

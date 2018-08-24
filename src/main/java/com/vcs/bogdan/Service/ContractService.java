@@ -3,7 +3,6 @@ package com.vcs.bogdan.Service;
 import com.mysql.jdbc.StringUtils;
 import com.vcs.bogdan.Beans.Contract;
 
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
@@ -30,30 +29,23 @@ public class ContractService implements DBService<Contract> {
 
     @Override
     public Contract get(String id) {
-        Contract contract = new Contract();
+        Contract result = new Contract();
         try {
             preparedStatement = connection.prepareStatement(SELECT + id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                contract.setId(rs.getString(ID));
-                contract.setPersonId(rs.getString(PERSON_ID));
-                contract.setDate(rs.getLong(DATE));
-                contract.setEvent(rs.getString(EVENT));
-                contract.setType(rs.getString(TYPE));
-                contract.setDayHours(rs.getDouble(DAY_HOURS));
-                contract.setWage(rs.getDouble(WAGE));
-                contract.setMain(rs.getBoolean(MAIN));
+                result = setContract(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return contract;
+        return result;
     }
 
     @Override
     public void add(Contract contract) {
         String queryStatement = "";
-        String id = contract.getPersonId();
+        String id = getId(contract);
 
         if (StringUtils.isNullOrEmpty(get(id).getId())) {
             queryStatement = INSERT_INTO;
@@ -87,16 +79,7 @@ public class ContractService implements DBService<Contract> {
             preparedStatement = connection.prepareStatement(SELECT_ALL);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                Contract contract = new Contract();
-                contract.setId(rs.getString(ID));
-                contract.setPersonId(rs.getString(PERSON_ID));
-                contract.setDate(rs.getLong(DATE));
-                contract.setEvent(rs.getString(EVENT));
-                contract.setType(rs.getString(TYPE));
-                contract.setDayHours(rs.getInt(DAY_HOURS));
-                contract.setWage(rs.getDouble(WAGE));
-                contract.setMain(rs.getBoolean(MAIN));
-                result.add(contract);
+                result.add(setContract(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -119,7 +102,6 @@ public class ContractService implements DBService<Contract> {
     public Contract getContractWithEarlyValidDate(String periodId, String personId) {
 
         Contract result = new Contract();
-
         List<Contract> contracts = new ContractService().getAll();
         Collections.sort(contracts, new ContractCoparator());
         for (Contract c : contracts) {
@@ -128,5 +110,31 @@ public class ContractService implements DBService<Contract> {
             }
         }
         return result;
+    }
+
+    private Contract setContract(ResultSet rs) throws SQLException {
+        Contract result = new Contract();
+        result.setPersonId(rs.getString(PERSON_ID));
+        result.setDate(rs.getLong(DATE));
+        result.setEvent(rs.getString(EVENT));
+        result.setType(rs.getString(TYPE));
+        result.setDayHours(rs.getInt(DAY_HOURS));
+        result.setWage(rs.getDouble(WAGE));
+        result.setMain(rs.getBoolean(MAIN));
+        return result;
+    }
+
+    private String getId(Contract contract) {
+
+        if (StringUtils.isNullOrEmpty(contract.getId())) {
+            for (Contract p : getAll()) {
+                if (p.getPersonId().equals(contract.getPersonId()) && p.getDate() == contract.getDate()) {
+                    return p.getId();
+                }
+            }
+        } else {
+            return contract.getId();
+        }
+        return null;
     }
 }

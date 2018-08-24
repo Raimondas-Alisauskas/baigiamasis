@@ -15,7 +15,7 @@ import static com.vcs.bogdan.Service.DBConnection.preparedStatement;
 public class PayRollService implements DBService<PayRoll> {
 
     private static final String INSERT_QUERY_STATEMENT = "INSERT INTO payRoll Values(?,?,?,?,?,?,?)";
-    private static final String UPDATE_QUERY_STATEMENT = "UPDATE payRoll SET id =?, periodId =?, nameSurname =?, income =?, tax =?, insurance =?, out =? WHERE id =";
+    private static final String UPDATE_QUERY_STATEMENT = "UPDATE payRoll SET periodId =?, nameSurname =?, income =?, tax =?, insurance =?, out =? WHERE id =";
     private static final String SELECT_QUERY_STATEMENT = "SELECT * FROM payRoll WHERE id =?";
     private static final String SELECT_ALL_QUERY_STATEMENT = "SELECT * FROM payRoll";
     private static final String DELETE_QUERY_STATEMENT = "DELETE FROM payRoll WHERE id ='";
@@ -24,29 +24,22 @@ public class PayRollService implements DBService<PayRoll> {
 
     @Override
     public PayRoll get(String id) {
-        PayRoll payRoll = new PayRoll();
+        PayRoll result = new PayRoll();
         try {
             int index = 1;
             preparedStatement = connection.prepareStatement(SELECT_QUERY_STATEMENT);
             preparedStatement.setString(index, id);
             ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                payRoll.setPeriodId(rs.getString("personID"));
-                payRoll.setNameSurname(rs.getString("nameSurname"));
-                payRoll.setIncome(rs.getDouble("income"));
-                payRoll.setTax(rs.getDouble("tax"));
-                payRoll.setInsurance(rs.getDouble("insurance"));
-                payRoll.setOut(rs.getDouble("out"));
-            }
+            while (rs.next()) result = setPayRoll(rs);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return payRoll;
+        return result;
     }
 
     @Override
     public void add(PayRoll payRoll) {
-        String id = payRoll.getId();
+        String id = getId(payRoll);
         String queryStatement = "";
 
         if (StringUtils.isNullOrEmpty(get(id).getId())) {
@@ -59,7 +52,7 @@ public class PayRollService implements DBService<PayRoll> {
             int index = 1;
             preparedStatement = connection.prepareStatement(queryStatement);
             if (queryStatement.substring(0, 1).equals(INSERT)) {
-                preparedStatement.setObject(index++, id);
+                preparedStatement.setObject(index++, payRoll.getId());
             }
             preparedStatement.setObject(index++, payRoll.getPeriodId());
             preparedStatement.setObject(index++, payRoll.getNameSurname());
@@ -79,17 +72,7 @@ public class PayRollService implements DBService<PayRoll> {
         try {
             preparedStatement = connection.prepareStatement(SELECT_ALL_QUERY_STATEMENT);
             ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                PayRoll payRoll = new PayRoll();
-                payRoll.setId(rs.getString("id"));
-                payRoll.setPeriodId(rs.getString("periodID"));
-                payRoll.setNameSurname(rs.getString("nameSurname"));
-                payRoll.setIncome(rs.getDouble("income"));
-                payRoll.setTax(rs.getDouble("tax"));
-                payRoll.setInsurance(rs.getDouble("insurance"));
-                payRoll.setOut(rs.getDouble("out"));
-                result.add(payRoll);
-            }
+            while (rs.next()) result.add(setPayRoll(rs));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -107,5 +90,30 @@ public class PayRollService implements DBService<PayRoll> {
         }
     }
 
+    private PayRoll setPayRoll(ResultSet rs) throws SQLException {
+        PayRoll result = new PayRoll();
+        result.setId(rs.getString("id"));
+        result.setPeriodId(rs.getString("periodID"));
+        result.setNameSurname(rs.getString("nameSurname"));
+        result.setIncome(rs.getDouble("income"));
+        result.setTax(rs.getDouble("tax"));
+        result.setInsurance(rs.getDouble("insurance"));
+        result.setOut(rs.getDouble("out"));
+        return result;
+    }
+
+    private String getId(PayRoll payRoll) {
+
+        if (StringUtils.isNullOrEmpty(payRoll.getId())) {
+            for (PayRoll p : getAll()) {
+                if (p.getPeriodId().equals(payRoll.getPeriodId()) && p.getNameSurname().equals(payRoll.getNameSurname())) {
+                    return p.getId();
+                }
+            }
+        } else {
+            return payRoll.getId();
+        }
+        return null;
+    }
 }
 
