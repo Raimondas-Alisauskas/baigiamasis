@@ -1,4 +1,6 @@
-package convolution;
+package App;
+
+import convolution.Analitics;
 
 public class App {
 

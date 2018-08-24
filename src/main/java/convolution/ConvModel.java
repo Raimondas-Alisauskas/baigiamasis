@@ -32,7 +32,8 @@ public class ConvModel {
     private MultiLayerNetwork network;
     private CifarDataSetIterator dataSetIterator;
 
-    public ConvModel(List<Integer> samples, List<Double> learningRate) {
+    public ConvModel(List<Integer> samples, List<Double> learningRate, Integer nIn, Integer nOut,Integer pad,
+                     Integer kernSize, Integer stride, double moment) {
 
         this.acc = new ArrayList<>();
         this.f1 = new ArrayList<>();
@@ -44,7 +45,8 @@ public class ConvModel {
         for (int s = 0; s < samples.size(); s += 1) {
             for (int lr = 0; lr < learningRate.size(); lr += 1) {
 
-                Evaluation evaler = createModel(samples.get(s), learningRate.get(lr));
+                Evaluation evaler = createModel(samples.get(s), learningRate.get(lr), nIn, nOut, pad, kernSize, stride,
+                        moment);
 
                 this.acc.add(evaler.accuracy() * 100.);
                 this.f1.add(evaler.f1() * 100.);
@@ -56,34 +58,35 @@ public class ConvModel {
         }
     }
 
-    private Evaluation createModel(Integer samplesize, Double lr) {
+    private Evaluation createModel(Integer samplesize, Double lr, Integer nIn, Integer nOut, Integer pad, Integer
+                                   kernSize, Integer stride, double moment) {
 
         BasicConfigurator.configure(); // dingsta WARN bekompiliuojant
         dataSetIterator = new CifarDataSetIterator(2, samplesize, true);
         // gauname train dataset////
 
         ConvolutionLayer lay0 = new ConvolutionLayer.Builder(5, 5)
-                .nIn(3).nOut(16).stride(1, 1).padding(2, 2).weightInit(WeightInit.XAVIER)
+                .nIn(nIn).nOut(16).stride(1, 1).padding(pad, pad).weightInit(WeightInit.XAVIER)
                 .name("First conv layer").activation(Activation.RELU).build();
         SubsamplingLayer lay1 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
-                .kernelSize(2, 2).stride(2, 2).name("First subsmpl layer").build();
+                .kernelSize(kernSize, kernSize).stride(stride, stride).name("First subsmpl layer").build();
         ConvolutionLayer lay2 = new ConvolutionLayer.Builder(5, 5)
-                .nOut(20).stride(1, 1).padding(2, 2).weightInit(WeightInit.XAVIER)
+                .nOut(nOut).stride(1, 1).padding(pad, pad).weightInit(WeightInit.XAVIER)
                 .name("Second conv layer").activation(Activation.RELU).build();
         SubsamplingLayer lay3 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
-                .kernelSize(2, 2).stride(2, 2).name("Second subsmpl layer").build();
+                .kernelSize(kernSize, kernSize).stride(stride, stride).name("Second subsmpl layer").build();
         ConvolutionLayer lay4 = new ConvolutionLayer.Builder(5, 5)
-                .nOut(20).stride(1, 1).padding(2, 2).weightInit(WeightInit.XAVIER)
+                .nOut(nOut).stride(1, 1).padding(pad, pad).weightInit(WeightInit.XAVIER)
                 .name("Third conv layer").activation(Activation.RELU).build();
         SubsamplingLayer lay5 = new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
-                .kernelSize(2, 2).stride(2, 2).name("Third subsmpl layer").build();
+                .kernelSize(kernSize, kernSize).stride(stride, stride).name("Third subsmpl layer").build();
         OutputLayer lay6 = new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
                 .activation(Activation.SOFTMAX).weightInit(WeightInit.XAVIER)
                 .name("Output").nOut(10).build();
         MultiLayerConfiguration configuration = new NeuralNetConfiguration.Builder()
                 .seed(12345).iterations(3).optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
                 .learningRate(lr).regularization(true).l2(lr).updater(Updater.NESTEROVS)
-                .momentum(.5).list().layer(0, lay0).layer(1, lay1).layer(2, lay2).layer(3, lay3)
+                .momentum(moment).list().layer(0, lay0).layer(1, lay1).layer(2, lay2).layer(3, lay3)
                 .layer(4, lay4).layer(5, lay5).layer(6, lay6).pretrain(true).backprop(true)
                 .setInputType(InputType.convolutional(32, 32, 3)).backpropType(BackpropType.TruncatedBPTT)
                 .tBPTTForwardLength(50).tBPTTBackwardLength(50).build();

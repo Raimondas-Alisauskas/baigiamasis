@@ -9,26 +9,36 @@ import java.util.List;
 public class Analitics {
 
     private final RangeCustom ran;
+    private final Integer width = 700;
+    private final JFrame frame;
+    private final Plot3DPanel plot3d;
 
-    Analitics() {
+    private final Integer nIn = 3;
+    private final Integer nOut = 20;
+    private final Integer pad = 2;
+    private final Integer kernSize = 2;
+    private final Integer stride = 2;
+    private final double moment = .5;
+
+    public Analitics() {
 
         ran = new RangeCustom();
 
         List<Double> lr = ran.range(.01, .02, .01);
-        List<Integer> samples = ran.range(80, 2416, 292);
+        List<Integer> samples = ran.range(80, 564, 292);
 
-        ConvModel convModel = new ConvModel(samples, lr);
+        ConvModel convModel = new ConvModel(samples, lr, nIn, nOut, pad, kernSize, stride, moment);
 
-        Plot3DPanel plot3d = new Plot3DPanel();
-        plot3d.addLinePlot("rec versus prec versus acc",
+        plot3d = new Plot3DPanel();
+        plot3d.addLinePlot("recall versus precision versus accurat",
                 Color.BLUE, convModel.getRec(), convModel.getPrec(), convModel.getAcc());
-        plot3d.setAxisLabel(0, "rec");
-        plot3d.setAxisLabel(1, "prec");
-        plot3d.setAxisLabel(2, "acc");
+        plot3d.setAxisLabel(0, "recall");
+        plot3d.setAxisLabel(1, "precision");
+        plot3d.setAxisLabel(2, "accuracy");
 
-        JFrame frame = new JFrame("a plot panel");
+        frame = new JFrame("a plot panel");
         frame.setContentPane(plot3d);
-        frame.setSize(700, 700);
+        frame.setSize(width, width);
         frame.setVisible(true);
     }
 }
