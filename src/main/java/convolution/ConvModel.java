@@ -28,6 +28,7 @@ public class ConvModel {
     private final List<Double> rec;
     private final List<Double> far;
     private final List<Double> fn;
+    private final double toPercent = 100.;
 
     private MultiLayerNetwork network;
     private CifarDataSetIterator dataSetIterator;
@@ -48,12 +49,12 @@ public class ConvModel {
                 Evaluation evaler = createModel(samples.get(s), learningRate.get(lr), nIn, nOut, pad, kernSize, stride,
                         moment, pretrain);
 
-                this.acc.add(evaler.accuracy() * 100.);
-                this.f1.add(evaler.f1() * 100.);
-                this.prec.add(evaler.precision() * 100.);
-                this.rec.add(evaler.recall() * 100.);
-                this.far.add(evaler.falseAlarmRate() * 100.);
-                this.fn.add(evaler.falseNegativeRate() * 100.);
+                this.acc.add(evaler.accuracy() * toPercent);
+                this.f1.add(evaler.f1() * toPercent);
+                this.prec.add(evaler.precision() * toPercent);
+                this.rec.add(evaler.recall() * toPercent);
+                this.far.add(evaler.falseAlarmRate() * toPercent);
+                this.fn.add(evaler.falseNegativeRate() * toPercent);
             }
         }
     }
