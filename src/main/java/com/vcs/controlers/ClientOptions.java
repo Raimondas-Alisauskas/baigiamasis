@@ -2,7 +2,7 @@ package com.vcs.controlers;
 
 
 import com.vcs.rentalOperations.ClientOperations;
-import com.vcs.vehicles.TypeOfVehicle;
+import com.vcs.vehicles.TypesOfVehicle;
 import com.vcs.vehicles.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,7 +35,7 @@ public class ClientOptions {
     }
 
     @RequestMapping(value = "/showCarByType/{type}/{start}/{end}", method = RequestMethod.GET)
-    public List<Vehicle> showCarByType(@PathVariable("type") TypeOfVehicle type, @PathVariable("start") int start, @PathVariable("end") int end) {
+    public List<Vehicle> showCarByType(@PathVariable("type") TypesOfVehicle type, @PathVariable("start") int start, @PathVariable("end") int end) {
         return forClient.showIfTheVehrIsAvailable(type, start, end);
     }
 

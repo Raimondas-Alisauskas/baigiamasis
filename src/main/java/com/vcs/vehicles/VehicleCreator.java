@@ -5,14 +5,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import static com.vcs.vehicles.TypeOfVehicle.*;
+import java.util.List;
+
+import static com.vcs.vehicles.TypesOfVehicle.*;
 
 @Service
 public class VehicleCreator implements VehicleCreatorInt {
 
+
     @Autowired
     @Qualifier("keepsVehicles")
     KeepsVehicles shop;
+
+    public VehicleCreator() {
+
+    }
 
 
     @Override

@@ -1,7 +1,7 @@
 package com.vcs.controlers;
 
 import com.vcs.rentalOperations.AdminOperations;
-import com.vcs.vehicles.TypeOfVehicle;
+import com.vcs.vehicles.TypesOfVehicle;
 import com.vcs.vehicles.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,22 +21,21 @@ public class AdminOptions extends ClientOptions {
     @Qualifier("admin")
     AdminOperations forAdmin;
 
-    @RequestMapping(value="/addNewCar/{type}", method= RequestMethod.GET)
-    public Vehicle addNewCar (@PathVariable("type") TypeOfVehicle type){
+    @RequestMapping(value = "/addNewCar/{type}", method = RequestMethod.GET)
+    public String addNewCar(@PathVariable("type") TypesOfVehicle type) {
         return forAdmin.addNewVehicle(type);
     }
 
-    @RequestMapping(value="/ownedVehicles", method= RequestMethod.GET)
-    public List<Vehicle> addNewCar (){
+    @RequestMapping(value = "/ownedVehicles", method = RequestMethod.GET)
+    public List<Vehicle> showAllVehicles() {
         return forAdmin.howManyCarsWePosses();
     }
 
 
-    @RequestMapping(value="/rentedVehicles", method= RequestMethod.GET)
-    public Map<Vehicle, List<Integer>> rentedVehicles (){
+    @RequestMapping(value = "/rentedVehicles", method = RequestMethod.GET)
+    public Map<Vehicle, List<Integer>> rentedVehicles() {
         return forAdmin.showWhatIsRented();
     }
-
 
 
 }

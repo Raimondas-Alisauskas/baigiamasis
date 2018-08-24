@@ -1,6 +1,6 @@
 package com.vcs.rentalOperations;
 
-import com.vcs.vehicles.TypeOfVehicle;
+import com.vcs.vehicles.TypesOfVehicle;
 import com.vcs.vehicles.Vehicle;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,22 @@ import java.util.List;
 public class ClientOperations extends RentOperations implements InfoOperationsForClient {
 
 
+    public static final int DAYS_IN_YEAR = 365;
+
+
     @Override
     public List<Vehicle> showAvailableCarsByDate(int startDate, int endDate) {
+
+        if (startDate > endDate) {
+            throw new  RuntimeException("start date must be earlier than end date");
+        }
+        if (startDate < 0 && endDate < 1) {
+            throw new RuntimeException("incorrect dates");
+        }
+        if (startDate > DAYS_IN_YEAR && endDate > DAYS_IN_YEAR) {
+            throw new RuntimeException("No trans-year rents available");
+        }
+
 
         List<Vehicle> busyVehicles = getListOfBusyVehicles(startDate, endDate);
         List<Vehicle> availableVeh = new ArrayList<>();
@@ -34,16 +48,17 @@ public class ClientOperations extends RentOperations implements InfoOperationsFo
 
 
     @Override
-    public List<Vehicle> showIfTheVehrIsAvailable(TypeOfVehicle type, int startDate, int endDate) {
+    public List<Vehicle> showIfTheVehrIsAvailable(TypesOfVehicle type, int startDate, int endDate) {
 
         List<Vehicle> busyVehicles = getListOfBusyVehicles(startDate, endDate);
         List<Vehicle> availableVeh = new ArrayList<>();
 
-        if(busyVehicles.isEmpty()){
-            for (Vehicle vehicle: keepsVehicles.generalList
-                 ) { if (vehicle.getTypeOfVehicle()==type){
-                     availableVeh.add(vehicle);
-            }
+        if (busyVehicles.isEmpty()) {
+            for (Vehicle vehicle : keepsVehicles.generalList
+            ) {
+                if (vehicle.getTypesOfVehicle() == type) {
+                    availableVeh.add(vehicle);
+                }
 
             }
         }
@@ -51,7 +66,7 @@ public class ClientOperations extends RentOperations implements InfoOperationsFo
         for (Vehicle fvehicle : keepsVehicles.generalList) {
             for (Vehicle bvehicle : busyVehicles
             ) {
-                if (fvehicle.getVehicleId() != bvehicle.getVehicleId() && fvehicle.getTypeOfVehicle() == type) {
+                if (fvehicle.getVehicleId() != bvehicle.getVehicleId() && fvehicle.getTypesOfVehicle() == type) {
                     availableVeh.add(fvehicle);
                 }
             }

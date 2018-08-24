@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.vcs.vehicles.TypeOfVehicle.*;
+import static com.vcs.vehicles.TypesOfVehicle.*;
 
 
 @Service
@@ -18,32 +18,17 @@ import static com.vcs.vehicles.TypeOfVehicle.*;
 public class AdminOperations extends ClientOperations implements InfoOperationsForAdmin {
 
 
+
     @Override
     public Map<Vehicle, List<Integer>> showWhatIsRented() {
         Map<Vehicle, List<Integer>> rentedVehicles = new HashMap<>();
-        for (int i = 0; i <= 365; i++) {
+        for (int i = 0; i <= DAYS_IN_YEAR; i++) {
             if (keepsVehicles.rentedList.containsKey(i)) {
                 for (Vehicle vehicle : keepsVehicles.rentedList.get(i)) {
                     rentedVehicles.putIfAbsent(vehicle, new ArrayList<>());
                     rentedVehicles.get(vehicle).add(i);
                 }
             }
-        }
-
-
-        for (Vehicle vehicle : rentedVehicles.keySet()) {
-            System.out.println("Model: " + vehicle.getModel());
-            System.out.println("Vehicle ID: " + vehicle.getVehicleId());
-            System.out.println("Rent days:");
-
-            for (Integer integer : rentedVehicles.get(vehicle)) {
-
-                System.out.println(integer + ";");
-
-            }
-            System.out.println();
-
-
         }
         return rentedVehicles;
 
@@ -58,22 +43,22 @@ public class AdminOperations extends ClientOperations implements InfoOperationsF
     }
 
     @Override
-    public Vehicle addNewVehicle(TypeOfVehicle type) {
+    public String addNewVehicle(TypesOfVehicle type) {
         switch (type) {
             case HATCHBACK:
-
-                return new Vehicle(HATCHBACK);
+                keepsVehicles.generalList.add(new Vehicle(HATCHBACK));
+                return "Hatchback created";
             case JEEP:
-
-                return new Vehicle(JEEP);
+                keepsVehicles.generalList.add(new Vehicle(JEEP));
+                return "Jeep created";
             case MOTORBIKE:
-
-                return new Vehicle(MOTORBIKE);
+                keepsVehicles.generalList.add(new Vehicle(MOTORBIKE));
+                return "Motorbike created";
             case SEDAN:
-
-                return new Vehicle(SEDAN);
+                keepsVehicles.generalList.add(new Vehicle(SEDAN));
+                return "Sedan created";
         }
-        return null;
+        return "Acceptable types are only HATCHBACK, JEEP, MOTORBIKE, SEDAN.";
 
     }
 }

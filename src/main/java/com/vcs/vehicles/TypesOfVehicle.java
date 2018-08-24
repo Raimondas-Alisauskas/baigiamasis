@@ -1,7 +1,10 @@
 package com.vcs.vehicles;
 
-public enum TypeOfVehicle {
+public enum TypesOfVehicle {
     HATCHBACK("Hatchback"), JEEP("Jeep"), MOTORBIKE("Motorbike"), SEDAN("Sedan");
 
-    TypeOfVehicle(String type){};
+    TypesOfVehicle(String type) {
+    }
+
+
 }

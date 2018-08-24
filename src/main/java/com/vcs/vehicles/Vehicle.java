@@ -5,14 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 
-
-import static com.vcs.vehicles.TypeOfVehicle.SEDAN;
+import static com.vcs.vehicles.TypesOfVehicle.SEDAN;
 
 public class Vehicle {
-private final int SEDAN_PRICE=40;
-    private final int HATCHBACK_PRICE=30;
-    private final int MOTORBIKE_PRICE=20;
-    private final int JEEP_PRICE=50;
+    private final int SEDAN_PRICE = 40;
+    private final int HATCHBACK_PRICE = 30;
+    private final int MOTORBIKE_PRICE = 20;
+    private final int JEEP_PRICE = 50;
     @Autowired
     @Qualifier("keepsVehicles")
     protected KeepsVehicles keepsVehicles;
@@ -23,27 +22,26 @@ private final int SEDAN_PRICE=40;
 
     private int vehicleId;
 
-    private TypeOfVehicle typeOfVehicle;
+    private TypesOfVehicle typesOfVehicle;
 
     private static int counter = 0;
 
 
     private double VehPrice;
 
-    public Vehicle(){
+    public Vehicle() {
         this(SEDAN);
     }
 
-    public Vehicle (TypeOfVehicle type){
+    public Vehicle(TypesOfVehicle type) {
         setModel("Rover");
         setVehicleId();
-        setTypeOfVehicle(type);
+        setTypesOfVehicle(type);
         setVehPrice(determinePrice(type));
     }
 
 
-
-    private int determinePrice (TypeOfVehicle type){
+    private int determinePrice(TypesOfVehicle type) {
         switch (type) {
             case HATCHBACK:
                 return HATCHBACK_PRICE;
@@ -53,12 +51,11 @@ private final int SEDAN_PRICE=40;
                 return JEEP_PRICE;
             case MOTORBIKE:
                 return MOTORBIKE_PRICE;
-                default:
-                    return 0;
+            default:
+                return 0;
 
         }
     }
-
 
 
     public void setModel(String model) {
@@ -71,12 +68,12 @@ private final int SEDAN_PRICE=40;
     }
 
 
-    public TypeOfVehicle getTypeOfVehicle() {
-        return typeOfVehicle;
+    public TypesOfVehicle getTypesOfVehicle() {
+        return typesOfVehicle;
     }
 
-    public void setTypeOfVehicle(TypeOfVehicle typeOfVehicle) {
-        this.typeOfVehicle = typeOfVehicle;
+    public void setTypesOfVehicle(TypesOfVehicle typesOfVehicle) {
+        this.typesOfVehicle = typesOfVehicle;
     }
 
 
