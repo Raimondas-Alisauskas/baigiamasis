@@ -1,5 +1,5 @@
 package projektas.algoritmai.eilute;
 
-public enum Spalvos {
+public enum Spalva {
             YELLOW, BLUE, GREEN, RED,
 }
