@@ -1,7 +1,7 @@
 package com.vcs.toptags.page_adapters;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 public interface INewsPage extends INewsPageTopWordsWithLink {
 

@@ -8,9 +8,6 @@ import java.util.List;
 
 public class ActiveLinksFromJS {
 
-    List<String> textLinksArray = new ArrayList<>();
-
-
     public List<String> getActiveLinksFromJavaScript(INewsPage newsPage) {
         // Get Plain Text from the Web Page
         StringBuffer bufferedWebPage = grabPlainTextFromWeb(newsPage.getWebDomain(), newsPage.getEncoding());
@@ -19,10 +16,8 @@ public class ActiveLinksFromJS {
         bufferedWebPage = convertToLowerCase(bufferedWebPage);
 
         // Clean Active Links and move it to ArrayList
-        textLinksArray = cleanDynamicTextLinksFromJS(bufferedWebPage, newsPage.getActiveTag(), newsPage.getWebDomain(), newsPage.isAddWebPageDomain(), newsPage.getHrefTag());
-
         // Returns ArrayList with Web Page Links
-        return textLinksArray;
+        return cleanDynamicTextLinksFromJS(bufferedWebPage, newsPage.getActiveTag(), newsPage.getWebDomain(), newsPage.isAddWebPageDomain(), newsPage.getHrefTag());
     }
 
 
@@ -39,11 +34,14 @@ public class ActiveLinksFromJS {
 
     private List<String> cleanDynamicTextLinksFromJS(StringBuffer bufferedWebPage, String textDivTag, String web, boolean addWebPageDomain, String hrefTag) {
 
+        List<String> textLinksArray = new ArrayList<>();
+
         try {
-            // Strat of search in String
+            // Start of search in String
             int startDiv = 0;
             int startHref, endHref, endHrefSpace, endHrefArrow;
             String linkToPage;
+
 
             while (startDiv >= 0) {
 

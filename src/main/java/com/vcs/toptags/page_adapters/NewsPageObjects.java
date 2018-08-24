@@ -3,18 +3,17 @@ package com.vcs.toptags.page_adapters;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class NewsPageObjects {
 
     List<INewsPage> newsPageList = new ArrayList<>();
 
     public List<INewsPage> getNewsPageObjects() {
 
-//        newsPageList.add(new TestNewsPage());
-
-        newsPageList.add(new NewsPageAlfaLt());
-        newsPageList.add(new NewsPageDelfiLt());
-        newsPageList.add(new NewsPageDienaLt());
-        newsPageList.add(new NewsPageVZLt());
+        newsPageList.add(new NewsPage("https://www.alfa.lt", "utf-8", "article-card", "\"", true));
+        newsPageList.add(new NewsPage("https://www.delfi.lt/", "utf-8", "headline-image", "\"", false));
+        newsPageList.add(new NewsPage("http://www.diena.lt/", "utf-8", "naujausios_list", "\'", true));
+        newsPageList.add(new NewsPage("https://www.vz.lt/", "windows-1257", "\"article\"", "\"", false));
 
         return newsPageList;
     }
