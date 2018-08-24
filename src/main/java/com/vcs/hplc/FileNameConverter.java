@@ -192,7 +192,7 @@ public class FileNameConverter {
         String[] skaiciukuIlgis = new String[skaiciukaiStr.length];
         double[] convertedSkaiciukai = new double[skaiciukuIlgis.length];
 
-        for (for (int i = 0; i < convertedSkaiciukai.length; i++) {
+        for (int i = 0; i < convertedSkaiciukai.length; i++) {
 
             convertedSkaiciukai[i] = Double.parseDouble(skaiciukuIlgis[i]);
         }
