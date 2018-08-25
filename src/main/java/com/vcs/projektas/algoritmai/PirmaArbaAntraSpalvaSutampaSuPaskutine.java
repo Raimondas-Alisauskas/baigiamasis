@@ -1,17 +1,21 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
-import com.sun.org.apache.regexp.internal.RE;
 import com.vcs.projektas.Lygis;
-import projektas.algoritmai.eilute.Spalva;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.Spalva;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+eilute ilgesne nei 2
+ir pirma arba antra spalba sutampa su paskutine
+*/
+
 public class PirmaArbaAntraSpalvaSutampaSuPaskutine implements Algoritmas {
     @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        //eilute ilgesne nei 2
+
         return eilute.getEilute().size() >= 2 &&
                 (eilute.getEilute().get(0).equals(eilute.getEilute().get(eilute.getEilute().size() - 1)) ||
                         (eilute.getEilute().get(0).equals(eilute.getEilute().get(eilute.getEilute().size() - 2))));

@@ -1,8 +1,6 @@
 package com.vcs.projektas;
 
-import projektas.algoritmai.*;
-import java.util.*;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 
 

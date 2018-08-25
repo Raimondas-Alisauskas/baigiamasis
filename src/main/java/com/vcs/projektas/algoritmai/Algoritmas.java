@@ -1,7 +1,7 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
 import com.vcs.projektas.Lygis;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.List;
 

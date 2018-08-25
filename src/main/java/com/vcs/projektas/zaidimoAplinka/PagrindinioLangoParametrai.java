@@ -1,4 +1,4 @@
-package zaidimoAplinka;
+package com.vcs.projektas.zaidimoAplinka;
 
 import javax.swing.*;
 import java.awt.*;

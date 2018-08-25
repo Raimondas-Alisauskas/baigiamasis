@@ -1,7 +1,7 @@
 package com.vcs.projektas;
 
-import projektas.algoritmai.Algoritmas;
-import projektas.algoritmai.PrIrPabSimetrija;
+import com.vcs.projektas.algoritmai.Algoritmas;
+import com.vcs.projektas.algoritmai.PrIrPabSimetrija;
 
 import java.util.*;
 

@@ -1,7 +1,7 @@
 import org.junit.Test;
-import projektas.algoritmai.Algoritmas;
-import projektas.algoritmai.PrIrPabSimetrija;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.Algoritmas;
+import com.vcs.projektas.algoritmai.PrIrPabSimetrija;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 public class AlgoritmaiTest {
 

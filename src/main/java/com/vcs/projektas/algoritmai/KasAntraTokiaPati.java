@@ -1,24 +1,28 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
-import com.sun.org.apache.regexp.internal.RE;
 import com.vcs.projektas.Lygis;
-import projektas.algoritmai.eilute.Spalva;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.Spalva;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+
+kas antra tokia pati nuo pirmo
+*/
 
 public class KasAntraTokiaPati implements Algoritmas {
 
     @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        // kas antra tokia pati nuo pirmo
+
 
         if (eilute.getEilute().size() > 1) {
             for (int i = 2; i < eilute.getEilute().size(); i = i + 2) {
-                if (eilute.getEilute().get(i).equals(eilute.getEilute().get(0))) {
+                if (!(eilute.getEilute().get(i).equals(eilute.getEilute().get(i - 2)))) {
+                    return false;
                 }
-                return false;
             }
             return true;
         } else {

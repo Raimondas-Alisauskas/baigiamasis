@@ -1,31 +1,35 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
 import com.vcs.projektas.Lygis;
-import projektas.algoritmai.eilute.Spalva;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.Spalva;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Pradzia ir pabaiga nesutampa tokiu budu:
+ * 3...0; 2...1; 1...2; 0...3;
+ */
+
 public class PrIrPabNesutampaPglTaisyklePoDvi implements Algoritmas {
 
-    // Pradzia ir pabaiga nesutampa tokiu budu:
-    //3...0; 2...1; 1...2; 0...3;
     @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        /*if (eilute.getEilute().get(0) == (eilute.getEilute().get(eilute.getEilute().size() - 1))) {
+        if (eilute.getEilute().get(0) == (eilute.getEilute().get(eilute.getEilute().size() - 1))) {
             return false;
-        } else if ((eilute.getEilute().get(0) == 3) && (eilute.getEilute().get(eilute.getEilute().size() - 1)) == 0) {
+        } else if ((eilute.getEilute().get(0).equals(Spalva.RED)) && (eilute.getEilute().get(eilute.getEilute().size() - 1)).equals(Spalva.YELLOW)) {
             return true;
-        } else if ((eilute.getEilute().get(0) == 2) && (eilute.getEilute().get(eilute.getEilute().size() - 1)) == 1) {
+        } else if ((eilute.getEilute().get(0).equals(Spalva.GREEN)) && (eilute.getEilute().get(eilute.getEilute().size() - 1)).equals(Spalva.BLUE)) {
             return true;
-        } else if ((eilute.getEilute().get(0) == 1) && (eilute.getEilute().get(eilute.getEilute().size() - 1)) == 2) {
+        } else if ((eilute.getEilute().get(0).equals(Spalva.BLUE)) && (eilute.getEilute().get(eilute.getEilute().size() - 1)).equals(Spalva.GREEN)) {
             return true;
-        } else if ((eilute.getEilute().get(0) == 0) && (eilute.getEilute().get(eilute.getEilute().size() - 1)) == 3) {
+        } else if ((eilute.getEilute().get(0).equals(Spalva.YELLOW)) && (eilute.getEilute().get(eilute.getEilute().size() - 1)).equals(Spalva.RED)) {
             return true;
-        } else {*/
-        return false;
+        } else {
+            return false;
 
+        }
     }
 
     @Override

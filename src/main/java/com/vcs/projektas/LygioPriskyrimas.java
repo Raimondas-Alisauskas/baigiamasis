@@ -1,7 +1,5 @@
 package com.vcs.projektas;
 
-import projektas.algoritmai.Algoritmas;
-
 
 public class LygioPriskyrimas {
 

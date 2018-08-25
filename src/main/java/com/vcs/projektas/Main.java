@@ -1,7 +1,7 @@
 package com.vcs.projektas;
 
 
-import zaidimoAplinka.Gui;
+import com.vcs.projektas.zaidimoAplinka.Gui;
 
 public class Main {
 

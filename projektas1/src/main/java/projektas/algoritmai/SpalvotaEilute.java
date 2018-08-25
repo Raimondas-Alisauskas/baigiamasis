@@ -1,4 +1,4 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
 import java.util.ArrayList;
 import java.util.Arrays;

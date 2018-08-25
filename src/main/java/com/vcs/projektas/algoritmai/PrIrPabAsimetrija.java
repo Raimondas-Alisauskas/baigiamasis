@@ -1,17 +1,20 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
-import com.sun.org.apache.regexp.internal.RE;
 import com.vcs.projektas.Lygis;
-import projektas.algoritmai.eilute.Spalva;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.Spalva;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+pradžia ir pabaiga nesutampa
+*/
+
 public class PrIrPabAsimetrija implements Algoritmas {
     @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        // pradžia ir pabaiga nesutampa
+
 
         return eilute.getEilute().get(0) != (eilute.getEilute().get(eilute.getEilute().size() - 1));
     }

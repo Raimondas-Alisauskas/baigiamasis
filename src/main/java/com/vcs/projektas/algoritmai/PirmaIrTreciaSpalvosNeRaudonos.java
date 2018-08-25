@@ -1,23 +1,27 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
 import com.vcs.projektas.Lygis;
-import projektas.algoritmai.eilute.Spalva;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.Spalva;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+pirma ir trecia spalva negali buti raudona, eilute gali buti bet kokio ilgio
+*/
+
 public class PirmaIrTreciaSpalvosNeRaudonos implements Algoritmas {
     @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        //pirma ir trecia spalva negali buti raudona, eilute gali buti bet kokio ilgio
-      /*  if (eilute.getEilute().size() <= 1 && eilute.getEilute().get(0) != 2) {
+
+       if (eilute.getEilute().size() <= 1 && !(eilute.getEilute().get(0).equals(Spalva.RED))) {
             return true;
         } else if(eilute.getEilute().size() <= 1) {
             return false;
-        } else if (eilute.getEilute().get(0) != 2 && eilute.getEilute().get(2) != 2) {
+        } else if (!(eilute.getEilute().get(0).equals(Spalva.RED)) && !(eilute.getEilute().get(2).equals(Spalva.RED))) {
             return true;
-        }*/
+        }
         return false;
     }
     @Override

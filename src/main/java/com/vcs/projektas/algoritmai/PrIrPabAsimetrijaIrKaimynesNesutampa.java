@@ -1,19 +1,20 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
-import com.sun.org.apache.regexp.internal.RE;
 import com.vcs.projektas.Lygis;
-import projektas.algoritmai.eilute.Spalva;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.Spalva;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+pradžia ir pabaiga nesutampa ir salia esancios spalvos nesutampa
+*/
 
 public class PrIrPabAsimetrijaIrKaimynesNesutampa implements Algoritmas {
     @Override
 
     public boolean patikrink(SpalvotaEilute eilute) {
-        // pradžia ir pabaiga nesutampa ir salia esancios spalvos nesutampa
-
         int count = 0;
 
         for (int i = 0; i < eilute.getEilute().size(); i++) {

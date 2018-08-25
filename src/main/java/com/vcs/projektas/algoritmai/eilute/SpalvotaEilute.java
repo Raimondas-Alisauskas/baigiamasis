@@ -1,4 +1,4 @@
-package projektas.algoritmai.eilute;
+package com.vcs.projektas.algoritmai.eilute;
 
 import java.util.ArrayList;
 import java.util.Arrays;

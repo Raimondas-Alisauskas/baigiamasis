@@ -1,6 +1,6 @@
 package com.vcs.projektas;
 
-import projektas.algoritmai.*;
+import com.vcs.projektas.algoritmai.*;
 
 import java.util.*;
 

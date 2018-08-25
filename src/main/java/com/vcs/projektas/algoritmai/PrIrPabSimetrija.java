@@ -1,17 +1,21 @@
-package projektas.algoritmai;
+package com.vcs.projektas.algoritmai;
 
 import com.vcs.projektas.Lygis;
-import projektas.algoritmai.eilute.Spalva;
-import projektas.algoritmai.eilute.SpalvotaEilute;
+import com.vcs.projektas.algoritmai.eilute.Spalva;
+import com.vcs.projektas.algoritmai.eilute.SpalvotaEilute;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * pirma spalva lygi paskutinei
+ */
 
 public class PrIrPabSimetrija implements Algoritmas {
 
     @Override
     public boolean patikrink(SpalvotaEilute eilute) {
-        // pirma spalva lygi paskutinei
+
         return eilute.getEilute().get(0) == (eilute.getEilute().get(eilute.getEilute().size() - 1));
     }
 
