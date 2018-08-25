@@ -33,9 +33,9 @@ public class ClientOperations extends RentOperations implements InfoOperationsFo
         List<Vehicle> busyVehicles = getListOfBusyVehicles(startDate, endDate);
         List<Vehicle> availableVeh = new ArrayList<>();
         if (busyVehicles.isEmpty()) {
-            return keepsVehicles.generalList;
+            return keepsVehicles.getGeneralList();
         }
-        for (Vehicle fvehicle : keepsVehicles.generalList) {
+        for (Vehicle fvehicle : keepsVehicles.getGeneralList()) {
             for (Vehicle bvehicle : busyVehicles) {
                 if (fvehicle.getVehicleId() != bvehicle.getVehicleId()) {
                     availableVeh.add(fvehicle);
@@ -54,7 +54,7 @@ public class ClientOperations extends RentOperations implements InfoOperationsFo
         List<Vehicle> availableVeh = new ArrayList<>();
 
         if (busyVehicles.isEmpty()) {
-            for (Vehicle vehicle : keepsVehicles.generalList
+            for (Vehicle vehicle : keepsVehicles.getGeneralList()
             ) {
                 if (vehicle.getTypesOfVehicle() == type) {
                     availableVeh.add(vehicle);
@@ -63,7 +63,7 @@ public class ClientOperations extends RentOperations implements InfoOperationsFo
             }
         }
 
-        for (Vehicle fvehicle : keepsVehicles.generalList) {
+        for (Vehicle fvehicle : keepsVehicles.getGeneralList()) {
             for (Vehicle bvehicle : busyVehicles
             ) {
                 if (fvehicle.getVehicleId() != bvehicle.getVehicleId() && fvehicle.getTypesOfVehicle() == type) {
@@ -79,8 +79,8 @@ public class ClientOperations extends RentOperations implements InfoOperationsFo
     public List<Vehicle> getListOfBusyVehicles(int startDate, int endDate) {
         List<Vehicle> busyVehicles = new ArrayList<>();
         for (int i = startDate; i <= endDate; i++) {
-            if (keepsVehicles.rentedList.containsKey(i)) {
-                for (Vehicle vehicle : keepsVehicles.rentedList.get(i)
+            if (keepsVehicles.getRentedList().containsKey(i)) {
+                for (Vehicle vehicle : keepsVehicles.getRentedList().get(i)
                 ) {
                     if (!busyVehicles.contains(vehicle)) {
                         busyVehicles.add(vehicle);

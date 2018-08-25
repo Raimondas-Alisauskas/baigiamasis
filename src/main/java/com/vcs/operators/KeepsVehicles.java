@@ -12,12 +12,26 @@ import java.util.*;
 public class KeepsVehicles {
 
 
-    public List<Vehicle> generalList = new ArrayList<>();
+    private List<Vehicle> generalList = new ArrayList<>();
 
 
-    public Map<Integer, List<Vehicle>> rentedList = new HashMap();
+    private Map<Integer, List<Vehicle>> rentedList = new HashMap();
 
+    public List<Vehicle> getGeneralList() {
+        return generalList;
+    }
 
+    public void setGeneralList(List<Vehicle> generalList) {
+        this.generalList = generalList;
+    }
+
+    public Map<Integer, List<Vehicle>> getRentedList() {
+        return rentedList;
+    }
+
+    public void setRentedList(Map<Integer, List<Vehicle>> rentedList) {
+        this.rentedList = rentedList;
+    }
 }
 
 

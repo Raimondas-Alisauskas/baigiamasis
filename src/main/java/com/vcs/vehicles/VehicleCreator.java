@@ -17,22 +17,20 @@ public class VehicleCreator implements VehicleCreatorInt {
     @Qualifier("keepsVehicles")
     KeepsVehicles shop;
 
-    public VehicleCreator() {
-
-    }
-
 
     @Override
     public void addCars() {
-        if (shop.generalList.isEmpty()) {
+        if (shop.getGeneralList().isEmpty()) {
 
             for (int i = 0; i < 3; i++) {
 
-                shop.generalList.add(new Vehicle(JEEP));
-                shop.generalList.add(new Vehicle(MOTORBIKE));
-                shop.generalList.add(new Vehicle(HATCHBACK));
-                shop.generalList.add(new Vehicle(SEDAN));
+                shop.getGeneralList().add(new Vehicle(JEEP));
+                shop.getGeneralList().add(new Vehicle(MOTORBIKE));
+                shop.getGeneralList().add(new Vehicle(HATCHBACK));
+                shop.getGeneralList().add(new Vehicle(SEDAN));
             }
         }
     }
+
+
 }

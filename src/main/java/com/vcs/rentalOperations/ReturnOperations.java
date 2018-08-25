@@ -28,11 +28,11 @@ public abstract class ReturnOperations implements Rent_Return_Ops {
         Vehicle vehicle = selectVehicle(id);
 
         for (int i = startDate; i <= endDate; i++) {
-            if (keepsVehicles.rentedList.containsKey(i)) {
-                keepsVehicles.rentedList.get(i).remove(vehicle);
+            if (keepsVehicles.getRentedList().containsKey(i)) {
+                keepsVehicles.getRentedList().get(i).remove(vehicle);
             }
-            if (keepsVehicles.rentedList.get(i).isEmpty()) {
-                keepsVehicles.rentedList.remove(i);
+            if (keepsVehicles.getRentedList().get(i).isEmpty()) {
+                keepsVehicles.getRentedList().remove(i);
             }
         }
     }
@@ -40,7 +40,7 @@ public abstract class ReturnOperations implements Rent_Return_Ops {
 
     @Override
     public Vehicle selectVehicle(int ID) {
-        for (Vehicle vehicle : keepsVehicles.generalList) {
+        for (Vehicle vehicle : keepsVehicles.getGeneralList()) {
             if (vehicle.getVehicleId() == ID) {
                 return vehicle;
             }

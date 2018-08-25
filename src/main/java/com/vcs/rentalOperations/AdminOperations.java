@@ -23,8 +23,8 @@ public class AdminOperations extends ClientOperations implements InfoOperationsF
     public Map<Vehicle, List<Integer>> showWhatIsRented() {
         Map<Vehicle, List<Integer>> rentedVehicles = new HashMap<>();
         for (int i = 0; i <= DAYS_IN_YEAR; i++) {
-            if (keepsVehicles.rentedList.containsKey(i)) {
-                for (Vehicle vehicle : keepsVehicles.rentedList.get(i)) {
+            if (keepsVehicles.getRentedList().containsKey(i)) {
+                for (Vehicle vehicle : keepsVehicles.getRentedList().get(i)) {
                     rentedVehicles.putIfAbsent(vehicle, new ArrayList<>());
                     rentedVehicles.get(vehicle).add(i);
                 }
@@ -37,7 +37,7 @@ public class AdminOperations extends ClientOperations implements InfoOperationsF
 
     @Override
     public List<Vehicle> howManyCarsWePosses() {
-        return keepsVehicles.generalList;
+        return keepsVehicles.getGeneralList();
 
 
     }
@@ -46,16 +46,16 @@ public class AdminOperations extends ClientOperations implements InfoOperationsF
     public String addNewVehicle(TypesOfVehicle type) {
         switch (type) {
             case HATCHBACK:
-                keepsVehicles.generalList.add(new Vehicle(HATCHBACK));
+                keepsVehicles.getGeneralList().add(new Vehicle(HATCHBACK));
                 return "Hatchback created";
             case JEEP:
-                keepsVehicles.generalList.add(new Vehicle(JEEP));
+                keepsVehicles.getGeneralList().add(new Vehicle(JEEP));
                 return "Jeep created";
             case MOTORBIKE:
-                keepsVehicles.generalList.add(new Vehicle(MOTORBIKE));
+                keepsVehicles.getGeneralList().add(new Vehicle(MOTORBIKE));
                 return "Motorbike created";
             case SEDAN:
-                keepsVehicles.generalList.add(new Vehicle(SEDAN));
+                keepsVehicles.getGeneralList().add(new Vehicle(SEDAN));
                 return "Sedan created";
         }
         return "Acceptable types are only HATCHBACK, JEEP, MOTORBIKE, SEDAN.";

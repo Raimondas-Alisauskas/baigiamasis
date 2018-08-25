@@ -32,6 +32,7 @@ public class ClientOptions {
     @RequestMapping(value = "/showCar/{start}/{end}", method = RequestMethod.GET)
     public List<Vehicle> showCar(@PathVariable("start") int start, @PathVariable("end") int end) {
         return forClient.showAvailableCarsByDate(start, end);
+
     }
 
     @RequestMapping(value = "/showCarByType/{type}/{start}/{end}", method = RequestMethod.GET)

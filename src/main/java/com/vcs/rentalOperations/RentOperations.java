@@ -25,11 +25,11 @@ public abstract class RentOperations extends ReturnOperations {
         Vehicle vehicle = selectVehicle(id);
 
         for (int i = startDate; i <= endDate; i++) {
-            if (!keepsVehicles.rentedList.containsKey(i)) {
-                keepsVehicles.rentedList.put(i, new ArrayList<Vehicle>());
+            if (!keepsVehicles.getRentedList().containsKey(i)) {
+                keepsVehicles.getRentedList().put(i, new ArrayList<Vehicle>());
 
             }
-            keepsVehicles.rentedList.get(i).add(vehicle);
+            keepsVehicles.getRentedList().get(i).add(vehicle);
 
         }
         return vehicle;
@@ -38,8 +38,8 @@ public abstract class RentOperations extends ReturnOperations {
     private boolean checkIfVehIsAvl(int id, int startDate, int endDate) {
 
         for (int a = startDate; a <= endDate; a++) {
-            if (keepsVehicles.rentedList.containsKey(a)) {
-                for (Vehicle vehicle : keepsVehicles.rentedList.get(a)) {
+            if (keepsVehicles.getRentedList().containsKey(a)) {
+                for (Vehicle vehicle : keepsVehicles.getRentedList().get(a)) {
                     if (vehicle.getVehicleId() == id) {
                         return false;
                     }
