@@ -1,4 +1,6 @@
-package com.vilniuscodingschool.baigiamasis;
+package com.vilniuscodingschool.baigiamasis.repo;
+
+import com.vilniuscodingschool.baigiamasis.lib.BooksRepository;
 
 public class BooksDescription extends BooksRepository {
 
@@ -12,8 +14,8 @@ public class BooksDescription extends BooksRepository {
     private int availability;
     private int numeration;
 
-    BooksDescription(int numeracy, String author, String title, String numberISBN, String pressHouse, String language,
-                     String bookGenre, int popularity, int availability) {
+    public BooksDescription(int numeracy, String author, String title, String numberISBN, String pressHouse, String language,
+                            String bookGenre, int popularity, int availability) {
         this.author = author;
         this.title = title;
         this.numberISBN = numberISBN;
@@ -25,27 +27,27 @@ public class BooksDescription extends BooksRepository {
         this.numeration = numeracy;
     }
 
-    String getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    String getNumberISBN() {
+    public String getNumberISBN() {
         return numberISBN;
     }
 
-    String getPressHouse() {
+    public String getPressHouse() {
         return pressHouse;
     }
 
-    String getLanguage() {
+    public String getLanguage() {
         return language;
     }
 
-    String getBookGenre() {
+    public String getBookGenre() {
         return bookGenre;
     }
 

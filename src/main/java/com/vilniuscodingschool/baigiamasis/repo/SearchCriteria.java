@@ -1,6 +1,6 @@
-package com.vilniuscodingschool.baigiamasis;
+package com.vilniuscodingschool.baigiamasis.repo;
 
-class SearchCriteria {
+public class SearchCriteria {
 
     // susieti su searchOptions enums'ais?
 
@@ -11,46 +11,46 @@ class SearchCriteria {
     private String searchLanguage;
     private String searchGenre;
 
-    void setSearchAuthor(String searchAuthor) {
+    public void setSearchAuthor(String searchAuthor) {
         this.searchAuthor = searchAuthor;
     }
-    String getSearchAuthor() {
+    public String getSearchAuthor() {
         return searchAuthor;
     }
 
-    void setSearchTitle(String searchTitle) {
+    public void setSearchTitle(String searchTitle) {
         this.searchTitle = searchTitle;
     }
-    String getSearchTitle() {
+    public String getSearchTitle() {
         return searchTitle;
     }
 
-    void setSearchISBN(String searchISBN) {
+    public void setSearchISBN(String searchISBN) {
         this.searchISBN = searchISBN;
     }
-    String getSearchISBN() {
+    public String getSearchISBN() {
         return searchISBN;
     }
 
-    void setSearchPressHouse(String searchPressHouse) {
+    public void setSearchPressHouse(String searchPressHouse) {
         this.searchPressHouse = searchPressHouse;
     }
-    String getSearchPressHouse() {
+    public String getSearchPressHouse() {
         return searchPressHouse;
     }
 
-    void setSearchLanguage(String searchLanguage) {
+    public void setSearchLanguage(String searchLanguage) {
         this.searchLanguage = searchLanguage;
     }
-    String getSearchLanguage() {
+    public String getSearchLanguage() {
         return searchLanguage;
     }
 
-    void setSearchGenre(String searchGenre) {
+    public void setSearchGenre(String searchGenre) {
         this.searchGenre = searchGenre;
     }
 
-    String getSearchGenre() {
+    public String getSearchGenre() {
         return searchGenre;
     }
 }

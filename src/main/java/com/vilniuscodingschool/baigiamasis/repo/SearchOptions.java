@@ -1,4 +1,4 @@
-package com.vilniuscodingschool.baigiamasis;
+package com.vilniuscodingschool.baigiamasis.repo;
 
 public enum SearchOptions {
 

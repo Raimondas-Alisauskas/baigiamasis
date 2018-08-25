@@ -1,12 +1,14 @@
-package com.vilniuscodingschool.baigiamasis;
+package com.vilniuscodingschool.baigiamasis.lib;
+
+import com.vilniuscodingschool.baigiamasis.repo.BooksDescription;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class BooksRepository {
+public class BooksRepository {
 
 
-    List<BooksDescription> BooksCatalogue() {
+    public List<BooksDescription> BooksCatalogue() {
 
         List<BooksDescription> book = new ArrayList<>();
         book.add(new BooksDescription(1, "Antoine de Saint-Exupéry", "Mažasis princas", "9789955089629", "Alma littera", "LT", "Vaikams", 5, 1));

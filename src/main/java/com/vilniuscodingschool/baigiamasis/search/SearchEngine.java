@@ -1,14 +1,23 @@
-package com.vilniuscodingschool.baigiamasis;
+package com.vilniuscodingschool.baigiamasis.search;
 
-import java.util.*;
+import com.vilniuscodingschool.baigiamasis.lib.BooksRepository;
+import com.vilniuscodingschool.baigiamasis.repo.BooksDescription;
+import com.vilniuscodingschool.baigiamasis.repo.Genres;
+import com.vilniuscodingschool.baigiamasis.repo.Languages;
+import com.vilniuscodingschool.baigiamasis.repo.SearchCriteria;
 
-class SearchEngine {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class SearchEngine {
 
     private Scanner scanner = new Scanner(System.in);
 
     private String nope = "Nieko nerasta";
 
-    void SearchOfAuthor(BooksRepository booksRepository) {
+    public void SearchOfAuthor(BooksRepository booksRepository) {
 
         System.out.println("Atlikti paieškai pakanka įvesti autoriaus pirmąsias vardo raides");
 
@@ -28,9 +37,10 @@ class SearchEngine {
             System.out.println(nope);
 
         }
+
     }
 
-    void SearchOfTitle(BooksRepository booksRepository) {
+    public void SearchOfTitle(BooksRepository booksRepository) {
 
         System.out.println("Paieškai atlikti pakanka įvesti ieškomos knygos pavadinimo pirmąsias raides.");
 
@@ -52,9 +62,9 @@ class SearchEngine {
 
     }
 
-    void SearchOfISBN(BooksRepository booksRepository) {
+    public void SearchOfISBN(BooksRepository booksRepository) {
 
-        System.out.println("Įveskite ieškomos knygos ISBN numerį.");
+        System.out.println("Įveskite ieškomos knygos ISBN numerį (ar jo dalį).");
 
         String searchByISBN = scanner.nextLine();
 
@@ -71,10 +81,10 @@ class SearchEngine {
         } else {
             System.out.println(nope);
         }
+
     }
 
-
-    void SearchOfPressHouse(BooksRepository booksRepository) {
+    public void SearchOfPressHouse(BooksRepository booksRepository) {
 
         System.out.println("Įveskite ieškomos knygos leidyklos pavadinimo pirmąsias raides.");
 
@@ -93,19 +103,20 @@ class SearchEngine {
         } else {
             System.out.println(nope);
         }
+
     }
 
-    void SearchOfLanguage(BooksRepository booksRepository) {
+    public void SearchOfLanguage(BooksRepository booksRepository) {
 
-        System.out.println("Įveskite ieškomos knygos kalbos kalbą.");
-        System.out.println("Nukopijuokite kalbos indeksą ir paspauskite Enter");
         System.out.println("Galimi kalbų indeksai:");
         System.out.println(Arrays.toString(Languages.values()));
+        System.out.println("Nukopijuokite kalbos indeksą ir paspauskite Enter");
 
         String searchByLanguage = scanner.nextLine();
 
-        SearchCriteria searchLang = new SearchCriteria();
-        searchLang.setSearchLanguage(searchByLanguage);
+        if (!(searchByLanguage.equals(Languages.EN)) || !(searchByLanguage.equals(Languages.FR)) || (searchByLanguage.equals(Languages.LT))) {
+            System.out.println("Nežinomas kalbos indeksas!");
+        }
 
         SearchCriteria paramForSearch = new SearchCriteria();
         paramForSearch.setSearchLanguage(searchByLanguage);
@@ -120,15 +131,20 @@ class SearchEngine {
         } else {
             System.out.println(nope);
         }
+
     }
 
-    void SearchOfGenre(BooksRepository booksRepository) {
+    public void SearchOfGenre(BooksRepository booksRepository) {
 
         System.out.println("Galimi tipai(žanrai):");
         System.out.println(Arrays.toString(Genres.values()));
         System.out.println("Nukopijuokite tipą ir paspauskite Enter");
 
         String searchByGenre = scanner.nextLine();
+
+        if (!(searchByGenre.equals(Genres.Vaikams)) || !(searchByGenre.equals(Genres.Dalykinis)) || !(searchByGenre.equals(Genres.Dokumentika)) || !(searchByGenre.equals(Genres.Keliautojams)) || !(searchByGenre.equals(Genres.Mokomoji)) || !(searchByGenre.equals(Genres.Psichologija)) || !(searchByGenre.equals(Genres.Receptai))) {
+            System.out.println("Nežinomas tipas(žanras)!");
+        }
 
         SearchCriteria paramForSearch = new SearchCriteria();
         paramForSearch.setSearchGenre(searchByGenre);
@@ -143,6 +159,7 @@ class SearchEngine {
         } else {
             System.out.println(nope);
         }
+
     }
 
     private List<BooksDescription> search(List<BooksDescription> books, SearchCriteria k) {
